@@ -1,0 +1,33 @@
+.spacing-20px {
+  height: 20px;
+}
+
+.input-selector {
+  &-container {
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+  }
+
+  &-component-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.tooltip__public-post {
+  font-family: AvenirNext-DemiBold;
+}
+
+.input-selector-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 0 #1a1c1c;
+}
+
+.input-selector-container::-webkit-scrollbar {
+  height: 0;
+  width: 8px;
+}
