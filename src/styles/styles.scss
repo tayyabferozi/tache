@@ -1,0 +1,86 @@
+@import "./utilities";
+
+#create-ticket-modal {
+  .line-between {
+    & > *:nth-child(1) {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 48px;
+        background-color: $color6;
+        bottom: 0;
+        right: 0;
+        opacity: 0.2;
+      }
+    }
+  }
+
+  .second-half {
+    input {
+      background-color: transparent;
+      border: 1px solid rgba($color6, 0.2);
+    }
+  }
+
+  .dates-wrap {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+
+    @media screen and (max-width: 575px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+
+      & > * {
+        width: 100%;
+      }
+    }
+
+    .custom-form-control {
+      flex-grow: 1;
+
+      label {
+        @media screen and (min-width: 576px) {
+          margin-bottom: 24px;
+        }
+      }
+
+      input {
+      }
+    }
+
+    .or {
+      height: 48px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .recommended-tags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    .btn {
+      padding: 0;
+
+      &:hover {
+        transform: none;
+
+        .btn-text {
+          color: $color10;
+        }
+      }
+    }
+  }
+
+  // .hr-wrap {
+  //   margin-left: -10px;
+  //   margin-right: -10px;
+  // }
+}
