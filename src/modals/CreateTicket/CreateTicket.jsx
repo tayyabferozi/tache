@@ -39,6 +39,10 @@ const CreateTicket = ({ ...rest }) => {
   const addToList = (e, label, value) => {
     e.preventDefault();
 
+    if (formState.tags.length >= 20) {
+      return;
+    }
+
     setFormState((prevState) => {
       const { tags } = prevState;
       const idx = tags.findIndex((el) => el.value === value);
@@ -205,13 +209,14 @@ const CreateTicket = ({ ...rest }) => {
                   Tags <div className="min-label">Maximum 20</div>
                 </label>
                 <CreatableSelect
+                  isValidNewOption={() => formState.tags.length <= 20}
                   className="custom-react-select"
                   placeholder="Your tags..."
                   isMulti
                   onChange={(e) =>
                     inputChangeHandler({ target: { name: "tags", value: e } })
                   }
-                  options={tagOptions}
+                  options={formState.tags.length <= 20 ? tagOptions : []}
                   value={formState.tags}
                 />
               </div>
