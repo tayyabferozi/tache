@@ -6,7 +6,7 @@ const Modal = ({ show, closeModal, className, children, ...rest }) => {
   const modalWrapperRef = useRef(null);
 
   const closeModalHandler = (e, origin) => {
-    if (e.currentTarget === modalWrapperRef.current || origin === "button") {
+    if (e.target === modalWrapperRef.current || origin === "button") {
       closeModal();
     }
   };

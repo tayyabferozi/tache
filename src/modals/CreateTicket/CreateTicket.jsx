@@ -84,8 +84,6 @@ const CreateTicket = ({ ...rest }) => {
     setFormState((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  console.log(formState.tags);
-
   return (
     <Modal id="create-ticket-modal" {...rest}>
       <h3 className="main-title">
@@ -218,7 +216,7 @@ const CreateTicket = ({ ...rest }) => {
                 />
               </div>
               <p className="recommended-tags">
-                <div>Recommended tags : </div>
+                <span>Recommended tags : </span>
                 {recommendedTags.map((el, idx) => {
                   return (
                     <Button
