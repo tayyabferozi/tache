@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 
 const Button = ({
   className,
-  grey,
   to,
   primary,
+  grey,
+  bordered,
+  lightGrey,
   children,
   icon,
   textClassName,
@@ -16,7 +18,9 @@ const Button = ({
     "btn",
     className,
     grey && "btn-grey",
-    primary && "btn-primary"
+    primary && "btn-primary",
+    bordered && "btn-bordered",
+    lightGrey && "btn-light-grey"
   );
 
   let btnChilren = (

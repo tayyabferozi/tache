@@ -89,7 +89,7 @@ const Footer = () => {
               return (
                 <div key={"links-section" + idx} className="col-sm-4">
                   <div className="links-section">
-                    <h5 className="title">{title}</h5>
+                    <h6 className="title">{title}</h6>
 
                     <div className="links">
                       {links.map((el, idx2) => {

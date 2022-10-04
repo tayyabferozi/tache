@@ -84,3 +84,166 @@
   //   margin-right: -10px;
   // }
 }
+
+#display-ticket-modal {
+  .modal-sub-wrapper {
+    max-width: 885px;
+
+    // .main-jumbotron {
+    // }
+  }
+
+  .main-content {
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  }
+
+  .react-md {
+    pre > div {
+      background-color: $color8 !important;
+
+      * {
+        @media screen and (max-width: 575px) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+  }
+
+  .comments {
+    padding: 42px 37px;
+    background-color: $color8;
+    border: 1px solid rgba($color6, 0.2);
+    border-width: 1px 0 1px 0;
+
+    @media screen and (max-width: 767px) {
+      padding: 26px;
+    }
+
+    .comments-main {
+      .comment-item-main {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-top: 18px;
+
+        .text {
+          flex-grow: 1;
+          background-color: #fff;
+          padding: 8px;
+          border: 1px solid $color16;
+          border-radius: 8px;
+
+          .comment-head {
+            background-color: $color8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            border-radius: 6px;
+
+            @media screen and (max-width: 767px) {
+              flex-wrap: wrap;
+              gap: 12px;
+            }
+
+            .left {
+              display: flex;
+              gap: 6px;
+
+              * {
+                font-size: 12px;
+              }
+
+              .name {
+                font-weight: 500;
+                color: $color1;
+              }
+
+              .time {
+              }
+            }
+
+            .right {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              .role {
+                border-radius: 4px;
+                font-size: 12px;
+                border: 1px solid rgba($color6, 0.2);
+                padding: 2px 6px;
+              }
+
+              img {
+                display: block;
+              }
+            }
+          }
+
+          .comment-body {
+            padding: 14px 2px 0;
+            line-height: 1.5;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .add-comment {
+    padding: 34px 37px;
+
+    @media screen and (max-width: 767px) {
+      padding: 42px 24px 0;
+    }
+
+    .add-comment-main {
+      display: flex;
+      gap: 8px;
+
+      .avatar {
+        flex-shrink: 0;
+      }
+
+      & > *:nth-child(2) {
+        flex-grow: 1;
+      }
+
+      .w-md-editor-toolbar {
+        @media screen and (max-width: 575px) {
+          height: unset;
+        }
+      }
+    }
+
+    .w-md-editor-toolbar {
+      flex-direction: row-reverse;
+
+      ul:nth-child(2) {
+        li:nth-child(2),
+        li:nth-child(4),
+        li:nth-child(5),
+        .w-md-editor-toolbar-divider {
+          display: none;
+        }
+      }
+    }
+  }
+}
