@@ -126,7 +126,7 @@
   }
 
   .comments {
-    padding: 42px 37px;
+    padding: 42px;
     background-color: $color8;
     border: 1px solid rgba($color6, 0.2);
     border-width: 1px 0 1px 0;
@@ -208,7 +208,7 @@
   }
 
   .add-comment {
-    padding: 34px 37px;
+    padding: 34px 42px;
 
     @media screen and (max-width: 767px) {
       padding: 42px 24px 0;

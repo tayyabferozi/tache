@@ -8,10 +8,8 @@ import Button from "../../components/Button";
 import Modal from "../../components/Modal/Modal";
 import Comment from "./Comment";
 
-const markdown = `Here is some JavaScript code:
-
+const markdown = `
 ~~~js
-
 function Description() 
 {  return (    
       <div>
@@ -22,6 +20,7 @@ function Description()
 export default Description;
 
 ~~~
+
 `;
 
 const tags = [
@@ -130,7 +129,7 @@ const DisplayTicket = ({ ...rest }) => {
                 <div className="icon">
                   <img src="/assets/vectors/icons/clock.svg" alt="clock" />
                 </div>
-                <div className="text">5 days</div>
+                <div className="text text-light-2">5 days</div>
               </div>
             </div>
           </div>
@@ -261,8 +260,12 @@ const DisplayTicket = ({ ...rest }) => {
 
         <div className="mt-2 pt-2">
           <div className="d-flex justify-content-end flex-sm-row flex-column-reverse align-items-start gap-3 ps-50">
-            <Button grey>Close with comment</Button>
-            <Button primary>Comment</Button>
+            <Button onClick={() => rest.closeModal()} grey>
+              Close with comment
+            </Button>
+            <Button onClick={() => rest.closeModal()} primary>
+              Comment
+            </Button>
           </div>
         </div>
       </div>

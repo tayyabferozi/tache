@@ -4,7 +4,6 @@ const useModal = (isInitialActive) => {
   const [isModalActive, setIsModalActive] = useState();
 
   const toggleModalActive = (toSet) => {
-    console.log(toSet);
     if (toSet === "open") {
       setIsModalActive(() => true);
     } else if (toSet === "close") {
