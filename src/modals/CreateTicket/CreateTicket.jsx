@@ -9,6 +9,8 @@ import Input from "../../components/Input";
 import Modal from "../../components/Modal/Modal";
 import Button from "../../components/Button";
 
+import "./CreateTicket.scss";
+
 const tagOptions = [
   { label: "Frontend", value: "frontend" },
   { label: "Database", value: "database" },
@@ -187,7 +189,7 @@ const CreateTicket = ({ ...rest }) => {
                   <div className="md-editor-wrap">
                     <MDEditor
                       preview="edit"
-                      extraCommands={[]}
+                      // extraCommands={[]}
                       height={200}
                       value={formState.description}
                       onChange={(e) =>

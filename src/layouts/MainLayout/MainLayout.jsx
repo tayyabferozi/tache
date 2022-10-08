@@ -4,6 +4,8 @@ import { Outlet } from "react-router-dom";
 import Footer from "../../partials/Footer/Footer";
 import Navbar from "../../partials/Navbar";
 
+import "./MainLayout.scss";
+
 const MainLayout = () => {
   return (
     <div id="main-layout">

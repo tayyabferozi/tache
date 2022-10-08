@@ -1,0 +1,228 @@
+.modal-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba($color: $color11, $alpha: 0.8);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 6;
+
+  @include transitioned;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal-sub-wrapper {
+    max-width: 780px;
+    background-color: #fff;
+    border-radius: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: calc(100% - 16px * 2);
+    height: calc(100% - 20px * 2);
+    transform: translate(-50%, -50%);
+    padding: 42px 0;
+
+    @media screen and (max-width: 767px) {
+      padding: 25px 0 40px;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      right: 22px;
+      top: 22px;
+      cursor: pointer;
+      z-index: 1;
+
+      @media screen and (max-width: 767px) {
+        right: 14px;
+        top: 18px;
+      }
+    }
+
+    .modal-main {
+      padding: 0 42px;
+      height: 100%;
+      overflow-y: auto;
+
+      @media screen and (max-width: 767px) {
+        padding: 0 30px;
+      }
+
+      .main-title {
+        color: $color1;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        @media screen and (max-width: 575px) {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+      }
+
+      .main-content {
+        margin-top: 36px;
+      }
+    }
+  }
+
+  &.jumbo {
+    .close {
+      top: 26px;
+      right: 28px;
+
+      @media screen and (max-width: 575px) {
+        top: 30px;
+        right: 14px;
+      }
+    }
+
+    .modal-sub-wrapper {
+      padding: 16px 0 32px;
+
+      .modal-main {
+        padding: 0;
+      }
+
+      .jumbotron-wrapper {
+        padding: 0 16px;
+
+        @media screen and (max-width: 767px) {
+          padding: 0 6px;
+        }
+
+        .main-jumbotron {
+          border-radius: 20px;
+          background-color: $color8;
+          padding: 60px 26px 40px;
+          display: flex;
+          justify-content: space-between;
+          gap: 40px;
+
+          @media screen and (max-width: 767px) {
+            padding-left: 16px;
+            padding-right: 16px;
+            padding-bottom: 8px;
+            gap: 26px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+
+          @media screen and (max-width: 767px) {
+            flex-direction: column;
+          }
+
+          .left {
+            display: flex;
+            align-items: flex-start;
+            gap: 28px;
+
+            @media screen and (max-width: 767px) {
+              gap: 16px;
+            }
+
+            .brand {
+              @media screen and (max-width: 767px) {
+                width: 70px;
+              }
+
+              @media screen and (max-width: 575px) {
+                width: 52px;
+              }
+            }
+
+            .text {
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              gap: 20px;
+
+              @media screen and (max-width: 767px) {
+                gap: 14px;
+              }
+
+              h2 {
+                @media screen and (max-width: 575px) {
+                  font-size: 26px;
+                }
+              }
+
+              .badges {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 14px;
+
+                @media screen and (max-width: 575px) {
+                  gap: 10px;
+                }
+              }
+            }
+          }
+
+          .right {
+            @media screen and (max-width: 767px) {
+              display: flex;
+              flex-direction: column-reverse;
+              gap: 34px;
+            }
+
+            .btns {
+              display: flex;
+              gap: 14px;
+
+              .btn {
+                width: 84px;
+              }
+            }
+
+            .summary {
+              background-color: #fff;
+              border-radius: 8px;
+              padding: 8px 16px;
+              margin-top: 24px;
+
+              @media screen and (max-width: 767px) {
+                display: flex;
+                gap: 30px;
+                margin-top: 0;
+              }
+
+              .item {
+                padding: 6px 0;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+
+                @media screen and (max-width: 767px) {
+                  gap: 10px;
+                }
+
+                img {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .main-content {
+        margin-top: 0;
+        padding: 30px 42px;
+
+        @media screen and (max-width: 767px) {
+          padding: 26px;
+        }
+      }
+    }
+  }
+}

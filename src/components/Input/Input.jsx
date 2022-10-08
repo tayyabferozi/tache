@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 
+import "./Input.scss";
+
 const Input = ({
   icon,
   textarea,

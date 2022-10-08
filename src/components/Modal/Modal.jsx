@@ -2,6 +2,8 @@ import clsx from "clsx";
 import React from "react";
 import { useRef } from "react";
 
+import "./Modal.scss";
+
 const Modal = ({ show, closeModal, className, children, ...rest }) => {
   const modalWrapperRef = useRef(null);
 

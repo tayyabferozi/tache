@@ -1,0 +1,56 @@
+.custom-form-control {
+  label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 500;
+
+    .min-label {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+
+  .input {
+    position: relative;
+
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      border-radius: 6px;
+      border: 0;
+      padding: 14px 12px;
+      font-size: 16px;
+
+      &::placeholder {
+        color: rgba($color2, 0.3);
+      }
+    }
+
+    input {
+      background-color: $color5;
+      height: 48px;
+    }
+
+    textarea {
+      background-color: transparent;
+      border: 1px solid rgba($color6, 0.2);
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $color7;
+      }
+    }
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 12px;
+    }
+
+    .icon + input {
+      padding-left: 48px;
+    }
+  }
+}

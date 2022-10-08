@@ -1,0 +1,17 @@
+.badge {
+  background-color: $color3;
+  color: $color4;
+  font-weight: 500;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 16px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 15px;
+  }
+
+  &.green {
+    background-color: $color15;
+    color: $color10;
+  }
+}

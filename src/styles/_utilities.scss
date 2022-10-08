@@ -22,24 +22,6 @@
   border-radius: 8px;
 }
 
-.page-section {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  padding-left: 3rem !important;
-  padding-right: 3rem !important;
-
-  @media screen and (max-width: 575px) {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-
-  .page-container {
-    max-width: 1070px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 h2 {
   font-size: 46px;
   color: $color1;
@@ -96,132 +78,6 @@ hr {
 // ***********************************************************************************************************************************
 // ***********************************************************************************************************************************
 
-//  ***************************************************** MAIN LAYOUT ****************************************************************
-
-// ***********************************************************************************************************************************
-// ***********************************************************************************************************************************
-
-#main-layout {
-  #navbar {
-    height: 100px;
-    background-color: $color8;
-    align-items: center;
-
-    & > * {
-      height: 100%;
-    }
-
-    .navbar-main {
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-
-  #footer {
-    padding-bottom: 50px;
-    background-color: $color9;
-
-    @media screen and (max-width: 575px) {
-      padding-top: 40px;
-    }
-
-    a,
-    p {
-      color: #fff;
-    }
-
-    p {
-      opacity: 0.8;
-      font-weight: 500;
-    }
-
-    a {
-      display: block;
-      font-size: 15px;
-
-      @include transitioned;
-
-      svg {
-        path {
-          @include transitioned;
-        }
-      }
-
-      &:hover {
-        color: $color10;
-
-        svg {
-          path {
-            fill: $color10;
-          }
-        }
-      }
-    }
-
-    .links-section {
-      .title {
-        color: $color10;
-        margin-bottom: 16px;
-      }
-
-      .links {
-        a {
-          padding: 5px 0;
-          margin: 4px 0;
-        }
-      }
-    }
-
-    .copyright {
-      padding-top: 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      @media screen and (max-width: 767px) {
-        padding-top: 34px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 34px;
-      }
-
-      .left {
-        display: flex;
-        gap: 38px;
-      }
-
-      .right {
-        .social {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-
-          a {
-            padding: 10px;
-          }
-        }
-      }
-    }
-  }
-
-  .layout-content {
-    position: relative;
-    transform: translate(
-      0,
-      0,
-      0
-    ); // just to make it a relative for position fixed ;)
-
-    .layout-body {
-    }
-  }
-}
-
-// ***********************************************************************************************************************************
-// ***********************************************************************************************************************************
-
 //  *************************************************** UTILITY CLASSES **************************************************************
 
 // ***********************************************************************************************************************************
@@ -237,310 +93,6 @@ hr {
 
 .text-light-2 {
   color: $color7;
-}
-
-.badge {
-  background-color: $color3;
-  color: $color4;
-  font-weight: 500;
-  padding: 6px 8px;
-  border-radius: 6px;
-  font-size: 16px;
-
-  @media screen and (max-width: 767px) {
-    font-size: 15px;
-  }
-
-  &.green {
-    background-color: $color15;
-    color: $color10;
-  }
-}
-
-.modal-wrapper {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: rgba($color: $color11, $alpha: 0.8);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 6;
-
-  @include transitioned;
-
-  &.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .modal-sub-wrapper {
-    max-width: 780px;
-    background-color: #fff;
-    border-radius: 20px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: calc(100% - 16px * 2);
-    height: calc(100% - 20px * 2);
-    transform: translate(-50%, -50%);
-    padding: 42px 0;
-
-    @media screen and (max-width: 767px) {
-      padding: 25px 0 40px;
-      border-radius: 10px;
-    }
-
-    .close {
-      position: absolute;
-      right: 22px;
-      top: 22px;
-      cursor: pointer;
-      z-index: 1;
-
-      @media screen and (max-width: 767px) {
-        right: 14px;
-        top: 18px;
-      }
-    }
-
-    .modal-main {
-      padding: 0 42px;
-      height: 100%;
-      overflow-y: auto;
-
-      @media screen and (max-width: 767px) {
-        padding: 0 30px;
-      }
-
-      .main-title {
-        color: $color1;
-        display: flex;
-        align-items: center;
-        gap: 16px;
-
-        @media screen and (max-width: 575px) {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 12px;
-        }
-      }
-
-      .main-content {
-        margin-top: 36px;
-      }
-    }
-  }
-
-  &.jumbo {
-    .close {
-      top: 26px;
-      right: 28px;
-
-      @media screen and (max-width: 575px) {
-        top: 30px;
-        right: 14px;
-      }
-    }
-
-    .modal-sub-wrapper {
-      padding: 16px 0 32px;
-
-      .modal-main {
-        padding: 0;
-      }
-
-      .jumbotron-wrapper {
-        padding: 0 16px;
-
-        @media screen and (max-width: 767px) {
-          padding: 0 6px;
-        }
-
-        .main-jumbotron {
-          border-radius: 20px;
-          background-color: $color8;
-          padding: 60px 26px 40px;
-          display: flex;
-          justify-content: space-between;
-          gap: 40px;
-
-          @media screen and (max-width: 767px) {
-            padding-left: 16px;
-            padding-right: 16px;
-            padding-bottom: 8px;
-            gap: 26px;
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-          }
-
-          @media screen and (max-width: 767px) {
-            flex-direction: column;
-          }
-
-          .left {
-            display: flex;
-            align-items: flex-start;
-            gap: 28px;
-
-            @media screen and (max-width: 767px) {
-              gap: 16px;
-            }
-
-            .brand {
-              @media screen and (max-width: 767px) {
-                width: 70px;
-              }
-
-              @media screen and (max-width: 575px) {
-                width: 52px;
-              }
-            }
-
-            .text {
-              height: 100%;
-              display: flex;
-              flex-direction: column;
-              justify-content: space-between;
-              gap: 20px;
-
-              @media screen and (max-width: 767px) {
-                gap: 14px;
-              }
-
-              h2 {
-                @media screen and (max-width: 575px) {
-                  font-size: 26px;
-                }
-              }
-
-              .badges {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 14px;
-
-                @media screen and (max-width: 575px) {
-                  gap: 10px;
-                }
-              }
-            }
-          }
-
-          .right {
-            @media screen and (max-width: 767px) {
-              display: flex;
-              flex-direction: column-reverse;
-              gap: 34px;
-            }
-
-            .btns {
-              display: flex;
-              gap: 14px;
-
-              .btn {
-                width: 84px;
-              }
-            }
-
-            .summary {
-              background-color: #fff;
-              border-radius: 8px;
-              padding: 8px 16px;
-              margin-top: 24px;
-
-              @media screen and (max-width: 767px) {
-                display: flex;
-                gap: 30px;
-                margin-top: 0;
-              }
-
-              .item {
-                padding: 6px 0;
-                display: flex;
-                align-items: center;
-                gap: 12px;
-
-                @media screen and (max-width: 767px) {
-                  gap: 10px;
-                }
-
-                img {
-                  display: block;
-                }
-              }
-            }
-          }
-        }
-      }
-
-      .main-content {
-        margin-top: 0;
-        padding: 30px 42px;
-
-        @media screen and (max-width: 767px) {
-          padding: 26px;
-        }
-      }
-    }
-  }
-}
-
-.custom-form-control {
-  label {
-    display: block;
-    margin-bottom: 12px;
-    font-weight: 500;
-
-    .min-label {
-      display: inline-block;
-      font-size: 14px;
-      font-weight: 400;
-    }
-  }
-
-  .input {
-    position: relative;
-
-    input,
-    textarea {
-      display: block;
-      width: 100%;
-      border-radius: 6px;
-      border: 0;
-      padding: 14px 12px;
-      font-size: 16px;
-
-      &::placeholder {
-        color: rgba($color2, 0.3);
-      }
-    }
-
-    input {
-      background-color: $color5;
-      height: 48px;
-    }
-
-    textarea {
-      background-color: transparent;
-      border: 1px solid rgba($color6, 0.2);
-
-      &::-webkit-scrollbar-thumb {
-        background-color: $color7;
-      }
-    }
-
-    .icon {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 12px;
-    }
-
-    .icon + input {
-      padding-left: 48px;
-    }
-  }
 }
 
 .react-datepicker {
@@ -611,6 +163,16 @@ hr {
       border-bottom: 0;
       height: 44px;
       border-radius: 8px 8px 0 0;
+      flex-direction: row-reverse;
+
+      ul:nth-child(2) {
+        li:nth-child(2),
+        li:nth-child(4),
+        li:nth-child(5),
+        .w-md-editor-toolbar-divider {
+          display: none;
+        }
+      }
     }
   }
 
@@ -640,83 +202,18 @@ hr {
   }
 }
 
-.btn {
-  background-color: transparent;
-  border: none;
-  border-radius: 8px;
-  padding: 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  height: 50px;
-  flex-shrink: 0;
-  outline: none;
-
-  @include transitioned;
-
-  @media screen and (max-width: 575px) {
-    height: 38px;
-    padding: 10px 16px;
-  }
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
-  .btn-text {
-    font-size: 16px;
-    font-weight: 500;
-  }
-
-  &.btn-grey {
-    background-color: $color5;
-
-    .btn-text {
-      color: $color1;
-    }
-  }
-
-  &.btn-primary {
-    background-color: $color10;
-
-    .btn-text {
-      color: #fff;
-    }
-  }
-
-  &.btn-bordered,
-  &.btn-light-grey {
-    padding: 8px 10px;
-    gap: 8px;
-    height: 32px;
-
-    .btn-text {
-      color: $color2;
-      font-size: 14px;
-      font-weight: 500;
-    }
-  }
-
-  &.btn-bordered {
-    border: 1px solid rgba($color6, 0.2);
-  }
-
-  &.btn-light-grey {
-    height: 36px;
-    background-color: $color14;
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-}
-
 .dropdown {
   position: relative;
   cursor: pointer;
+
+  & > img {
+    @include transitioned;
+
+    &:hover {
+      filter: invert(54%) sepia(81%) saturate(536%) hue-rotate(117deg)
+        brightness(93%) contrast(103%);
+    }
+  }
 
   .options {
     position: absolute;
@@ -736,13 +233,14 @@ hr {
       font-size: 12px;
       padding: 4px 12px;
 
-      &:hover {
+      &:hover,
+      &.active {
         background-color: #f8f8f8;
       }
     }
   }
 
-  &:hover {
+  &.active {
     .options {
       opacity: 1;
       pointer-events: all;
@@ -750,12 +248,22 @@ hr {
   }
 
   &.reactions {
+    .emoji-box {
+      width: 20px;
+      height: 20px;
+    }
+
     .options {
       display: flex;
       align-items: center;
       height: 36px;
       padding-left: 4px;
       padding-right: 4px;
+
+      @media screen and (max-width: 486px) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
 
       .option {
         cursor: pointer;

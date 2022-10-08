@@ -8,6 +8,8 @@ import Button from "../../components/Button";
 import Modal from "../../components/Modal/Modal";
 import Comment from "./Comment";
 
+import "./DisplayTicket.scss";
+
 const markdown = `
 ~~~js
 function Description() 
@@ -153,7 +155,6 @@ const DisplayTicket = ({ ...rest }) => {
         </p>
 
         <div className="my-4 react-md">
-          {/* <ReactMarkdown children={markdown} /> */}
           <ReactMarkdown
             children={markdown}
             components={{
@@ -197,6 +198,7 @@ const DisplayTicket = ({ ...rest }) => {
           {downloadables.map((el, idx) => {
             return (
               <Button
+                key={"downloadable-" + idx}
                 lightGrey
                 icon={{
                   src: "/assets/vectors/icons/import.svg",

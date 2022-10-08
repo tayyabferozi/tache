@@ -1,8 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useRef, useState } from "react";
+import clsx from "clsx";
+import useOnClickOutside from "../../../hooks/useOnClickOutside";
 
 const emojis = ["👍", "👎", "😄", "🎉", "😕", "❤", "🚀", "👀"];
 
 const Comment = ({ avatar, name, subtext, role, text }) => {
+  const emojisRef = useRef(null);
+  const optionsRef = useRef(null);
+  const [selectedEmoji, setSelectedEmoji] = useState("");
+
+  const [showEmojiDropdown, setShowEmojiDropdown] = useState(true);
+  const [showOptionsDropdown, setShowOptionsDropdown] = useState(false);
+
+  useOnClickOutside(emojisRef, () => setShowEmojiDropdown(false));
+  useOnClickOutside(optionsRef, () => setShowOptionsDropdown(false));
+
+  const chooseEmojiHandler = (emoji) => {
+    if (emoji === selectedEmoji) {
+      setSelectedEmoji("");
+      return;
+    }
+
+    setSelectedEmoji(emoji);
+  };
+
   return (
     <div className="comment-item-main">
       <div className="avatar">
@@ -18,26 +39,57 @@ const Comment = ({ avatar, name, subtext, role, text }) => {
 
           <div className="right">
             <div className="role">{role}</div>
-            <div className="reactions dropdown">
-              <img
+            <div
+              className={clsx("reactions dropdown", {
+                active: showEmojiDropdown,
+              })}
+            >
+              {/* <img
                 src="/assets/vectors/icons/emoji-happy.svg"
                 alt="emoji-happy"
-              />
+                onClick={() => setShowEmojiDropdown(true)}
+              /> */}
+              <div
+                className="emoji-box"
+                onClick={() => setShowEmojiDropdown(true)}
+              >
+                {selectedEmoji ? (
+                  selectedEmoji
+                ) : (
+                  <img
+                    src="/assets/vectors/icons/emoji-happy.svg"
+                    alt="emoji-happy"
+                  />
+                )}
+              </div>
 
-              <div className="options">
+              <div className="options" ref={emojisRef}>
                 {emojis.map((el, idx) => {
                   return (
-                    <div className="option" key={"option" + text + idx}>
+                    <div
+                      className={clsx(
+                        "option",
+                        el === selectedEmoji && "active"
+                      )}
+                      key={"option" + text + idx}
+                      onClick={() => chooseEmojiHandler(el)}
+                    >
                       {el}
                     </div>
                   );
                 })}
               </div>
             </div>
-            <div className="more dropdown">
-              <img src="/assets/vectors/icons/more.svg" alt="more" />
+            <div
+              className={clsx("more dropdown", { active: showOptionsDropdown })}
+            >
+              <img
+                src="/assets/vectors/icons/more.svg"
+                alt="more"
+                onClick={() => setShowOptionsDropdown(true)}
+              />
 
-              <div className="options">
+              <div className="options" ref={optionsRef}>
                 <div className="option">Edit</div>
                 <div className="option">Quote reply</div>
                 <div className="option">Delete</div>
