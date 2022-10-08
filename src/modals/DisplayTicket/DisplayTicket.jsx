@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import MDEditor from "@uiw/react-md-editor";
 
+import CustomMDEditor from "../../components/CustomMDEditor";
 import Badge from "../../components/Badge";
 import Button from "../../components/Button";
 import Modal from "../../components/Modal/Modal";
@@ -25,23 +25,7 @@ export default Description;
 
 `;
 
-const tags = [
-  "Frontend",
-  "Database",
-  "UI",
-  // "Database",
-  // "Database",
-  // "Database",
-  // "Database",
-  // "Database",
-  // "Database",
-  // "Database",
-  // "Database",
-  // "Database",
-  // "Database",
-  // "Database",
-  // "Database",
-];
+const tags = ["Frontend", "Database", "UI"];
 
 const downloadables = ["Document", "Document", "Document", "Document"];
 
@@ -235,29 +219,11 @@ const DisplayTicket = ({ ...rest }) => {
             <img src="/assets/imgs/avatar-3.png" alt="avatar" />
           </div>
 
-          <div data-color-mode="light">
-            <div className="md-editor-wrap">
-              <MDEditor
-                preview="edit"
-                // extraCommands={[]}
-                // commands={[[commands.codeEdit], [commands.codePreview]]}
-                height={200}
-                value={formState.comment}
-                onChange={(e) =>
-                  inputChangeHandler({
-                    target: {
-                      name: "comment",
-                      value: e,
-                    },
-                  })
-                }
-              />
-              <div className="foot">
-                Attach files by dragging &amp; dropping, selecting or pasting
-                them.
-              </div>
-            </div>
-          </div>
+          <CustomMDEditor
+            formState={formState}
+            inputChangeHandler={inputChangeHandler}
+            footText="Attach files by dragging &amp; dropping, selecting or pasting them."
+          />
         </div>
 
         <div className="mt-2 pt-2">

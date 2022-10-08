@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
-import MDEditor from "@uiw/react-md-editor";
 import CreatableSelect from "react-select/creatable";
 
 import Badge from "../../components/Badge";
@@ -10,6 +9,7 @@ import Modal from "../../components/Modal/Modal";
 import Button from "../../components/Button";
 
 import "./CreateTicket.scss";
+import CustomMDEditor from "../../components/CustomMDEditor";
 
 const tagOptions = [
   { label: "Frontend", value: "frontend" },
@@ -185,25 +185,11 @@ const CreateTicket = ({ ...rest }) => {
 
               <div className="custom-form-control mt-30">
                 <label htmlFor="">Description</label>
-                <div data-color-mode="light">
-                  <div className="md-editor-wrap">
-                    <MDEditor
-                      preview="edit"
-                      // extraCommands={[]}
-                      height={200}
-                      value={formState.description}
-                      onChange={(e) =>
-                        inputChangeHandler({
-                          target: {
-                            name: "description",
-                            value: e,
-                          },
-                        })
-                      }
-                    />
-                    <div className="foot">0/5000</div>
-                  </div>
-                </div>
+                <CustomMDEditor
+                  formState={formState}
+                  inputChangeHandler={inputChangeHandler}
+                  footText="0/5000"
+                />
               </div>
 
               <div className="custom-form-control mt-20">

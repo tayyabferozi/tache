@@ -164,15 +164,16 @@ hr {
       height: 44px;
       border-radius: 8px 8px 0 0;
       flex-direction: row-reverse;
+      gap: 6px;
 
-      ul:nth-child(2) {
-        li:nth-child(2),
-        li:nth-child(4),
-        li:nth-child(5),
-        .w-md-editor-toolbar-divider {
-          display: none;
-        }
-      }
+      // ul:nth-child(2) {
+      //   li:nth-child(2),
+      //   li:nth-child(4),
+      //   li:nth-child(5),
+      //   .w-md-editor-toolbar-divider {
+      //     display: none;
+      //   }
+      // }
     }
   }
 

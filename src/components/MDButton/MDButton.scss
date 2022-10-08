@@ -1,0 +1,22 @@
+.btn.custom-md-editor-toolbar-button {
+  color: $color2;
+  padding: 4px 8px;
+  height: unset;
+  border-radius: 4px;
+
+  &:hover {
+    transform: none;
+  }
+
+  .btn-text {
+    font-size: 13px;
+  }
+
+  &.active {
+    background-color: rgba($color10, 0.1);
+
+    .btn-text {
+      color: $color10;
+    }
+  }
+}

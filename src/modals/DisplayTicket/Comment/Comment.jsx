@@ -9,7 +9,7 @@ const Comment = ({ avatar, name, subtext, role, text }) => {
   const optionsRef = useRef(null);
   const [selectedEmoji, setSelectedEmoji] = useState("");
 
-  const [showEmojiDropdown, setShowEmojiDropdown] = useState(true);
+  const [showEmojiDropdown, setShowEmojiDropdown] = useState(false);
   const [showOptionsDropdown, setShowOptionsDropdown] = useState(false);
 
   useOnClickOutside(emojisRef, () => setShowEmojiDropdown(false));
