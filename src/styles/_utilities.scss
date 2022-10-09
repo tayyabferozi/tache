@@ -165,15 +165,6 @@ hr {
       border-radius: 8px 8px 0 0;
       flex-direction: row-reverse;
       gap: 6px;
-
-      // ul:nth-child(2) {
-      //   li:nth-child(2),
-      //   li:nth-child(4),
-      //   li:nth-child(5),
-      //   .w-md-editor-toolbar-divider {
-      //     display: none;
-      //   }
-      // }
     }
   }
 
@@ -237,6 +228,15 @@ hr {
       &:hover,
       &.active {
         background-color: #f8f8f8;
+      }
+    }
+
+    &.options-right {
+      left: 0 !important;
+      transform: translateX(-30px) !important;
+
+      @media screen and (min-width: 575px) {
+        transform: translateX(0) !important;
       }
     }
   }

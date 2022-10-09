@@ -115,6 +115,32 @@
             line-height: 1.5;
             font-size: 15px;
           }
+
+          .comment-reactions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding: 14px 0 10px;
+
+            .item {
+              height: 26px;
+              font-size: 12px;
+              background-color: #ddf4ff;
+              display: flex;
+              align-items: center;
+              gap: 2px;
+              padding: 0 10px;
+              border-radius: 20px;
+              border: 1px solid #0969da;
+              color: #0969da;
+
+              .emoji {
+                margin: 0 2px 0 0;
+                height: 17px;
+              }
+            }
+          }
         }
       }
     }

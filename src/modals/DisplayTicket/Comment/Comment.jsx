@@ -1,27 +1,29 @@
 import React, { useRef, useState } from "react";
 import clsx from "clsx";
-import useOnClickOutside from "../../../hooks/useOnClickOutside";
 
-const emojis = ["👍", "👎", "😄", "🎉", "😕", "❤", "🚀", "👀"];
+import useOnClickOutside from "../../../hooks/useOnClickOutside";
+import CommentReaction from "../../../components/CommentReaction";
 
 const Comment = ({ avatar, name, subtext, role, text }) => {
-  const emojisRef = useRef(null);
   const optionsRef = useRef(null);
-  const [selectedEmoji, setSelectedEmoji] = useState("");
 
-  const [showEmojiDropdown, setShowEmojiDropdown] = useState(false);
+  const [selectedEmojis, setSelectedEmojis] = useState("");
   const [showOptionsDropdown, setShowOptionsDropdown] = useState(false);
 
-  useOnClickOutside(emojisRef, () => setShowEmojiDropdown(false));
   useOnClickOutside(optionsRef, () => setShowOptionsDropdown(false));
 
   const chooseEmojiHandler = (emoji) => {
-    if (emoji === selectedEmoji) {
-      setSelectedEmoji("");
-      return;
-    }
+    setSelectedEmojis((prevState) => {
+      return { ...prevState, [emoji]: 1 };
+    });
+  };
 
-    setSelectedEmoji(emoji);
+  const removeEmojiHandler = (emoji) => {
+    setSelectedEmojis((prevState) => {
+      const newState = { ...prevState };
+      delete newState[emoji];
+      return newState;
+    });
   };
 
   return (
@@ -39,47 +41,10 @@ const Comment = ({ avatar, name, subtext, role, text }) => {
 
           <div className="right">
             <div className="role">{role}</div>
-            <div
-              className={clsx("reactions dropdown", {
-                active: showEmojiDropdown,
-              })}
-            >
-              {/* <img
-                src="/assets/vectors/icons/emoji-happy.svg"
-                alt="emoji-happy"
-                onClick={() => setShowEmojiDropdown(true)}
-              /> */}
-              <div
-                className="emoji-box"
-                onClick={() => setShowEmojiDropdown(true)}
-              >
-                {selectedEmoji ? (
-                  selectedEmoji
-                ) : (
-                  <img
-                    src="/assets/vectors/icons/emoji-happy.svg"
-                    alt="emoji-happy"
-                  />
-                )}
-              </div>
-
-              <div className="options" ref={emojisRef}>
-                {emojis.map((el, idx) => {
-                  return (
-                    <div
-                      className={clsx(
-                        "option",
-                        el === selectedEmoji && "active"
-                      )}
-                      key={"option" + text + idx}
-                      onClick={() => chooseEmojiHandler(el)}
-                    >
-                      {el}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+            <CommentReaction
+              chooseEmojiHandler={chooseEmojiHandler}
+              selectedEmojis={selectedEmojis}
+            />
             <div
               className={clsx("more dropdown", { active: showOptionsDropdown })}
             >
@@ -97,8 +62,30 @@ const Comment = ({ avatar, name, subtext, role, text }) => {
             </div>
           </div>
         </div>
-
         <div className="comment-body">{text}</div>
+
+        {Object.keys(selectedEmojis).length > 0 && (
+          <div className="comment-reactions">
+            <CommentReaction
+              optionsClassName="options-right"
+              chooseEmojiHandler={chooseEmojiHandler}
+              selectedEmojis={selectedEmojis}
+            />
+            {Object.keys(selectedEmojis).map((el, idx) => {
+              return (
+                <div
+                  className="item"
+                  key={"emoji" + idx}
+                  onClick={() => {
+                    removeEmojiHandler(el);
+                  }}
+                >
+                  <span className="emoji">{el}</span> {selectedEmojis[el]}
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
