@@ -36,6 +36,10 @@ const comments = [
     subtext: "Comment 1 minute ago",
     role: "Author",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet in fringilla vel rhoncus, posuere ultrices risus. Est, at congue risus, urna, id sit.",
+    othersSelectedEmojis: {
+      "🚀": 2,
+      "👀": 3,
+    },
   },
   {
     avatar: "/assets/imgs/avatar-2.png",

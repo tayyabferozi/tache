@@ -4,25 +4,33 @@ import clsx from "clsx";
 import useOnClickOutside from "../../../hooks/useOnClickOutside";
 import CommentReaction from "../../../components/CommentReaction";
 
-const Comment = ({ avatar, name, subtext, role, text }) => {
+const Comment = ({
+  avatar,
+  name,
+  subtext,
+  role,
+  text,
+  othersSelectedEmojis = {}, // number of emojis dropped excluding the current users's emojis
+}) => {
   const optionsRef = useRef(null);
 
-  const [selectedEmojis, setSelectedEmojis] = useState("");
+  const [mySelectedEmojis, setMySelectedEmojis] = useState({
+    "👍": 0,
+    "👎": 0,
+    "😄": 0,
+    "🎉": 0,
+    "😕": 0,
+    "❤": 0,
+    "🚀": 0,
+    "👀": 0,
+  });
   const [showOptionsDropdown, setShowOptionsDropdown] = useState(false);
 
   useOnClickOutside(optionsRef, () => setShowOptionsDropdown(false));
 
-  const chooseEmojiHandler = (emoji) => {
-    setSelectedEmojis((prevState) => {
-      return { ...prevState, [emoji]: 1 };
-    });
-  };
-
-  const removeEmojiHandler = (emoji) => {
-    setSelectedEmojis((prevState) => {
-      const newState = { ...prevState };
-      delete newState[emoji];
-      return newState;
+  const toggleEmojiChooseHandler = (emoji) => {
+    setMySelectedEmojis((prevState) => {
+      return { ...prevState, [emoji]: prevState[emoji] ? 0 : 1 };
     });
   };
 
@@ -42,8 +50,8 @@ const Comment = ({ avatar, name, subtext, role, text }) => {
           <div className="right">
             <div className="role">{role}</div>
             <CommentReaction
-              chooseEmojiHandler={chooseEmojiHandler}
-              selectedEmojis={selectedEmojis}
+              chooseEmojiHandler={toggleEmojiChooseHandler}
+              selectedEmojis={mySelectedEmojis}
             />
             <div
               className={clsx("more dropdown", { active: showOptionsDropdown })}
@@ -64,23 +72,31 @@ const Comment = ({ avatar, name, subtext, role, text }) => {
         </div>
         <div className="comment-body">{text}</div>
 
-        {Object.keys(selectedEmojis).length > 0 && (
+        {(Object.keys(mySelectedEmojis).some(
+          (el) => mySelectedEmojis[el] > 0
+        ) ||
+          Object.keys(othersSelectedEmojis).some(
+            (el) => othersSelectedEmojis[el] > 0
+          )) && (
           <div className="comment-reactions">
             <CommentReaction
               optionsClassName="options-right"
-              chooseEmojiHandler={chooseEmojiHandler}
-              selectedEmojis={selectedEmojis}
+              chooseEmojiHandler={toggleEmojiChooseHandler}
+              selectedEmojis={mySelectedEmojis}
             />
-            {Object.keys(selectedEmojis).map((el, idx) => {
+            {Object.keys(mySelectedEmojis).map((el, idx) => {
+              if (!mySelectedEmojis[el] && !othersSelectedEmojis[el])
+                return null;
               return (
                 <div
-                  className="item"
+                  className={clsx("item", mySelectedEmojis[el] > 0 && "active")}
                   key={"emoji" + idx}
                   onClick={() => {
-                    removeEmojiHandler(el);
+                    toggleEmojiChooseHandler(el);
                   }}
                 >
-                  <span className="emoji">{el}</span> {selectedEmojis[el]}
+                  <span className="emoji">{el}</span>{" "}
+                  {mySelectedEmojis[el] + (othersSelectedEmojis[el] || 0)}
                 </div>
               );
             })}
