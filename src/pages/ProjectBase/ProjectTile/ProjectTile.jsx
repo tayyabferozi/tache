@@ -25,15 +25,27 @@ const ProjectTile = ({
           <h5 className="fs-18">{title}</h5>
         </div>
         <div className="right">
-          <img
-            src={
-              access === "public"
-                ? "/assets/vectors/icons/public.svg"
-                : "/assets/vectors/icons/private.svg"
-            }
-            alt={access}
-          />
-          <div className="access">{access}</div>
+          <div className="access">
+            <img
+              src={
+                access === "public"
+                  ? "/assets/vectors/icons/public.svg"
+                  : "/assets/vectors/icons/private.svg"
+              }
+              alt={access}
+            />
+            <div className="access-text">{access}</div>
+          </div>
+          <Button
+            onClick={() => setIsSubscribed(!isSubscribed)}
+            className={clsx("subscribe-btn", isSubscribed && "subscribed")}
+            icon={{
+              src: "/assets/vectors/icons/subscribe.svg",
+            }}
+            bordered
+          >
+            {subscribes}
+          </Button>
         </div>
       </div>
 
@@ -94,7 +106,7 @@ const ProjectTile = ({
         <div className="right">
           <Button
             onClick={() => setIsSubscribed(!isSubscribed)}
-            className={clsx(isSubscribed && "subscribed")}
+            className={clsx("subscribe-btn", isSubscribed && "subscribed")}
             icon={{
               src: "/assets/vectors/icons/subscribe.svg",
             }}

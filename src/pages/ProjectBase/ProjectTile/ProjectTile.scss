@@ -48,15 +48,42 @@
 
     .right {
       display: flex;
-      gap: 8px;
-      align-items: center;
-      text-transform: capitalize;
-      padding-left: 18px;
-      border-left: 1px solid $color18;
+      justify-content: space-between;
+      position: relative;
 
-      @media screen and (max-width: 575px) {
-        padding-left: 0;
-        border-left: 0;
+      &::before {
+        content: "";
+        position: absolute;
+        height: 30px;
+        width: 1px;
+        background-color: $color18;
+        left: 50%;
+        transform: translateY(-50%);
+        top: 50%;
+
+        @media screen and (min-width: 576px) {
+          display: none;
+        }
+      }
+
+      .access {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        text-transform: capitalize;
+        padding-left: 18px;
+        border-left: 1px solid $color18;
+
+        @media screen and (max-width: 575px) {
+          padding-left: 0;
+          border-left: 0;
+        }
+      }
+
+      .btn {
+        @media screen and (min-width: 576px) {
+          display: none;
+        }
       }
     }
   }
@@ -113,7 +140,10 @@
 
         .item-left {
           .ticket-text {
-            color: $color10;
+            &,
+            * {
+              color: $color10;
+            }
           }
         }
 
@@ -177,33 +207,34 @@
       }
     }
 
-    .right {
-      .btn {
-        height: 40px;
-        background-color: $color8;
-        border: 1px solid $color18;
+    // .right {
+    // }
+  }
 
-        .btn-icon {
-          filter: invert(41%) sepia(8%) saturate(1603%) hue-rotate(174deg)
-            brightness(91%) contrast(86%);
-        }
+  .subscribe-btn {
+    height: 40px;
+    background-color: $color8;
+    border: 1px solid $color18;
 
-        .btn-text {
-          font-size: 16px;
-        }
+    .btn-icon {
+      filter: invert(41%) sepia(8%) saturate(1603%) hue-rotate(174deg)
+        brightness(91%) contrast(86%);
+    }
 
-        &.subscribed {
-          background-color: $color10;
+    .btn-text {
+      font-size: 16px;
+    }
 
-          .btn-icon {
-            filter: invert(94%) sepia(70%) saturate(5269%) hue-rotate(186deg)
-              brightness(126%) contrast(93%);
-          }
+    &.subscribed {
+      background-color: $color10;
 
-          .btn-text {
-            color: #fff;
-          }
-        }
+      .btn-icon {
+        filter: invert(94%) sepia(70%) saturate(5269%) hue-rotate(186deg)
+          brightness(126%) contrast(93%);
+      }
+
+      .btn-text {
+        color: #fff;
       }
     }
   }
