@@ -12,7 +12,27 @@ const MainLayout = () => {
       <div className="layout-content">
         <Navbar />
         <div className="layout-body">
-          <Outlet />
+          <div className="dark-bg-wrap">
+            <img
+              className="dots dots-1"
+              src="/assets/vectors/dots-1.svg"
+              alt="dots"
+              title="dots"
+            />
+            <img
+              className="dots dots-2"
+              src="/assets/vectors/dots-2.svg"
+              alt="dots"
+              title="dots"
+            />
+            <img
+              className="dots dots-3"
+              src="/assets/vectors/dots-3.svg"
+              alt="dots"
+              title="dots"
+            />
+            <Outlet />
+          </div>
         </div>
       </div>
       <Footer />

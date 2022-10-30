@@ -1,18 +1,118 @@
 #main-layout {
   #navbar {
+    position: relative;
     height: 100px;
     background-color: $color8;
     align-items: center;
+    padding: 0;
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+    z-index: 5;
+
+    @media screen and (max-width: 767px) {
+      padding-left: 32px !important;
+      padding-right: 32px !important;
+    }
 
     & > * {
       height: 100%;
     }
 
-    .navbar-main {
+    .navbar-wrap {
       height: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      .navbar-main {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        @media screen and (max-width: 991px) {
+          display: none;
+        }
+
+        a {
+          @include transitioned;
+
+          &:hover {
+            color: $color1;
+          }
+        }
+      }
+
+      .options {
+        display: flex;
+        gap: 26px;
+
+        @media screen and (max-width: 991px) {
+          display: none;
+        }
+
+        .option-item {
+          cursor: pointer;
+
+          @include transitioned;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+
+      .menu-sm,
+      .hamburger {
+        @media screen and (min-width: 992px) {
+          display: none;
+        }
+      }
+
+      .menu-sm {
+        position: absolute;
+        z-index: 5;
+        top: 100px;
+        left: -60px;
+        right: -60px;
+        background-color: $color8;
+        padding-left: 60px;
+        padding-right: 60px;
+        border-top: 1px solid rgba($color6, 0.2);
+
+        @media screen and (max-width: 767px) {
+          left: -32px;
+          right: -32px;
+          padding-left: 32px;
+          padding-right: 32px;
+        }
+
+        & > * {
+          display: flex;
+        }
+
+        .navbar-main {
+          display: flex;
+          flex-direction: column;
+          align-items: flex;
+          gap: 30px;
+          padding: 30px 0;
+          align-items: flex-start;
+
+          & > *::before {
+            position: absolute;
+            content: url("../../assets/vectors/chevron-right.svg");
+            right: 60px;
+
+            @media screen and (max-width: 767px) {
+              right: 32px;
+            }
+          }
+        }
+
+        .options {
+          padding: 10px 0 40px;
+        }
+      }
     }
   }
 
@@ -110,5 +210,57 @@
       0,
       0
     ); // just to make it a relative for position fixed ;)
+
+    .layout-body {
+      position: relative;
+      padding: 30px;
+
+      @media screen and (max-width: 767px) {
+        padding: 18px;
+
+        .page-section {
+          @media screen and (max-width: 767px) {
+            padding-left: 14px !important;
+            padding-right: 14px !important;
+          }
+        }
+      }
+
+      .dark-bg-wrap {
+        background-color: $color8;
+        border-radius: 30px;
+        position: relative;
+
+        @media screen and (max-width: 767px) {
+          border-radius: 12px;
+        }
+
+        img {
+          &.dots {
+            position: absolute;
+
+            @media screen and (max-width: 991px) {
+              display: none;
+            }
+
+            &.dots-1 {
+              top: 30px;
+              right: 42px;
+            }
+
+            &.dots-2 {
+              bottom: 178px;
+              right: 30px;
+            }
+
+            &.dots-3 {
+              top: 50%;
+              left: -30px;
+              transform: translateY(-50%);
+            }
+          }
+        }
+      }
+    }
   }
 }

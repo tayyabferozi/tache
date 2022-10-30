@@ -1,17 +1,19 @@
 .page-section {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  padding-left: 3rem !important;
-  padding-right: 3rem !important;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
 
-  @media screen and (max-width: 575px) {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+  @media screen and (max-width: 767px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   .page-container {
-    max-width: 1070px;
+    max-width: 1178px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    z-index: 1;
   }
 }

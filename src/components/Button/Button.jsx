@@ -10,6 +10,7 @@ const Button = ({
   primary,
   grey,
   bordered,
+  primaryLight,
   lightGrey,
   children,
   icon,
@@ -21,6 +22,7 @@ const Button = ({
     className,
     grey && "btn-grey",
     primary && "btn-primary",
+    primaryLight && "btn-primary-light",
     bordered && "btn-bordered",
     lightGrey && "btn-light-grey"
   );

@@ -47,6 +47,16 @@
     }
   }
 
+  &.btn-primary-light {
+    background-color: rgba($color10, 0.05);
+    width: 100%;
+    justify-content: center;
+
+    .btn-text {
+      color: $color10;
+    }
+  }
+
   &.btn-bordered,
   &.btn-light-grey {
     padding: 8px 10px;

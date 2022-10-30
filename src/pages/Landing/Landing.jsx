@@ -12,11 +12,13 @@ const Landing = () => {
     toggleShow: toggleTicketCreateModaleShow,
   } = useModal(false);
   const { show: showTicketDisplayModal, toggleShow: toggleTicketDisplayModal } =
-    useModal(true);
+    useModal(false);
 
   return (
-    <Section style={{ minHeight: "50vh" }}>
-      {/* Inline needs to be removed afterwards, of course */}
+    <Section
+      style={{ minHeight: "calc(70vh)" }}
+      className="d-flex align-items-center"
+    >
       <CreateTicketModal
         show={showTicketCreateModal}
         closeModal={() => toggleTicketCreateModaleShow("close")}

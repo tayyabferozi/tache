@@ -1,0 +1,29 @@
+.pool-item {
+  display: flex;
+  justify-content: space-between;
+
+  .active {
+    color: $color10;
+  }
+
+  .left {
+    display: flex;
+    gap: 12px;
+
+    .avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $color8;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+
+    .name {
+      font-size: 14px;
+      color: $color1;
+      font-weight: bold;
+    }
+  }
+}

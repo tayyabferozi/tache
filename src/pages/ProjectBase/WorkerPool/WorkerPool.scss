@@ -1,0 +1,25 @@
+.worker-pool {
+  padding: 20px;
+  background-color: #fff;
+
+  .pool-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $color16;
+    padding-bottom: 20px;
+
+    h6 {
+      font-size: 14px;
+      color: $color1;
+      letter-spacing: -0.5;
+    }
+  }
+
+  .month-items {
+    margin: 14px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

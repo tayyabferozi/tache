@@ -201,7 +201,7 @@ const DisplayTicket = ({ ...rest }) => {
 
       <div className="comments">
         <h5 className="d-flex gap-2 align-items-center">
-          Comment <Badge green>2</Badge>
+          Comment <Badge green>{comments.length}</Badge>
         </h5>
 
         <div className="comments-main">
