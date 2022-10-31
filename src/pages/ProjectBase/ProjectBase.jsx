@@ -707,14 +707,13 @@ const ProjectBase = () => {
                 return (
                   <motion.div
                     key={"tile" + el.id + Math.random()}
-                    initial={{ transform: "scale(.85)" }}
-                    animate={{ transform: "scale(1)" }}
-                    exit={{ transform: "scale(.85)" }}
+                    transition={{ duration: 0.3 }}
+                    initial={{ transform: "scale(.95)", opacity: 0.5 }}
+                    animate={{ transform: "scale(1)", opacity: 1 }}
+                    exit={{ transform: "scale(.95)", opacity: 0 }}
                     className="col-lg-6"
                   >
-                    {/* <div key={"project-tile" + idx}> */}
                     <ProjectTile id={idx} {...el} />
-                    {/* </div> */}
                   </motion.div>
                 );
               })}
@@ -731,7 +730,7 @@ const ProjectBase = () => {
           </div>
         </div>
         <div className="col-xl-3">
-          <div className="mt-40 mt-1200-0">
+          <div className="mt-40 mt-1199-0">
             <WorkerPool />
           </div>
         </div>

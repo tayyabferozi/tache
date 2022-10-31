@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import $ from "jquery";
 
@@ -42,8 +42,11 @@ const extraOptions = [
 ];
 
 const Navbar = () => {
+  const burgerRef = useRef();
+
   const toggleMenu = () => {
     $(".menu-sm").slideToggle();
+    $(burgerRef.current).toggleClass("active");
   };
 
   return (
@@ -69,6 +72,7 @@ const Navbar = () => {
             src="/assets/vectors/icons/hamburger.svg"
             alt="hamburger"
             className="icon"
+            ref={burgerRef}
           />
         </div>
       </div>

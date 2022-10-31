@@ -1,18 +1,52 @@
 .worker-pool {
-  padding: 20px;
+  padding: 0 20px 20px;
   background-color: #fff;
+  box-shadow: 40px 34px 84px 0px #eaeaeacc;
 
   .pool-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid $color16;
+    padding-top: 20px;
     padding-bottom: 20px;
+
+    &::after {
+      @media screen and (max-width: 575px) {
+        content: url("../../../assets/vectors/chevron-right.svg");
+
+        @include transitioned;
+      }
+    }
+
+    @media screen and (max-width: 575px) {
+      padding-bottom: 14px;
+    }
+
+    &:not(.active)::after {
+      transform: rotate(90deg);
+    }
 
     h6 {
       font-size: 14px;
       color: $color1;
       letter-spacing: -0.5;
+    }
+
+    img {
+      @media screen and (max-width: 575px) {
+        display: none;
+      }
+    }
+  }
+
+  .main-content {
+    @media screen and (min-width: 576px) {
+      display: block !important;
+      height: auto !important;
+    }
+    @media screen and (max-width: 575px) {
+      display: none;
     }
   }
 

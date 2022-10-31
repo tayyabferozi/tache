@@ -1,11 +1,10 @@
 .page-section {
-  padding-top: 70px;
+  padding-top: 0;
   padding-bottom: 70px;
   padding-left: 30px !important;
   padding-right: 30px !important;
 
   @media screen and (max-width: 767px) {
-    padding-top: 30px;
     padding-bottom: 30px;
   }
 

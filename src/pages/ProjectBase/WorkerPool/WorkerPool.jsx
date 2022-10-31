@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
+import $ from "jquery";
+
 import Button from "../../../components/Button";
 import PoolItem from "./PoolItem";
-
 import "./WorkerPool.scss";
 
 const thisMonthUsers = [
@@ -37,32 +38,43 @@ const lastMonthUsers = [
     isActive: true,
   },
 ];
+
 const WorkerPool = () => {
+  const headRef = useRef();
+  const mainContentRef = useRef();
+
+  const toggleActive = () => {
+    $(mainContentRef.current).slideToggle();
+    $(headRef.current).toggleClass("active");
+  };
+
   return (
     <div className="worker-pool">
-      <div className="pool-head">
+      <div className="pool-head" ref={headRef} onClick={toggleActive}>
         <h6>Worker Pool</h6>
 
         <img src="/assets/vectors/icons/worker-pool.svg" alt="worker-pool" />
       </div>
 
-      <div className="fs-12 mt-10">This month</div>
+      <div ref={mainContentRef} className="pb-1 main-content">
+        <div className="fs-12 mt-10">This month</div>
 
-      <div className="month-items">
-        {thisMonthUsers.map((el, idx) => {
-          return <PoolItem key={"this-month" + idx} {...el} />;
-        })}
+        <div className="month-items">
+          {thisMonthUsers.map((el, idx) => {
+            return <PoolItem key={"this-month" + idx} {...el} />;
+          })}
+        </div>
+
+        <div className="fs-12 mt-10">Last month</div>
+
+        <div className="month-items">
+          {lastMonthUsers.map((el, idx) => {
+            return <PoolItem key={"last-month" + idx} {...el} />;
+          })}
+        </div>
       </div>
 
-      <div className="fs-12 mt-10">Last month</div>
-
-      <div className="month-items">
-        {lastMonthUsers.map((el, idx) => {
-          return <PoolItem key={"last-month" + idx} {...el} />;
-        })}
-      </div>
-
-      <div className="mt-26">
+      <div className="mt-2">
         <Button primaryLight>Find new work</Button>
       </div>
     </div>

@@ -12,7 +12,14 @@ const Pagination = ({ pageNumState, setPageNumState, total }) => {
     if (e.target.value < 1) return setPageNumState(1);
   };
 
+  const scrollTop = () => {
+    if (window.screen.width < 576) {
+      window.scrollTo(0, 0);
+    }
+  };
+
   const dec = () => {
+    scrollTop();
     setPageNumState((prevState) => {
       if (prevState > 1) return --prevState;
       else return 1;
@@ -20,6 +27,7 @@ const Pagination = ({ pageNumState, setPageNumState, total }) => {
   };
 
   const inc = () => {
+    scrollTop();
     setPageNumState((prevState) => {
       if (prevState < total) return ++prevState;
       else return total;

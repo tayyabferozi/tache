@@ -113,12 +113,23 @@
           padding: 10px 0 40px;
         }
       }
+
+      .hamburger {
+        .icon {
+          @include transitioned;
+
+          &.active {
+            transform: rotate(90deg);
+          }
+        }
+      }
     }
   }
 
   #footer {
     padding-bottom: 50px;
     background-color: $color9;
+    padding-top: 60px;
 
     @media screen and (max-width: 575px) {
       padding-top: 40px;
@@ -213,6 +224,7 @@
 
     .layout-body {
       position: relative;
+      background-color: $color8;
       padding: 30px;
 
       @media screen and (max-width: 767px) {
