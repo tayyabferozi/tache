@@ -21,6 +21,11 @@
       rgba(255, 255, 255, 1) 66%,
       rgba(255, 255, 255, 0) 79%
     );
+  @include transitioned;
+
+  &:hover {
+    transform: scale(1.025);
+  }
 
   @media screen and (max-width: 575px) {
     background: radial-gradient(
@@ -38,21 +43,6 @@
         rgba(255, 255, 255, 0) 79%
       );
   }
-
-  // background: radial-gradient(
-  //     circle at 100% 63.5%,
-  //     rgba(0, 0, 0, 0) 5%,
-  //     rgba(255, 255, 255, 1) 5%,
-  //     rgba(255, 255, 255, 1) 66%,
-  //     rgba(255, 255, 255, 0) 79%
-  //   ),
-  //   radial-gradient(
-  //     circle at 0 63.5%,
-  //     rgba(255, 255, 255, 0.05) 5%,
-  //     rgba(255, 255, 255, 1) 5%,
-  //     rgba(255, 255, 255, 1) 66%,
-  //     rgba(255, 255, 255, 0) 79%
-  //   );
 
   .hr-wrap {
     position: relative;
