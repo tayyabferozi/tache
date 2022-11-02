@@ -50,33 +50,35 @@ const Navbar = () => {
   };
 
   return (
-    <Section id="navbar">
-      <div className="navbar-wrap">
-        <Link to="/">
-          <img
-            className="logo"
-            src="/assets/vectors/logo.svg"
-            alt="logo"
-            title="logo"
-          />
-        </Link>
+    <>
+      <Section id="navbar">
+        <div className="navbar-wrap">
+          <Link to="/">
+            <img
+              className="logo"
+              src="/assets/vectors/logo.svg"
+              alt="logo"
+              title="logo"
+            />
+          </Link>
 
-        <Menu />
-
-        <div className="menu-sm" style={{ display: "none" }}>
           <Menu />
-        </div>
 
-        <div className="hamburger" onClick={toggleMenu}>
-          <img
-            src="/assets/vectors/icons/hamburger.svg"
-            alt="hamburger"
-            className="icon"
-            ref={burgerRef}
-          />
+          <div className="hamburger" onClick={toggleMenu}>
+            <img
+              src="/assets/vectors/icons/hamburger.svg"
+              alt="hamburger"
+              className="icon"
+              ref={burgerRef}
+            />
+          </div>
         </div>
+      </Section>
+
+      <div className="menu-sm" style={{ display: "none" }}>
+        <Menu />
       </div>
-    </Section>
+    </>
   );
 };
 

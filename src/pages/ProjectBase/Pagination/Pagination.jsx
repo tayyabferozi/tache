@@ -1,4 +1,5 @@
 import React from "react";
+import { animateScroll as scroll } from "react-scroll";
 
 import "./Pagination.scss";
 
@@ -14,7 +15,11 @@ const Pagination = ({ pageNumState, setPageNumState, total }) => {
 
   const scrollTop = () => {
     if (window.screen.width < 576) {
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
+
+      scroll.scrollToTop({
+        duration: 1500,
+      });
     }
   };
 

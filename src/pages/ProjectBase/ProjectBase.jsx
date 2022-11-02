@@ -674,6 +674,7 @@ const ProjectBase = () => {
   const [filteredData, setFilteredData] = useState(data);
   const [dataLen, setDataLen] = useState(data.length);
   const [searchState, setSearchState] = useState("");
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     const size = 4;
@@ -681,11 +682,19 @@ const ProjectBase = () => {
     setFilteredData((prevState) => {
       if (pageNumState < 0 || pageNumState > Math.ceil(data.length / 4))
         return prevState;
-      const newData = data.filter((el) => el.title.includes(searchState));
+      const newData = data.filter((el) =>
+        el.title.toLowerCase().includes(searchState.toLowerCase())
+      );
       setDataLen(newData.length);
       return newData.slice((pageNumState - 1) * size, pageNumState * size);
     });
   }, [pageNumState, searchState]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(true);
+    }, 3000);
+  }, []);
 
   return (
     <Section id="project-tickets">
@@ -703,20 +712,28 @@ const ProjectBase = () => {
         <div className="col-xl-9">
           <AnimatePresence>
             <GridContainer rootClassName="mt-40 mt-767-34" rowClassName="g-20">
-              {filteredData.map((el, idx) => {
-                return (
-                  <motion.div
-                    key={"tile" + el.id + Math.random()}
-                    transition={{ duration: 0.3 }}
-                    initial={{ transform: "scale(.95)", opacity: 0.5 }}
-                    animate={{ transform: "scale(1)", opacity: 1 }}
-                    exit={{ transform: "scale(.95)", opacity: 0 }}
-                    className="col-lg-6"
-                  >
-                    <ProjectTile id={idx} {...el} />
-                  </motion.div>
-                );
-              })}
+              {show
+                ? filteredData.map((el, idx) => {
+                    return (
+                      <motion.div
+                        key={"tile" + el.id + Math.random()}
+                        transition={{ duration: 0.3 }}
+                        initial={{ transform: "scale(.95)", opacity: 0.5 }}
+                        animate={{ transform: "scale(1)", opacity: 1 }}
+                        exit={{ transform: "scale(.95)", opacity: 0 }}
+                        className="col-lg-6"
+                      >
+                        <ProjectTile id={idx} {...el} />
+                      </motion.div>
+                    );
+                  })
+                : new Array(4).fill(0).map((el, idx) => {
+                    return (
+                      <div className="col-lg-6" key={"skeleton" + idx}>
+                        <ProjectTile id={idx} {...el} skeleton={true} />
+                      </div>
+                    );
+                  })}
             </GridContainer>
           </AnimatePresence>
         </div>
