@@ -1,0 +1,128 @@
+.project-tickets-main-head {
+  margin-top: 14px;
+
+  .main-head-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 34px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+
+    @media screen and (max-width: 575px) {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    & > * {
+      width: calc(50% - 18px);
+
+      @media screen and (max-width: 575px) {
+        width: 100%;
+
+        &:nth-child(1) {
+          order: 1;
+        }
+
+        &:nth-child(2) {
+          order: 3;
+        }
+
+        &:nth-child(3) {
+          order: 4;
+        }
+
+        &:nth-child(4) {
+          order: 2;
+        }
+      }
+    }
+
+    .main-head-item__right {
+      .info-boxes,
+      .buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 14px;
+
+        .btn {
+          min-height: 48px;
+        }
+
+        &.info-boxes {
+          @media screen and (max-width: 991px) {
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+          }
+
+          & > * {
+            @media screen and (max-width: 991px) {
+              width: 100%;
+            }
+          }
+        }
+
+        &.buttons {
+          @media screen and (max-width: 991px) {
+            flex-wrap: wrap;
+
+            & > * {
+              &:nth-child(1) {
+                width: calc(100% - 10px);
+
+                @media screen and (max-width: 575px) {
+                  width: 100%;
+                }
+              }
+
+              &:nth-child(2),
+              &:nth-child(3) {
+                width: calc(50% - 10px);
+
+                &:nth-child(2) {
+                  .btn {
+                    width: 100%;
+                    justify-content: space-between;
+                  }
+                }
+
+                &:nth-child(3).btn {
+                  justify-content: space-between;
+                }
+              }
+            }
+          }
+
+          @media screen and (max-width: 575px) {
+            justify-content: space-between;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 991px) {
+      .search-wrap .input {
+        min-width: unset;
+      }
+    }
+
+    // @media screen and (max-width: 991px) {
+    //   flex-direction: column-reverse;
+    //   align-items: center;
+    //   gap: 12px;
+
+    //   .main-head-item__left {
+    //     &,
+    //     * {
+    //       &:not(img) {
+    //         width: 100%;
+    //       }
+    //     }
+
+    //     .input {
+    //       min-width: 100%;
+    //     }
+    //   }
+    // }
+  }
+}

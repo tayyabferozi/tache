@@ -21,11 +21,9 @@
       rgba(255, 255, 255, 1) 66%,
       rgba(255, 255, 255, 0) 79%
     );
-  @include transitioned;
 
-  &:hover {
-    transform: scale(1.025);
-  }
+  @include transitioned;
+  @include hover-grow;
 
   @media screen and (max-width: 575px) {
     background: radial-gradient(

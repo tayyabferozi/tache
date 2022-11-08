@@ -210,7 +210,7 @@ hr {
   .options {
     position: absolute;
     right: 0;
-    border: 1px solid #d0d7de;
+    border: 1px solid $color23;
     box-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
     background-color: #fff;
     width: max-content;
@@ -227,7 +227,7 @@ hr {
 
       &:hover,
       &.active {
-        background-color: #f8f8f8;
+        background-color: $color24;
       }
     }
 
@@ -278,4 +278,8 @@ hr {
       }
     }
   }
+}
+
+.opacity-80 {
+  opacity: 0.8;
 }

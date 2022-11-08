@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import clsx from "clsx";
 
 import Button from "../../../components/Button";
+
 import "./ProjectTile.scss";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 const ProjectTile = ({
   id,
@@ -15,12 +16,11 @@ const ProjectTile = ({
   maintainers,
   subscribes,
   skeleton,
-  // isSubscribed,
 }) => {
   const [isSubscribed, setIsSubscribed] = useState(false);
 
   return (
-    <SkeletonTheme baseColor="">
+    <SkeletonTheme>
       <div className="project-tile-wrap">
         <div className="project-tile">
           <div className="tile-head">
@@ -89,7 +89,7 @@ const ProjectTile = ({
                 <div className="info-item">
                   <div className="item-left">
                     <img
-                      src="/assets/vectors/icons/activeTickets.svg"
+                      src="/assets/vectors/icons/active-tickets.svg"
                       alt="active-tickets"
                       title="total tickets"
                     />

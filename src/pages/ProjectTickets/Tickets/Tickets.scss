@@ -1,0 +1,11 @@
+.project-tickets {
+  margin-top: 64px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 40px;
+  }
+
+  @media screen and (max-width: 575px) {
+    margin-top: 24px;
+  }
+}

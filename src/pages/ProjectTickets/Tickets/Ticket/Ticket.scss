@@ -1,0 +1,44 @@
+.project-ticket {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 40px 34px 84px 0px #eaeaeacc;
+  min-height: 300px;
+  cursor: pointer;
+
+  @include transitioned;
+  @include hover-grow;
+
+  .top {
+    min-height: 31px;
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .main-info {
+    display: flex;
+    align-items: center;
+    margin: 30px 0 24px;
+    gap: 14px;
+
+    .ticket-img {
+      width: 54px;
+    }
+
+    .mystery {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
+
+  .tags {
+    display: flex;
+    gap: 14px;
+    margin-top: 24px;
+  }
+}

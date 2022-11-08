@@ -6,9 +6,10 @@ import "./ProjectBase.scss";
 import Section from "../../components/Section";
 import GridContainer from "../../components/GridContainer";
 import SearchWrap from "../../components/SearchWrap/SearchWrap";
+import Pagination from "../../components/Pagination";
 import ProjectTile from "./ProjectTile/ProjectTile";
 import WorkerPool from "./WorkerPool/WorkerPool";
-import Pagination from "./Pagination";
+import cardAnimations from "../../constants/card-animations";
 
 const data = [
   {
@@ -670,6 +671,8 @@ const data = [
 ];
 
 const ProjectBase = () => {
+  const pageSize = 4;
+
   const [pageNumState, setPageNumState] = useState(1);
   const [filteredData, setFilteredData] = useState(data);
   const [dataLen, setDataLen] = useState(data.length);
@@ -677,16 +680,17 @@ const ProjectBase = () => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const size = 4;
-
     setFilteredData((prevState) => {
-      if (pageNumState < 0 || pageNumState > Math.ceil(data.length / 4))
+      if (pageNumState < 0 || pageNumState > Math.ceil(data.length / pageSize))
         return prevState;
       const newData = data.filter((el) =>
         el.title.toLowerCase().includes(searchState.toLowerCase())
       );
       setDataLen(newData.length);
-      return newData.slice((pageNumState - 1) * size, pageNumState * size);
+      return newData.slice(
+        (pageNumState - 1) * pageSize,
+        pageNumState * pageSize
+      );
     });
   }, [pageNumState, searchState]);
 
@@ -697,70 +701,73 @@ const ProjectBase = () => {
   }, []);
 
   return (
-    <Section id="project-tickets">
-      <h2>Project Base</h2>
+    <>
+      <Section id="project-base">
+        <h2>Project Base</h2>
 
-      <GridContainer>
-        <div className="col-xl-9">
-          <SearchWrap
-            searchState={searchState}
-            setSearchState={setSearchState}
-          />
-        </div>
-        <div className="col-xl-3 d-xl-block d-none"></div>
+        <GridContainer>
+          <div className="col-xl-9">
+            <SearchWrap
+              searchState={searchState}
+              setSearchState={setSearchState}
+              withAddBtn
+            />
+          </div>
+          <div className="col-xl-3 d-xl-block d-none"></div>
 
-        <div className="col-xl-9">
-          <AnimatePresence>
-            <GridContainer rootClassName="mt-40 mt-767-34" rowClassName="g-20">
-              {show
-                ? filteredData.map((el, idx) => {
-                    return (
-                      <motion.div
-                        key={"tile" + el.id + Math.random()}
-                        transition={{ duration: 0.3 }}
-                        initial={{ transform: "scale(.95)", opacity: 0.5 }}
-                        animate={{ transform: "scale(1)", opacity: 1 }}
-                        exit={{ transform: "scale(.95)", opacity: 0 }}
-                        className="col-lg-6"
-                      >
-                        <ProjectTile id={idx} {...el} />
-                      </motion.div>
-                    );
-                  })
-                : new Array(4).fill(0).map((el, idx) => {
-                    return (
-                      <div className="col-lg-6" key={"skeleton" + idx}>
-                        <ProjectTile id={idx} {...el} skeleton={true} />
-                      </div>
-                    );
-                  })}
-            </GridContainer>
-          </AnimatePresence>
-        </div>
-        <div className="col-12 d-sm-none">
-          <div className="my-20">
+          <div className="col-xl-9">
+            <AnimatePresence>
+              <GridContainer
+                rootClassName="mt-40 mt-767-34"
+                rowClassName="g-20"
+              >
+                {show
+                  ? filteredData.map((el, idx) => {
+                      return (
+                        <motion.div
+                          key={"tile" + el.id + Math.random()}
+                          {...cardAnimations}
+                          className="col-lg-6"
+                        >
+                          <ProjectTile id={idx} {...el} />
+                        </motion.div>
+                      );
+                    })
+                  : new Array(4).fill(0).map((el, idx) => {
+                      return (
+                        <div className="col-lg-6" key={"skeleton" + idx}>
+                          <ProjectTile id={idx} {...el} skeleton />
+                        </div>
+                      );
+                    })}
+              </GridContainer>
+            </AnimatePresence>
+          </div>
+          <div className="col-12 d-sm-none">
+            <div className="my-20">
+              <Pagination
+                pageNumState={pageNumState}
+                setPageNumState={setPageNumState}
+                total={Math.ceil(dataLen / 4)}
+              />
+            </div>
+          </div>
+          <div className="col-xl-3">
+            <div className="mt-40 mt-1199-0">
+              <WorkerPool />
+            </div>
+          </div>
+
+          <div className="d-sm-block d-none pagination-lg">
             <Pagination
               pageNumState={pageNumState}
               setPageNumState={setPageNumState}
-              total={Math.ceil(dataLen / 4)}
+              total={Math.ceil(dataLen / pageSize)}
             />
           </div>
-        </div>
-        <div className="col-xl-3">
-          <div className="mt-40 mt-1199-0">
-            <WorkerPool />
-          </div>
-        </div>
-
-        <div className="d-sm-block d-none">
-          <Pagination
-            pageNumState={pageNumState}
-            setPageNumState={setPageNumState}
-            total={Math.ceil(dataLen / 4)}
-          />
-        </div>
-      </GridContainer>
-    </Section>
+        </GridContainer>
+      </Section>
+    </>
   );
 };
 
