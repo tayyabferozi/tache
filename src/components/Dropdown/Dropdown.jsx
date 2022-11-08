@@ -20,8 +20,6 @@ const Dropdown = ({ defaultValue, options, onChoose, children }) => {
   };
 
   const chooseOptionHandler = (text) => {
-    if (onChoose) onChoose(text);
-
     setValue(text);
     closeDrawer();
   };
@@ -31,6 +29,10 @@ const Dropdown = ({ defaultValue, options, onChoose, children }) => {
   useEffect(() => {
     setValue(defaultValue);
   }, [defaultValue]);
+
+  useEffect(() => {
+    if (onChoose) onChoose(value);
+  }, [value, onChoose]);
 
   return (
     <div className="dropdown-big" ref={dropdownRef}>

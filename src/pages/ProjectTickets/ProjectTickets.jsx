@@ -9,6 +9,7 @@ import SubTitle from "./SubTitle/SubTitle";
 
 const ProjectTickets = () => {
   const [searchState, setSearchState] = useState("");
+  const [filterState, setFilterState] = useState("");
   const [projectInfo] = useState({
     title: "Project Name",
     description:
@@ -22,10 +23,11 @@ const ProjectTickets = () => {
       <MainHead
         searchState={searchState}
         setSearchState={setSearchState}
+        setFilterState={setFilterState}
         data={projectInfo}
       />
 
-      <Tickets searchState={searchState} />
+      <Tickets searchState={searchState} filterState={filterState} />
     </Section>
   );
 };

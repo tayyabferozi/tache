@@ -307,7 +307,7 @@ const data = [
   },
 ];
 
-const Tickets = ({ searchState }) => {
+const Tickets = ({ filterState, searchState }) => {
   const pageSize = 12;
 
   const { show: showTicketDisplayModal, toggleShow: toggleTicketDisplayModal } =
@@ -319,6 +319,7 @@ const Tickets = ({ searchState }) => {
   const [dataLen, setDataLen] = useState(data.length);
 
   useEffect(() => {
+    // SIMULATING API LOAD
     setTimeout(() => {
       setShow(true);
     }, 3000);
@@ -328,16 +329,36 @@ const Tickets = ({ searchState }) => {
     setFilteredData((prevState) => {
       if (pageNumState < 0 || pageNumState > Math.ceil(data.length / pageSize))
         return prevState;
-      const newData = data.filter((el) =>
-        el.title.toLowerCase().includes(searchState.toLowerCase())
-      );
+      const newData = data.filter((el) => {
+        let shouldInclude = false;
+
+        // SEARCH FILTER
+
+        shouldInclude = el.title
+          .toLowerCase()
+          .includes(searchState.toLowerCase());
+
+        // DROPDOWN FILTERS
+
+        if (filterState === "In Development") {
+          if (el.state !== "development") shouldInclude = false;
+        }
+
+        return shouldInclude;
+      });
+
+      // TO SHOW TOTAL IN THE PAGINATION (THIS LENGTH IS CALCULATED AFTER APPLYING FILTERS)
+
       setDataLen(newData.length);
+
+      // RETURNING CURRENT PAGE ITEMS ONLY
+
       return newData.slice(
         (pageNumState - 1) * pageSize,
         pageNumState * pageSize
       );
     });
-  }, [pageNumState, searchState]);
+  }, [pageNumState, filterState, searchState]);
 
   return (
     <>

@@ -32,7 +32,11 @@ const importOptions = [
   },
 ];
 
-const MainHead = ({ searchState, setSearchState, data }) => {
+const MainHead = ({ searchState, setSearchState, setFilterState, data }) => {
+  const filterChangeHandler = (value) => {
+    setFilterState(value);
+  };
+
   return (
     <div className="project-tickets-main-head">
       <div className="main-head-item">
@@ -56,7 +60,11 @@ const MainHead = ({ searchState, setSearchState, data }) => {
         </div>
         <div className="main-head-item__right">
           <div className="buttons">
-            <Dropdown defaultValue="Recently Added" options={filterOptions} />
+            <Dropdown
+              defaultValue="Recently Added"
+              options={filterOptions}
+              onChoose={filterChangeHandler}
+            />
             <Dropdown options={importOptions}>
               <Button
                 grey
