@@ -15,10 +15,10 @@ const filterOptions = [
     label: "Awaiting Contributor",
   },
   {
-    label: "Recently added",
+    label: "Recently Added",
   },
   {
-    label: "Oldest added",
+    label: "Oldest Added",
   },
   {
     label: "Alphabetical",
@@ -61,12 +61,21 @@ const MainHead = ({ searchState, setSearchState, setFilterState, data }) => {
         <div className="main-head-item__right">
           <div className="buttons">
             <Dropdown
+              withCheckmarks
               defaultValue="Recently Added"
               options={filterOptions}
               onChoose={filterChangeHandler}
             />
+            <div className="d-sm-none">
+              <SearchWrap
+                noMt
+                searchState={searchState}
+                setSearchState={setSearchState}
+              />
+            </div>
             <Dropdown options={importOptions}>
               <Button
+                textClassName="with-icon-2"
                 grey
                 icon={{
                   className: "me-2",
@@ -75,6 +84,12 @@ const MainHead = ({ searchState, setSearchState, setFilterState, data }) => {
                 }}
               >
                 Import
+                <img
+                  className="icon-2"
+                  src="/assets/vectors/icons/dropdown.svg"
+                  alt="dropdown"
+                  title="dropdown"
+                />
               </Button>
             </Dropdown>
             <Button

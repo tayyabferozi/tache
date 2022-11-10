@@ -1,22 +1,29 @@
 import React, { useRef, useEffect, useState } from "react";
 import $ from "jquery";
+import clsx from "clsx";
 
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 
 import "./Dropdown.scss";
 
-const Dropdown = ({ defaultValue, options, onChoose, children }) => {
+const Dropdown = ({
+  withCheckmarks,
+  defaultValue,
+  options,
+  onChoose,
+  children,
+}) => {
   const dropdownRef = useRef();
   const menuRef = useRef();
 
   const [value, setValue] = useState("");
 
   const closeDrawer = () => {
-    $(menuRef.current).slideUp();
+    $(menuRef.current).slideUp({ duration: 200 });
   };
 
   const toggleDrawer = () => {
-    $(menuRef.current).slideToggle();
+    $(menuRef.current).slideToggle({ duration: 200 });
   };
 
   const chooseOptionHandler = (text) => {
@@ -49,12 +56,18 @@ const Dropdown = ({ defaultValue, options, onChoose, children }) => {
       ) : (
         <div onClick={toggleDrawer}>{children}</div>
       )}
-      <div className="dropdown-big__options" ref={menuRef}>
+      <div
+        className={clsx(
+          "dropdown-big__options",
+          withCheckmarks && "with-checkmarks"
+        )}
+        ref={menuRef}
+      >
         {options?.map((el, idx) => {
           const { img, label } = el;
           return (
             <div
-              className="option"
+              className={clsx("option", label === value && "active")}
               key={"dropdown-option-" + label + idx}
               onClick={() => chooseOptionHandler(label)}
             >
