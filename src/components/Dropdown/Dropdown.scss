@@ -14,25 +14,22 @@
 
   .dropdown-big__options {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 6px);
     left: 0;
     right: 0;
     border-radius: 0 0 4px 4px;
     display: none;
-    padding: 4px 0;
-    border: 1px solid $color23;
+    border: 1px solid $color5;
     box-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
     background-color: #fff;
-    z-index: 2;
     border-radius: 6px;
     overflow: hidden;
-    // box-shadow: 0 8px 24px rgb(140 149 159 / 20%);
+    z-index: 2;
 
     .option {
       padding: 7px 20px;
       background-color: #fff;
       font-size: 15px;
-      cursor: pointer;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -41,10 +38,11 @@
       @include transitioned;
 
       &:not(:last-child) {
-        border-bottom: 1px solid $color23;
+        border-bottom: 1px solid $color5;
       }
 
-      &:hover {
+      &:hover:not(.label) {
+        cursor: pointer;
         background-color: $color24;
       }
 
@@ -55,19 +53,35 @@
 
     &.with-checkmarks {
       .option {
-        padding-left: 40px;
+        &:not(.label) {
+          padding-left: 40px;
 
-        &.active {
-          &::after {
-            content: url("../../assets/vectors/tick.svg");
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            width: 16px;
-            left: 12px;
-            filter: invert(37%) sepia(2%) saturate(5729%) hue-rotate(181deg)
-              brightness(97%) contrast(87%);
+          &.active {
+            &::after {
+              content: url("../../assets/vectors/tick.svg");
+              position: absolute;
+              top: calc(50% + 2px);
+              transform: translateY(-50%);
+
+              width: 14px;
+              left: 15px;
+              // filter: invert(37%) sepia(2%) saturate(5729%) hue-rotate(181deg)
+              //   brightness(97%) contrast(87%);
+              filter: invert(57%) sepia(9%) saturate(705%) hue-rotate(177deg)
+                brightness(98%) contrast(91%);
+            }
+          }
+        }
+
+        &.label {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 9px 15px;
+
+          .cross {
+            width: 12px;
+            cursor: pointer;
           }
         }
       }

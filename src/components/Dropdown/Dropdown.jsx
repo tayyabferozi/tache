@@ -63,6 +63,17 @@ const Dropdown = ({
         )}
         ref={menuRef}
       >
+        {withCheckmarks && (
+          <div className="option label">
+            Sort By
+            <img
+              className="cross"
+              src="/assets/vectors/icons/close-3.svg"
+              alt="cross"
+              onClick={closeDrawer}
+            />
+          </div>
+        )}
         {options?.map((el, idx) => {
           const { img, label } = el;
           return (
