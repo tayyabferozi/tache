@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import $ from "jquery";
+import { motion, AnimatePresence, useCycle } from "framer-motion";
 
 import Button from "../../../components/Button";
 import PoolItem from "./PoolItem";
@@ -41,11 +41,12 @@ const lastMonthUsers = [
 
 const WorkerPool = () => {
   const headRef = useRef();
-  const mainContentRef = useRef();
+
+  const [open, cycleOpen] = useCycle(false, true);
 
   const toggleActive = () => {
-    $(mainContentRef.current).slideToggle();
-    $(headRef.current).toggleClass("active");
+    cycleOpen();
+    headRef.current.classList.toggle("active");
   };
 
   return (
@@ -56,23 +57,38 @@ const WorkerPool = () => {
         <img src="/assets/vectors/icons/worker-pool.svg" alt="worker-pool" />
       </div>
 
-      <div ref={mainContentRef} className="pb-1 main-content">
-        <div className="fs-12 mt-10">This month</div>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="pb-1 main-content"
+            initial={{
+              height: 0,
+            }}
+            animate={{
+              height: "unset",
+            }}
+            exit={{
+              height: 0,
+            }}
+          >
+            <div className="fs-12 mt-10">This month</div>
 
-        <div className="month-items">
-          {thisMonthUsers.map((el, idx) => {
-            return <PoolItem key={"this-month" + idx} {...el} />;
-          })}
-        </div>
+            <div className="month-items">
+              {thisMonthUsers.map((el, idx) => {
+                return <PoolItem key={"this-month" + idx} {...el} />;
+              })}
+            </div>
 
-        <div className="fs-12 mt-10">Last month</div>
+            <div className="fs-12 mt-10">Last month</div>
 
-        <div className="month-items">
-          {lastMonthUsers.map((el, idx) => {
-            return <PoolItem key={"last-month" + idx} {...el} />;
-          })}
-        </div>
-      </div>
+            <div className="month-items">
+              {lastMonthUsers.map((el, idx) => {
+                return <PoolItem key={"last-month" + idx} {...el} />;
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div className="mt-2">
         <Button primaryLight>Find new work</Button>

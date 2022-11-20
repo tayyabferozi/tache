@@ -41,6 +41,8 @@
   }
 
   .main-content {
+    overflow: hidden;
+
     @media screen and (min-width: 576px) {
       display: block !important;
       height: auto !important;

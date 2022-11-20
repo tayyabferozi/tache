@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
-import $ from "jquery";
+import { motion, useCycle, AnimatePresence } from "framer-motion";
 
 import Section from "../../components/Section";
 
@@ -44,9 +44,11 @@ const extraOptions = [
 const Navbar = () => {
   const burgerRef = useRef();
 
+  const [open, cycleOpen] = useCycle(false, true);
+
   const toggleMenu = () => {
-    $(".menu-sm").slideToggle();
-    $(burgerRef.current).toggleClass("active");
+    burgerRef.current.classList.toggle("active");
+    cycleOpen();
   };
 
   return (
@@ -75,9 +77,19 @@ const Navbar = () => {
         </div>
       </Section>
 
-      <div className="menu-sm" style={{ display: "none" }}>
-        <Menu />
-      </div>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            key="sm-menu"
+            initial={{ height: 0 }}
+            animate={{ height: 310 }}
+            exit={{ height: 0 }}
+            className="menu-sm"
+          >
+            <Menu />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

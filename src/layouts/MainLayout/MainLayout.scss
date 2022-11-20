@@ -238,6 +238,7 @@
   background-color: $color8;
   padding-left: 60px;
   padding-right: 60px;
+  overflow: hidden;
   border-top: 1px solid rgba($color6, 0.2);
 
   @media screen and (max-width: 767px) {
