@@ -5,6 +5,8 @@ import MainLayout from "./layouts/MainLayout";
 import Landing from "./pages/Landing/Landing";
 import ProjectTickets from "./pages/ProjectTickets";
 import ProjectBase from "./pages/ProjectBase";
+import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
 
 const AppRoutes = () => {
   return (
@@ -14,6 +16,8 @@ const AppRoutes = () => {
           <Route index element={<Landing />} />
           <Route path="/project-tickets" element={<ProjectTickets />} />
           <Route path="/project-base" element={<ProjectBase />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
         </Route>
       </Routes>
     </Router>

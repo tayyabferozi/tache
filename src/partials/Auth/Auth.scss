@@ -1,0 +1,119 @@
+#auth {
+  .head {
+    text-align: center;
+
+    img {
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+
+      @media screen and (max-width: 575px) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .form {
+    max-width: 450px;
+    margin: 3rem auto 0;
+
+    .custom-form-control {
+      margin-bottom: 1.25rem;
+    }
+
+    .btn {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .forgot {
+      color: $color10;
+      font-size: 12px;
+      text-decoration: underline;
+
+      @media screen and (min-width: 768px) {
+        font-size: 15px;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .btn-primary {
+      min-width: 120px;
+      justify-content: center;
+    }
+  }
+
+  .or {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    font-weight: bold;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      background-color: $color2;
+      height: 1px;
+      opacity: 0.3;
+    }
+
+    .main {
+      position: relative;
+      font-size: 14px;
+      text-align: center;
+      background-color: $color8;
+      z-index: 1;
+      padding: 0 10px;
+    }
+  }
+
+  .btns {
+    display: flex;
+    gap: 20px;
+
+    .btn {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 42px;
+
+      img {
+        width: 24px;
+      }
+    }
+  }
+
+  .to-signup {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+
+    @media screen and (max-width: 575px) {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      width: unset;
+      margin: unset;
+      flex-direction: row-reverse;
+
+      .btn-icon {
+        transform: rotate(180deg);
+        margin-left: 6px;
+      }
+    }
+  }
+}
