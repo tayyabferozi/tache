@@ -54,13 +54,15 @@ const Auth = ({ signup, formState, setFormState, onSubmit }) => {
           onChange={inputChangeHandler}
         />
 
-        <div className="d-flex justify-content-between align-items-center mb-4">
-          <Checkbox label="Remember Me" />
+        {!signup && (
+          <div className="d-flex justify-content-between align-items-center mb-4">
+            <Checkbox label="Remember Me" />
 
-          <Link to="#0" className="forgot">
-            Forgot password?
-          </Link>
-        </div>
+            <Link to="#0" className="forgot">
+              Forgot password?
+            </Link>
+          </div>
+        )}
 
         <Button primary>{signup ? "Sign Up" : "Sign In"}</Button>
 
