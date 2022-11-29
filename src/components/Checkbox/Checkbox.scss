@@ -35,6 +35,8 @@
   background-color: #fff;
   border-radius: 4px;
   border: 1px solid $color7;
+
+  @include transitioned;
 }
 
 /* On mouse-over, add a grey background color */
@@ -53,6 +55,8 @@
   content: "";
   position: absolute;
   display: none;
+
+  @include transitioned;
 }
 
 /* Show the checkmark when checked */

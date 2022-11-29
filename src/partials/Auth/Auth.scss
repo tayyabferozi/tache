@@ -1,4 +1,13 @@
 #auth {
+  min-height: calc(100vh - 100px - 60px);
+  display: flex;
+  align-items: center;
+  padding-top: 3rem;
+
+  & > * {
+    width: 100%;
+  }
+
   .head {
     text-align: center;
 
@@ -89,6 +98,24 @@
 
       img {
         width: 24px;
+
+        transition: 0.2s ease;
+      }
+
+      &:hover {
+        &:nth-child(1) {
+          img {
+            filter: invert(36%) sepia(55%) saturate(5355%) hue-rotate(349deg)
+              brightness(94%) contrast(87%);
+          }
+        }
+
+        &:nth-child(2) {
+          img {
+            filter: invert(50%) sepia(100%) saturate(330%) hue-rotate(85deg)
+              brightness(87%) contrast(91%);
+          }
+        }
       }
     }
   }

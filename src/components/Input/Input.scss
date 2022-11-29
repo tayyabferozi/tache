@@ -49,6 +49,15 @@
       left: 12px;
     }
 
+    .pwd-icon {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      width: 24px;
+    }
+
     .icon + input {
       padding-left: 48px;
     }

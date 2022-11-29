@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Input from "../../components/Input";
 import Section from "../../components/Section";
 import Button from "../../components/Button";
+import Checkbox from "../../components/Checkbox";
 import "./Auth.scss";
 
 const Auth = ({ signup, formState, setFormState, onSubmit }) => {
@@ -52,15 +54,13 @@ const Auth = ({ signup, formState, setFormState, onSubmit }) => {
           onChange={inputChangeHandler}
         />
 
-        {/* USE IF NEEDED BUT MAKE SURE TO IMPORT CHECKBOX FROM COMPONENTS  */}
-
-        {/* <div className="d-flex justify-content-between align-items-center mb-4">
+        <div className="d-flex justify-content-between align-items-center mb-4">
           <Checkbox label="Remember Me" />
 
           <Link to="#0" className="forgot">
             Forgot password?
           </Link>
-        </div> */}
+        </div>
 
         <Button primary>{signup ? "Sign Up" : "Sign In"}</Button>
 
