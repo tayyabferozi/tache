@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
 
 import Section from "../../components/Section";
@@ -28,16 +28,19 @@ const extraOptions = [
     icon: "/assets/vectors/icons/notifications.svg",
     title: "notifications",
     alt: "notifications",
+    to: "",
   },
   {
     icon: "/assets/vectors/icons/messages.svg",
     title: "messages",
     alt: "messages",
+    to: "",
   },
   {
     icon: "/assets/vectors/icons/profile.svg",
     title: "profile",
     alt: "profile",
+    to: "/signup",
   },
 ];
 
@@ -96,22 +99,33 @@ const Navbar = () => {
 
 export default Navbar;
 
-const Menu = () => (
-  <>
-    <div className="navbar-main">
-      {navItems.map((el, idx) => (
-        <NavLink key={"nav-item" + idx} to={el.to}>
-          {el.text}
-        </NavLink>
-      ))}
-    </div>
+const Menu = () => {
+  const navigate = useNavigate();
 
-    <div className="options">
-      {extraOptions.map((el, idx) => (
-        <div className="option-item" key={"extra-option" + idx}>
-          <img src={el.icon} alt={el.alt} title={el.title} />
-        </div>
-      ))}
-    </div>
-  </>
-);
+  return (
+    <>
+      <div className="navbar-main">
+        {navItems.map((el, idx) => (
+          <NavLink key={"nav-item" + idx} to={el.to}>
+            {el.text}
+          </NavLink>
+        ))}
+      </div>
+
+      <div className="options">
+        {extraOptions.map((el, idx) => (
+          <div className="option-item" key={"extra-option" + idx}>
+            <img
+              onClick={() => {
+                if (el.to) navigate(el.to);
+              }}
+              src={el.icon}
+              alt={el.alt}
+              title={el.title}
+            />
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
