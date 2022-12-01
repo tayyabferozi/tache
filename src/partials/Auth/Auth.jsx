@@ -71,10 +71,13 @@ const Auth = ({ signup, formState, setFormState, onSubmit }) => {
         </div>
 
         <div className="btns">
-          <Button grey>
+          <Button className="google" grey>
+            <img src="/assets/vectors/icons/logo-google.svg" alt="google" />
+          </Button>
+          <Button className="gitlab" grey>
             <img src="/assets/vectors/icons/logo-gitlab.svg" alt="gitlab" />
           </Button>
-          <Button grey>
+          <Button className="github" grey>
             <img src="/assets/vectors/icons/logo-github.svg" alt="github" />
           </Button>
         </div>
