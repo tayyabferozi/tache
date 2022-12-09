@@ -45,32 +45,6 @@
   .hr-wrap {
     position: relative;
 
-    // &::before,
-    // &::after {
-    //   content: "";
-    //   position: absolute;
-    //   top: 50%;
-    //   width: 36px;
-    //   height: 36px;
-    //   background-color: $color8;
-    //   border-radius: 50%;
-    //   z-index: 1;
-    //   border-radius: 50% 50% 0 0/100% 100% 0 0;
-    //   height: 18px;
-    //   mask-composite: exclude;
-    //   mask-size: 100% 100%;
-    // }
-
-    // &::before {
-    //   left: 0;
-    //   transform: translate(-28%, -50%) rotate(90deg);
-    // }
-
-    // &::after {
-    //   right: 0;
-    //   transform: translate(28%, -50%) rotate(-90deg);
-    // }
-
     hr {
       border-top: 2px dashed $color13;
       width: calc(100% - 46px);
@@ -154,12 +128,6 @@
       border-radius: 6px;
       flex-grow: 1;
 
-      // @media screen and (max-width: 575px) {
-      //   img {
-      //     display: none;
-      //   }
-      // }
-
       &:nth-child(1) {
         background-color: $color8;
       }
@@ -214,50 +182,7 @@
         color: $color1;
         letter-spacing: -0.5px;
       }
-
-      .maintainers-main {
-        display: flex;
-        align-items: center;
-        margin-top: 8px;
-
-        .item {
-          width: 26px;
-
-          @media screen and (max-width: 575px) {
-            width: 22px;
-          }
-
-          .ghost {
-            background-color: $color17;
-            width: 34px;
-            height: 34px;
-            border: 2px solid #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            color: $color20;
-
-            @media screen and (max-width: 575px) {
-              width: 28px;
-              height: 28px;
-            }
-
-            img {
-              width: 16px;
-
-              @media screen and (max-width: 575px) {
-                width: 14px;
-              }
-            }
-          }
-        }
-      }
     }
-
-    // .right {
-    // }
   }
 
   .subscribe-btn {

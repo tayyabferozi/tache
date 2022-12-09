@@ -11,6 +11,7 @@
 
   .top {
     min-height: 31px;
+    margin-bottom: 30px;
   }
 
   .title {
@@ -22,7 +23,7 @@
   .main-info {
     display: flex;
     align-items: center;
-    margin: 30px 0 24px;
+    margin: 0 0 24px;
     gap: 14px;
 
     .ticket-img {

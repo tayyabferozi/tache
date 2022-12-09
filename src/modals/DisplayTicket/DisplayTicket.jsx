@@ -224,7 +224,7 @@ const DisplayTicket = ({ ...rest }) => {
           </div>
 
           <CustomMDEditor
-            formState={formState}
+            value={formState.comment}
             inputChangeHandler={inputChangeHandler}
             footText="Attach files by dragging &amp; dropping, selecting or pasting them."
           />

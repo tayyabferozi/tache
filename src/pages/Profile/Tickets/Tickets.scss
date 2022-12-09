@@ -1,0 +1,22 @@
+#profile-view .tickets {
+  .project-ticket-wrap {
+    position: relative;
+
+    .remove {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      z-index: 1;
+      cursor: pointer;
+    }
+  }
+  .project-ticket {
+    min-height: unset;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    h4 {
+      font-weight: 500;
+    }
+  }
+}

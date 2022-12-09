@@ -95,6 +95,10 @@ hr {
   color: $color7;
 }
 
+.text-secondary-1 {
+  color: $color4;
+}
+
 .react-datepicker {
   border-color: rgba($color2, 0.2);
 
@@ -282,4 +286,8 @@ hr {
 
 .opacity-80 {
   opacity: 0.8;
+}
+
+.h-40 {
+  height: 40px;
 }

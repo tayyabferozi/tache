@@ -86,4 +86,12 @@
     padding-left: 14px;
     padding-right: 14px;
   }
+
+  &.btn-inlined {
+    width: unset;
+  }
+
+  &.persist-height {
+    height: 48px;
+  }
 }

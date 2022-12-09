@@ -46,7 +46,7 @@ const WorkerPool = () => {
 
   const toggleActive = () => {
     cycleOpen();
-    headRef.current.classList.toggle("active");
+    // headRef.current.classList.toggle("active");
   };
 
   return (
@@ -60,12 +60,13 @@ const WorkerPool = () => {
       <AnimatePresence>
         {open && (
           <motion.div
+            key="worker-pool"
             className="pb-1 main-content"
             initial={{
               height: 0,
             }}
             animate={{
-              height: "unset",
+              height: 300,
             }}
             exit={{
               height: 0,

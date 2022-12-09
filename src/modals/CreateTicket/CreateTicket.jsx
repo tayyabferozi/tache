@@ -186,7 +186,7 @@ const CreateTicket = ({ ...rest }) => {
               <div className="custom-form-control mt-30">
                 <label htmlFor="">Description</label>
                 <CustomMDEditor
-                  formState={formState}
+                  value={formState.comment}
                   inputChangeHandler={inputChangeHandler}
                   footText="0/5000"
                 />

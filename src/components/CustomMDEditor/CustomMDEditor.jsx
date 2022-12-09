@@ -17,7 +17,12 @@ const codeEdit = {
   icon: <MDButton mode="edit">Writer</MDButton>,
 };
 
-const CustomMDEditor = ({ formState, inputChangeHandler, footText }) => {
+const CustomMDEditor = ({
+  name = "comment",
+  value,
+  inputChangeHandler,
+  footText,
+}) => {
   return (
     <div data-color-mode="light">
       <div className="md-editor-wrap">
@@ -25,11 +30,11 @@ const CustomMDEditor = ({ formState, inputChangeHandler, footText }) => {
           preview="edit"
           extraCommands={[codeEdit, codePreview]}
           height={200}
-          value={formState.comment}
+          value={value}
           onChange={(e) =>
             inputChangeHandler({
               target: {
-                name: "comment",
+                name,
                 value: e,
               },
             })

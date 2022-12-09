@@ -6,9 +6,9 @@ import Pagination from "../../../components/Pagination";
 import DisplayTicket from "../../../modals/DisplayTicket";
 import cardAnimations from "../../../constants/card-animations";
 import useModal from "../../../hooks/useModal";
+import Ticket from "../../../components/Ticket";
 
 import "./Tickets.scss";
-import Ticket from "./Ticket/Ticket";
 
 const data = [
   {

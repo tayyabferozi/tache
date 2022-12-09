@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import "./ProjectTickets.scss";
 
 import Section from "../../components/Section";
-import Tickets from "./Tickets/Tickets";
-import MainHead from "./MainHead/MainHead";
-import SubTitle from "./SubTitle/SubTitle";
+import Tickets from "./Tickets";
+import MainHead from "./MainHead";
+import SubTitle from "./SubTitle";
 
 const ProjectTickets = () => {
   const [searchState, setSearchState] = useState("");

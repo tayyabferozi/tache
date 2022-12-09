@@ -1,0 +1,282 @@
+#main-layout .layout-body #profile-view.page-section {
+  @media screen and (max-width: 575px) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+#profile-view {
+  .user-info {
+    padding: 20px;
+
+    @media screen and (max-width: 575px) {
+      padding: 12px;
+    }
+
+    .cover {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+
+      .cover-img {
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%;
+      }
+
+      .edit {
+        position: absolute;
+        top: 22px;
+        right: 22px;
+        cursor: pointer;
+        width: 20px;
+      }
+    }
+
+    .info-main {
+      position: relative;
+      display: flex;
+      gap: 48px;
+      padding: 0 70px;
+
+      @media screen and (max-width: 1250px) {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+
+      @media screen and (max-width: 1100px) {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      @media screen and (max-width: 1200px) {
+        gap: 30px;
+      }
+
+      @media screen and (max-width: 767px) {
+        gap: 50px;
+      }
+
+      @media screen and (max-width: 650px) {
+        gap: 30px;
+      }
+
+      @media screen and (max-width: 575px) {
+        flex-direction: column;
+        gap: 24px;
+
+        @media screen and (max-width: 575px) {
+          padding: 20px;
+        }
+      }
+
+      .hired-by {
+        padding-left: 8px;
+
+        .companies {
+          .company-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            position: relative;
+
+            .remove {
+              position: absolute;
+              top: 0;
+              right: 0;
+              cursor: pointer;
+            }
+
+            .logo {
+              width: 24px;
+
+              img {
+                width: 100%;
+              }
+            }
+          }
+
+          .btn {
+            margin-top: 26px;
+            width: unset;
+            padding: 10px;
+            height: unset;
+
+            .btn-text {
+              font-size: 14px;
+            }
+
+            &.view-more {
+              background-color: transparent;
+            }
+          }
+        }
+      }
+
+      .info-main__left {
+        width: 240px;
+        flex-grow: 0;
+        margin-top: -70px;
+
+        @media screen and (max-width: 575px) {
+          width: 120px;
+        }
+
+        .profile-img-container {
+          position: relative;
+
+          .profile-img-wrap {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 8px solid #fff;
+            overflow: hidden;
+
+            @media screen and (max-width: 575px) {
+              width: 120px;
+              height: 120px;
+              border-width: 4px;
+            }
+
+            .profile-img {
+              width: 100%;
+            }
+          }
+
+          .profile-badge {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+
+            @media screen and (max-width: 575px) {
+              width: 50px;
+              right: -10px;
+            }
+          }
+
+          .edit {
+            position: absolute;
+            left: 12px;
+            bottom: 4px;
+            cursor: pointer;
+
+            @media screen and (max-width: 575px) {
+              width: 40px;
+              left: 0;
+              bottom: 0;
+            }
+          }
+        }
+      }
+
+      .info-main__center {
+        padding-top: 38px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+
+        @media screen and (max-width: 575px) {
+          padding-top: 0;
+        }
+
+        h4 {
+          min-height: 40px;
+        }
+
+        .options {
+          margin-top: 34px;
+          gap: 24px;
+
+          .follow-boxes {
+            display: flex;
+            gap: 20px;
+
+            .follow-box {
+              flex-grow: 1;
+              background-color: $color8;
+              padding: 18px;
+              text-align: center;
+              border-radius: 6px;
+            }
+          }
+
+          .btn {
+            width: 100%;
+          }
+        }
+
+        .text-content {
+          display: flex;
+          gap: 54px;
+          flex-grow: 1;
+
+          @media screen and (max-width: 1200px) {
+            gap: 30px;
+          }
+
+          @media screen and (max-width: 1100px) {
+            flex-direction: column;
+          }
+
+          .text-left {
+            width: 68%;
+
+            @media screen and (max-width: 1200px) {
+              width: unset;
+              flex-grow: 1;
+            }
+          }
+
+          .text-right {
+            flex-grow: 1;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+            height: 100%;
+
+            @media screen and (max-width: 1200px) {
+              width: 180px;
+              flex-grow: 0;
+            }
+
+            @media screen and (max-width: 1100px) {
+              width: 100%;
+            }
+
+            .badges {
+              margin-top: 14px;
+              flex-wrap: wrap;
+              display: flex;
+              gap: 14px;
+              max-width: 178px;
+
+              @media screen and (max-width: 1100px) {
+                max-width: unset;
+              }
+            }
+          }
+        }
+
+        .about-text {
+          margin-top: 14px;
+
+          a {
+            color: $color4;
+          }
+        }
+      }
+    }
+  }
+
+  .save-btn {
+    @media screen and (max-width: 575px) {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}

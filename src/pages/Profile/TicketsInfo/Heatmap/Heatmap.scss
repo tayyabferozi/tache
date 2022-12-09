@@ -1,0 +1,70 @@
+.heatmap-chart {
+  .enlarge {
+    cursor: pointer;
+  }
+
+  .heatmap-months {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .heatmap-month {
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+  }
+
+  .legend-wrap {
+    display: flex;
+    justify-content: flex-end;
+
+    .legend {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: $color8;
+      border-radius: 6px;
+      width: 310px;
+
+      .label {
+        font-size: 12px;
+        color: $color7;
+      }
+
+      .boxes {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+
+        .box {
+          width: 14px;
+          height: 14px;
+          border-radius: 4px;
+
+          &:nth-child(1) {
+            background-color: #adaaef;
+          }
+
+          &:nth-child(2) {
+            background-color: #7c77e6;
+          }
+
+          &:nth-child(3) {
+            background-color: #706ae3;
+          }
+
+          &:nth-child(4) {
+            background-color: #645ee1;
+          }
+
+          &:nth-child(5) {
+            background-color: #4b44dc;
+          }
+        }
+      }
+    }
+  }
+}
