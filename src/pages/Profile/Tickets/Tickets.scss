@@ -1,4 +1,9 @@
 #profile-view .tickets {
+  .customize-pin {
+    color: $color25;
+    cursor: pointer;
+  }
+
   .project-ticket-wrap {
     position: relative;
 

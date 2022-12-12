@@ -1,0 +1,24 @@
+#placeholder-tile {
+  min-height: 250px;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 40px 34px 84px 0px rgb(234 234 234 / 80%);
+  // background-color: $color5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  @include transitioned;
+
+  .add {
+    width: 30px;
+    filter: invert(18%) sepia(19%) saturate(65%) hue-rotate(171deg)
+      brightness(97%) contrast(100%);
+  }
+
+  &:hover {
+    transform: scale(1.025);
+  }
+}

@@ -48,6 +48,7 @@ const Profile = () => {
     about: `I'm Weihang Lo, a software engineer from Taiwan and also a Rustacean in [Rust Taiwan](https://www.google.com/) community. I love Rust, cycling and open source. Currently contribute to "Cargo: The Rust package manager" regularly and write articles for ["Rust Algorithm Club"](https://www.google.com/) (in Chinese).  \n Things I code with: Rust, Kubernetes, Node.js, Python, web development, DevOps, finding bugs.  \n You can contact me by clicking badges above, or just submit a new issue directly 😀.`,
     pinnedTickets: [
       {
+        id: 1,
         title: "Ticket title 1",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -56,13 +57,15 @@ const Profile = () => {
         mysteryBonus: 20,
       },
       {
-        payment: "100",
+        id: 2,
         title: "Ticket title 2",
+        payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
       },
       {
+        id: 3,
         title: "Ticket title 3",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -71,6 +74,7 @@ const Profile = () => {
         mysteryBonus: 20,
       },
       {
+        id: 4,
         title: "Ticket title 4",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -78,6 +82,7 @@ const Profile = () => {
         amount: false,
       },
       {
+        id: 5,
         title: "Ticket title 5",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -86,6 +91,7 @@ const Profile = () => {
         mysteryBonus: 20,
       },
       {
+        id: 6,
         title: "Ticket title 6",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -93,6 +99,7 @@ const Profile = () => {
         amount: false,
       },
       {
+        id: 7,
         title: "Ticket title 7",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -100,6 +107,7 @@ const Profile = () => {
         amount: false,
       },
       {
+        id: 8,
         title: "Ticket title 8",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -110,6 +118,7 @@ const Profile = () => {
     ],
     recentTickets: [
       {
+        id: 9,
         title: "Ticket title 1",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -118,13 +127,15 @@ const Profile = () => {
         mysteryBonus: 20,
       },
       {
-        payment: "100",
+        id: 10,
         title: "Ticket title 2",
+        payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
       },
       {
+        id: 11,
         title: "Ticket title 3",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -133,6 +144,7 @@ const Profile = () => {
         mysteryBonus: 20,
       },
       {
+        id: 12,
         title: "Ticket title 4",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -140,6 +152,7 @@ const Profile = () => {
         amount: false,
       },
       {
+        id: 13,
         title: "Ticket title 5",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -148,6 +161,7 @@ const Profile = () => {
         mysteryBonus: 20,
       },
       {
+        id: 14,
         title: "Ticket title 6",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -155,6 +169,7 @@ const Profile = () => {
         amount: false,
       },
       {
+        id: 15,
         title: "Ticket title 7",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -162,6 +177,7 @@ const Profile = () => {
         amount: false,
       },
       {
+        id: 16,
         title: "Ticket title 8",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -177,330 +193,181 @@ const Profile = () => {
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
         totalTickets: 12,
         activeTickets: 12,
-        maintainers: [
-          {
-            img: "/assets/imgs/maintainer-1.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-2.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-        ],
-        subscribes: "32 K",
-        isSubscribed: false,
       },
       {
-        title: "1Technology design template",
+        title: "Technology design template",
         access: "public",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
         totalTickets: 12,
         activeTickets: 12,
-        maintainers: [
-          {
-            img: "/assets/imgs/maintainer-1.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-2.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-        ],
-        subscribes: "32 K",
-        isSubscribed: false,
       },
       {
-        title: "1Technology design template",
+        title: "Technology design template",
         access: "public",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
         totalTickets: 12,
         activeTickets: 12,
-        maintainers: [
-          {
-            img: "/assets/imgs/maintainer-1.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-2.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-        ],
-        subscribes: "32 K",
-        isSubscribed: false,
       },
       {
-        title: "1Technology design template",
+        title: "Technology design template",
         access: "public",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
         totalTickets: 12,
         activeTickets: 12,
-        maintainers: [
-          {
-            img: "/assets/imgs/maintainer-1.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-2.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-        ],
-        subscribes: "32 K",
-        isSubscribed: false,
       },
       {
-        title: "1Technology design template",
+        title: "Technology design template",
         access: "public",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
         totalTickets: 12,
         activeTickets: 12,
-        maintainers: [
-          {
-            img: "/assets/imgs/maintainer-1.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-2.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-        ],
-        subscribes: "32 K",
-        isSubscribed: false,
       },
       {
-        title: "1Technology design template",
+        title: "Technology design template",
         access: "public",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
         totalTickets: 12,
         activeTickets: 12,
-        maintainers: [
-          {
-            img: "/assets/imgs/maintainer-1.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-2.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-        ],
-        subscribes: "32 K",
-        isSubscribed: false,
       },
       {
-        title: "1Technology design template",
+        title: "Technology design template",
         access: "public",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
         totalTickets: 12,
         activeTickets: 12,
-        maintainers: [
-          {
-            img: "/assets/imgs/maintainer-1.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-2.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-        ],
-        subscribes: "32 K",
-        isSubscribed: false,
       },
       {
-        title: "1Technology design template",
+        title: "Technology design template",
         access: "public",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
         totalTickets: 12,
         activeTickets: 12,
-        maintainers: [
-          {
-            img: "/assets/imgs/maintainer-1.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-2.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-3.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-4.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-5.png",
-          },
-          {
-            img: "/assets/imgs/maintainer-6.png",
-          },
-        ],
-        subscribes: "32 K",
-        isSubscribed: false,
+      },
+    ],
+    allTickets: [
+      {
+        id: 1,
+        title: "Ticket title 1",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI", "Backend", "Full-stack"],
+        amount: false,
+        mysteryBonus: 20,
+      },
+      {
+        id: 2,
+        title: "Ticket title 2",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI"],
+        amount: false,
+      },
+      {
+        id: 3,
+        title: "Ticket title 3",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI"],
+        amount: false,
+        mysteryBonus: 20,
+      },
+      {
+        id: 4,
+        title: "Ticket title 4",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI"],
+        amount: false,
+      },
+      {
+        id: 5,
+        title: "Ticket title 5",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI"],
+        amount: false,
+        mysteryBonus: 20,
+      },
+      {
+        id: 6,
+        title: "Ticket title 6",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI"],
+        amount: false,
+      },
+      {
+        id: 7,
+        title: "Ticket title 7",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI"],
+        amount: false,
+      },
+      {
+        id: 8,
+        title: "Ticket title 8",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI"],
+        amount: false,
+        mysteryBonus: 20,
+      },
+      {
+        id: 9,
+        title: "Ticket title 9",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI"],
+        amount: false,
+        mysteryBonus: 20,
+      },
+      {
+        id: 10,
+        title: "Ticket title 10",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI"],
+        amount: false,
+      },
+      {
+        id: 11,
+        title: "Ticket title 11",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI"],
+        amount: false,
+        mysteryBonus: 20,
+      },
+      {
+        id: 12,
+        title: "Ticket title 12",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI"],
+        amount: false,
+      },
+      {
+        id: 13,
+        title: "Ticket title 13",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI"],
+        amount: false,
+      },
+      {
+        id: 14,
+        title: "Ticket title 14",
+        payment: "100",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        tags: ["Frontend", "Database", "UI"],
+        amount: false,
+        mysteryBonus: 20,
       },
     ],
   });
+
+  const onCustomizePins = () => {};
 
   useEffect(() => {
     // SIMULATING API LOAD
@@ -519,11 +386,13 @@ const Profile = () => {
         />
         <TicketsInfo editState={editState} setEditState={setEditState} />
         <Tickets
-          removable
+          onCustomizePins={onCustomizePins}
           editState={editState}
           show={show}
           title="Pinned"
           items={userState.pinnedTickets}
+          allTickets={userState.allTickets}
+          setUser={setUserState}
         />
         <Tickets
           editState={editState}
