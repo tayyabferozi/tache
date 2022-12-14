@@ -39,7 +39,7 @@ const Tickets = ({
             {title}
           </Badge>
 
-          {onCustomizePins && editState && (
+          {onCustomizePins && (
             <div
               className="customize-pin"
               onClick={() => toggleShowCustomizePinModal()}
