@@ -6,6 +6,7 @@ import Modal from "../../components/Modal";
 import { Item } from "./Item";
 import Checkbox from "../../components/Checkbox";
 import "./EditCompanies.scss";
+import Input from "../../components/Input";
 
 const EditCompanies = ({ pinnedItems, allItems, setUser, ...rest }) => {
   const [pinnedItemsState, setPinnedItemsState] = useState([]);
@@ -112,11 +113,25 @@ const EditCompanies = ({ pinnedItems, allItems, setUser, ...rest }) => {
             {restItems?.map((el, idx) => {
               return (
                 <div className="item" key={"all-companies" + idx}>
-                  <Checkbox
+                  <div className="item-left">
+                    <Checkbox
+                      label={`${el?.name?.slice(0, 20)}${
+                        el?.name?.length > 20 ? "..." : ""
+                      }`}
+                      img={el.img}
+                      checked={false}
+                      onChange={() => updatePinnedHandler(el, "add")}
+                    />
+
+                    <div className="company-data">
+                      <Input value={el.title} readOnly />
+                    </div>
+                  </div>
+                  {/* <Checkbox
                     label={el.title}
                     checked={false}
                     onChange={() => updatePinnedHandler(el, "add")}
-                  />
+                  /> */}
                 </div>
               );
             })}

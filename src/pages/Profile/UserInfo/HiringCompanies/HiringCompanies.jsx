@@ -22,6 +22,8 @@ const HiringCompanies = ({ user, editState, hiredBy, setUser }) => {
     });
   };
 
+  if (user.allCompanies.length === 0) return null;
+
   return (
     <>
       <EditCompanies
@@ -31,6 +33,7 @@ const HiringCompanies = ({ user, editState, hiredBy, setUser }) => {
         pinnedItems={user.hiredBy}
         setUser={setUser}
       />
+
       <div className="hired-by mt-20">
         <div className="text-focus">Hired by</div>
 
