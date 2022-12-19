@@ -291,3 +291,24 @@ hr {
 .h-40 {
   height: 40px;
 }
+
+.text-focus {
+  letter-spacing: -0.08ch;
+  color: $color1;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.w-md-editor-preview {
+  padding: 10px;
+
+  &,
+  * {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+}
+
+.c-pointer {
+  cursor: pointer;
+}

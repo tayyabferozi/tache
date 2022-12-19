@@ -9,9 +9,17 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
   @media screen and (min-width: 768px) {
     font-size: 15px;
+  }
+
+  img {
+    width: 24px;
+    margin-left: 8px;
   }
 }
 

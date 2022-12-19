@@ -1,4 +1,4 @@
-#custom-pins-modal {
+.custom-order-modal {
   .small-main {
     .items {
       overscroll-behavior: contain;
@@ -15,6 +15,9 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 0;
+
+        .item-left {
+        }
 
         .title {
           font-size: 12px;

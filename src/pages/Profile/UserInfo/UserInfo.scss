@@ -9,7 +9,7 @@
     padding: 20px;
 
     @media screen and (max-width: 575px) {
-      padding: 12px;
+      padding: 12px 0;
     }
 
     .cover {
@@ -68,7 +68,7 @@
         gap: 24px;
 
         @media screen and (max-width: 575px) {
-          padding: 20px;
+          padding: 18px;
         }
       }
 
@@ -76,12 +76,23 @@
         padding-left: 8px;
 
         .companies {
+          // @media screen and (max-width: 575px) {
+          //   display: flex;
+          //   flex-wrap: wrap;
+          //   justify-content: center;
+          //   gap: 10px;
+          // }
+
           .company-item {
             display: flex;
             gap: 16px;
             align-items: flex-start;
             margin-bottom: 16px;
             position: relative;
+
+            // @media screen and (max-width: 575px) {
+            //   width: calc(50% - 5px);
+            // }
 
             .remove {
               position: absolute;
@@ -92,9 +103,20 @@
 
             .logo {
               width: 24px;
+              flex-shrink: 0;
 
               img {
                 width: 100%;
+              }
+            }
+
+            .text {
+              max-width: 116px;
+
+              .name {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
               }
             }
           }
@@ -104,6 +126,11 @@
             width: unset;
             padding: 10px;
             height: unset;
+
+            // @media screen and (max-width: 575px) {
+            //   width: 100%;
+            //   margin-top: 10px;
+            // }
 
             .btn-text {
               font-size: 14px;
@@ -117,8 +144,10 @@
       }
 
       .info-main__left {
-        width: 240px;
+        // width: 186px;
+        width: 220px;
         flex-grow: 0;
+        flex-shrink: 0;
         margin-top: -70px;
 
         @media screen and (max-width: 575px) {
@@ -133,7 +162,7 @@
             height: 170px;
             border-radius: 50%;
             border: 8px solid #fff;
-            overflow: hidden;
+            position: relative;
 
             @media screen and (max-width: 575px) {
               width: 120px;
@@ -143,6 +172,7 @@
 
             .profile-img {
               width: 100%;
+              border-radius: 50%;
             }
           }
 
@@ -237,7 +267,6 @@
             flex-direction: column;
             justify-content: space-between;
             gap: 20px;
-            height: 100%;
 
             @media screen and (max-width: 1200px) {
               width: 180px;

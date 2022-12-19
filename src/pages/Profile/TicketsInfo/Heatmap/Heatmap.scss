@@ -7,11 +7,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 8px;
 
     .heatmap-month {
       font-size: 12px;
       font-weight: 500;
-      margin-bottom: 8px;
     }
   }
 
@@ -64,6 +64,54 @@
             background-color: #4b44dc;
           }
         }
+      }
+    }
+  }
+}
+
+.heatmap-main {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+
+  .heatmap-row {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 2%;
+    gap: 4px;
+
+    .heatmap-box {
+      flex-grow: 1;
+      width: 100%;
+      padding-top: 100%;
+      border-radius: 3px;
+      background-color: #adaaef;
+
+      @include transitioned;
+
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &.one {
+        background-color: #adaaef;
+      }
+
+      &.two {
+        background-color: #7c77e6;
+      }
+
+      &.three {
+        background-color: #706ae3;
+      }
+
+      &.four {
+        background-color: #645ee1;
+      }
+
+      &.five {
+        background-color: #4b44dc;
       }
     }
   }

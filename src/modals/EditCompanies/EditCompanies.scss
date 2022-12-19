@@ -1,0 +1,21 @@
+#edit-companies-modal {
+  .items {
+    .item {
+      .item-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .checkbox-container {
+          width: 170px;
+          flex-shrink: 0;
+        }
+
+        input {
+          font-size: 14px;
+          height: 38px;
+        }
+      }
+    }
+  }
+}

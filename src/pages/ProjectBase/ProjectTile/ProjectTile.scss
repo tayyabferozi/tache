@@ -68,6 +68,7 @@
     h5 {
       text-overflow: ellipsis;
       white-space: nowrap;
+      overflow: hidden;
     }
 
     .right {
@@ -155,11 +156,15 @@
 
         .ticket-text {
           font-size: 14px;
+          font-weight: 400;
+          letter-spacing: -0.08ch;
         }
       }
 
       .item-right {
-        font-size: 14px;
+        font-size: 14.5px;
+        font-weight: 500;
+        color: $color1;
       }
     }
   }

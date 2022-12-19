@@ -5,7 +5,7 @@ import Ticket from "../../../components/Ticket";
 import GridContainer from "../../../components/GridContainer";
 import CustomizePins from "../../../modals/CustomizePins/CustomizePins";
 import useModal from "../../../hooks/useModal";
-// import ProjectTile from "../../../components/PlaceholderTile";
+import PlaceholderTile from "../../../components/PlaceholderTile";
 import "./Tickets.scss";
 
 const Tickets = ({
@@ -34,7 +34,7 @@ const Tickets = ({
         />
       )}
       <div className="tickets">
-        <div className="mb-30 d-flex justify-content-between align-items-center">
+        <div className="mb-30 d-flex justify-content-between align-items-end">
           <Badge className="main-badge" green>
             {title}
           </Badge>
@@ -50,9 +50,11 @@ const Tickets = ({
         </div>
 
         <GridContainer rowClassName="g-20" rootClassName="">
-          {/* <div className="col-xxl-3 col-lg-4 col-md-6">
-            <ProjectTile />
-          </div> */}
+          {show && onCustomizePins && items.length === 0 && (
+            <div className="col-xxl-3 col-lg-4 col-md-6">
+              <PlaceholderTile onClick={() => toggleShowCustomizePinModal()} />
+            </div>
+          )}
           {show
             ? items.map((el, idx) => {
                 return (

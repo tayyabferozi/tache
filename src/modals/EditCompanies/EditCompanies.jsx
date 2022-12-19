@@ -5,9 +5,9 @@ import Button from "../../components/Button";
 import Modal from "../../components/Modal";
 import { Item } from "./Item";
 import Checkbox from "../../components/Checkbox";
-import "./CustomizePins.scss";
+import "./EditCompanies.scss";
 
-const CustomizePins = ({ pinnedTickets, allTickets, setUser, ...rest }) => {
+const EditCompanies = ({ pinnedItems, allItems, setUser, ...rest }) => {
   const [pinnedItemsState, setPinnedItemsState] = useState([]);
   const [restItems, setRestItems] = useState([]);
   const [pinnedItemIds, setPinnedItemIds] = useState([]);
@@ -15,7 +15,7 @@ const CustomizePins = ({ pinnedTickets, allTickets, setUser, ...rest }) => {
   const changePinsHandler = () => {
     setUser((prevState) => {
       const newState = JSON.parse(JSON.stringify(prevState));
-      newState.pinnedTickets = pinnedItemsState;
+      newState.hiredBy = pinnedItemsState;
       return newState;
     });
     rest.closeModal();
@@ -23,7 +23,7 @@ const CustomizePins = ({ pinnedTickets, allTickets, setUser, ...rest }) => {
 
   const updatePinnedHandler = (item, intent) => {
     if (intent === "add") {
-      if (pinnedItemsState.length >= 8) return;
+      if (pinnedItemsState.length >= 5) return;
       setRestItems((prevState) => [
         ...prevState.filter((el) => el.id !== item.id),
       ]);
@@ -45,16 +45,16 @@ const CustomizePins = ({ pinnedTickets, allTickets, setUser, ...rest }) => {
   };
 
   useEffect(() => {
-    setPinnedItemsState(pinnedTickets);
-    setPinnedItemIds(pinnedTickets.map((el) => el.id));
-  }, [pinnedTickets]);
+    setPinnedItemsState(pinnedItems);
+    setPinnedItemIds(pinnedItems?.map((el) => el.id));
+  }, [pinnedItems]);
 
   useEffect(() => {
-    const filteredAllTickets = allTickets.filter(
+    const filteredAllItems = allItems.filter(
       (el) => !pinnedItemIds.includes(el.id)
     );
-    setRestItems(filteredAllTickets);
-  }, [allTickets, pinnedItemIds]);
+    setRestItems(filteredAllItems);
+  }, [allItems, pinnedItemIds]);
 
   useEffect(() => {
     if (rest.show) document.body.style.overflow = "hidden";
@@ -62,11 +62,16 @@ const CustomizePins = ({ pinnedTickets, allTickets, setUser, ...rest }) => {
   }, [rest]);
 
   return (
-    <Modal className="custom-order-modal" small {...rest}>
+    <Modal
+      className="custom-order-modal"
+      id="edit-companies-modal"
+      small
+      {...rest}
+    >
       <div className="small-modal-contents">
         <div className="small-head">
           <div className="small-title">
-            <h5 className="fw-500">Edit Pinned Tickets</h5>
+            <h5 className="fw-500">Edit Companies</h5>
             <img
               src="/assets/vectors/icons/close-3.svg"
               alt="close"
@@ -76,7 +81,7 @@ const CustomizePins = ({ pinnedTickets, allTickets, setUser, ...rest }) => {
             />
           </div>
           <div className="small-sub-title">
-            <h6>Select 8 tickets to put on display</h6>
+            <h6>Select 5 companies to put on display</h6>
           </div>
         </div>
         <div className="small-main">
@@ -86,18 +91,27 @@ const CustomizePins = ({ pinnedTickets, allTickets, setUser, ...rest }) => {
               onReorder={setPinnedItemsState}
               values={pinnedItemsState}
             >
-              {pinnedItemsState.map((item) => (
+              {pinnedItemsState?.map((item, idx) => (
                 <Item
                   key={item.id}
                   item={item}
                   checked={true}
                   updatePinnedHandler={updatePinnedHandler}
+                  onInputChange={(e) =>
+                    setPinnedItemsState((prevState) => {
+                      const newState = JSON.parse(JSON.stringify(prevState));
+
+                      newState[idx].title = e.target.value;
+
+                      return newState;
+                    })
+                  }
                 />
               ))}
             </Reorder.Group>
-            {restItems.map((el, idx) => {
+            {restItems?.map((el, idx) => {
               return (
-                <div className="item" key={"all-tickets" + idx}>
+                <div className="item" key={"all-companies" + idx}>
                   <Checkbox
                     label={el.title}
                     checked={false}
@@ -109,9 +123,9 @@ const CustomizePins = ({ pinnedTickets, allTickets, setUser, ...rest }) => {
           </div>
         </div>
         <div className="small-foot">
-          <div className="text">{8 - pinnedItemsState.length} remaining</div>
+          <div className="text">{5 - pinnedItemsState.length} remaining</div>
           <Button primary onClick={changePinsHandler}>
-            Save pins
+            Save companies
           </Button>
         </div>
       </div>
@@ -119,4 +133,4 @@ const CustomizePins = ({ pinnedTickets, allTickets, setUser, ...rest }) => {
   );
 };
 
-export default CustomizePins;
+export default EditCompanies;

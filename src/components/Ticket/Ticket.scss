@@ -30,11 +30,26 @@
       width: 54px;
     }
 
+    .text {
+      width: calc(100% - 54px - 14px);
+
+      h4 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 24px;
+      }
+    }
+
     .mystery {
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
+  }
+
+  p {
+    overflow-wrap: break-word;
   }
 
   .tags {
