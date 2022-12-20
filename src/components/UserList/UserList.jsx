@@ -19,7 +19,7 @@ const UserList = ({ users, maxLen = 6, breakpoints }) => {
           }
         }
 
-        var x = window.matchMedia(`(min-width: ${breakpoint.width}px)`);
+        let x = window.matchMedia(`(min-width: ${breakpoint.width}px)`);
         matcher(x);
         x.addListener(matcher);
       });

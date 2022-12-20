@@ -81,37 +81,100 @@
     width: 2%;
     gap: 4px;
 
-    .heatmap-box {
-      flex-grow: 1;
-      width: 100%;
-      padding-top: 100%;
-      border-radius: 3px;
-      background-color: #adaaef;
+    .heatmap-box-wrap {
+      position: relative;
 
-      @include transitioned;
+      .heatmap-box {
+        flex-grow: 1;
+        width: 100%;
+        padding-top: 100%;
+        border-radius: 3px;
+        background-color: #adaaef;
 
-      &:hover {
-        opacity: 0.5;
+        @include transitioned;
+
+        &:hover {
+          opacity: 0.5;
+        }
       }
 
       &.one {
-        background-color: #adaaef;
+        .heatmap-box {
+          background-color: #adaaef;
+        }
       }
 
       &.two {
-        background-color: #7c77e6;
+        .heatmap-box {
+          background-color: #7c77e6;
+        }
       }
 
       &.three {
-        background-color: #706ae3;
+        .heatmap-box {
+          background-color: #706ae3;
+        }
       }
 
       &.four {
-        background-color: #645ee1;
+        .heatmap-box {
+          background-color: #645ee1;
+        }
       }
 
       &.five {
-        background-color: #4b44dc;
+        .heatmap-box {
+          background-color: #4b44dc;
+        }
+      }
+
+      .tooltip {
+        position: absolute;
+        left: 50%;
+        bottom: calc(100% + 10px);
+        background-color: #fff;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1;
+        width: 150px;
+        padding: 10px;
+        text-align: center;
+        transform: translateX(-50%);
+        border: 1px solid $color5;
+        box-shadow: 0 8px 24px rgba(140, 149, 159, 0.1);
+        border-radius: 10px;
+
+        @include transitioned;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -10px;
+          border-width: 10px;
+          border-style: solid;
+          border-color: #fff transparent transparent transparent;
+        }
+
+        h6 {
+          font-size: 14px;
+          font-weight: 500;
+          color: $color1;
+        }
+
+        p {
+          font-size: 12px;
+          margin-top: 4px;
+        }
+      }
+
+      &:hover,
+      &.active {
+        .tooltip {
+          opacity: 1;
+          pointer-events: all;
+        }
       }
     }
   }

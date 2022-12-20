@@ -29,19 +29,14 @@ const digitsMap = {
 const ChartContainer = () => {
   const chartRef = useRef();
   const [chartData] = useState({
-    max: Math.max(...[].concat(...data)),
-    min: Math.min(...[].concat(...data)),
+    max: Math.max(...[].concat(...data).map((el) => el.contributions)),
+    // min: Math.min(...[].concat(...data).map((el) => el.contributions)),
   });
 
   return (
     <div className="heatmap-chart" ref={chartRef}>
       <div className="fs-14 fw-600 mb-3 text-light-1 d-flex justify-content-between align-items-center">
         4,001 Tickets completed this year
-        <img
-          className="enlarge"
-          src="/assets/vectors/icons/enlarge.svg"
-          alt="enlarge"
-        />
       </div>
 
       <div className="heatmap-months">
@@ -65,11 +60,21 @@ const ChartContainer = () => {
                 return (
                   <div
                     className={clsx(
-                      "heatmap-box",
-                      digitsMap[Math.ceil(((el2 / chartData.max) * 100) / 20)]
+                      "heatmap-box-wrap",
+                      digitsMap[
+                        Math.ceil(
+                          ((el2.contributions / chartData.max) * 100) / 20
+                        )
+                      ]
                     )}
                     key={"heatmap-box" + idx + idx2}
-                  ></div>
+                  >
+                    <div className="heatmap-box"></div>
+                    <div className="tooltip">
+                      <h6>{el2.contributions} contributions</h6>
+                      <p>{el2.date}</p>
+                    </div>
+                  </div>
                 );
               })}
             </div>

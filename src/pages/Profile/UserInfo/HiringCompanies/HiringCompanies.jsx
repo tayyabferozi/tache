@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 
 import useModal from "../../../../hooks/useModal";
@@ -11,16 +10,6 @@ const HiringCompanies = ({ user, editState, hiredBy, setUser }) => {
     show: showEditCompaniesModal,
     toggleShow: toggleShowEditCompaniesModal,
   } = useModal(false);
-
-  const delCompany = (idx) => {
-    setUser((prevState) => {
-      const newState = JSON.parse(JSON.stringify(prevState));
-
-      newState.hiredBy.splice(idx, 1);
-
-      return newState;
-    });
-  };
 
   if (user.allCompanies.length === 0) return null;
 
@@ -41,17 +30,6 @@ const HiringCompanies = ({ user, editState, hiredBy, setUser }) => {
           {hiredBy.map((el, idx) => {
             return (
               <div key={"hiring-company" + idx} className="company-item">
-                <AnimatePresence>
-                  {editState && (
-                    <motion.img
-                      key={"company-remove" + el.id}
-                      className="remove"
-                      src="/assets/vectors/icons/remove.svg"
-                      alt="remove"
-                      onClick={() => delCompany(idx)}
-                    />
-                  )}
-                </AnimatePresence>
                 <div className="logo">
                   <img src={el.img} alt={el.name} />
                 </div>
@@ -76,7 +54,7 @@ const HiringCompanies = ({ user, editState, hiredBy, setUser }) => {
             }}
             className={clsx(
               "mb-10 gap-10",
-              !editState && hiredBy.length > 0 && "view-more",
+              !editState && hiredBy.length > 0 && "view-more d-none",
               !editState && hiredBy.length < 5 && "d-none"
             )}
             primaryLight
