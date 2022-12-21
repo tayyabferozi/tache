@@ -1,4 +1,5 @@
 import { useMotionValue, Reorder, useDragControls } from "framer-motion";
+import Badge from "../../components/Badge";
 
 // import Checkbox from "../../components/Checkbox";
 import ReorderIcon from "../../components/RorderIcon";
@@ -17,7 +18,9 @@ export const Item = ({ item, removeSkillHandler, idx }) => {
       dragControls={dragControls}
       className="item"
     >
-      <div className="item-left">{item.label}</div>
+      <div className="item-left">
+        <Badge>{item.label}</Badge>
+      </div>
       <div className="d-flex align-items-center gap-10">
         <img
           className="remove"

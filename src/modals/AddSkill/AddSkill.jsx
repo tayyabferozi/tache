@@ -68,7 +68,7 @@ const EditSkills = ({ addedSkills, setUser, ...rest }) => {
           </div>
         </div>
         <div className="small-main">
-          <div className="items">
+          <div className="items overflow-hidden">
             <Reorder.Group
               axis="y"
               onReorder={setPinnedItemsState}
