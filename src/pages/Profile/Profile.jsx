@@ -15,7 +15,13 @@ const Profile = () => {
     location: "Nanjing, China",
     followers: "1.1K",
     following: "300",
-    skills: ["Frontend", "UI", "Database", "Backend", "Programmer"],
+    skills: [
+      { id: 1, label: "Frontend" },
+      { id: 2, label: "Database" },
+      { id: 3, label: "Backend" },
+      { id: 4, label: "Programmer" },
+    ],
+    // "UI", "Database", "Backend", "Programmer"],
     hiredBy: [
       {
         id: 1,

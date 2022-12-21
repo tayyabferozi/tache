@@ -40,21 +40,12 @@ const UserInfo = ({ user, setUser, editState, setEditState }) => {
     setEditState(false);
   };
 
-  const removeSkillHandler = (idx) => {
-    setUser((prevState) => {
-      const newState = JSON.parse(JSON.stringify(prevState));
-
-      newState.skills.splice(idx, 1);
-
-      return newState;
-    });
-  };
-
   return (
     <>
       <AddSkill
         show={showSkillAddModal}
         setUser={setUser}
+        addedSkills={user.skills}
         closeModal={() => toggleShowSkillAddModal("close")}
       />
       <div className="user-info">
@@ -175,17 +166,7 @@ const UserInfo = ({ user, setUser, editState, setEditState }) => {
                   <div className="badges">
                     {user?.skills?.map((el, idx) => {
                       return (
-                        <Badge key={"proflie-badge" + idx}>
-                          {editState && (
-                            <img
-                              onClick={() => removeSkillHandler(idx)}
-                              className="remove"
-                              src="/assets/vectors/icons/remove-2.svg"
-                              alt="remove"
-                            />
-                          )}
-                          {el}
-                        </Badge>
+                        <Badge key={"proflie-badge" + idx}>{el.label}</Badge>
                       );
                     })}
                     <AnimatePresence>
