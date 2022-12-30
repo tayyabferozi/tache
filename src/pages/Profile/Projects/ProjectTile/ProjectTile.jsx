@@ -1,8 +1,6 @@
 import React from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
-import "./ProjectTile.scss";
-
 const ProjectTile = ({
   id,
   title,
