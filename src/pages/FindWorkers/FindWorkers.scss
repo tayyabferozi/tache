@@ -1,0 +1,125 @@
+#find-workers {
+  .search-container {
+    position: relative;
+
+    .search-wrap {
+      .custom-form-control {
+        width: 100%;
+      }
+    }
+
+    .right {
+      position: absolute;
+      right: 0;
+      top: calc(50%);
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+
+      .icon {
+        padding: 0 20px;
+        margin: 12px 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:nth-child(1) {
+          border-right: 1px solid $color18;
+        }
+      }
+    }
+  }
+
+  .search-results {
+    margin-top: 34px;
+
+    .search-result-card {
+      background-color: #fff;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+
+      .left {
+        .top {
+          display: flex;
+          gap: 20px;
+
+          .profile-img {
+            img {
+              width: 74px;
+              height: 74px;
+            }
+          }
+
+          .text {
+            .location {
+              display: flex;
+              gap: 10px;
+            }
+          }
+
+          .profile-badge {
+            transform: translateY(-10%);
+
+            img {
+              width: 60px;
+            }
+          }
+        }
+
+        .badges {
+          margin-top: 30px;
+          display: flex;
+          gap: 6px;
+        }
+      }
+
+      .right {
+        display: flex;
+        gap: 70px;
+
+        .tickets-info {
+          .box {
+            border-radius: 6px;
+            padding: 12px 10px;
+
+            .text {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 26px;
+              margin-top: 14px;
+
+              &,
+              * {
+                font-size: 12px;
+                font-weight: 500;
+              }
+            }
+
+            &.completed {
+              background-color: rgba($color10, 0.05);
+
+              &,
+              * {
+                color: $color10;
+              }
+            }
+
+            &.delivery {
+              background-color: $color8;
+              margin-top: 8px;
+
+              &,
+              * {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

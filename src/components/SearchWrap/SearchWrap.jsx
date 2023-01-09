@@ -5,9 +5,18 @@ import Button from "../Button";
 import "./SearchWrap.scss";
 import clsx from "clsx";
 
-const SearchWrap = ({ withAddBtn, searchState, setSearchState, noMt }) => {
+const SearchWrap = ({
+  withAddBtn,
+  searchState,
+  setSearchState,
+  noMt,
+  onChange: onChangeProp,
+  ...rest
+}) => {
   const onChange = (e) => {
     setSearchState(e.target.value);
+
+    if (onChangeProp) onChangeProp(e);
   };
 
   return (
@@ -20,6 +29,7 @@ const SearchWrap = ({ withAddBtn, searchState, setSearchState, noMt }) => {
           alt: "search",
         }}
         placeholder="Search..."
+        {...rest}
       />
       {withAddBtn && (
         <Button

@@ -1,5 +1,5 @@
 import React from "react";
-import UserList from "../../../components/UserList/UserList";
+import UserList from "../../../components/UserList";
 import Heatmap from "./Heatmap";
 
 import "./TicketsInfo.scss";
