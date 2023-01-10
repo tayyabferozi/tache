@@ -6,10 +6,10 @@ import "./ProjectBase.scss";
 import Section from "../../components/Section";
 import GridContainer from "../../components/GridContainer";
 import SearchWrap from "../../components/SearchWrap/SearchWrap";
-import Pagination from "../../components/Pagination";
 import ProjectTile from "./ProjectTile/ProjectTile";
 import WorkerPool from "./WorkerPool/WorkerPool";
 import cardAnimations from "../../constants/card-animations";
+import PaginationNum from "../../components/PaginationNum/PaginationNum";
 
 const data = [
   {
@@ -745,7 +745,7 @@ const ProjectBase = () => {
           </div>
           <div className="col-12 d-sm-none">
             <div className="my-20">
-              <Pagination
+              <PaginationNum
                 pageNumState={pageNumState}
                 setPageNumState={setPageNumState}
                 total={Math.ceil(dataLen / 4)}
@@ -759,7 +759,7 @@ const ProjectBase = () => {
           </div>
 
           <div className="d-sm-block d-none pagination-lg">
-            <Pagination
+            <PaginationNum
               pageNumState={pageNumState}
               setPageNumState={setPageNumState}
               total={Math.ceil(dataLen / pageSize)}

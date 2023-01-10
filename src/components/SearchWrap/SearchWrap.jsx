@@ -6,6 +6,7 @@ import "./SearchWrap.scss";
 import clsx from "clsx";
 
 const SearchWrap = ({
+  withBtn,
   withAddBtn,
   searchState,
   setSearchState,
@@ -31,6 +32,11 @@ const SearchWrap = ({
         placeholder="Search..."
         {...rest}
       />
+      {withBtn && (
+        <Button primary className="search">
+          Search
+        </Button>
+      )}
       {withAddBtn && (
         <Button
           primary

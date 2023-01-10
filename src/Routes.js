@@ -9,6 +9,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import FindWorkers from "./pages/FindWorkers";
+import FindTalent from "./pages/FindTalent";
 
 const AppRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const AppRoutes = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/find-workers" element={<FindWorkers />} />
+          <Route path="/find-talent" element={<FindTalent />} />
         </Route>
       </Routes>
     </Router>

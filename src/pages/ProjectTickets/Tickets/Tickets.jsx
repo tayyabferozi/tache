@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import GridContainer from "../../../components/GridContainer";
-import Pagination from "../../../components/Pagination";
 import DisplayTicket from "../../../modals/DisplayTicket";
 import cardAnimations from "../../../constants/card-animations";
 import useModal from "../../../hooks/useModal";
 import Ticket from "../../../components/Ticket";
 
 import "./Tickets.scss";
+import PaginationNum from "../../../components/PaginationNum/PaginationNum";
 
 const data = [
   {
@@ -397,7 +397,7 @@ const Tickets = ({ filterState, searchState }) => {
           </GridContainer>
         </AnimatePresence>
 
-        <Pagination
+        <PaginationNum
           pageNumState={pageNumState}
           setPageNumState={setPageNumState}
           total={Math.ceil(dataLen / pageSize)}
