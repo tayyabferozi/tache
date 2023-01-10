@@ -6,6 +6,7 @@ import "./SearchWrap.scss";
 import clsx from "clsx";
 
 const SearchWrap = ({
+  btnLink,
   withBtn,
   withAddBtn,
   searchState,
@@ -33,7 +34,7 @@ const SearchWrap = ({
         {...rest}
       />
       {withBtn && (
-        <Button primary className="search">
+        <Button to={btnLink} primary className="search">
           Search
         </Button>
       )}

@@ -1,6 +1,7 @@
 #find-workers {
   .search-container {
     position: relative;
+    z-index: 1;
 
     .search-wrap {
       .custom-form-control {

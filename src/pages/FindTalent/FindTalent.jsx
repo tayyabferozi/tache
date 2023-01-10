@@ -34,7 +34,7 @@ const FindTalent = () => {
           </p>
         </div>
 
-        <SearchWrap withBtn />
+        <SearchWrap withBtn btnLink="/find-workers" />
 
         <div className="social">
           {social.map((el, idx) => {
