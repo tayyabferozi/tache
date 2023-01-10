@@ -11,6 +11,7 @@ const Dropdown = ({
   options,
   onChoose,
   children,
+  notBig = false,
 }) => {
   const dropdownRef = useRef();
   const menuRef = useRef();
@@ -43,7 +44,7 @@ const Dropdown = ({
 
   return (
     <div className="dropdown-big" ref={dropdownRef}>
-      {defaultValue ? (
+      {defaultValue && !notBig ? (
         <div className="dropdown-big__main" onClick={toggleDrawer}>
           <div className="text">{value}</div>
           <img

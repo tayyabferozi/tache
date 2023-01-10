@@ -26,28 +26,29 @@
     display: flex;
     border-radius: 10px;
     overflow: hidden;
+  }
+}
 
-    .pg-btn {
-      background-color: rgba($color10, 0.1);
-      border: none;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
+.pg-btn {
+  background-color: rgba($color10, 0.1);
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 
-      @include transitioned;
+  @include transitioned;
 
-      &:hover {
-        background-color: rgba($color10, 0.2);
-      }
+  &:hover {
+    background-color: rgba($color10, 0.2);
+  }
 
-      &:nth-child(2) {
-        img {
-          transform: rotate(180deg);
-        }
-      }
+  &.next,
+  &:nth-child(2) {
+    img {
+      transform: rotate(180deg);
     }
   }
 }

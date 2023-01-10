@@ -5,6 +5,18 @@
     .search-wrap {
       .custom-form-control {
         width: 100%;
+
+        .input {
+          input {
+            height: 68px;
+            border-radius: 8px;
+            padding-left: 70px;
+          }
+
+          .icon {
+            padding-left: 20px;
+          }
+        }
       }
     }
 
@@ -29,6 +41,47 @@
         }
       }
     }
+
+    .dropdown-big__options {
+      min-width: 320px;
+      right: -20px;
+      top: 40px;
+      left: unset;
+      box-shadow: 40px 34px 84px 0px $color21;
+      border: none;
+      border-radius: 12px;
+
+      .option {
+        border: none;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        padding: 18px;
+        border: 1px solid transparent;
+        font-size: 16px;
+
+        &:nth-child(1) {
+          cursor: default;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          padding-left: 28px;
+          padding-right: 28px;
+
+          &:hover {
+            background-color: #fff;
+          }
+        }
+
+        &:hover:not(:nth-child(1)) {
+          background-color: $color8;
+        }
+
+        &.active {
+          background-color: $color8;
+          border-color: $color18;
+        }
+      }
+    }
   }
 
   .search-results {
@@ -42,22 +95,73 @@
       display: flex;
       justify-content: space-between;
 
+      @media screen and (max-width: 991px) {
+        flex-wrap: wrap;
+      }
+
+      @media screen and (max-width: 767px) {
+        gap: 20px;
+      }
+
       .left {
+        @media screen and (max-width: 767px) {
+          width: 100%;
+        }
+
         .top {
           display: flex;
           gap: 20px;
 
+          @media screen and (max-width: 575px) {
+            align-items: center;
+          }
+
           .profile-img {
+            position: relative;
+
             img {
               width: 74px;
               height: 74px;
+
+              @media screen and (max-width: 991px) {
+                width: 56px;
+                height: 56px;
+              }
+            }
+
+            .badge-icon {
+              position: absolute;
+              width: 30px;
+              height: 30px;
+              right: -5px;
+              bottom: -5px;
+
+              @media screen and (min-width: 576px) {
+                display: none;
+              }
             }
           }
 
           .text {
+            h4 {
+              @media screen and (max-width: 575px) {
+                font-size: 20px;
+              }
+            }
+
             .location {
               display: flex;
               gap: 10px;
+
+              @media screen and (max-width: 575px) {
+                font-size: 14px;
+                gap: 6px;
+                margin-top: 6px !important;
+
+                img {
+                  width: 14px;
+                }
+              }
             }
           }
 
@@ -66,6 +170,10 @@
 
             img {
               width: 60px;
+
+              @media screen and (max-width: 575px) {
+                display: none;
+              }
             }
           }
         }
@@ -74,6 +182,13 @@
           margin-top: 30px;
           display: flex;
           gap: 6px;
+          flex-wrap: wrap;
+
+          .badge {
+            @media screen and (max-width: 991px) {
+              font-size: 13px;
+            }
+          }
         }
       }
 
@@ -81,41 +196,96 @@
         display: flex;
         gap: 70px;
 
-        .tickets-info {
-          .box {
-            border-radius: 6px;
-            padding: 12px 10px;
+        @media screen and (max-width: 1200px) {
+          gap: 30px;
+        }
 
-            .text {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              gap: 26px;
-              margin-top: 14px;
+        @media screen and (max-width: 991px) {
+          flex-direction: column;
+        }
 
-              &,
-              * {
-                font-size: 12px;
-                font-weight: 500;
-              }
+        @media screen and (max-width: 767px) {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          flex-wrap: wrap;
+        }
+      }
+
+      .boxes {
+        @media screen and (max-width: 991px) {
+          width: 100%;
+          margin-top: 2rem;
+        }
+
+        @media screen and (max-width: 767px) {
+          margin-top: 0;
+        }
+      }
+
+      .boxes-main {
+        @media screen and (max-width: 575px) {
+          width: 100%;
+        }
+      }
+
+      .tickets-info {
+        @media screen and (max-width: 991px) {
+          max-width: 400px;
+          margin-left: auto;
+          margin-right: auto;
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+        }
+
+        @media screen and (max-width: 575px) {
+          max-width: unset;
+          flex-wrap: wrap;
+        }
+
+        .box {
+          border-radius: 6px;
+          padding: 12px 10px;
+
+          @media screen and (max-width: 991px) {
+            height: 100%;
+            flex-grow: 1;
+          }
+
+          @media screen and (max-width: 575px) {
+            min-width: 170px;
+          }
+
+          .text {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 26px;
+            margin-top: 14px;
+
+            &,
+            * {
+              font-size: 12px;
+              font-weight: 500;
             }
+          }
 
-            &.completed {
-              background-color: rgba($color10, 0.05);
+          &.completed {
+            background-color: rgba($color10, 0.05);
 
-              &,
-              * {
-                color: $color10;
-              }
+            &,
+            * {
+              color: $color10;
             }
+          }
 
-            &.delivery {
-              background-color: $color8;
+          &.delivery {
+            background-color: $color8;
+
+            @media screen and (min-width: 992px) {
               margin-top: 8px;
-
-              &,
-              * {
-              }
             }
           }
         }
