@@ -1,5 +1,12 @@
 #find-talent {
   min-height: calc(100vh - 150px);
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+
+  & > * {
+    width: 100%;
+  }
 
   .find-talent-main {
     height: 100%;
