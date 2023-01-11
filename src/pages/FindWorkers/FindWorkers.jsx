@@ -781,7 +781,7 @@ const FindWorkers = () => {
 
   return (
     <Section id="find-workers">
-      <h2>Find Workers</h2>
+      <h2>Find Talent</h2>
       <p className="fs-18 mt-1">Make searching extra special</p>
 
       <div className="search-container">
@@ -820,81 +820,92 @@ const FindWorkers = () => {
 
       <div className="search-results mt-36">
         <AnimatePresence>
-          {filteredData.map((el, idx) => {
-            return (
-              <motion.div
-                className="search-result-card"
-                key={"search-result" + el.id}
-                {...tiledAnimations}
-                transition={{
-                  duration: 0.5,
-                }}
-              >
-                <div className="left">
-                  <div className="top">
-                    <div className="profile-img">
-                      <img src={el.profileImg} alt={el.name} title={el.name} />
-                      <img
-                        src="/assets/imgs/profile-badge.png"
-                        alt="badge"
-                        className="badge-icon"
+          {filteredData.length > 0 ? (
+            filteredData.map((el, idx) => {
+              return (
+                <motion.div
+                  className="search-result-card"
+                  key={"search-result" + el.id}
+                  {...tiledAnimations}
+                  transition={{
+                    duration: 0.5,
+                  }}
+                >
+                  <div className="left">
+                    <div className="top">
+                      <div className="profile-img">
+                        <img
+                          src={el.profileImg}
+                          alt={el.name}
+                          title={el.name}
+                        />
+                        <img
+                          src="/assets/imgs/profile-badge.png"
+                          alt="badge"
+                          className="badge-icon"
+                        />
+                      </div>
+                      <div className="text">
+                        <h4>{el.name}</h4>
+                        <div className="location mt-10">
+                          <img
+                            src="/assets/vectors/icons/location-2.svg"
+                            alt="location"
+                            className="location-pin"
+                          />
+                          {el.location}
+                        </div>
+                      </div>
+                      <div className="profile-badge">
+                        <img src="/assets/imgs/profile-badge.png" alt="badge" />
+                      </div>
+                    </div>
+
+                    <div className="badges">
+                      {el.tags.map((el2, idx2) => {
+                        return <Badge key={"badge" + idx + idx2}>{el2}</Badge>;
+                      })}
+                    </div>
+                  </div>
+
+                  <div className="right">
+                    <div className="acheivements">
+                      <div className="acheivement-item">
+                        <h5 className="fs-14">Projects</h5>
+                        <div className="listings">
+                          <UserList users={el.projects} maxLen={6} />
+                        </div>
+                      </div>
+                      <div className="acheivement-item mt-3">
+                        <h5 className="fs-14">Followers</h5>
+                        <div className="listings">
+                          <UserList users={el.followers} maxLen={7} />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="d-block d-md-none d-lg-block boxes-main">
+                      <Boxes
+                        deliveryRate={el.deliveryRate}
+                        completedTickets={el.completedTickets}
                       />
                     </div>
-                    <div className="text">
-                      <h4>{el.name}</h4>
-                      <div className="location mt-10">
-                        <img
-                          src="/assets/vectors/icons/location-2.svg"
-                          alt="location"
-                          className="location-pin"
-                        />
-                        {el.location}
-                      </div>
-                    </div>
-                    <div className="profile-badge">
-                      <img src="/assets/imgs/profile-badge.png" alt="badge" />
-                    </div>
                   </div>
-
-                  <div className="badges">
-                    {el.tags.map((el2, idx2) => {
-                      return <Badge key={"badge" + idx + idx2}>{el2}</Badge>;
-                    })}
-                  </div>
-                </div>
-
-                <div className="right">
-                  <div className="acheivements">
-                    <div className="acheivement-item">
-                      <h5 className="fs-14">Projects</h5>
-                      <div className="listings">
-                        <UserList users={el.projects} maxLen={6} />
-                      </div>
-                    </div>
-                    <div className="acheivement-item mt-3">
-                      <h5 className="fs-14">Followers</h5>
-                      <div className="listings">
-                        <UserList users={el.followers} maxLen={7} />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="d-block d-md-none d-lg-block boxes-main">
+                  <div className="d-none d-md-block d-lg-none boxes">
                     <Boxes
                       deliveryRate={el.deliveryRate}
                       completedTickets={el.completedTickets}
                     />
                   </div>
-                </div>
-                <div className="d-none d-md-block d-lg-none boxes">
-                  <Boxes
-                    deliveryRate={el.deliveryRate}
-                    completedTickets={el.completedTickets}
-                  />
-                </div>
-              </motion.div>
-            );
-          })}
+                </motion.div>
+              );
+            })
+          ) : (
+            <div className="no-results">
+              No Talent matching your search parameters exist. Try using more
+              generic keywords for a better result
+            </div>
+          )}
         </AnimatePresence>
       </div>
 
