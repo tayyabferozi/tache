@@ -736,6 +736,7 @@ const data = [
 const sortOptions = [
   {
     label: "Sort By",
+    inActive: true,
   },
   {
     label: "Recently work with",
@@ -755,10 +756,14 @@ const pageSize = 6;
 
 const FindWorkers = () => {
   const [searchState, setSearchState] = useState("");
-  const [sortState] = useState("Recently work with");
+  const [sortState] = useState("Ticket Completed");
   const [pageNumState, setPageNumState] = useState(1);
   const [filteredData, setFilteredData] = useState(data);
   const [dataLen, setDataLen] = useState(data.length);
+
+  const badgeClickHandler = () => {
+    // FOR YOUR USE
+  };
 
   useEffect(() => {
     setFilteredData((prevState) => {
@@ -863,9 +868,23 @@ const FindWorkers = () => {
 
                     <div className="badges">
                       {el.tags.map((el2, idx2) => {
-                        return <Badge key={"badge" + idx + idx2}>{el2}</Badge>;
+                        return (
+                          <Badge
+                            onClick={badgeClickHandler}
+                            key={"badge" + idx + idx2}
+                          >
+                            {el2}
+                          </Badge>
+                        );
                       })}
                     </div>
+                  </div>
+
+                  <div className="d-none d-sm-block d-md-none boxes">
+                    <Boxes
+                      deliveryRate={el.deliveryRate}
+                      completedTickets={el.completedTickets}
+                    />
                   </div>
 
                   <div className="right">
@@ -873,29 +892,59 @@ const FindWorkers = () => {
                       <div className="acheivement-item">
                         <h5 className="fs-14">Projects</h5>
                         <div className="listings">
-                          <UserList users={el.projects} maxLen={6} />
+                          <UserList
+                            users={el.projects}
+                            maxLen={6}
+                            breakpoints={[
+                              {
+                                width: 0,
+                                itemsLength: 7,
+                              },
+                              {
+                                width: 576,
+                                itemsLength: 4,
+                              },
+                              {
+                                width: 992,
+                                itemsLength: 6,
+                              },
+                            ]}
+                          />
                         </div>
                       </div>
                       <div className="acheivement-item mt-3">
                         <h5 className="fs-14">Followers</h5>
                         <div className="listings">
-                          <UserList users={el.followers} maxLen={7} />
+                          <UserList
+                            users={el.followers}
+                            maxLen={7}
+                            breakpoints={[
+                              {
+                                width: 0,
+                                itemsLength: 7,
+                              },
+                              {
+                                width: 576,
+                                itemsLength: 4,
+                              },
+                              {
+                                width: 992,
+                                itemsLength: 6,
+                              },
+                            ]}
+                          />
                         </div>
                       </div>
                     </div>
 
-                    <div className="d-block d-md-none d-lg-block boxes-main">
-                      <Boxes
-                        deliveryRate={el.deliveryRate}
-                        completedTickets={el.completedTickets}
-                      />
+                    <div className="d-block d-sm-none d-md-block boxes-main">
+                      <div className="boxes-main">
+                        <Boxes
+                          deliveryRate={el.deliveryRate}
+                          completedTickets={el.completedTickets}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="d-none d-md-block d-lg-none boxes">
-                    <Boxes
-                      deliveryRate={el.deliveryRate}
-                      completedTickets={el.completedTickets}
-                    />
                   </div>
                 </motion.div>
               );
@@ -933,7 +982,7 @@ const Boxes = ({ completedTickets, deliveryRate }) => {
           />
         </div>
         <div className="text">
-          <div>Completed Ticket</div>
+          <div className="label">Completed Ticket</div>
           <div>{completedTickets}</div>
         </div>
       </div>
@@ -943,7 +992,7 @@ const Boxes = ({ completedTickets, deliveryRate }) => {
           <img src="/assets/vectors/icons/delivery.svg" alt="delivery-rate" />
         </div>
         <div className="text">
-          <div>Delivery Rate</div>
+          <div className="label">Delivery Rate</div>
           <div>{deliveryRate}%</div>
         </div>
       </div>

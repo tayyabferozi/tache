@@ -55,6 +55,8 @@
       box-shadow: 40px 34px 84px 0px $color21;
       border: none;
       border-radius: 12px;
+      padding-left: 6px;
+      padding-right: 6px;
 
       .option {
         border: none;
@@ -79,11 +81,11 @@
 
         &:hover:not(:nth-child(1)) {
           background-color: $color8;
+          border-color: $color18;
         }
 
         &.active {
           background-color: $color8;
-          border-color: $color18;
         }
       }
     }
@@ -100,7 +102,7 @@
       display: flex;
       justify-content: space-between;
 
-      @media screen and (max-width: 991px) {
+      @media screen and (max-width: 767px) {
         flex-wrap: wrap;
       }
 
@@ -110,6 +112,11 @@
 
       .left {
         @media screen and (max-width: 767px) {
+          width: calc(100% - 90px);
+          flex-shrink: 0;
+        }
+
+        @media screen and (max-width: 575px) {
           width: 100%;
         }
 
@@ -190,8 +197,16 @@
           flex-wrap: wrap;
 
           .badge {
+            cursor: pointer;
+
+            @include transitioned;
+
             @media screen and (max-width: 991px) {
               font-size: 13px;
+            }
+
+            &:hover {
+              box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 12px;
             }
           }
         }
@@ -205,16 +220,16 @@
           gap: 30px;
         }
 
-        @media screen and (max-width: 991px) {
-          flex-direction: column;
+        @media screen and (max-width: 800px) and (min-width: 768px) {
+          gap: 20px;
         }
 
-        @media screen and (max-width: 767px) {
+        @media screen and (max-width: 575px) {
           flex-direction: row;
           align-items: center;
           justify-content: space-between;
           width: 100%;
-          flex-wrap: wrap;
+          gap: 20px;
         }
       }
 
@@ -226,14 +241,13 @@
 
         @media screen and (max-width: 767px) {
           margin-top: 0;
+          width: 70px;
         }
       }
 
-      .boxes-main {
-        @media screen and (max-width: 575px) {
-          width: 100%;
-        }
-      }
+      // .boxes-main {
+
+      // }
 
       .tickets-info {
         @media screen and (max-width: 991px) {
@@ -242,12 +256,8 @@
           margin-right: auto;
           display: flex;
           justify-content: center;
+          flex-direction: column;
           gap: 10px;
-        }
-
-        @media screen and (max-width: 575px) {
-          max-width: unset;
-          flex-wrap: wrap;
         }
 
         .box {
@@ -257,10 +267,20 @@
           @media screen and (max-width: 991px) {
             height: 100%;
             flex-grow: 1;
-          }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 6px;
 
-          @media screen and (max-width: 575px) {
-            min-width: 170px;
+            .img {
+              transform: translateY(2px);
+            }
+
+            .label {
+              @media screen and (max-width: 991px) {
+                display: none;
+              }
+            }
           }
 
           .text {
@@ -269,6 +289,10 @@
             align-items: center;
             gap: 26px;
             margin-top: 14px;
+
+            @media screen and (max-width: 991px) {
+              margin-top: 0;
+            }
 
             &,
             * {

@@ -37,7 +37,7 @@ const PaginationNum = ({ pageNumState, setPageNumState, total }) => {
     <div className="pagination-num">
       <button className="pg-btn prev" onClick={dec}>
         <img
-          src="/assets/vectors/icons/arrow.svg"
+          src="/assets/vectors/icons/arrow-2.svg"
           alt="arrow"
           className="arrow"
         />
@@ -55,7 +55,7 @@ const PaginationNum = ({ pageNumState, setPageNumState, total }) => {
       })}
       <button className="pg-btn next" onClick={inc}>
         <img
-          src="/assets/vectors/icons/arrow.svg"
+          src="/assets/vectors/icons/arrow-2.svg"
           alt="arrow"
           className="arrow"
         />

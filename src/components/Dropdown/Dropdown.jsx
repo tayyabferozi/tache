@@ -82,12 +82,14 @@ const Dropdown = ({
               </div>
             )}
             {options?.map((el, idx) => {
-              const { img, label } = el;
+              const { img, label, inActive } = el;
               return (
                 <div
                   className={clsx("option", label === value && "active")}
                   key={"dropdown-option-" + label + idx}
-                  onClick={() => chooseOptionHandler(label)}
+                  onClick={() => {
+                    if (!inActive) chooseOptionHandler(label);
+                  }}
                 >
                   {img && <img src={img} alt={label} />}
                   {label}
