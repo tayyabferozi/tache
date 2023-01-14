@@ -226,7 +226,6 @@
 
         @media screen and (max-width: 575px) {
           flex-direction: row;
-          align-items: center;
           justify-content: space-between;
           width: 100%;
           gap: 20px;
@@ -244,10 +243,6 @@
           width: 70px;
         }
       }
-
-      // .boxes-main {
-
-      // }
 
       .tickets-info {
         @media screen and (max-width: 991px) {
@@ -315,6 +310,10 @@
 
             @media screen and (min-width: 992px) {
               margin-top: 8px;
+            }
+
+            @media screen and (max-width: 575px) {
+              margin-top: 18px;
             }
           }
         }

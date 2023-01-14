@@ -898,6 +898,10 @@ const FindWorkers = () => {
                             breakpoints={[
                               {
                                 width: 0,
+                                itemsLength: 4,
+                              },
+                              {
+                                width: 376,
                                 itemsLength: 7,
                               },
                               {
@@ -921,7 +925,11 @@ const FindWorkers = () => {
                             breakpoints={[
                               {
                                 width: 0,
-                                itemsLength: 7,
+                                itemsLength: 4,
+                              },
+                              {
+                                width: 376,
+                                itemsLength: 6,
                               },
                               {
                                 width: 576,
