@@ -9,6 +9,7 @@ import PaginationNum from "../../components/PaginationNum/PaginationNum";
 import tiledAnimations from "../../constants/tile-animations";
 import Dropdown from "../../components/Dropdown";
 import "./FindWorkers.scss";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -829,131 +830,135 @@ const FindWorkers = () => {
             filteredData.map((el, idx) => {
               return (
                 <motion.div
-                  className="search-result-card"
                   key={"search-result" + el.id}
                   {...tiledAnimations}
                   transition={{
                     duration: 0.5,
                   }}
                 >
-                  <div className="left">
-                    <div className="top">
-                      <div className="profile-img">
-                        <img
-                          src={el.profileImg}
-                          alt={el.name}
-                          title={el.name}
-                        />
-                        <img
-                          src="/assets/imgs/profile-badge.png"
-                          alt="badge"
-                          className="badge-icon"
-                        />
-                      </div>
-                      <div className="text">
-                        <h4>{el.name}</h4>
-                        <div className="location mt-10">
+                  <Link to="/profile" className="search-result-card">
+                    <div className="left">
+                      <div className="top">
+                        <div className="profile-img">
                           <img
-                            src="/assets/vectors/icons/location-2.svg"
-                            alt="location"
-                            className="location-pin"
+                            src={el.profileImg}
+                            alt={el.name}
+                            title={el.name}
                           />
-                          {el.location}
+                          <img
+                            src="/assets/imgs/profile-badge.png"
+                            alt="badge"
+                            className="badge-icon"
+                          />
                         </div>
-                      </div>
-                      <div className="profile-badge">
-                        <img src="/assets/imgs/profile-badge.png" alt="badge" />
-                      </div>
-                    </div>
-
-                    <div className="badges">
-                      {el.tags.map((el2, idx2) => {
-                        return (
-                          <Badge
-                            onClick={badgeClickHandler}
-                            key={"badge" + idx + idx2}
-                          >
-                            {el2}
-                          </Badge>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  <div className="d-none d-sm-block d-md-none boxes">
-                    <Boxes
-                      deliveryRate={el.deliveryRate}
-                      completedTickets={el.completedTickets}
-                    />
-                  </div>
-
-                  <div className="right">
-                    <div className="acheivements">
-                      <div className="acheivement-item">
-                        <h5 className="fs-14">Projects</h5>
-                        <div className="listings">
-                          <UserList
-                            users={el.projects}
-                            maxLen={6}
-                            breakpoints={[
-                              {
-                                width: 0,
-                                itemsLength: 4,
-                              },
-                              {
-                                width: 376,
-                                itemsLength: 7,
-                              },
-                              {
-                                width: 576,
-                                itemsLength: 4,
-                              },
-                              {
-                                width: 992,
-                                itemsLength: 6,
-                              },
-                            ]}
+                        <div className="text">
+                          <h4>{el.name}</h4>
+                          <div className="location mt-10">
+                            <img
+                              src="/assets/vectors/icons/location-2.svg"
+                              alt="location"
+                              className="location-pin"
+                            />
+                            {el.location}
+                          </div>
+                        </div>
+                        <div className="profile-badge">
+                          <img
+                            src="/assets/imgs/profile-badge.png"
+                            alt="badge"
                           />
                         </div>
                       </div>
-                      <div className="acheivement-item mt-3">
-                        <h5 className="fs-14">Followers</h5>
-                        <div className="listings">
-                          <UserList
-                            users={el.followers}
-                            maxLen={7}
-                            breakpoints={[
-                              {
-                                width: 0,
-                                itemsLength: 4,
-                              },
-                              {
-                                width: 376,
-                                itemsLength: 6,
-                              },
-                              {
-                                width: 576,
-                                itemsLength: 4,
-                              },
-                              {
-                                width: 992,
-                                itemsLength: 6,
-                              },
-                            ]}
+
+                      <div className="badges">
+                        {el.tags.map((el2, idx2) => {
+                          return (
+                            <Badge
+                              onClick={badgeClickHandler}
+                              key={"badge" + idx + idx2}
+                            >
+                              {el2}
+                            </Badge>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <div className="d-none d-sm-block d-md-none boxes">
+                      <Boxes
+                        deliveryRate={el.deliveryRate}
+                        completedTickets={el.completedTickets}
+                      />
+                    </div>
+
+                    <div className="right">
+                      <div className="acheivements">
+                        <div className="acheivement-item">
+                          <h5 className="fs-14">Projects</h5>
+                          <div className="listings">
+                            <UserList
+                              users={el.projects}
+                              maxLen={6}
+                              breakpoints={[
+                                {
+                                  width: 0,
+                                  itemsLength: 4,
+                                },
+                                {
+                                  width: 376,
+                                  itemsLength: 7,
+                                },
+                                {
+                                  width: 576,
+                                  itemsLength: 4,
+                                },
+                                {
+                                  width: 992,
+                                  itemsLength: 6,
+                                },
+                              ]}
+                            />
+                          </div>
+                        </div>
+                        <div className="acheivement-item mt-3">
+                          <h5 className="fs-14">Followers</h5>
+                          <div className="listings">
+                            <UserList
+                              users={el.followers}
+                              maxLen={7}
+                              breakpoints={[
+                                {
+                                  width: 0,
+                                  itemsLength: 4,
+                                },
+                                {
+                                  width: 376,
+                                  itemsLength: 6,
+                                },
+                                {
+                                  width: 576,
+                                  itemsLength: 4,
+                                },
+                                {
+                                  width: 992,
+                                  itemsLength: 6,
+                                },
+                              ]}
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="d-block d-sm-none d-md-block boxes-main">
+                        <div className="boxes-main">
+                          <Boxes
+                            deliveryRate={el.deliveryRate}
+                            completedTickets={el.completedTickets}
                           />
                         </div>
                       </div>
                     </div>
-
-                    <div className="d-block d-sm-none d-md-block boxes-main">
-                      <div className="boxes-main">
-                        <Boxes
-                          deliveryRate={el.deliveryRate}
-                          completedTickets={el.completedTickets}
-                        />
-                      </div>
-                    </div>
-                  </div>
+                  </Link>
                 </motion.div>
               );
             })
