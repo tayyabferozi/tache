@@ -1,0 +1,23 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  &-item {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: url("../../assets/vectors/chevron-right.svg");
+      right: -28px;
+    }
+
+    &:last-child {
+      color: $color10;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

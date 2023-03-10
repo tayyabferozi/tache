@@ -1,0 +1,41 @@
+#ticket-details {
+  .hero.sub-page-container {
+    @media screen and (max-width: 767px) {
+      padding-top: 16px !important;
+    }
+
+    .hero-img {
+      @media screen and (max-width: 767px) {
+        width: 64px;
+        height: 64px;
+      }
+
+      // @media screen and (max-width: 575px) {
+      //   width: 50px;
+      //   height: 50px;
+      // }
+    }
+
+    .extras {
+      display: flex;
+      align-items: center;
+
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        cursor: pointer;
+
+        &:first-child {
+          padding-right: 14px;
+          border-right: 1px solid $color12;
+        }
+
+        &:last-child {
+          padding-left: 14px;
+        }
+      }
+    }
+  }
+}

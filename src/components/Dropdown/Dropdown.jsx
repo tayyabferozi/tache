@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
+
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 
 import "./Dropdown.scss";
@@ -14,7 +15,7 @@ const Dropdown = ({
   notBig = false,
 }) => {
   const dropdownRef = useRef();
-  const menuRef = useRef();
+  // const menuRef = useRef();
 
   const [value, setValue] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -64,7 +65,7 @@ const Dropdown = ({
               "dropdown-big__options",
               withCheckmarks && "with-checkmarks"
             )}
-            ref={menuRef}
+            // ref={menuRef}
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}

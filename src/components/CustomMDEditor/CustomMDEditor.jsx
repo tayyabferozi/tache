@@ -19,6 +19,8 @@ const codeEdit = {
 
 const CustomMDEditor = ({
   name = "comment",
+  reply,
+  placeholder = "",
   value,
   inputChangeHandler,
   footText,
@@ -28,9 +30,27 @@ const CustomMDEditor = ({
       <div className="md-editor-wrap">
         <MDEditor
           preview="edit"
-          extraCommands={[codeEdit, codePreview]}
+          extraCommands={
+            reply
+              ? [
+                  {
+                    name: "edit",
+                    keyCommand: "edit",
+                    value: "edit",
+                    icon: (
+                      <MDButton mode="edit" disabled={true}>
+                        {reply}
+                      </MDButton>
+                    ),
+                  },
+                ]
+              : [codeEdit, codePreview]
+          }
           height={200}
           value={value}
+          textareaProps={{
+            placeholder: placeholder,
+          }}
           onChange={(e) =>
             inputChangeHandler({
               target: {

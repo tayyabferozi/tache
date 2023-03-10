@@ -1,0 +1,10 @@
+#purchase-review-modal {
+  .modal-sub-wrapper {
+    // min-height: calc(100% - 40px);
+    max-height: 370px;
+
+    @media screen and (max-width: 767px) {
+      max-height: 530px;
+    }
+  }
+}

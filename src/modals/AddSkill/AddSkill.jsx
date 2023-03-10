@@ -47,10 +47,10 @@ const EditSkills = ({ addedSkills, setUser, ...rest }) => {
     setPinnedItemsState(addedSkills);
   }, [addedSkills]);
 
-  useEffect(() => {
-    if (rest.show) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "unset";
-  }, [rest]);
+  // useEffect(() => {
+  //   if (rest.show) document.body.style.overflow = "hidden";
+  //   else document.body.style.overflow = "unset";
+  // }, [rest]);
 
   return (
     <Modal className="custom-order-modal" id="add-skill-modal" small {...rest}>

@@ -9,6 +9,7 @@
   height: 50px;
   flex-shrink: 0;
   outline: none;
+  gap: 10px;
 
   @include transitioned;
 
@@ -49,7 +50,10 @@
     background-color: $color10;
 
     .btn-text {
-      color: #fff;
+      &,
+      * {
+        color: #fff;
+      }
     }
   }
 
@@ -78,6 +82,10 @@
 
   &.btn-bordered {
     border: 1px solid rgba($color6, 0.2);
+
+    &:hover {
+      background-color: rgba($color6, 0.075);
+    }
   }
 
   &.btn-light-grey {
@@ -85,6 +93,14 @@
     background-color: $color14;
     padding-left: 14px;
     padding-right: 14px;
+  }
+
+  &.btn-dashed {
+    border: 1.5px dashed $color13;
+
+    .btn-text {
+      color: $color7;
+    }
   }
 
   &.btn-inlined {

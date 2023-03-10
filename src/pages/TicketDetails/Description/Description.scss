@@ -1,0 +1,204 @@
+#ticket-details {
+  .description {
+    margin-top: -26px;
+
+    .desc-box {
+      @media screen and (max-width: 767px) {
+        padding-bottom: 0 !important;
+      }
+
+      .sub-page-container {
+        @media screen and (max-width: 575px) {
+          padding-top: 24px !important;
+          padding-bottom: 24px !important;
+        }
+      }
+
+      p {
+        line-height: 2;
+      }
+
+      .code-block {
+        margin-top: 34px;
+        margin-bottom: 24px;
+
+        @media screen and (max-width: 767px) {
+          margin-top: 12px;
+          margin-bottom: 12px;
+        }
+
+        pre > div {
+          background-color: #fff !important;
+          padding: 26px 40px !important;
+          border-radius: 16px;
+
+          @media screen and (max-width: 767px) {
+            padding: 26px 30px !important;
+          }
+
+          &::-webkit-scrollbar {
+            height: 4px;
+          }
+        }
+      }
+
+      .buttons {
+        margin-top: 28px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+
+        @media screen and (max-width: 575px) {
+          // justify-content: center;
+        }
+
+        .btn {
+          padding-right: 52px;
+          position: relative;
+          overflow: hidden;
+
+          .download {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $color27;
+          }
+        }
+      }
+
+      .buttons-2 {
+        .btn {
+          height: 45px;
+          min-width: 212px;
+
+          @media screen and (max-width: 575px) {
+            min-width: unset;
+            width: 100% !important;
+          }
+        }
+      }
+
+      .talent-card {
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 24px;
+
+        @media screen and (max-width: 575px) {
+          padding: 20px;
+        }
+
+        .img {
+          background-color: $color17;
+          border-radius: 50%;
+          width: 74px;
+          height: 74px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+
+          img {
+            width: 36px;
+          }
+
+          .madel {
+            position: absolute;
+            width: 34px;
+            height: 34px;
+            right: -6px;
+            bottom: -6px;
+          }
+        }
+
+        .reviews {
+          margin-top: 36px;
+
+          @media screen and (max-width: 575px) {
+            margin-top: 20px;
+          }
+
+          &-left {
+            display: flex;
+            gap: 16px;
+
+            @media screen and (max-width: 575px) {
+              gap: 10px;
+              width: 100%;
+            }
+
+            .box {
+              border-radius: 6px;
+              padding: 12px;
+
+              @media screen and (max-width: 575px) {
+                flex-grow: 1;
+              }
+
+              &.grey {
+                background-color: $color8;
+              }
+
+              &.primary-light {
+                background-color: $color15;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .comments {
+      border: none;
+      margin-top: 18px;
+      padding-bottom: 0;
+      background-color: transparent;
+      padding-left: 0;
+      padding-right: 0;
+
+      @media screen and (max-width: 575px) {
+        margin-top: 6px;
+      }
+
+      .avatar {
+        background-color: $color8;
+      }
+    }
+
+    .w-md-editor-text-input {
+      // .w-md-editor-content {
+      background-color: $color8;
+      border-top: 1px solid $color12;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $color8;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 80%;
+    }
+
+    .btn-assign {
+      @media screen and (max-width: 575px) {
+        width: 100%;
+      }
+    }
+
+    .revision-btn,
+    .talent-btn {
+      @media screen and (max-width: 575px) {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+}

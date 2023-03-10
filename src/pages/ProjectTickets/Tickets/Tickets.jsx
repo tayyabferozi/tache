@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+import PaginationNum from "../../../components/PaginationNum";
 import GridContainer from "../../../components/GridContainer";
 import DisplayTicket from "../../../modals/DisplayTicket";
 import cardAnimations from "../../../constants/card-animations";
@@ -8,7 +9,6 @@ import useModal from "../../../hooks/useModal";
 import Ticket from "../../../components/Ticket";
 
 import "./Tickets.scss";
-import PaginationNum from "../../../components/PaginationNum/PaginationNum";
 
 const data = [
   {

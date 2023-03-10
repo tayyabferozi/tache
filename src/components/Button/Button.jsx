@@ -15,6 +15,8 @@ const Button = ({
   children,
   icon,
   inline,
+  dashed,
+  noText,
   textClassName,
   persistHeight,
   ...rest
@@ -27,6 +29,7 @@ const Button = ({
     primaryLight && "btn-primary-light",
     bordered && "btn-bordered",
     lightGrey && "btn-light-grey",
+    dashed && "btn-dashed",
     inline && "btn-inlined",
     persistHeight && "persist-height"
   );
@@ -43,7 +46,9 @@ const Button = ({
           />
         </div>
       )}
-      <div className={clsx("btn-text", textClassName)}>{children}</div>
+      {!noText && (
+        <div className={clsx("btn-text", textClassName)}>{children}</div>
+      )}
     </>
   );
 

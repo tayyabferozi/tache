@@ -56,10 +56,10 @@ const CustomizePins = ({ pinnedTickets, allTickets, setUser, ...rest }) => {
     setRestItems(filteredAllTickets);
   }, [allTickets, pinnedItemIds]);
 
-  useEffect(() => {
-    if (rest.show) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "unset";
-  }, [rest]);
+  // useEffect(() => {
+  //   if (rest.show) document.body.style.overflow = "hidden";
+  //   else document.body.style.overflow = "unset";
+  // }, [rest]);
 
   return (
     <Modal className="custom-order-modal" small {...rest}>

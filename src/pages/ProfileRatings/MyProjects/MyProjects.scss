@@ -1,0 +1,102 @@
+#profile-ratings {
+  .my-projects {
+    .project-card-wrap {
+      position: relative;
+
+      .mask {
+        position: absolute;
+        right: 0;
+        top: 0;
+        opacity: 0;
+        pointer-events: none;
+
+        @include transitioned;
+      }
+
+      // &:hover {
+      //   .mask {
+      // opacity: 1;
+      //   }
+      // }
+    }
+    .project-card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      cursor: pointer;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid transparent;
+
+      @include transitioned;
+
+      &:hover {
+        border-color: $color25;
+        box-shadow: 8px 8px 16px 0px $color26;
+      }
+
+      .privacy {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        @media screen and (min-width: 576px) {
+          border: 1px solid $color30;
+          padding: 4px 6px;
+          font-size: 14px;
+          color: $color2;
+          border-radius: 4px;
+        }
+      }
+
+      .tickets-count {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        @media screen and (max-width: 490px) {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .line {
+          height: 35px;
+          width: 1px;
+          background-color: $color18;
+
+          @media screen and (max-width: 490px) {
+            display: none;
+          }
+        }
+
+        .tickets-box {
+          padding: 8px 10px;
+          border-radius: 4px;
+          display: flex;
+          gap: 20px;
+
+          @media screen and (max-width: 490px) {
+            width: 100%;
+            justify-content: space-between;
+          }
+
+          &.total {
+            border: 1px solid $color30;
+          }
+
+          &.active {
+            border: 1px solid $color31;
+            background-color: $color32;
+
+            &,
+            * {
+              color: $color33;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ import { animateScroll as scroll } from "react-scroll";
 
 import "./PaginationNum.scss";
 
-const PaginationNum = ({ pageNumState, setPageNumState, total }) => {
+const PaginationNum = ({ className, pageNumState, setPageNumState, total }) => {
   const changePage = (val) => {
     setPageNumState(val);
   };
@@ -34,7 +34,7 @@ const PaginationNum = ({ pageNumState, setPageNumState, total }) => {
   };
 
   return (
-    <div className="pagination-num">
+    <div className={clsx(className, "pagination-num")}>
       <button className="pg-btn prev" onClick={dec}>
         <img
           src="/assets/vectors/icons/arrow-2.svg"

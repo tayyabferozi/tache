@@ -1,0 +1,67 @@
+#share-ticket-modal {
+  .modal-sub-wrapper {
+    // max-width: 874px;
+    padding: 50px 0;
+    max-height: 520px;
+
+    .modal-main {
+      padding: 0 62px;
+    }
+  }
+
+  p {
+    max-width: 500px;
+  }
+
+  .copier {
+    position: relative;
+
+    .copy {
+      position: absolute;
+      right: 1px;
+      top: 1px;
+      bottom: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: $color8;
+      padding-left: 12px;
+      padding-right: 12px;
+      border-radius: 0 8px 8px 0;
+
+      @include transitioned;
+
+      &:hover {
+        background-color: $color5;
+      }
+    }
+  }
+
+  .social {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    text-align: center;
+    margin-top: 72px;
+
+    .social-item {
+      background-color: transparent;
+    }
+
+    .icon {
+      background-color: $color8;
+      border-radius: 50%;
+      width: 82px;
+      height: 82px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 36px;
+      }
+    }
+  }
+}

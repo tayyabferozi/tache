@@ -57,10 +57,10 @@ const EditCompanies = ({ pinnedItems, allItems, setUser, ...rest }) => {
     setRestItems(filteredAllItems);
   }, [allItems, pinnedItemIds]);
 
-  useEffect(() => {
-    if (rest.show) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "unset";
-  }, [rest]);
+  // useEffect(() => {
+  //   if (rest.show) document.body.style.overflow = "hidden";
+  //   else document.body.style.overflow = "unset";
+  // }, [rest]);
 
   return (
     <Modal
@@ -127,11 +127,6 @@ const EditCompanies = ({ pinnedItems, allItems, setUser, ...rest }) => {
                       <Input value={el.title} readOnly />
                     </div>
                   </div>
-                  {/* <Checkbox
-                    label={el.title}
-                    checked={false}
-                    onChange={() => updatePinnedHandler(el, "add")}
-                  /> */}
                 </div>
               );
             })}

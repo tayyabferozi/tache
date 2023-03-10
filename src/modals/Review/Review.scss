@@ -1,0 +1,26 @@
+#review-modal {
+  .modal-main {
+    max-width: 800px;
+  }
+
+  .quotes {
+    width: 26px;
+    height: 20px;
+  }
+
+  .slider-item {
+    display: flex;
+    gap: 30px;
+
+    .slider-txt {
+      .stars {
+        display: flex;
+        gap: 4px;
+
+        img {
+          width: 14px;
+        }
+      }
+    }
+  }
+}

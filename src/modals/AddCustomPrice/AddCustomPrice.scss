@@ -1,0 +1,30 @@
+#add-custom-price-modal {
+  h3 {
+    letter-spacing: -0.1ch;
+  }
+
+  .emoji-picker {
+    position: relative;
+
+    .e-btn {
+      position: absolute;
+      top: calc(50% + 18px);
+      right: 0.5rem;
+      transform: translateY(-50%);
+      cursor: pointer;
+
+      svg {
+        width: 22px;
+        fill: $color2;
+      }
+    }
+
+    .picker {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: 0;
+      background-color: #fff;
+      z-index: 1;
+    }
+  }
+}

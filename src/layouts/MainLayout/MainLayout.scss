@@ -175,9 +175,44 @@
 
     .layout-body {
       position: relative;
-      background-color: $color8;
       padding: 30px;
       z-index: 5;
+
+      &:not(.white-bg) {
+        background-color: $color8;
+      }
+
+      &.white-bg {
+        .page-container {
+          border-radius: 6px;
+          max-width: unset;
+          border-bottom-left-radius: 30px;
+          border-bottom-right-radius: 30px;
+          max-width: 1372px;
+        }
+
+        .sub-page-container {
+          max-width: 1178px;
+          margin-left: auto;
+          margin-right: auto;
+          position: relative;
+          z-index: 1;
+          padding-top: 60px;
+
+          @media screen and (max-width: 991px) {
+            padding-top: 40px;
+          }
+
+          @media screen and (max-width: 767px) {
+            padding-top: 30px;
+          }
+
+          @media screen and (max-width: 575px) {
+            padding-top: 18px;
+            padding-bottom: 18px;
+          }
+        }
+      }
 
       @media screen and (max-width: 767px) {
         padding: 18px;
@@ -187,6 +222,44 @@
             padding-left: 14px !important;
             padding-right: 14px !important;
           }
+
+          @media screen and (max-width: 575px) {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+        }
+      }
+
+      .desc-box {
+        border-radius: 30px;
+        background-color: $color8;
+        padding: 0 50px 50px;
+        margin-top: 26px;
+        max-width: 1372px;
+        margin-left: auto;
+        margin-right: auto;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        @media screen and (max-width: 991px) {
+          padding-left: 30px;
+          padding-right: 30px;
+          border-radius: 20px;
+        }
+
+        @media screen and (max-width: 767px) {
+          padding-left: 20px;
+          padding-right: 20px;
+          border-radius: 12px;
+          margin-top: 26px;
+        }
+
+        @media screen and (max-width: 575px) {
+          margin-top: 16px;
+          padding-left: 16px;
+          padding-right: 16px;
         }
       }
 

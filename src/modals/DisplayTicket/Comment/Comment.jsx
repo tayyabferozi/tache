@@ -11,6 +11,8 @@ const Comment = ({
   role,
   text,
   othersSelectedEmojis = {}, // number of emojis dropped excluding the current users's emojis
+  repliedName,
+  repliedText,
 }) => {
   const optionsRef = useRef(null);
 
@@ -36,12 +38,25 @@ const Comment = ({
 
   return (
     <div className="comment-item-main">
-      <div className="avatar">
-        <img src={avatar} alt={name} />
-      </div>
-
+      <div className="avatar-ghost"></div>
       <div className="text">
+        {repliedName && repliedText && (
+          <div className="reply">
+            <div className="comment-head">
+              <div className="left">
+                <div className="name">{repliedName}</div>
+              </div>
+            </div>
+            <div className="comment-body">
+              {repliedText.slice(0, 50)}
+              {repliedText.length > 50 && "..."}
+            </div>
+          </div>
+        )}
         <div className="comment-head">
+          <div className="avatar">
+            <img src={avatar} alt={name} />
+          </div>
           <div className="left">
             <div className="name">{name}</div>
             <div className="time">{subtext}</div>

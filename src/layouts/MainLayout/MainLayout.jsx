@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { Outlet } from "react-router-dom";
 
 import Footer from "../../partials/Footer/Footer";
@@ -6,12 +7,12 @@ import Navbar from "../../partials/Navbar";
 
 import "./MainLayout.scss";
 
-const MainLayout = () => {
+const MainLayout = ({ whiteBg }) => {
   return (
     <div id="main-layout">
-      <div className="layout-content">
+      <div className={clsx("layout-content")}>
         <Navbar />
-        <div className="layout-body">
+        <div className={clsx("layout-body", whiteBg && "white-bg")}>
           <div className="dark-bg-wrap">
             <img
               className="dots dots-1"

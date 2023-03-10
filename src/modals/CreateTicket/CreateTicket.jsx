@@ -7,9 +7,8 @@ import GridContainer from "../../components/GridContainer";
 import Input from "../../components/Input";
 import Modal from "../../components/Modal/Modal";
 import Button from "../../components/Button";
-
-import "./CreateTicket.scss";
 import CustomMDEditor from "../../components/CustomMDEditor";
+import "./CreateTicket.scss";
 
 const tagOptions = [
   { label: "Frontend", value: "frontend" },
@@ -204,6 +203,12 @@ const CreateTicket = ({ ...rest }) => {
                   onChange={(e) =>
                     inputChangeHandler({ target: { name: "tags", value: e } })
                   }
+                  styles={{
+                    placeholder: (baseStyles, state) => ({
+                      ...baseStyles,
+                      color: "#b6bec7",
+                    }),
+                  }}
                   options={formState.tags.length <= 20 ? tagOptions : []}
                   value={formState.tags}
                 />

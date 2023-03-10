@@ -10,6 +10,9 @@ import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import FindWorkers from "./pages/FindWorkers";
 import FindTalent from "./pages/FindTalent";
+import CreateNewTicket from "./pages/CreateNewTicket";
+import TicketDetails from "./pages/TicketDetails";
+import ProfileRatings from "./pages/ProfileRatings";
 
 const AppRoutes = () => {
   return (
@@ -24,6 +27,11 @@ const AppRoutes = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/find-workers" element={<FindWorkers />} />
           <Route path="/find-talent" element={<FindTalent />} />
+          <Route path="/create-new-ticket" element={<CreateNewTicket />} />
+        </Route>
+        <Route path="/" element={<MainLayout whiteBg />}>
+          <Route path="/ticket-details" element={<TicketDetails />} />
+          <Route path="/profile-ratings" element={<ProfileRatings />} />
         </Route>
       </Routes>
     </Router>

@@ -1,0 +1,103 @@
+#profile-ratings {
+  .review-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    @include transitioned;
+
+    &:hover {
+      border-color: $color25;
+      box-shadow: 8px 8px 16px 0px $color26;
+    }
+
+    &.hidden {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    .menu {
+      position: relative;
+      cursor: pointer;
+
+      .menu-options {
+        position: absolute;
+        width: 200px;
+        right: -16px;
+        text-align: center;
+        top: calc(100% + 4px);
+        box-shadow: 40px 34px 84px 0px $color21;
+        border-radius: 12px;
+        padding: 6px;
+        z-index: 1;
+        opacity: 0;
+        pointer-events: none;
+        background-color: #fff;
+
+        @include transitioned;
+
+        &.active {
+          opacity: 1;
+          pointer-events: all;
+        }
+
+        .menu-option {
+          border: 1px solid $color18;
+          height: 55px;
+          border-radius: 10px;
+          color: $color2;
+          padding: 18px;
+
+          &:hover {
+            background-color: $color8;
+          }
+        }
+      }
+    }
+
+    .client-details {
+      margin-top: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 10px;
+
+      @media screen and (max-width: 575px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .left {
+        display: flex;
+        flex-shrink: 0;
+        gap: 16px;
+
+        .img {
+          width: 44px;
+          height: 44px;
+          background-color: $color17;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      .right {
+        display: flex;
+        padding-bottom: 4px;
+        gap: 4px;
+
+        @media screen and (max-width: 575px) {
+          padding-left: 58px;
+        }
+
+        img {
+          width: 14px;
+        }
+      }
+    }
+  }
+}

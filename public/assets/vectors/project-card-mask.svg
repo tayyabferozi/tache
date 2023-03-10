@@ -1,0 +1,29 @@
+<svg width="380" height="198" viewBox="0 0 380 198" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_958_48424" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="380" height="198">
+<rect width="380" height="198" fill="url(#paint0_linear_958_48424)" fill-opacity="0.6"/>
+</mask>
+<g mask="url(#mask0_958_48424)">
+<rect x="140.5" y="0.5" width="61.5" height="61.5" stroke="#00CC99" stroke-opacity="0.12"/>
+<rect x="140.5" y="110.5" width="61.5" height="61.5" stroke="#00CC99" stroke-opacity="0.12"/>
+<rect x="263.5" y="0.5" width="61.5" height="61.5" stroke="#00CC99" stroke-opacity="0.12"/>
+<rect x="263.5" y="110.5" width="61.5" height="61.5" stroke="#00CC99" stroke-opacity="0.12"/>
+<rect x="201.5" width="62.5" height="62.5" fill="#00CC99" fill-opacity="0.1"/>
+<rect x="202" y="0.5" width="61.5" height="61.5" stroke="#00CC99" stroke-opacity="0.12"/>
+<rect x="201.5" y="110" width="62.5" height="62.5" fill="#4C42FF" fill-opacity="0.12"/>
+<rect x="202" y="110.5" width="61.5" height="61.5" stroke="#00CC99" stroke-opacity="0.12"/>
+<rect x="324.5" y="61.5" width="62.5" height="62.5" fill="#00CC99" fill-opacity="0.1"/>
+<rect x="325" y="62" width="61.5" height="61.5" stroke="#00CC99" stroke-opacity="0.12"/>
+<rect x="140" y="61.5" width="62.5" height="62.5" fill="#00CC99" fill-opacity="0.1"/>
+<rect x="140.5" y="62" width="61.5" height="61.5" stroke="#00CC99" stroke-opacity="0.12"/>
+<rect x="202" y="62" width="61.5" height="61.5" stroke="#00CC99" stroke-opacity="0.12"/>
+<rect x="263.5" y="62" width="61.5" height="61.5" stroke="#00CC99" stroke-opacity="0.12"/>
+<rect x="325" y="0.5" width="61.5" height="61.5" stroke="#00CC99" stroke-opacity="0.12"/>
+<rect x="325" y="110.5" width="61.5" height="61.5" stroke="#00CC99" stroke-opacity="0.12"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_958_48424" x1="237.12" y1="-10.6814" x2="129.378" y2="152.207" gradientUnits="userSpaceOnUse">
+<stop stop-color="#D9D9D9"/>
+<stop offset="1" stop-color="#D9D9D9" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>

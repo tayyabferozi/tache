@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 import Section from "../../components/Section";
@@ -9,7 +10,6 @@ import PaginationNum from "../../components/PaginationNum/PaginationNum";
 import tiledAnimations from "../../constants/tile-animations";
 import Dropdown from "../../components/Dropdown";
 import "./FindWorkers.scss";
-import { Link } from "react-router-dom";
 
 const data = [
   {

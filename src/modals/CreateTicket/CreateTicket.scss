@@ -58,25 +58,6 @@
     }
   }
 
-  .recommended-tags {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 5px;
-
-    .btn {
-      padding: 0;
-
-      &:hover {
-        transform: none;
-
-        .btn-text {
-          color: $color10;
-        }
-      }
-    }
-  }
-
   // .hr-wrap {
   //   margin-left: -10px;
   //   margin-right: -10px;

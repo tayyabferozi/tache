@@ -1,0 +1,80 @@
+#create-new-ticket {
+  .new-ticket-form {
+    margin-top: 28px;
+
+    .options {
+      .option {
+        cursor: pointer;
+        position: relative;
+        height: 100%;
+
+        .remove {
+          position: absolute;
+          right: -10px;
+          top: -10px;
+        }
+
+        .option-box {
+          padding: 24px;
+          border: 1px solid $color12;
+          border-radius: 8px;
+          height: 100%;
+
+          .option-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .option-heading__left {
+              font-size: 18px;
+              color: $color2;
+            }
+
+            .option-heading__right {
+              font-size: 20px;
+              color: $color1;
+              font-weight: 500;
+            }
+          }
+
+          .option-body {
+            margin-top: 1rem;
+          }
+        }
+
+        input[type="radio"] {
+          display: none;
+
+          // &::
+        }
+      }
+    }
+
+    .w-md-editor-text-input {
+      background-color: $color8;
+      border-top: 1px solid $color12;
+    }
+
+    .add-btn {
+      &:hover {
+        transform: scale(1.0125);
+      }
+    }
+
+    .recommended-tags {
+      gap: 16px;
+
+      & > span {
+        @media screen and (max-width: 575px) {
+          width: 100%;
+          display: block;
+        }
+      }
+    }
+
+    .days-details {
+      margin-top: 14px;
+      margin-bottom: 18px;
+    }
+  }
+}

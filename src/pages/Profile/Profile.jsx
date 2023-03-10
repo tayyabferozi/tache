@@ -4,8 +4,8 @@ import Section from "../../components/Section";
 import UserInfo from "./UserInfo";
 import TicketsInfo from "./TicketsInfo";
 import Tickets from "./Tickets";
+import Projects from "./Projects";
 import "./Profile.scss";
-import Projects from "./Projects/Projects";
 
 const Profile = () => {
   const [show, setShow] = useState(false);
