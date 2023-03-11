@@ -16,7 +16,7 @@ const ReviewCard = ({ el, idx, toggleHidden, toggleReviewModal }) => {
   return (
     <div
       className={clsx("review-card", el.isHidden && "hidden")}
-      onClick={toggleReviewModal}
+      // onClick={toggleReviewModal}
     >
       <div className="d-flex justify-content-between">
         <div>
