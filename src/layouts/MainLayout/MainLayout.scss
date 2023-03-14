@@ -282,12 +282,15 @@
 
             &.dots-1 {
               top: 30px;
-              right: 42px;
+              left: -52px;
+              // right: 42px;
             }
 
             &.dots-2 {
-              bottom: 178px;
-              right: 30px;
+              // bottom: 178px;
+              // right: 30px;
+              top: -10px;
+              right: -40px;
             }
 
             &.dots-3 {

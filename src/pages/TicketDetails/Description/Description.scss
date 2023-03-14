@@ -1,6 +1,14 @@
 #ticket-details {
   .description {
-    margin-top: -26px;
+    margin-top: 26px;
+
+    @media screen and (max-width: 767px) {
+      margin-top: 26px;
+    }
+
+    @media screen and (max-width: 575px) {
+      margin-top: 16px;
+    }
 
     .desc-box {
       @media screen and (max-width: 767px) {
@@ -199,6 +207,17 @@
         width: 100%;
         justify-content: center;
       }
+    }
+
+    .out-of-revisions {
+      background-color: #fff;
+      border-radius: 16px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      padding: 30px;
     }
   }
 }

@@ -382,6 +382,7 @@ const Description = () => {
         title="Document"
         value={formState.documentComment}
         inputChangeHandler={inputChangeHandler}
+        noRevisions
       />
       <SharedBox
         icon={"/assets/vectors/icons/copyright.svg"}

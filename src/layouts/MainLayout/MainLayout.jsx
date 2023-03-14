@@ -16,7 +16,7 @@ const MainLayout = ({ whiteBg }) => {
           <div className="dark-bg-wrap">
             <img
               className="dots dots-1"
-              src="/assets/vectors/dots-1.svg"
+              src="/assets/vectors/dots-2.svg"
               alt="dots"
               title="dots"
             />
@@ -28,7 +28,7 @@ const MainLayout = ({ whiteBg }) => {
             />
             <img
               className="dots dots-3"
-              src="/assets/vectors/dots-3.svg"
+              src="/assets/vectors/dots-2.svg"
               alt="dots"
               title="dots"
             />

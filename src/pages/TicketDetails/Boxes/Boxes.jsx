@@ -36,7 +36,7 @@ const Boxes = () => {
       <GridContainer rowClassName="justify-content-center">
         {boxes.map((el, idx) => {
           return (
-            <div className="col-lg-3 col-lg-6 col-md-6" key={"box-" + idx}>
+            <div className="col-xl-3 col-lg-6 col-md-6" key={"box-" + idx}>
               <div className="box">
                 <div className="name">
                   <div className="icon">

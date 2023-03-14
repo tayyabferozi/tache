@@ -8,7 +8,7 @@ import DownloadFiles from "../../../../modals/DownloadFiles";
 import PurchaseReview from "../../../../modals/PurchaseReview";
 import DescBox from "../DescBox/DescBox";
 
-const SharedBox = ({ icon, title, value, inputChangeHandler }) => {
+const SharedBox = ({ icon, title, value, inputChangeHandler, noRevisions }) => {
   const { show: showDownloadModal, toggleShow: toggleDownloadModal } =
     useModal(false);
   const {
@@ -86,24 +86,32 @@ const SharedBox = ({ icon, title, value, inputChangeHandler }) => {
           </Button>
         </div>
 
-        <div className="custom-form-control mt-30">
-          <label className="text-light-1" htmlFor="">
-            Description
-          </label>
-          <CustomMDEditor
-            name="submissionComment"
-            placeholder="Writing your comment..."
-            value={value}
-            inputChangeHandler={inputChangeHandler}
-            footText="0/5000"
-          />
-        </div>
+        {noRevisions ? (
+          <div className="out-of-revisions">
+            You have run out of revisions, purchase another to continue
+          </div>
+        ) : (
+          <>
+            <div className="custom-form-control mt-30">
+              <label className="text-light-1" htmlFor="">
+                Description
+              </label>
+              <CustomMDEditor
+                name="submissionComment"
+                placeholder="Writing your comment..."
+                value={value}
+                inputChangeHandler={inputChangeHandler}
+                footText="0/5000"
+              />
+            </div>
 
-        <div className="mt-20 d-flex">
-          <Button primaryLight inline className="px-3 h-45 revision-btn">
-            Submit Revision
-          </Button>
-        </div>
+            <div className="mt-20 d-flex">
+              <Button primaryLight inline className="px-3 h-45 revision-btn">
+                Submit Revision
+              </Button>
+            </div>
+          </>
+        )}
       </DescBox>
     </>
   );

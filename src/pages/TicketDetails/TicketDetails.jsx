@@ -9,10 +9,12 @@ import "./TicketDetails.scss";
 const TicketDetails = () => {
   return (
     <Section id="ticket-details">
-      <div className="bordered">
+      {/* <div className="bordered"> */}
+      <div className="desc-box">
         <Hero />
         <Boxes />
       </div>
+      {/* </div> */}
       <Description />
     </Section>
   );
