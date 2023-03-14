@@ -177,6 +177,7 @@
       position: relative;
       padding: 30px;
       z-index: 5;
+      overflow-x: hidden;
 
       &:not(.white-bg) {
         background-color: $color8;
