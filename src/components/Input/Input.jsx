@@ -126,15 +126,17 @@ const Input = ({
         )}
         {icon && <img className="icon" src={icon.src} alt={icon.alt} />}
         {textarea ? (
-          <textarea
-            className={clsx(inputClassName, hasError && "border-red")}
-            placeholder={placeholder}
-            value={value}
-            maxLength={maxLength}
-            name={name}
-            onChange={onChange}
-            {...rest}
-          ></textarea>
+          <>
+            <textarea
+              className={clsx(inputClassName, hasError && "border-red")}
+              placeholder={placeholder}
+              value={value}
+              maxLength={maxLength}
+              name={name}
+              onChange={onChange}
+              {...rest}
+            ></textarea>
+          </>
         ) : (
           <input
             className={clsx(inputClassName, hasError && "border-red")}
@@ -150,7 +152,7 @@ const Input = ({
           />
         )}
         {maxLength && (
-          <div className="fs-14 text-light-2 text-end mt-2">
+          <div className="fs-14 text-light-2 text-end mt-2 max-counter">
             {value.length}/{maxLength}
           </div>
         )}

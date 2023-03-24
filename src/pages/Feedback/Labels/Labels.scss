@@ -1,0 +1,70 @@
+.labels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 26px;
+  margin-bottom: 48px;
+
+  .label-item {
+    position: relative;
+
+    .inner {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, calc(-50% - 2px));
+      left: 50%;
+
+      .circle {
+        border: 1px solid $color7;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media screen and (max-width: 767px) {
+          transform: translateX(4px);
+        }
+
+        .number {
+          font-size: 14px;
+        }
+
+        img {
+          display: none;
+        }
+      }
+
+      .text {
+        @media screen and (max-width: 767px) {
+          display: none;
+        }
+      }
+
+      &.done {
+        .circle {
+          background-color: #fff;
+          border-color: transparent;
+
+          .number {
+            display: none;
+          }
+
+          img {
+            display: block;
+          }
+        }
+
+        .text {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

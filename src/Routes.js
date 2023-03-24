@@ -13,6 +13,7 @@ import FindTalent from "./pages/FindTalent";
 import CreateNewTicket from "./pages/CreateNewTicket";
 import TicketDetails from "./pages/TicketDetails";
 import ProfileRatings from "./pages/ProfileRatings";
+import Feedback from "./pages/Feedback";
 
 const AppRoutes = () => {
   return (
@@ -32,6 +33,9 @@ const AppRoutes = () => {
         <Route path="/" element={<MainLayout whiteBg />}>
           <Route path="/ticket-details" element={<TicketDetails />} />
           <Route path="/profile-ratings" element={<ProfileRatings />} />
+        </Route>
+        <Route path="/" element={<MainLayout whiteBg withoutDots noBgClr />}>
+          <Route path="/feedback" element={<Feedback />} />
         </Route>
       </Routes>
     </Router>

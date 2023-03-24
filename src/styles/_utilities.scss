@@ -392,6 +392,10 @@ body:has(.modal-wrapper.active) {
   @include transitioned;
 }
 
+.transitioned-fast {
+  transition: 0.1s ease;
+}
+
 .border-red {
   border-color: rgb(173, 26, 26) !important;
 }
