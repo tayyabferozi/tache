@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./RatingStars.scss";
 
 const RatingStars = () => {
-  const [rating, setRating] = useState(3.5);
+  const [rating, setRating] = useState(3);
   const [tempRating, setTempRating] = useState(0);
   const [showTemp, setShowTemp] = useState(false);
 
@@ -49,18 +49,25 @@ const Star = ({
   const svgRef = useRef();
 
   const starHoverHandler = (e) => {
-    // console.log(e.changedTouches[0].pageX);
-    const rect = e.target.getBoundingClientRect();
-    const x =
-      (e?.pageX ||
-        (e?.changedTouches && e.changedTouches[0].pageX) ||
-        (e.originalEvent.touches && e.originalEvent.touches[0].pageX)) -
-      rect.left;
-    if (x < 0) return;
-    const fillVal = x / rect.width;
-    if (fillVal < 0 || fillVal > 100) return;
-    setStarFilled(fillVal);
-    setTempRating(fillVal + pre);
+    // MORE FANCY UI APPROACH ;)
+
+    // const rect = e.target.getBoundingClientRect();
+    // const x =
+    //   (e?.pageX ||
+    //     (e?.changedTouches && e.changedTouches[0].pageX) ||
+    //     (e.originalEvent.touches && e.originalEvent.touches[0].pageX)) -
+    //   rect.left;
+    // if (x < 0) return;
+    // const fillVal = x / rect.width;
+    // if (fillVal < 0 || fillVal > 100) return;
+    // setStarFilled(fillVal);
+    // setTempRating(fillVal + pre);
+    // setShowTemp(true);
+
+    // SIMPLE BUT PROFESSIONAL APPROACH ;)
+
+    setStarFilled(1);
+    setTempRating(pre + 1);
     setShowTemp(true);
   };
 
