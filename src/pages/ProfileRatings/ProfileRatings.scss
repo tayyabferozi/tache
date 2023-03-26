@@ -3,21 +3,18 @@
   padding-left: 0 !important;
   padding-right: 0 !important;
 
-  .modal-sub-wrapper {
-    height: max-content;
-  }
-
   .user-info {
     padding: 20px;
     border-radius: 16px;
     background-color: #fff;
 
-    @media screen and (max-width: 991px) {
+    @media screen and (min-width: 576px) {
       padding-bottom: 40px;
     }
 
     @media screen and (max-width: 575px) {
       padding: 12px;
+      padding-bottom: 20px;
     }
 
     .cover {
@@ -43,6 +40,70 @@
       }
     }
 
+    .hired-by {
+      padding-left: 8px;
+
+      .companies {
+        .company-item {
+          display: flex;
+          gap: 16px;
+          align-items: flex-start;
+          margin-bottom: 16px;
+          position: relative;
+
+          .remove {
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+          }
+
+          .logo {
+            width: 24px;
+            flex-shrink: 0;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          .text {
+            max-width: 116px;
+
+            .name {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+    }
+
+    .badges {
+      margin-top: 14px;
+      flex-wrap: wrap;
+      display: flex;
+      gap: 14px;
+      max-width: 178px;
+
+      @media screen and (max-width: 767px) {
+        max-width: unset;
+      }
+
+      .badge {
+        position: relative;
+
+        .remove {
+          position: absolute;
+          right: -6px;
+          top: -4px;
+          width: 14px;
+          cursor: pointer;
+        }
+      }
+    }
+
     .info-main {
       display: flex;
       gap: 48px;
@@ -59,7 +120,8 @@
       }
 
       @media screen and (max-width: 1200px) {
-        gap: 16px;
+        gap: 30px;
+        // gap: 16px;
       }
 
       @media screen and (max-width: 991px) {
@@ -137,44 +199,113 @@
       .info-main__center {
         padding-top: 30px;
         flex-grow: 1;
-        display: flex;
-        justify-content: space-between;
 
-        @media screen and (max-width: 1199px) {
-          flex-direction: column;
-          gap: 30px;
+        @media screen and (max-width: 767px) {
+          padding-top: 10px;
         }
 
-        @media screen and (max-width: 991px) {
-          padding-top: 20px;
+        .top {
+          display: flex;
+          justify-content: space-between;
+
+          @media screen and (max-width: 1199px) {
+            flex-direction: column;
+            gap: 30px;
+          }
+
+          @media screen and (max-width: 991px) {
+            padding-top: 20px;
+          }
+
+          @media screen and (max-width: 767px) {
+            width: 100%;
+            padding-top: 0;
+          }
+
+          h4 {
+            min-height: 40px;
+          }
         }
 
-        @media screen and (max-width: 610px) {
-          width: 100%;
-          padding-top: 0;
+        .text-content {
+          display: flex;
+          gap: 54px;
+          flex-grow: 1;
+
+          @media screen and (max-width: 1200px) {
+            gap: 30px;
+          }
+
+          @media screen and (max-width: 1100px) {
+            flex-direction: column;
+          }
+
+          @media screen and (max-width: 575px) {
+            gap: 0px;
+          }
+
+          .text-left {
+            width: 68%;
+
+            @media screen and (max-width: 1200px) {
+              width: unset;
+              flex-grow: 1;
+            }
+          }
+
+          .text-right {
+            flex-grow: 1;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+
+            @media screen and (max-width: 1200px) {
+              width: 180px;
+              flex-grow: 0;
+            }
+
+            @media screen and (max-width: 1100px) {
+              width: 100%;
+            }
+          }
         }
 
-        h4 {
-          min-height: 40px;
+        .about-text {
+          margin-top: 14px;
+
+          a {
+            color: $color4;
+          }
         }
       }
     }
+
     .right {
       display: flex;
 
       @media screen and (max-width: 991px) {
-        margin-left: 138px;
+        // margin-left: 138px;
+        margin-left: 210px;
         margin-top: 30px;
         padding-left: 10px;
         padding-right: 10px;
       }
 
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 830px) {
         margin-left: 0;
         justify-content: center;
       }
 
-      @media screen and (max-width: 610px) {
+      @media screen and (max-width: 767px) {
+        margin-left: 0;
+        justify-content: start;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      @media screen and (max-width: 650px) {
         flex-direction: column;
         gap: 24px;
         margin-top: 10px;
@@ -192,7 +323,8 @@
         flex-direction: column;
         justify-content: space-between;
         padding: 0 34px;
-        border-right: 1px solid $color12;
+        // border-right: 1px solid $color12;
+        border-right: 1px solid $color16;
 
         @media screen and (max-width: 991px) {
           padding-left: 20px;
@@ -219,6 +351,12 @@
           border: 0;
         }
       }
+    }
+  }
+
+  .tickets-main {
+    .item {
+      background-color: #fff;
     }
   }
 

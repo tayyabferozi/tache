@@ -17,9 +17,9 @@
       overflow: hidden;
     }
 
-    .tickets-info-sec,
-    .tickets,
-    .projects {
+    // .tickets-info-sec,
+    .recent {
+      // .projects {
       @media screen and (max-width: 767px) {
         display: none;
       }

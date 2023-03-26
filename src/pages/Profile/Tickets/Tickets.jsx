@@ -1,14 +1,16 @@
 import React from "react";
 
-import Badge from "../../../components/Badge";
 import Ticket from "../../../components/Ticket";
 import GridContainer from "../../../components/GridContainer";
 import CustomizePins from "../../../modals/CustomizePins/CustomizePins";
 import useModal from "../../../hooks/useModal";
 import PlaceholderTile from "../../../components/PlaceholderTile";
 import "./Tickets.scss";
+import clsx from "clsx";
 
 const Tickets = ({
+  className,
+  icon,
   show,
   title,
   items,
@@ -33,15 +35,15 @@ const Tickets = ({
           setUser={setUser}
         />
       )}
-      <div className="tickets">
-        <div className="mb-30 d-flex justify-content-between align-items-end">
-          <Badge className="main-badge" green>
-            {title}
-          </Badge>
+      <div className={clsx(className, "tickets")}>
+        <div className="mb-30 d-flex justify-content-between align-items-sm-end flex-sm-row flex-column">
+          <h5 className="fs-22 d-flex gap-10">
+            <img src={icon} alt={title} /> {title}
+          </h5>
 
           {onCustomizePins && (
             <div
-              className="customize-pin"
+              className="customize-pin text-light-1 ms-575-30 ps-2 mt-575-10"
               onClick={() => toggleShowCustomizePinModal()}
             >
               Customize your pins
@@ -51,7 +53,7 @@ const Tickets = ({
 
         <GridContainer rowClassName="g-20" rootClassName="">
           {show && onCustomizePins && items.length === 0 && (
-            <div className="col-xxl-3 col-lg-4 col-md-6">
+            <div className="col-lg-4 col-md-6">
               <PlaceholderTile onClick={() => toggleShowCustomizePinModal()} />
             </div>
           )}
@@ -60,7 +62,7 @@ const Tickets = ({
                 return (
                   <div
                     key={title + "-ticket" + el.id + Math.random()}
-                    className="col-xxl-3 col-lg-4 col-md-6"
+                    className="col-lg-4 col-md-6"
                   >
                     <div
                       key={"project-ticket-" + idx}
@@ -71,11 +73,11 @@ const Tickets = ({
                   </div>
                 );
               })
-            : new Array(8).fill(0).map((el, idx) => {
+            : new Array(6).fill(0).map((el, idx) => {
                 return (
                   <div
                     key={"skeleton-ticket" + idx}
-                    className="col-xxl-3 col-lg-4 col-md-6"
+                    className="col-lg-4 col-md-6"
                   >
                     <Ticket skeleton />
                   </div>

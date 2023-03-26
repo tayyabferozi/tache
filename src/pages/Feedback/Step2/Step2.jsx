@@ -12,10 +12,7 @@ const Step2 = ({ formState, inputChangeHandler }) => {
       <div className="fs-20 fw-500">Show your best rating for this project</div>
 
       <div className="mt-40">
-        <div className="text-light-1">Your Rating</div>
-        <div className="mt-30">
-          <RatingStars />
-        </div>
+        <RatingStars />
       </div>
 
       <div className="text-feedback mt-40">

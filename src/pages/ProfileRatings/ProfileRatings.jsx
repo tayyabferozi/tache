@@ -5,6 +5,7 @@ import UserInfo from "./UserInfo";
 import MyProjects from "./MyProjects";
 import TalentReviews from "./TalentReviews";
 import "./ProfileRatings.scss";
+import TicketsInfo from "../../components/TicketsInfo";
 
 const DUMMY_DATA = {
   name: "Weihang Lo",
@@ -532,16 +533,6 @@ const DUMMY_DATA = {
       company: "Founder Company",
     },
     {
-      id: 28,
-      title: "Title of the task 28",
-      date: "Thu 23 Feb",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
-      clientImg: "/assets/imgs/pool-avatar-1.png",
-      clientName: "Talent Reveiew Name",
-      company: "Founder Company",
-    },
-    {
       id: 29,
       title: "Title of the task 4",
       date: "Thu 23 Feb",
@@ -584,16 +575,6 @@ const DUMMY_DATA = {
     {
       id: 33,
       title: "Title of the task 8",
-      date: "Thu 23 Feb",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
-      clientImg: "/assets/imgs/pool-avatar-1.png",
-      clientName: "Talent Reveiew Name",
-      company: "Founder Company",
-    },
-    {
-      id: 34,
-      title: "Title of the task 28",
       date: "Thu 23 Feb",
       description:
         "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
@@ -652,16 +633,6 @@ const DUMMY_DATA = {
       company: "Founder Company",
     },
     {
-      id: 40,
-      title: "Title of the task 28",
-      date: "Thu 23 Feb",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
-      clientImg: "/assets/imgs/pool-avatar-1.png",
-      clientName: "Talent Reveiew Name",
-      company: "Founder Company",
-    },
-    {
       id: 41,
       title: "Title of the task 14",
       date: "Thu 23 Feb",
@@ -712,16 +683,6 @@ const DUMMY_DATA = {
       company: "Founder Company",
     },
     {
-      id: 46,
-      title: "Title of the task 28",
-      date: "Thu 23 Feb",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
-      clientImg: "/assets/imgs/pool-avatar-1.png",
-      clientName: "Talent Reveiew Name",
-      company: "Founder Company",
-    },
-    {
       id: 47,
       title: "Title of the task 19",
       date: "Thu 23 Feb",
@@ -741,6 +702,85 @@ const DUMMY_DATA = {
       clientName: "Talent Reveiew Name",
       company: "Founder Company",
     },
+    {
+      id: 49,
+      title: "Title of the task 21",
+      date: "Thu 23 Feb",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      clientImg: "/assets/imgs/pool-avatar-1.png",
+      clientName: "Talent Reveiew Name",
+      company: "Founder Company",
+    },
+    {
+      id: 50,
+      title: "Title of the task 22",
+      date: "Thu 23 Feb",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      clientImg: "/assets/imgs/pool-avatar-1.png",
+      clientName: "Talent Reveiew Name",
+      company: "Founder Company",
+    },
+    {
+      id: 51,
+      title: "Title of the task 23",
+      date: "Thu 23 Feb",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      clientImg: "/assets/imgs/pool-avatar-1.png",
+      clientName: "Talent Reveiew Name",
+      company: "Founder Company",
+    },
+    {
+      id: 52,
+      title: "Title of the task 24",
+      date: "Thu 23 Feb",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      clientImg: "/assets/imgs/pool-avatar-1.png",
+      clientName: "Talent Reveiew Name",
+      company: "Founder Company",
+    },
+  ],
+  hiredBy: [
+    {
+      id: 1,
+      img: "/assets/vectors/icons/logo-dribbble.svg",
+      name: "Dribbble.inc",
+      title: "Frontend Developer",
+    },
+    {
+      id: 2,
+      img: "/assets/vectors/icons/logo-google-2.svg",
+      name: "Google",
+      title: "Database",
+    },
+    {
+      id: 3,
+      img: "/assets/vectors/icons/logo-twitter.svg",
+      name: "Twitter",
+      title: "Backend Developer",
+    },
+    {
+      id: 4,
+      img: "/assets/vectors/icons/logo-google-2.svg",
+      name: "Google",
+      title: "Database",
+    },
+    {
+      id: 5,
+      img: "/assets/vectors/icons/logo-dribbble.svg",
+      name: "Dribbble.inc",
+      title: "Frontend Developer",
+    },
+  ],
+  about: `I'm Weihang Lo, a software engineer from Taiwan and also a Rustacean in [Rust Taiwan](https://www.google.com/) community. I love Rust, cycling and open source. Currently contribute to "Cargo: The Rust package manager" regularly and write articles for ["Rust Algorithm Club"](https://www.google.com/) (in Chinese).  \n Things I code with: Rust, Kubernetes, Node.js, Python, web development, DevOps, finding bugs.  \n You can contact me by clicking badges above, or just submit a new issue directly 😀.`,
+  skills: [
+    { id: 1, label: "Frontend" },
+    { id: 2, label: "Database" },
+    { id: 3, label: "Backend" },
+    { id: 4, label: "Programmer" },
   ],
 };
 
@@ -750,11 +790,18 @@ const ProfileRatings = () => {
   return (
     <Section id="profile-ratings">
       <UserInfo user={userState} />
+
+      <div className="tikcet-info-wrap desc-box">
+        <div className="sub-page-container">
+          <TicketsInfo />
+        </div>
+      </div>
       <MyProjects projects={userState.myProjects} />
       <TalentReviews
         title="Talent Reviews"
         rating={userState.talentRating}
         reviews={userState.talentReviews}
+        userState={userState}
         setUserState={setUserState}
         name="talentReviews"
       />
@@ -762,6 +809,7 @@ const ProfileRatings = () => {
         title="Project Lead Reviews"
         rating={userState.leadRating}
         reviews={userState.leadReviews}
+        userState={userState}
         setUserState={setUserState}
         name="leadReviews"
       />

@@ -7,7 +7,7 @@ import PaginationNum from "../../../components/PaginationNum";
 import useModal from "../../../hooks/useModal";
 import ReviewModal from "../../../modals/Review";
 import cardAnimations from "../../../constants/card-animations";
-import ReviewCard from "./ReviewCard/ReviewCard";
+import ReviewCard from "./ReviewCard";
 import "./TalentReviews.scss";
 
 const pageSize = 6;
@@ -17,6 +17,7 @@ const TalentReviews = ({
   rating,
   reviews: data,
   name,
+  userState,
   setUserState,
 }) => {
   const { show: showReviewModal, toggleShow: toggleReviewModal } =
@@ -25,14 +26,39 @@ const TalentReviews = ({
   const [filteredData, setFilteredData] = useState(data);
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  const toggleCardHidden = (idx) => {
+  const toggleCardHidden = (id) => {
+    const idx = userState[name].findIndex((el) => el.id === id);
+
+    if (idx < 0) return;
+
     setUserState((prevState) => {
-      const newState = { ...prevState };
+      const newState = JSON.parse(JSON.stringify(prevState));
 
       newState[name][idx].isHidden = !newState[name][idx].isHidden;
 
+      if (newState[name][idx].isHidden) {
+        const item = newState[name][idx];
+
+        newState[name] = [].concat(
+          newState[name].slice(0, idx),
+          newState[name].slice(idx + 1),
+          item
+        );
+      }
+
       return newState;
     });
+  };
+
+  const toggleTicketDisplayModal = (e, el) => {
+    if (el.isHidden) return;
+    if (
+      e?.target?.classList?.contains("menu") ||
+      e?.target?.classList?.contains("dots-icon") ||
+      e?.target?.classList?.contains("menu-option")
+    )
+      return;
+    toggleReviewModal();
   };
 
   useEffect(() => {
@@ -119,17 +145,21 @@ const TalentReviews = ({
                       {filteredData.map((el, idx) => {
                         return (
                           <motion.div
-                            key={"my-projects" + el.id + Math.random()}
+                            key={"my-projects" + el.id}
                             {...cardAnimations}
                             className="col-xxl-4 col-lg-6"
-                            // onClick={toggleTicketDisplayModal}
                           >
-                            <ReviewCard
-                              el={el}
-                              idx={idx}
-                              toggleHidden={toggleCardHidden}
-                              toggleReviewModal={toggleReviewModal}
-                            />
+                            <div
+                              onClick={(e) => toggleTicketDisplayModal(e, el)}
+                            >
+                              <ReviewCard
+                                el={el}
+                                id={el.id}
+                                idx={idx}
+                                toggleHidden={toggleCardHidden}
+                                toggleReviewModal={toggleReviewModal}
+                              />
+                            </div>
                           </motion.div>
                         );
                       })}

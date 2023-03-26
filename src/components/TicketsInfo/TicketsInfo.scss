@@ -1,0 +1,12 @@
+#profile-view .tickets-info-sec {
+  padding: 70px 40px;
+  margin-top: 14px;
+
+  @media screen and (max-width: 1250px) {
+    padding: 40px 20px;
+  }
+
+  @media screen and (max-width: 575px) {
+    padding: 18px 12px;
+  }
+}

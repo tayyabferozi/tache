@@ -5,7 +5,7 @@
 .project-tile {
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 40px 34px 84px 0px #eaeaeacc;
+  // box-shadow: 40px 34px 84px 0px #eaeaeacc;
   background: rgb(0, 0, 0, 0);
   background: radial-gradient(
       circle at 100% calc(100% - 122px),
@@ -55,6 +55,7 @@
 
   .tile-head {
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 30px;
     gap: 18px;
@@ -116,6 +117,18 @@
       margin: 0 16px;
       background-color: $color18;
 
+      @media screen and (max-width: 1400px) {
+        margin: 0 6px;
+      }
+
+      @media screen and (max-width: 1050px) {
+        display: none;
+      }
+
+      @media screen and (max-width: 991px) {
+        display: inline;
+      }
+
       @media screen and (max-width: 575px) {
         display: none;
       }
@@ -125,28 +138,40 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px;
+      padding: 8px 10px;
       border-radius: 6px;
       flex-grow: 1;
 
       &:nth-child(1) {
         background-color: $color8;
-      }
-
-      &:last-child {
-        background-color: rgba($color: $color10, $alpha: 0.04);
+        border: 1px solid $color30;
 
         .item-left {
           .ticket-text {
             &,
             * {
-              color: $color10;
+              color: $color1;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        background-color: rgba($color: $color10, $alpha: 0.04);
+        border: 1px solid $color31;
+
+        .item-left {
+          .ticket-text {
+            &,
+            * {
+              color: $color33;
             }
           }
         }
 
         .item-right {
-          color: $color10;
+          color: $color33;
+          font-weight: 500;
         }
       }
 
@@ -158,6 +183,20 @@
           font-size: 14px;
           font-weight: 400;
           letter-spacing: -0.08ch;
+
+          .ticket-text-hid {
+            @media screen and (max-width: 1300px) {
+              display: none;
+            }
+
+            @media screen and (max-width: 991px) {
+              display: inline;
+            }
+
+            @media screen and (max-width: 890px) {
+              display: none;
+            }
+          }
         }
       }
 

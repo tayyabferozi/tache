@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import Badge from "../../../components/Badge";
 import Button from "../../../components/Button";
-import HiringCompanies from "./HiringCompanies";
+import HiringCompanies from "../../../components/HiringCompanies";
 import CustomMDEditor from "../../../components/CustomMDEditor";
 import AddSkill from "../../../modals/AddSkill";
 import useModal from "../../../hooks/useModal";

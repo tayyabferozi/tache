@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./RatingStars.scss";
 
 const RatingStars = () => {
-  const [rating, setRating] = useState(3);
+  const [rating, setRating] = useState(0);
   const [tempRating, setTempRating] = useState(0);
   const [showTemp, setShowTemp] = useState(false);
 
@@ -44,7 +44,7 @@ const Star = ({
   setShowTemp,
 }) => {
   const [starFilled, setStarFilled] = useState();
-  const [translateVal, setTranslateVal] = useState(0);
+  const [translateVal, setTranslateVal] = useState(100);
   const [starTempFilled, setStarTempFilled] = useState();
   const svgRef = useRef();
 

@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React from "react";
 
-import useModal from "../../../../hooks/useModal";
-import Button from "../../../../components/Button";
-import EditCompanies from "../../../../modals/EditCompanies/";
+import useModal from "../../hooks/useModal";
+import Button from "../Button";
+import EditCompanies from "../../modals/EditCompanies";
 
 const HiringCompanies = ({ user, editState, hiredBy, setUser }) => {
   const {
@@ -11,17 +11,19 @@ const HiringCompanies = ({ user, editState, hiredBy, setUser }) => {
     toggleShow: toggleShowEditCompaniesModal,
   } = useModal(false);
 
-  if (user.allCompanies.length === 0) return null;
+  if (user?.allCompanies?.length === 0) return null;
 
   return (
     <>
-      <EditCompanies
-        show={showEditCompaniesModal}
-        closeModal={() => toggleShowEditCompaniesModal("close")}
-        allItems={user.allCompanies}
-        pinnedItems={user.hiredBy}
-        setUser={setUser}
-      />
+      {setUser && (
+        <EditCompanies
+          show={showEditCompaniesModal}
+          closeModal={() => toggleShowEditCompaniesModal("close")}
+          allItems={user.allCompanies}
+          pinnedItems={user.hiredBy}
+          setUser={setUser}
+        />
+      )}
 
       <div className="hired-by mt-20">
         <div className="text-focus">Hired by</div>

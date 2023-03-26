@@ -4,6 +4,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 const ProjectTile = ({
   id,
   title,
+  date,
   access = "public",
   body,
   totalTickets,
@@ -19,7 +20,10 @@ const ProjectTile = ({
               {skeleton ? (
                 <Skeleton width={100} />
               ) : (
-                <h5 className="fs-18">{title}</h5>
+                <>
+                  <h5 className="fs-18">{title}</h5>
+                  {date && <div className="fs-14 mt-1 date">{date}</div>}
+                </>
               )}
             </div>
             <div className="right">
@@ -63,13 +67,30 @@ const ProjectTile = ({
               <>
                 <div className="info-item">
                   <div className="item-left">
-                    <div className="ticket-text">Total</div>
+                    <div className="ticket-text d-flex align-items-center">
+                      <img
+                        className="me-2"
+                        src="/assets/vectors/icons/totalTickets.svg"
+                        alt=""
+                      />{" "}
+                      Total{" "}
+                      <span className="ticket-text-hid ms-1"> Ticket</span>
+                    </div>
                   </div>
                   <div className="item-right">{totalTickets}</div>
                 </div>
+                <div className="line"></div>
                 <div className="info-item">
                   <div className="item-left">
-                    <div className="ticket-text">Active</div>
+                    <div className="ticket-text d-flex align-items-center">
+                      <img
+                        className="me-2"
+                        src="/assets/vectors/icons/active-tickets.svg"
+                        alt=""
+                      />{" "}
+                      Active{" "}
+                      <span className="ticket-text-hid ms-1"> Tickets</span>
+                    </div>
                   </div>
                   <div className="item-right">{activeTickets}</div>
                 </div>

@@ -1,7 +1,9 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import clsx from "clsx";
 
 import "./UserInfo.scss";
+import Badge from "../../../components/Badge";
 
 const UserInfo = ({ user }) => {
   return (
@@ -31,22 +33,68 @@ const UserInfo = ({ user }) => {
                   />
                 </div>
               </div>
-            </div>
-            <div className="info-main__center">
-              <div className="left">
-                <h4 className="d-flex align-items-center gap-20">
-                  {user.name}
-                </h4>
 
-                <div className="mt-575-1 mt-2 d-flex align-items-center gap-10">
-                  <img
-                    src="/assets/vectors/icons/location.svg"
-                    alt="location"
-                  />
-                  <div className="fs-14 text-light-1">{user.location}</div>
+              <div className="d-none d-md-block">
+                {/* <HiringCompanies user={user} hiredBy={user.hiredBy} /> */}
+                <div className="mt-20">
+                  <div>
+                    <div className="text-focus">Skills</div>
+                  </div>
+
+                  <div className="badges">
+                    {user?.skills?.map((el, idx) => {
+                      return (
+                        <Badge key={"proflie-badge" + idx}>{el.label}</Badge>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
-              <Right className="d-none d-lg-flex" user={user} />
+            </div>
+            <div className="info-main__center">
+              <div className="top">
+                <div className="left">
+                  <h4 className="d-flex align-items-center gap-20">
+                    {user.name}
+                  </h4>
+
+                  <div className="mt-575-1 mt-2 d-flex align-items-center gap-10">
+                    <img
+                      src="/assets/vectors/icons/location.svg"
+                      alt="location"
+                    />
+                    <div className="fs-14 text-light-1">{user.location}</div>
+                  </div>
+                </div>
+                <Right className="d-none d-lg-flex" user={user} />
+              </div>
+
+              <div className="text-content mt-34">
+                <div className="text-left">
+                  <div>
+                    <div className="text-focus">About us</div>
+                  </div>
+
+                  <div className="about-text">
+                    <ReactMarkdown children={user.about} />
+                  </div>
+                </div>
+                <div className="d-block d-md-none">
+                  <div className="mt-20">
+                    <div>
+                      <div className="text-focus">Skills</div>
+                    </div>
+
+                    <div className="badges">
+                      {user?.skills?.map((el, idx) => {
+                        return (
+                          <Badge key={"proflie-badge" + idx}>{el.label}</Badge>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <Right className="d-flex d-lg-none" user={user} />

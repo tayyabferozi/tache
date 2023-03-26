@@ -1,6 +1,18 @@
 #review-modal {
-  .modal-main {
+  .modal-sub-wrapper {
     max-width: 800px;
+    height: max-content;
+
+    @media screen and (max-width: 767px) {
+      height: calc(100% - 40px);
+      padding-top: 34px;
+      padding-bottom: 34px;
+    }
+
+    .modal-main {
+      padding-left: 34px;
+      padding-right: 34px;
+    }
   }
 
   .quotes {
@@ -10,9 +22,33 @@
 
   .slider-item {
     display: flex;
-    gap: 30px;
+    gap: 40px;
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .slider-img {
+      width: 33.33%;
+
+      @media screen and (max-width: 767px) {
+        width: 100%;
+        max-width: 280px;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
 
     .slider-txt {
+      width: 66.66%;
+
+      @media screen and (max-width: 767px) {
+        width: 100%;
+      }
+
       .stars {
         display: flex;
         gap: 4px;
@@ -21,6 +57,24 @@
           width: 14px;
         }
       }
+    }
+  }
+
+  .slider-btns {
+    .btn {
+      width: 38px;
+      height: 38px;
+    }
+
+    @media screen and (min-width: 576px) {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+
+    @media screen and (max-width: 576px) {
+      justify-content: space-between;
+      margin-top: 34px;
     }
   }
 }

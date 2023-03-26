@@ -43,6 +43,11 @@
 
   @include transitioned;
 
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   &:hover {
     background-color: rgba($color10, 0.2);
   }

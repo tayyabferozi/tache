@@ -19,6 +19,7 @@ const Button = ({
   noText,
   textClassName,
   persistHeight,
+  cref,
   ...rest
 }) => {
   const classes = clsx(
@@ -60,7 +61,7 @@ const Button = ({
     );
   } else {
     return (
-      <button className={classes} {...rest}>
+      <button ref={cref} className={classes} {...rest}>
         {btnChilren}
       </button>
     );

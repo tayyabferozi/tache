@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 
 import useOnClickOutside from "../../../../hooks/useOnClickOutside";
 
-const ReviewCard = ({ el, idx, toggleHidden, toggleReviewModal }) => {
+const ReviewCard = ({ id, el, idx, toggleHidden }) => {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef();
 
@@ -14,10 +14,7 @@ const ReviewCard = ({ el, idx, toggleHidden, toggleReviewModal }) => {
   useOnClickOutside(menuRef, hideMenu);
 
   return (
-    <div
-      className={clsx("review-card", el.isHidden && "hidden")}
-      // onClick={toggleReviewModal}
-    >
+    <div className={clsx("review-card", el.isHidden && "hidden")}>
       <div className="d-flex justify-content-between">
         <div>
           <h5>{el.title}</h5>
@@ -31,10 +28,14 @@ const ReviewCard = ({ el, idx, toggleHidden, toggleReviewModal }) => {
               setShowMenu(!showMenu);
             }}
           >
-            <img src="/assets/vectors/icons/more.svg" alt="options" />
+            <img
+              src="/assets/vectors/icons/more.svg"
+              className="dots-icon"
+              alt="options"
+            />
             <div
               className={clsx("menu-options", showMenu && "active")}
-              onClick={() => toggleHidden(idx)}
+              onClick={() => toggleHidden(id)}
             >
               <div className="menu-option">
                 {el.isHidden ? "Show" : "Hide"} this review

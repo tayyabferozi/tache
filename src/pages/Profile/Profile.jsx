@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Section from "../../components/Section";
 import UserInfo from "./UserInfo";
-import TicketsInfo from "./TicketsInfo";
+import TicketsInfo from "../../components/TicketsInfo";
 import Tickets from "./Tickets";
 import Projects from "./Projects";
 import "./Profile.scss";
@@ -21,7 +21,6 @@ const Profile = () => {
       { id: 3, label: "Backend" },
       { id: 4, label: "Programmer" },
     ],
-    // "UI", "Database", "Backend", "Programmer"],
     hiredBy: [
       {
         id: 1,
@@ -92,8 +91,9 @@ const Profile = () => {
       {
         id: 9,
         title: "Ticket title 1",
+        date: "Thu 23 Feb",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI", "Backend", "Full-stack"],
         amount: false,
         mysteryBonus: 20,
@@ -101,16 +101,18 @@ const Profile = () => {
       {
         id: 10,
         title: "Ticket title 2",
+        date: "Thu 23 Feb",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
       },
       {
         id: 11,
         title: "Ticket title 3",
+        date: "Thu 23 Feb",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
         mysteryBonus: 20,
@@ -118,16 +120,18 @@ const Profile = () => {
       {
         id: 12,
         title: "Ticket title 4",
+        date: "Thu 23 Feb",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
       },
       {
         id: 13,
         title: "Ticket title 5",
+        date: "Thu 23 Feb",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
         mysteryBonus: 20,
@@ -135,33 +139,18 @@ const Profile = () => {
       {
         id: 14,
         title: "Ticket title 6",
+        date: "Thu 23 Feb",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
-      },
-      {
-        id: 15,
-        title: "Ticket title 7",
-        payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        tags: ["Frontend", "Database", "UI"],
-        amount: false,
-      },
-      {
-        id: 16,
-        title: "Ticket title 8",
-        payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        tags: ["Frontend", "Database", "UI"],
-        amount: false,
-        mysteryBonus: 20,
       },
     ],
     recentTickets: [
       {
         id: 1,
         title: "Ticket title 1",
+        date: "Thu 23 Feb",
         payment: "100",
         body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         tags: ["Frontend", "Database", "UI", "Backend", "Full-stack"],
@@ -171,6 +160,7 @@ const Profile = () => {
       {
         id: 2,
         title: "Ticket title 2",
+        date: "Thu 23 Feb",
         payment: "100",
         body: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
         tags: ["Frontend", "Database", "UI"],
@@ -179,8 +169,9 @@ const Profile = () => {
       {
         id: 3,
         title: "Ticket title 3",
+        date: "Thu 23 Feb",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
         mysteryBonus: 20,
@@ -188,16 +179,18 @@ const Profile = () => {
       {
         id: 4,
         title: "Ticket title 4",
+        date: "Thu 23 Feb",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
       },
       {
         id: 5,
         title: "Ticket title 5",
+        date: "Thu 23 Feb",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
         mysteryBonus: 20,
@@ -205,83 +198,59 @@ const Profile = () => {
       {
         id: 6,
         title: "Ticket title 6",
+        date: "Thu 23 Feb",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
-      },
-      {
-        id: 7,
-        title: "Ticket title 7",
-        payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        tags: ["Frontend", "Database", "UI"],
-        amount: false,
-      },
-      {
-        id: 8,
-        title: "Ticket title 8",
-        payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        tags: ["Frontend", "Database", "UI"],
-        amount: false,
-        mysteryBonus: 20,
       },
     ],
     projects: [
       {
         title: "Technology design template",
+        date: "Thu 23 Feb",
         access: "public",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequ",
         totalTickets: 12,
         activeTickets: 12,
       },
       {
         title: "Technology design template",
+        date: "Thu 23 Feb",
         access: "public",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequ",
         totalTickets: 12,
         activeTickets: 12,
       },
       {
         title: "Technology design template",
+        date: "Thu 23 Feb",
         access: "public",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequ",
         totalTickets: 12,
         activeTickets: 12,
       },
       {
         title: "Technology design template",
+        date: "Thu 23 Feb",
         access: "public",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequ",
         totalTickets: 12,
         activeTickets: 12,
       },
       {
         title: "Technology design template",
+        date: "Thu 23 Feb",
         access: "public",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequ",
         totalTickets: 12,
         activeTickets: 12,
       },
       {
         title: "Technology design template",
+        date: "Thu 23 Feb",
         access: "public",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
-        totalTickets: 12,
-        activeTickets: 12,
-      },
-      {
-        title: "Technology design template",
-        access: "public",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
-        totalTickets: 12,
-        activeTickets: 12,
-      },
-      {
-        title: "Technology design template",
-        access: "public",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi risus",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequ",
         totalTickets: 12,
         activeTickets: 12,
       },
@@ -291,7 +260,7 @@ const Profile = () => {
         id: 1,
         title: "Ticket title 1",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI", "Backend", "Full-stack"],
         amount: false,
         mysteryBonus: 20,
@@ -300,7 +269,7 @@ const Profile = () => {
         id: 2,
         title: "Ticket title 2",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
       },
@@ -308,7 +277,7 @@ const Profile = () => {
         id: 3,
         title: "Ticket title 3",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
         mysteryBonus: 20,
@@ -317,7 +286,7 @@ const Profile = () => {
         id: 4,
         title: "Ticket title 4",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
       },
@@ -325,7 +294,7 @@ const Profile = () => {
         id: 5,
         title: "Ticket title 5",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
         mysteryBonus: 20,
@@ -334,7 +303,7 @@ const Profile = () => {
         id: 6,
         title: "Ticket title 6",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
       },
@@ -342,7 +311,7 @@ const Profile = () => {
         id: 7,
         title: "Ticket title 7",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
       },
@@ -350,7 +319,7 @@ const Profile = () => {
         id: 8,
         title: "Ticket title 8",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
         mysteryBonus: 20,
@@ -359,7 +328,7 @@ const Profile = () => {
         id: 9,
         title: "Ticket title 9",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
         mysteryBonus: 20,
@@ -368,7 +337,7 @@ const Profile = () => {
         id: 10,
         title: "Ticket title 10",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
       },
@@ -376,7 +345,7 @@ const Profile = () => {
         id: 11,
         title: "Ticket title 11",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
         mysteryBonus: 20,
@@ -385,7 +354,7 @@ const Profile = () => {
         id: 12,
         title: "Ticket title 12",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
       },
@@ -393,7 +362,7 @@ const Profile = () => {
         id: 13,
         title: "Ticket title 13",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
       },
@@ -401,7 +370,7 @@ const Profile = () => {
         id: 14,
         title: "Ticket title 14",
         payment: "100",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
         tags: ["Frontend", "Database", "UI"],
         amount: false,
         mysteryBonus: 20,
@@ -428,6 +397,7 @@ const Profile = () => {
         />
         <TicketsInfo editState={editState} setEditState={setEditState} />
         <Tickets
+          icon="/assets/vectors/icons/pinned.svg"
           onCustomizePins={onCustomizePins}
           editState={editState}
           show={show}
@@ -437,12 +407,15 @@ const Profile = () => {
           setUser={setUserState}
         />
         <Tickets
+          className="recent"
+          icon="/assets/vectors/icons/recently-completed.svg"
           editState={editState}
           show={show}
           title="Recently Completed"
           items={userState.recentTickets}
         />
         <Projects
+          icon="/assets/vectors/icons/my-projects.svg"
           editState={editState}
           show={show}
           title="My Projects"

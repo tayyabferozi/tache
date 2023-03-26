@@ -8,9 +8,9 @@
 
     @include transitioned;
 
-    &:hover {
-      border-color: $color25;
-      box-shadow: 8px 8px 16px 0px $color26;
+    &:not(.hidden):hover {
+      border-color: $color35;
+      box-shadow: 8px 8px 16px 0px $color36;
     }
 
     &.hidden {

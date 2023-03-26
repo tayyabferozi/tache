@@ -4,9 +4,31 @@
       background: #fff;
 
       .tile-head {
-        flex-direction: column;
+        // flex-direction: column;
         padding-bottom: 16px;
         gap: 16px;
+
+        @media screen and (max-width: 1280px) and (min-width: 992px) {
+          flex-direction: column;
+          padding-bottom: 16px;
+          gap: 12px;
+        }
+
+        @media screen and (max-width: 876px) {
+          flex-direction: column;
+          padding-bottom: 16px;
+          gap: 12px;
+        }
+
+        .date {
+          @media screen and (max-width: 1280px) and (min-width: 992px) {
+            display: none;
+          }
+
+          @media screen and (max-width: 876px) {
+            display: none;
+          }
+        }
 
         .left h5 {
           letter-spacing: -0.08ch;
@@ -21,9 +43,18 @@
       }
 
       .tickets-info {
-        gap: 4px;
+        gap: 10px;
         padding-top: 0;
         margin-top: 16px;
+
+        @media screen and (max-width: 575px) {
+          flex-direction: column;
+          gap: 10px;
+
+          & > .info-item {
+            width: 100%;
+          }
+        }
       }
     }
   }

@@ -5,6 +5,7 @@ import Badge from "../Badge";
 import "./Ticket.scss";
 
 const Ticket = ({
+  date,
   days,
   state,
   title,
@@ -61,6 +62,7 @@ const Ticket = ({
 
           <div className="text">
             <h4>{skeleton ? <Skeleton width={100} /> : title}</h4>
+            {date && <div className="">{date}</div>}
             {amount && (
               <div className="mt-10 d-flex gap-10">
                 {skeleton ? (
@@ -94,7 +96,7 @@ const Ticket = ({
           </div>
         </div>
 
-        <p className="fs-16">
+        <p className="fs-16 text-light-1">
           {skeleton ? (
             <Skeleton count={2} />
           ) : (

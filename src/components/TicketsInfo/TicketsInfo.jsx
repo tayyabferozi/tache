@@ -1,5 +1,5 @@
 import React from "react";
-import UserList from "../../../components/UserList";
+import UserList from "../UserList";
 import Heatmap from "./Heatmap";
 
 import "./TicketsInfo.scss";
@@ -49,7 +49,7 @@ const TicketsInfo = () => {
         </div>
         <div className="tickets-main__right">
           <div className="item">
-            <div className="fs-14 fw-700">Followers</div>
+            <div className="fs-14 fw-700 text-light-1">Followers</div>
 
             <UserList
               users={followers}
@@ -71,7 +71,7 @@ const TicketsInfo = () => {
             />
           </div>
           <div className="item">
-            <div className="fs-14 fw-700">Following</div>
+            <div className="fs-14 fw-700 text-light-1">Following</div>
 
             <UserList
               users={followers}

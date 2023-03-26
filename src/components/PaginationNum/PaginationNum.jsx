@@ -35,7 +35,10 @@ const PaginationNum = ({ className, pageNumState, setPageNumState, total }) => {
 
   return (
     <div className={clsx(className, "pagination-num")}>
-      <button className="pg-btn prev" onClick={dec}>
+      <button
+        className={clsx(pageNumState === 1 && "disabled", "pg-btn prev")}
+        onClick={dec}
+      >
         <img
           src="/assets/vectors/icons/arrow-2.svg"
           alt="arrow"
@@ -53,7 +56,10 @@ const PaginationNum = ({ className, pageNumState, setPageNumState, total }) => {
           </div>
         );
       })}
-      <button className="pg-btn next" onClick={inc}>
+      <button
+        className={clsx(pageNumState === total && "disabled", "pg-btn next")}
+        onClick={inc}
+      >
         <img
           src="/assets/vectors/icons/arrow-2.svg"
           alt="arrow"
