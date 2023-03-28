@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Section from "../../components/Section";
 import UserInfo from "./UserInfo";
 import MyProjects from "./MyProjects";
 import TalentReviews from "./TalentReviews";
-import "./ProfileRatings.scss";
+import Tickets from "./Tickets";
 import TicketsInfo from "../../components/TicketsInfo";
+import "./ProfileRatings.scss";
 
 const DUMMY_DATA = {
   name: "Weihang Lo",
@@ -782,22 +783,351 @@ const DUMMY_DATA = {
     { id: 3, label: "Backend" },
     { id: 4, label: "Programmer" },
   ],
+  pinnedTickets: [
+    {
+      id: 9,
+      title: "Ticket title 1",
+      date: "Thu 23 Feb",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI", "Backend", "Full-stack"],
+      amount: false,
+      mysteryBonus: 20,
+    },
+    {
+      id: 10,
+      title: "Ticket title 2",
+      date: "Thu 23 Feb",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+    },
+    {
+      id: 11,
+      title: "Ticket title 3",
+      date: "Thu 23 Feb",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+      mysteryBonus: 20,
+    },
+    {
+      id: 12,
+      title: "Ticket title 4",
+      date: "Thu 23 Feb",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+    },
+    {
+      id: 13,
+      title: "Ticket title 5",
+      date: "Thu 23 Feb",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+      mysteryBonus: 20,
+    },
+    {
+      id: 14,
+      title: "Ticket title 6",
+      date: "Thu 23 Feb",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+    },
+  ],
+  recentTickets: [
+    {
+      id: 1,
+      title: "Ticket title 1",
+      date: "Thu 23 Feb",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      tags: ["Frontend", "Database", "UI", "Backend", "Full-stack"],
+      amount: false,
+      mysteryBonus: 20,
+    },
+    {
+      id: 2,
+      title: "Ticket title 2",
+      date: "Thu 23 Feb",
+      payment: "100",
+      body: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+    },
+    {
+      id: 3,
+      title: "Ticket title 3",
+      date: "Thu 23 Feb",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+      mysteryBonus: 20,
+    },
+    {
+      id: 4,
+      title: "Ticket title 4",
+      date: "Thu 23 Feb",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+    },
+    {
+      id: 5,
+      title: "Ticket title 5",
+      date: "Thu 23 Feb",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+      mysteryBonus: 20,
+    },
+    {
+      id: 6,
+      title: "Ticket title 6",
+      date: "Thu 23 Feb",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+    },
+  ],
+  projects: [
+    {
+      title: "Technology design template",
+      date: "Thu 23 Feb",
+      access: "public",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequ",
+      totalTickets: 12,
+      activeTickets: 12,
+    },
+    {
+      title: "Technology design template",
+      date: "Thu 23 Feb",
+      access: "public",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequ",
+      totalTickets: 12,
+      activeTickets: 12,
+    },
+    {
+      title: "Technology design template",
+      date: "Thu 23 Feb",
+      access: "public",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequ",
+      totalTickets: 12,
+      activeTickets: 12,
+    },
+    {
+      title: "Technology design template",
+      date: "Thu 23 Feb",
+      access: "public",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequ",
+      totalTickets: 12,
+      activeTickets: 12,
+    },
+    {
+      title: "Technology design template",
+      date: "Thu 23 Feb",
+      access: "public",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequ",
+      totalTickets: 12,
+      activeTickets: 12,
+    },
+    {
+      title: "Technology design template",
+      date: "Thu 23 Feb",
+      access: "public",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequ",
+      totalTickets: 12,
+      activeTickets: 12,
+    },
+  ],
+  allTickets: [
+    {
+      id: 1,
+      title: "Ticket title 1",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI", "Backend", "Full-stack"],
+      amount: false,
+      mysteryBonus: 20,
+    },
+    {
+      id: 2,
+      title: "Ticket title 2",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+    },
+    {
+      id: 3,
+      title: "Ticket title 3",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+      mysteryBonus: 20,
+    },
+    {
+      id: 4,
+      title: "Ticket title 4",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+    },
+    {
+      id: 5,
+      title: "Ticket title 5",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+      mysteryBonus: 20,
+    },
+    {
+      id: 6,
+      title: "Ticket title 6",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+    },
+    {
+      id: 7,
+      title: "Ticket title 7",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+    },
+    {
+      id: 8,
+      title: "Ticket title 8",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+      mysteryBonus: 20,
+    },
+    {
+      id: 9,
+      title: "Ticket title 9",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+      mysteryBonus: 20,
+    },
+    {
+      id: 10,
+      title: "Ticket title 10",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+    },
+    {
+      id: 11,
+      title: "Ticket title 11",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+      mysteryBonus: 20,
+    },
+    {
+      id: 12,
+      title: "Ticket title 12",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+    },
+    {
+      id: 13,
+      title: "Ticket title 13",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+    },
+    {
+      id: 14,
+      title: "Ticket title 14",
+      payment: "100",
+      body: "Lorem ipsum dolor sit amet consectetur. Orci purus aenean massa elementum sed done consequat done",
+      tags: ["Frontend", "Database", "UI"],
+      amount: false,
+      mysteryBonus: 20,
+    },
+  ],
 };
 
 const ProfileRatings = () => {
+  const [show, setShow] = useState(false);
   const [userState, setUserState] = useState(DUMMY_DATA);
+  const [editState, setEditState] = useState(false);
+
+  useEffect(() => {
+    // SIMULATING API LOAD
+    setTimeout(() => {
+      setShow(true);
+    }, 3000);
+  }, []);
 
   return (
     <Section id="profile-ratings">
-      <UserInfo user={userState} />
+      <UserInfo
+        user={userState}
+        setUser={setUserState}
+        editState={editState}
+        setEditState={setEditState}
+      />
 
       <div className="tikcet-info-wrap desc-box">
         <div className="sub-page-container">
           <TicketsInfo />
         </div>
       </div>
-      <MyProjects projects={userState.myProjects} />
+      <Tickets
+        icon="/assets/vectors/icons/pinned.svg"
+        onCustomizePins={() => {}}
+        editState={editState}
+        show={show}
+        title="Pinned"
+        items={userState.pinnedTickets}
+        allTickets={userState.allTickets}
+        setUser={setUserState}
+      />
+      <MyProjects show={show} projects={userState.myProjects} />
+      <Tickets
+        className="recent"
+        icon="/assets/vectors/icons/recently-completed.svg"
+        editState={editState}
+        show={show}
+        title="Recently Completed"
+        items={userState.recentTickets}
+      />
+      {/* <Projects
+        icon="/assets/vectors/icons/my-projects.svg"
+        editState={editState}
+        show={show}
+        title="My Projects"
+        items={userState.projects}
+      /> */}
       <TalentReviews
+        show={show}
         title="Talent Reviews"
         rating={userState.talentRating}
         reviews={userState.talentReviews}
@@ -806,6 +1136,7 @@ const ProfileRatings = () => {
         name="talentReviews"
       />
       <TalentReviews
+        show={show}
         title="Project Lead Reviews"
         rating={userState.leadRating}
         reviews={userState.leadReviews}

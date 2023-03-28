@@ -1,0 +1,38 @@
+#profile-ratings .tickets {
+  .customize-pin {
+    color: $color25;
+    cursor: pointer;
+
+    @include transitioned;
+
+    &:hover {
+      color: $color22;
+    }
+  }
+
+  .project-ticket-wrap {
+    position: relative;
+    height: 100%;
+
+    .remove {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      z-index: 1;
+      cursor: pointer;
+    }
+  }
+
+  .project-ticket {
+    min-height: unset;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h4 {
+      font-weight: 500;
+      letter-spacing: -0.02ch;
+    }
+  }
+}

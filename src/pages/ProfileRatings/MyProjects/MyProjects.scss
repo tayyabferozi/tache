@@ -32,8 +32,7 @@
       @include transitioned;
 
       &:hover {
-        border-color: $color35;
-        box-shadow: 8px 8px 16px 0px $color36;
+        transform: scale(1.025);
       }
 
       .privacy {

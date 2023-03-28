@@ -47,9 +47,12 @@ h4 {
 }
 
 h5 {
-  font-size: 20px;
-  color: $color1;
-  letter-spacing: -0.08ch;
+  &,
+  * {
+    font-size: 20px;
+    color: $color1;
+    letter-spacing: -0.08ch;
+  }
 }
 
 h6 {
@@ -334,6 +337,10 @@ hr {
   font-weight: 600;
 }
 
+.w-md-editor-input {
+  overflow-x: hidden;
+}
+
 .w-md-editor-preview {
   padding: 10px;
 
@@ -540,4 +547,11 @@ body:has(.modal-wrapper.active) {
       }
     }
   }
+}
+
+.restrict-one-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 10px;
 }

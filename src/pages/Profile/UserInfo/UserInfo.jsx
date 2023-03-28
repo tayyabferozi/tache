@@ -22,6 +22,7 @@ const animVariants = {
 const UserInfo = ({ user, setUser, editState, setEditState }) => {
   const { show: showSkillAddModal, toggleShow: toggleShowSkillAddModal } =
     useModal(false);
+
   const inputChangeHandler = (e) => {
     setUser((prevState) => {
       const newState = JSON.parse(JSON.stringify(prevState));

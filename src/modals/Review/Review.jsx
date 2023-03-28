@@ -12,9 +12,6 @@ const Review = ({ ...rest }) => {
   const [nextEl, nextRef] = useSwiperRef();
   const [prevEl, prevRef] = useSwiperRef();
 
-  console.log(nextEl, nextRef);
-  console.log(prevEl, prevRef);
-
   return (
     <Modal id="review-modal" {...rest}>
       <div className="fs-20 fw-500 text-light-1 d-flex align-items-center gap-10">

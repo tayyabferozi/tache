@@ -19,12 +19,14 @@ const TalentReviews = ({
   name,
   userState,
   setUserState,
+  show,
 }) => {
   const { show: showReviewModal, toggleShow: toggleReviewModal } =
     useModal(false);
   const [pageNumState, setPageNumState] = useState(1);
   const [filteredData, setFilteredData] = useState(data);
   const [isCollapsed, setIsCollapsed] = useState(false);
+  console.log(show);
 
   const toggleCardHidden = (id) => {
     const idx = userState[name].findIndex((el) => el.id === id);
@@ -142,27 +144,40 @@ const TalentReviews = ({
                 <div className="mt-30">
                   <AnimatePresence>
                     <GridContainer>
-                      {filteredData.map((el, idx) => {
-                        return (
-                          <motion.div
-                            key={"my-projects" + el.id}
-                            {...cardAnimations}
-                            className="col-xxl-4 col-lg-6"
-                          >
-                            <div
-                              onClick={(e) => toggleTicketDisplayModal(e, el)}
-                            >
-                              <ReviewCard
-                                el={el}
-                                id={el.id}
-                                idx={idx}
-                                toggleHidden={toggleCardHidden}
-                                toggleReviewModal={toggleReviewModal}
-                              />
-                            </div>
-                          </motion.div>
-                        );
-                      })}
+                      {show
+                        ? filteredData.map((el, idx) => {
+                            return (
+                              <motion.div
+                                key={"my-projects" + el.id}
+                                {...cardAnimations}
+                                className="col-xxl-4 col-lg-6"
+                              >
+                                <div
+                                  onClick={(e) =>
+                                    toggleTicketDisplayModal(e, el)
+                                  }
+                                >
+                                  <ReviewCard
+                                    el={el}
+                                    id={el.id}
+                                    idx={idx}
+                                    toggleHidden={toggleCardHidden}
+                                    toggleReviewModal={toggleReviewModal}
+                                  />
+                                </div>
+                              </motion.div>
+                            );
+                          })
+                        : new Array(6).fill(0).map((el, idx) => {
+                            return (
+                              <div
+                                key={name + "-skeleton-talent-" + idx}
+                                className="col-lg-4 col-md-6"
+                              >
+                                <ReviewCard skeleton />
+                              </div>
+                            );
+                          })}
                     </GridContainer>
                   </AnimatePresence>
                 </div>

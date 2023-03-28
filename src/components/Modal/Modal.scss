@@ -244,8 +244,6 @@
           max-height: calc(100vh - 20px * 2);
 
           .small-head {
-            // position: sticky;
-            // top: 0;
             flex-shrink: 0;
 
             .small-title {
@@ -279,6 +277,7 @@
           .small-main {
             flex-grow: 1;
             overflow-y: auto;
+            overflow-x: hidden;
             padding: 6px 0;
 
             .content {
