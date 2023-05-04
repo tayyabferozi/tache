@@ -398,7 +398,7 @@ const Description = () => {
 
         <GridContainer rowClassName="mt-10">
           <div className="col-md-6 d-flex flex-column">
-            <label class="text-light-1 fw-500">File</label>
+            <label className="text-light-1 fw-500">File</label>
 
             <div className="dropzone-container flex-grow-1" {...getRootProps()}>
               <div>

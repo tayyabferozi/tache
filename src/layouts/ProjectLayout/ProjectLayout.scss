@@ -1,0 +1,44 @@
+#project-layout {
+  #navbar {
+    position: fixed;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    border-bottom: 1px solid $color16;
+    outline: 1px solid $color16;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 100%;
+      left: 239px;
+      top: 0;
+      background: $color16;
+    }
+
+    .page-container {
+      max-width: unset;
+    }
+  }
+
+  .layout-content {
+    display: flex;
+
+    .layout-sidebar {
+      width: 240px;
+      border-right: 1px solid $color16;
+      outline: 1px solid $color16;
+      position: relative;
+      padding: calc(100px + 30px) 0 30px;
+      flex-shrink: 0;
+    }
+
+    .layout-body {
+      margin-top: 100px;
+      flex-grow: 1;
+    }
+  }
+}

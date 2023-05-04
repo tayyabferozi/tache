@@ -103,6 +103,20 @@
     }
   }
 
+  &.btn-white {
+    height: 42px;
+    background-color: #fff;
+    border: 1px solid $color39;
+
+    &.grey-border {
+      border-color: $color38;
+    }
+
+    .btn-text {
+      color: $color10;
+    }
+  }
+
   &.btn-inlined {
     width: unset;
   }

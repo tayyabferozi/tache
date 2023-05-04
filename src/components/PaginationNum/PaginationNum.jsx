@@ -4,17 +4,22 @@ import { animateScroll as scroll } from "react-scroll";
 
 import "./PaginationNum.scss";
 
-const PaginationNum = ({ className, pageNumState, setPageNumState, total }) => {
+const PaginationNum = ({
+  shoulScrollTop,
+  className,
+  pageNumState,
+  setPageNumState,
+  total,
+}) => {
   const changePage = (val) => {
+    scrollTop();
     setPageNumState(val);
   };
 
   const scrollTop = () => {
-    if (window.screen.width < 576) {
-      scroll.scrollToTop({
-        duration: 1500,
-      });
-    }
+    // if (window.screen.width < 576) {
+    scroll.scrollTo(0, { smooth: true, duration: 500 });
+    // }
   };
 
   const dec = () => {

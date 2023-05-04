@@ -46,6 +46,14 @@
         background-color: $color24;
       }
 
+      &.inactive {
+        &:hover {
+          background-color: transparent !important;
+          border-color: transparent !important;
+          cursor: default;
+        }
+      }
+
       img {
         width: 20px;
       }
@@ -83,6 +91,49 @@
             width: 12px;
             cursor: pointer;
           }
+        }
+      }
+    }
+
+    &.bordered-options {
+      min-width: 320px;
+      right: 0;
+      top: 50px;
+      left: unset;
+      box-shadow: 40px 34px 84px 0px $color21;
+      border: none;
+      border-radius: 12px;
+      padding-left: 6px;
+      padding-right: 6px;
+
+      .option {
+        border: none;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        padding: 18px;
+        border: 1px solid transparent;
+        font-size: 16px;
+
+        &:nth-child(1) {
+          cursor: default;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          padding-left: 28px;
+          padding-right: 28px;
+
+          &:hover {
+            background-color: #fff;
+          }
+        }
+
+        &:hover:not(:nth-child(1)) {
+          background-color: $color8;
+          border-color: $color18;
+        }
+
+        &.active {
+          background-color: $color8;
         }
       }
     }

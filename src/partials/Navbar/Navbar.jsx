@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
 
 import Section from "../../components/Section";
+import "./Navbar.scss";
 
 const navItems = [
   {

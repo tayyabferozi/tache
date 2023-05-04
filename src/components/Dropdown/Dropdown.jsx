@@ -7,12 +7,14 @@ import useOnClickOutside from "../../hooks/useOnClickOutside";
 import "./Dropdown.scss";
 
 const Dropdown = ({
+  borderedOptions,
   withCheckmarks,
   defaultValue,
   options,
   onChoose,
   children,
   notBig = false,
+  CustomOption,
 }) => {
   const dropdownRef = useRef();
   // const menuRef = useRef();
@@ -46,7 +48,7 @@ const Dropdown = ({
   return (
     <div className="dropdown-big" ref={dropdownRef}>
       {defaultValue && !notBig ? (
-        <div className="dropdown-big__main" onClick={toggleDrawer}>
+        <div className={clsx("dropdown-big__main")} onClick={toggleDrawer}>
           <div className="text">{value}</div>
           <img
             className="icon"
@@ -63,7 +65,8 @@ const Dropdown = ({
           <motion.div
             className={clsx(
               "dropdown-big__options",
-              withCheckmarks && "with-checkmarks"
+              withCheckmarks && "with-checkmarks",
+              borderedOptions && "bordered-options"
             )}
             // ref={menuRef}
             initial={{ height: 0 }}
@@ -97,6 +100,7 @@ const Dropdown = ({
                 </div>
               );
             })}
+            {CustomOption && <CustomOption />}
           </motion.div>
         )}
       </AnimatePresence>

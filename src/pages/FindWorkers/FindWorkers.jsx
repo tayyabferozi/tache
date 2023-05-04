@@ -813,6 +813,7 @@ const FindWorkers = () => {
               options={sortOptions}
               defaultValue={sortState}
               notBig
+              borderedOptions
             >
               <img
                 src="/assets/vectors/icons/sort.svg"

@@ -1,0 +1,33 @@
+.big-jumbotron {
+  background: url("../../assets/vectors/bg-jumbotron.svg");
+  text-align: center;
+  padding: 30px;
+  border-radius: 20px;
+  position: relative;
+
+  .dots {
+    position: absolute;
+
+    &.dots-1 {
+      top: 12px;
+      right: 0;
+    }
+
+    &.dots-2 {
+      bottom: 12px;
+      left: 0;
+    }
+  }
+
+  .title {
+    font-size: 20px;
+    margin-top: 14px;
+    color: #fff;
+  }
+
+  .sub-title {
+    color: $color40;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+}

@@ -1,0 +1,44 @@
+#project-layout {
+  .layout-sidebar {
+    .nav-heading {
+      padding-left: 30px;
+      color: $color7;
+      font-size: 14px;
+      letter-spacing: 0.05ch;
+    }
+
+    .nav-item {
+      border-left: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      padding-left: 26px;
+      margin-left: 2px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba($color5, 0.2);
+      }
+
+      .icon {
+        width: 22px;
+        filter: invert(99%) sepia(91%) saturate(772%) hue-rotate(175deg)
+          brightness(87%) contrast(75%);
+      }
+    }
+
+    .navigation {
+      margin-top: 8px;
+
+      .sub-nav-items {
+        padding-left: 10px;
+
+        .nav-item {
+          margin-left: 31px;
+          border-left: 1px solid $color16;
+        }
+      }
+    }
+  }
+}

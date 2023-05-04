@@ -1,0 +1,33 @@
+.team-member-card-2 {
+  border-left: 4px solid $color10;
+  background-color: #fff;
+  padding: 18px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  @include transitioned;
+
+  &.hovered {
+    transform: scale(1.025);
+  }
+
+  .designation {
+    padding: 4px 8px;
+    border: 1px solid $color38;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .box {
+    border-right: 1px solid $color38;
+    padding-right: 16px;
+  }
+
+  .btn.btn-primary-light {
+    transition-delay: 0.2s;
+
+    &:hover {
+      background-color: $color41;
+    }
+  }
+}

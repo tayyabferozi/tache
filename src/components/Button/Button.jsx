@@ -20,6 +20,8 @@ const Button = ({
   textClassName,
   persistHeight,
   cref,
+  white,
+  borderGrey,
   ...rest
 }) => {
   const classes = clsx(
@@ -32,7 +34,9 @@ const Button = ({
     lightGrey && "btn-light-grey",
     dashed && "btn-dashed",
     inline && "btn-inlined",
-    persistHeight && "persist-height"
+    persistHeight && "persist-height",
+    white && "btn-white",
+    borderGrey && "grey-border"
   );
 
   let btnChilren = (

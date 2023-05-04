@@ -1,0 +1,21 @@
+#onboarding {
+  .activity-wrap {
+    background-color: #fff;
+    width: 340px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    border: 1px solid $color38;
+    outline: 1px solid $color38;
+
+    @include transitioned;
+
+    &.inactive {
+      width: 0 !important;
+    }
+
+    .activity-row {
+      padding: 20px 30px;
+      border-bottom: 1px solid $color38;
+    }
+  }
+}

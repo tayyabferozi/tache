@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import GridContainer from "../../components/GridContainer";
 import Section from "../../components/Section";
+import "./Footer.scss";
 
 const links = [
   {

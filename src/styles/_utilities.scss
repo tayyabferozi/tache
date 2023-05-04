@@ -322,6 +322,22 @@ hr {
   opacity: 0.8;
 }
 
+.mw-50 {
+  min-width: 50px;
+}
+
+.w-14 {
+  width: 14px !important;
+}
+
+.w-16 {
+  width: 16px !important;
+}
+
+.h-30 {
+  height: 30px !important;
+}
+
 .h-40 {
   height: 40px !important;
 }
@@ -353,6 +369,10 @@ hr {
 
 .c-pointer {
   cursor: pointer;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .overflow-hidden {

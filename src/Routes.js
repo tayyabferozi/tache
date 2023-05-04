@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import MainLayout from "./layouts/MainLayout";
+import ProjectLayout from "./layouts/ProjectLayout";
 import Landing from "./pages/Landing/Landing";
 import ProjectTickets from "./pages/ProjectTickets";
 import ProjectBase from "./pages/ProjectBase";
@@ -14,6 +15,7 @@ import CreateNewTicket from "./pages/CreateNewTicket";
 import TicketDetails from "./pages/TicketDetails";
 import ProfileRatings from "./pages/ProfileRatings";
 import Feedback from "./pages/Feedback";
+import Onboarding from "./pages/Onboarding";
 
 const AppRoutes = () => {
   return (
@@ -36,6 +38,9 @@ const AppRoutes = () => {
         </Route>
         <Route path="/" element={<MainLayout whiteBg withoutDots noBgClr />}>
           <Route path="/feedback" element={<Feedback />} />
+        </Route>
+        <Route path="/" element={<ProjectLayout />}>
+          <Route path="/onboarding" element={<Onboarding />} />
         </Route>
       </Routes>
     </Router>

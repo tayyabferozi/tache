@@ -1,0 +1,15 @@
+#project-layout {
+  .layout-body-section-container {
+    &:not(.without-padding) {
+      padding: 30px;
+    }
+
+    &.bg-grey {
+      background-color: $color8;
+    }
+
+    &.bg-white {
+      background-color: #fff;
+    }
+  }
+}

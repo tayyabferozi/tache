@@ -47,7 +47,7 @@ const PurchaseReview = ({ ...rest }) => {
           />
         </div>
         <div className="col-md-5 d-flex flex-column">
-          <label class="text-light-1 fw-500">File</label>
+          <label className="text-light-1 fw-500">File</label>
 
           <div className="dropzone-container flex-grow-1" {...getRootProps()}>
             <div>
