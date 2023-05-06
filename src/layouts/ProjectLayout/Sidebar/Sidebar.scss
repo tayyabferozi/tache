@@ -8,7 +8,7 @@
     }
 
     .nav-item {
-      border-left: 2px solid transparent;
+      // border-left: 2px solid transparent;
       padding: 12px 0;
       padding-left: 26px;
       padding-right: 30px;
@@ -17,6 +17,21 @@
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
+      position: relative;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 2px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 25px;
+        background-color: transparent;
+
+        @include transitioned;
+      }
 
       &:hover {
         background-color: rgba($color5, 0.2);
@@ -33,15 +48,41 @@
             brightness(87%) contrast(75%);
         }
       }
+
+      &.active {
+        &::before {
+          background-color: $color10;
+        }
+
+        .left {
+          .icon {
+            filter: invert(59%) sepia(19%) saturate(6334%) hue-rotate(126deg)
+              brightness(99%) contrast(102%);
+          }
+
+          .title {
+            color: $color10;
+          }
+        }
+
+        .right {
+          img {
+            filter: invert(59%) sepia(19%) saturate(6334%) hue-rotate(126deg)
+              brightness(99%) contrast(102%);
+          }
+        }
+      }
     }
 
     .navigation {
       margin-top: 8px;
 
-      .sub-nav-items {
-        padding-left: 10px;
+      .sub-nav-item {
+        padding-left: 8px;
 
         .nav-item {
+          padding-left: 20px;
+          padding-right: 20px;
           margin-left: 31px;
           border-left: 1px solid $color16;
         }

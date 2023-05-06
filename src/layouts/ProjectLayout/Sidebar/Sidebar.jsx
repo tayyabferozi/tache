@@ -1,4 +1,6 @@
 import React from "react";
+import clsx from "clsx";
+import $ from "jquery";
 
 import "./Sidebar.scss";
 
@@ -22,27 +24,47 @@ const recentTasks = [
 ];
 
 const Sidebar = ({ navItems }) => {
+  const navItemClickHandler = (e) => {
+    const $this = $(e.currentTarget);
+    const subNavItems = $this.find(".sub-nav-items");
+    if (subNavItems.length > 0) {
+      subNavItems.slideToggle();
+      $this.find(".right img").toggleClass("mirrored");
+    }
+  };
+
   return (
     <div className="layout-sidebar">
       <div className="nav-heading">Navigation</div>
       <div className="navigation">
         {navItems.map((el, idx) => {
           return (
-            <div className="nav-item-wrap" key={"nav-item" + idx}>
-              <div className="nav-item">
+            <div
+              className="nav-item-wrap"
+              key={"nav-item" + idx}
+              onClick={navItemClickHandler}
+            >
+              <div className={clsx("nav-item", el.active && "active")}>
                 <div className="left">
                   <img className="icon" src={el.icon} alt={el.title} />
                   <div className="title">{el.title}</div>
                 </div>
                 <div className="right">
-                  <img src="/assets/vectors/icons/arrow-top.svg" alt="arrow" />
+                  <img
+                    src="/assets/vectors/icons/arrow-top.svg"
+                    className="mirroed transitioned"
+                    alt="arrow"
+                  />
                 </div>
               </div>
               {el.subNav && (
-                <div className="sub-nav-items">
+                <div className="sub-nav-items" style={{ display: "none" }}>
                   {el.subNav.map((el2, idx2) => {
                     return (
-                      <div key={"sub-nav-items" + idx + "-" + idx2}>
+                      <div
+                        className="sub-nav-item"
+                        key={"sub-nav-items" + idx + "-" + idx2}
+                      >
                         <div className="nav-item">
                           <div className="left">
                             <img
@@ -53,10 +75,10 @@ const Sidebar = ({ navItems }) => {
                             <div className="title">{el2.title}</div>
                           </div>
                           <div className="right">
-                            <img
+                            {/* <img
                               src="/assets/vectors/icons/arrow-top.svg"
                               alt="arrow"
-                            />
+                            /> */}
                           </div>
                         </div>
                       </div>
@@ -73,8 +95,10 @@ const Sidebar = ({ navItems }) => {
         {recentTasks.map((el, idx) => {
           return (
             <div key={"recent-task" + idx} className="nav-item">
-              <img className="icon" src={el.icon} alt={el.title} />
-              <div className="title">{el.title}</div>
+              <div className="left">
+                <img className="icon" src={el.icon} alt={el.title} />
+                <div className="title">{el.title}</div>
+              </div>
             </div>
           );
         })}

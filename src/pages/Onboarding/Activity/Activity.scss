@@ -25,6 +25,94 @@
       right: 0;
     }
 
+    .like-wrap {
+      width: 30px;
+      height: 26px;
+      position: relative;
+
+      svg {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+
+        &,
+        * {
+          @include transitioned;
+        }
+      }
+
+      .like-main-hand {
+        transform-origin: 10px 20px;
+      }
+
+      &:not(.liked) {
+        svg {
+          .arm {
+            fill: rgba($color10, 0);
+            stroke: $color2;
+          }
+
+          .hand {
+            fill: rgba($color42, 0);
+            stroke: $color2;
+          }
+
+          .fire-wrap {
+            transform: translate(-5px, 7px);
+          }
+
+          .fire-1,
+          .fire-2 {
+            opacity: 0;
+          }
+
+          .rocket-wrap {
+            transform: translate(8px, 16px);
+          }
+
+          .rocket {
+            opacity: 0;
+          }
+        }
+      }
+
+      &.liked {
+        svg {
+          .like-main-hand {
+            animation: grow 0.4s linear forwards;
+          }
+
+          .arm {
+            fill: $color10;
+            stroke: rgba($color2, 0);
+          }
+
+          .hand {
+            fill: $color42;
+            stroke: rgba($color2, 0);
+          }
+
+          .fire-wrap {
+            transform: translate(0, 0);
+          }
+
+          .fire-1,
+          .fire-2 {
+            opacity: 100%;
+          }
+
+          .rocket-wrap {
+            transform: translate(0, 0);
+          }
+
+          .rocket {
+            opacity: 100%;
+          }
+        }
+      }
+    }
+
     .dots {
       position: absolute;
 
@@ -43,5 +131,24 @@
       padding: 20px 30px;
       border-bottom: 1px solid $color38;
     }
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+
+  33% {
+    transform: scale(1);
+  }
+
+  66% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }

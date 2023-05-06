@@ -2,6 +2,7 @@ import React from "react";
 import clsx from "clsx";
 
 import "./Activity.scss";
+import ActivityItem from "./ActivityItem/ActivityItem";
 
 const greenTextMaxSize = 28;
 
@@ -9,8 +10,6 @@ const activity = [
   {
     icon: "/assets/vectors/activity-user-1.svg",
     type: "taskCompletion",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
     name: "Nabhan Lihadillah",
     taskName: "Fintach Branding",
     taskPrice: 20,
@@ -20,8 +19,6 @@ const activity = [
   {
     icon: "/assets/vectors/activity-user-1.svg",
     type: "newUser",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
     name: "Nabhan Lihadillah",
     taskName: "Fintach Branding",
     taskPrice: 20,
@@ -362,28 +359,11 @@ const Activity = ({ showActivity, toggleActivityBar }) => {
           }
 
           return (
-            <div className="activity-row" key={"activity-item" + idx}>
-              <div className="d-flex justify-content-between gap-3">
-                <div>
-                  <div className="d-flex align-items-center gap-2">
-                    <img src={el.icon} alt={el.name} />
-                    <div className="text-light-1 fw-600 fs-14">{el.name}</div>
-                  </div>
-                  <p className="mt-10">{description}</p>
-                </div>
-                <div className="d-flex flex-column justify-content-between mw-50 py-2">
-                  <div className="fs-13 text-light-2">1m ago</div>
-                  <div className="d-flex align-items-center gap-2 c-pointer">
-                    <img
-                      src="/assets/vectors/icons/like.svg"
-                      alt="like"
-                      title="like"
-                    />
-                    <div className="fs-14">{el.likes}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ActivityItem
+              key={"activity-item" + idx}
+              {...el}
+              description={description}
+            />
           );
         })
       ) : (

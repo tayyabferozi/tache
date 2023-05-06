@@ -20,6 +20,13 @@
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          position: relative;
+
+          .dots {
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
 
           .title {
             padding: 20px;

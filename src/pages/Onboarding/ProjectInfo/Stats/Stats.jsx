@@ -1,7 +1,7 @@
 import React from "react";
 
 import friendlyNum from "../../../../utils/friendly-number";
-import "./Stats.scss"
+import "./Stats.scss";
 
 const Stats = ({ tasksCompleted, talentEarnings, talents }) => {
   return (
@@ -13,6 +13,7 @@ const Stats = ({ tasksCompleted, talentEarnings, talents }) => {
         title={"Tasks completed"}
       />
       <Card
+        longDots
         amount={`$${talentEarnings.toLocaleString("en-US")}`}
         chart={"/assets/vectors/chart-talent-earnings.svg"}
         icon={"/assets/vectors/icons/talent-earnings.svg"}
@@ -30,9 +31,14 @@ const Stats = ({ tasksCompleted, talentEarnings, talents }) => {
 
 export default Stats;
 
-const Card = ({ amount, chart, title, icon }) => {
+const Card = ({ amount, chart, title, icon, longDots }) => {
   return (
     <div className="card">
+      <img
+        src={`/assets/vectors/dots-${!longDots ? "6" : "7"}.svg`}
+        alt="dots"
+        className="dots"
+      />
       <div className="title">
         <img src={icon} alt={title} />
         {title}
@@ -40,7 +46,7 @@ const Card = ({ amount, chart, title, icon }) => {
       <div className="main">
         <div className="amount">{amount}</div>
         <div className="chart">
-          <img src={chart} alt="chart" />
+          <img className="chart-img" src={chart} alt="chart" />
         </div>
       </div>
     </div>
