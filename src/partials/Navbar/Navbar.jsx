@@ -86,7 +86,7 @@ const Navbar = ({ moreNavItems }) => {
           <motion.div
             key="sm-menu"
             initial={{ height: 0 }}
-            animate={{ height: 310 }}
+            animate={{ height: 500 }}
             exit={{ height: 0 }}
             className="menu-sm"
           >
@@ -100,15 +100,15 @@ const Navbar = ({ moreNavItems }) => {
 
 export default Navbar;
 
-const Menu = ({moreNavItems}) => {
+const Menu = ({ moreNavItems }) => {
   const navigate = useNavigate();
-  
+
   return (
     <>
       <div className="navbar-main">
         {moreNavItems?.map((el, idx) => (
-          <NavLink key={"extra-nav-item" + idx} classNamto={el.to}>
-            {el.text}
+          <NavLink key={"extra-nav-item" + idx} to={el.to}>
+            {el.title}
           </NavLink>
         ))}
         {navItems?.map((el, idx) => (

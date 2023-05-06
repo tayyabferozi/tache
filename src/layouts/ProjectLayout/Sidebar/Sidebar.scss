@@ -9,22 +9,29 @@
 
     .nav-item {
       border-left: 2px solid transparent;
-      display: flex;
-      align-items: center;
-      gap: 14px;
       padding: 12px 0;
       padding-left: 26px;
+      padding-right: 30px;
       margin-left: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       cursor: pointer;
 
       &:hover {
         background-color: rgba($color5, 0.2);
       }
 
-      .icon {
-        width: 22px;
-        filter: invert(99%) sepia(91%) saturate(772%) hue-rotate(175deg)
-          brightness(87%) contrast(75%);
+      .left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        .icon {
+          width: 22px;
+          filter: invert(99%) sepia(91%) saturate(772%) hue-rotate(175deg)
+            brightness(87%) contrast(75%);
+        }
       }
     }
 

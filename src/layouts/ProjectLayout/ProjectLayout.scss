@@ -10,13 +10,15 @@
     outline: 1px solid $color16;
 
     &::before {
-      content: "";
-      position: absolute;
-      width: 2px;
-      height: 100%;
-      left: 239px;
-      top: 0;
-      background: $color16;
+      @media screen and (min-width: 992px) {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        left: 239px;
+        top: 0;
+        background: $color16;
+      }
     }
 
     .page-container {

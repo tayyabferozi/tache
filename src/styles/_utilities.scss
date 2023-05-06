@@ -573,5 +573,12 @@ body:has(.modal-wrapper.active) {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-right: 10px;
+}
+
+.mw-0 {
+  min-width: 0;
+}
+
+.bg-grey-1 {
+  background-color: $color8;
 }

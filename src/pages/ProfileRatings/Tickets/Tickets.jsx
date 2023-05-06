@@ -45,9 +45,9 @@ const Tickets = ({
                 className="d-flex justify-content-between d-sm-block w-575-100"
                 onClick={() => setIsCollapsed(!isCollapsed)}
               >
-                <h5 className="fs-22 d-flex gap-10 restrict-one-line">
+                <h5 className="fs-22 d-flex gap-10 restrict-one- me-10">
                   <img src={icon} alt={title} />
-                  <span className="restrict-one-line">{title}</span>
+                  <span className="restrict-one-line me-10">{title}</span>
                 </h5>
 
                 <img

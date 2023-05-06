@@ -22,7 +22,7 @@ const TeamMembers = ({ project }) => {
         <GridContainer>
           {project.teamMembers.map((el, idx) => {
             return (
-              <div className="col-lg-6" key={"onboarding-team-member" + idx}>
+              <div className="col-md-6" key={"onboarding-team-member" + idx}>
                 <Card {...el} />
               </div>
             );
@@ -73,13 +73,15 @@ const Card = ({ idx, img, name, tasksCompleted, rating, badges }) => {
       onMouseLeave={removeCardActive}
       onClick={cardClickHandler}
     >
-      <div className="top d-flex justify-content-between align-items-center">
-        <div className="left d-flex align-items-center gap-2">
+      <div className="top d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-20">
+        <div className="left d-flex align-items-center gap-2 mw-0">
           <img src={img} alt={name} />
-          <div className="text-light-1 fw-500 fs-20">{name}</div>
+          <div className="text-light-1 fw-500 fs-20 restrict-one-line">
+            {name}
+          </div>
         </div>
         <div className="right">
-          <div className="d-flex justify-content-between align-items-center gap-3">
+          <div className="d-flex flex-wrap justify-content-between align-items-center gap-3">
             <div className="d-flex gap-2">
               <img
                 src="/assets/vectors/icons/tasks-completed.svg"
@@ -99,7 +101,7 @@ const Card = ({ idx, img, name, tasksCompleted, rating, badges }) => {
           </div>
         </div>
       </div>
-      <div className="bottom d-flex justify-content-between align-items-center mt-4">
+      <div className="bottom d-flex gap-10 flex-wrap justify-content-between align-items-center mt-4">
         <div className="d-flex gap-1">
           {badges.map((el2, idx2) => {
             return (

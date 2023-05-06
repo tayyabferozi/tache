@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-
-import GridContainer from "../../../../components/GridContainer";
-
-import PaginationNum from "../../../../components/PaginationNum";
-import Task from "./Task/Task";
-import Button from "../../../../components/Button";
-import cardAnimations from "../../../../constants/card-animations";
-import "./TaskCard.scss";
 import clsx from "clsx";
+
+import Button from "../../../../components/Button";
+import GridContainer from "../../../../components/GridContainer";
+import PaginationNum from "../../../../components/PaginationNum";
+import cardAnimations from "../../../../constants/card-animations";
+import Task from "./Task";
+import "./TaskCards.scss";
 
 const TaskCards = ({ project, searchState, showActivity }) => {
   const [pageSize, setPageSize] = useState(9);
@@ -79,7 +78,10 @@ const TaskCards = ({ project, searchState, showActivity }) => {
                     <motion.div
                       key={el.id}
                       className={clsx(
-                        showActivity ? "col-xl-4 col-md-6" : "col-xl-3"
+                        showActivity
+                          ? "col-xxl-4 col-md-6"
+                          : "col-xxl-3 col-xl-4",
+                        "col-sm-6"
                       )}
                       onClick={() => {}}
                       {...cardAnimations}

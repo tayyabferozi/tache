@@ -11,17 +11,17 @@ import clsx from "clsx";
 const TeamMembers = ({ project }) => {
   return (
     <ProjectLayoutSection bgGrey>
-      <BigJumbotron
+      {/* <BigJumbotron
         icon="/assets/vectors/icons/add-team-member-2.svg"
         title="Team Member"
         subTitle="Lorem ipsum dolor sit amet consectetur. Hendrerit arcu lorem"
-      />
+      /> */}
 
       <div className="mt-4">
         <GridContainer>
           {project.teamMembers2.map((el, idx) => {
             return (
-              <div className="col-lg-6" key={"onboarding-team-member" + idx}>
+              <div className="col-md-6" key={"onboarding-team-member" + idx}>
                 <Card {...el} />
               </div>
             );
@@ -68,16 +68,18 @@ const Card = ({ img, name, designation, box, rating }) => {
       onMouseLeave={removeCardActive}
       onClick={cardClickHandler}
     >
-      <div className="top d-flex justify-content-between align-items-center">
-        <div className="left d-flex align-items-center gap-2">
+      <div className="top d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-10">
+        <div className="left d-flex align-items-center gap-2 mw-0">
           <img src={img} alt={name} />
-          <div className="text-light-1 fw-500 fs-20">{name}</div>
+          <div className="text-light-1 fw-500 fs-20 restrict-one-line">
+            {name}
+          </div>
         </div>
-        <div className="right">
+        <div className="right flex-shrink-0">
           <div className="designation">{designation}</div>
         </div>
       </div>
-      <div className="bottom d-flex justify-content-between align-items-center mt-4">
+      <div className="bottom d-flex flex-wrap justify-content-between align-items-center mt-4">
         <div className="d-flex gap-3">
           <div className="d-flex align-items-center gap-2 box">
             <img src="/assets/vectors/icons/box.svg" alt="box" />

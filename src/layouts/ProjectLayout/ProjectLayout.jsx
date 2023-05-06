@@ -18,10 +18,12 @@ const sidebarNavItems = [
   {
     icon: "/assets/vectors/icons/onboarding.svg",
     title: "Onboarding",
+    active: true,
     subNav: [
       {
         icon: "/assets/vectors/icons/design.svg",
         title: "Design",
+        active: true,
       },
       {
         icon: "/assets/vectors/icons/backend.svg",

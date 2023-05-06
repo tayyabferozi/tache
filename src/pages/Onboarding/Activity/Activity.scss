@@ -10,7 +10,33 @@
     @include transitioned;
 
     &.inactive {
-      width: 0 !important;
+      @media screen and (min-width: 1201px) {
+        width: 0 !important;
+      }
+
+      @media screen and (max-width: 1200px) {
+        right: -338px;
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .dots {
+      position: absolute;
+
+      &-1 {
+        right: 0;
+        top: 10px;
+      }
+
+      &-2 {
+        left: 0;
+        top: 120px;
+      }
     }
 
     .activity-row {

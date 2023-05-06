@@ -3,14 +3,14 @@ import React from "react";
 import Stats from "./Stats";
 import Button from "../../../components/Button";
 import ProjectLayoutSection from "../../../components/ProjectLayoutSection";
-import "./ProjectInfo.scss"
+import "./ProjectInfo.scss";
 
 const ProjectInfo = ({ project, toggleSubscribed }) => {
   return (
     <ProjectLayoutSection bgGrey className="project-info">
       <div className="top-section pt-3">
-        <div className="left">
-          <h2 className="fs-36">Project Name</h2>
+        <div className="left mw-0">
+          <h2 className="fs-36 mw-0 restrict-one-line">Project Name</h2>
           <div className="privacy">
             <img
               className="privacy-icon"
@@ -24,6 +24,7 @@ const ProjectInfo = ({ project, toggleSubscribed }) => {
 
           <div className="mt-20 subscribe">
             <Button
+              className="flex-row-reverse"
               icon={{
                 src: "/assets/vectors/icons/bell.svg",
                 title: "bell",

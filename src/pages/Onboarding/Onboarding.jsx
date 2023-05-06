@@ -469,7 +469,7 @@ const Onboarding = () => {
   return (
     <div id="onboarding">
       <ProjectInfo project={projectState} toggleSubscribed={toggleSubscribed} />
-      <div className="side-by-side overflow-x-hidden">
+      <div className="side-by-side overflow-x-hidden p-relative">
         <div className="flex-grow-1">
           <Tasks
             showActivity={showActivity}

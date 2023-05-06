@@ -2,12 +2,13 @@ import React from "react";
 import Skeleton from "react-loading-skeleton";
 
 import Badge from "../../../../../components/Badge";
+import "./Task.scss";
 
 const Task = ({ img, title, days, description, price, tag, skeleton }) => {
   return (
     <div className="project-onboarding-task-card">
       <div className="top">
-        <div className="left d-flex align-items-center gap-2">
+        <div className="left d-flex flex-grow-1 align-items-center gap-2">
           {skeleton ? (
             <Skeleton circle width={34} height={34} />
           ) : (
@@ -21,7 +22,7 @@ const Task = ({ img, title, days, description, price, tag, skeleton }) => {
         {skeleton ? (
           <Skeleton width={78} />
         ) : (
-          <div className="right d-flex alig-items-center gap-2">
+          <div className="right flex-shrink-0 d-flex alig-items-center gap-2">
             <img
               src="/assets/vectors/icons/calendar-3.svg"
               alt="calendar"

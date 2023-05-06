@@ -1,0 +1,42 @@
+#onboarding .project-onboarding-task-card {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+
+  @include transitioned;
+
+  &:hover {
+    transform: scale(1.025);
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    .left {
+      min-width: 0;
+
+      img.project-img {
+        width: 34px;
+      }
+
+      .title {
+        font-size: 20px;
+        color: $color1;
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex: 1;
+      }
+    }
+  }
+
+  p {
+    color: $color1;
+  }
+}

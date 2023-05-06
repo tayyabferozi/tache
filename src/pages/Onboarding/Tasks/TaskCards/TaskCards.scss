@@ -1,0 +1,16 @@
+#onboarding {
+  .no-tasks {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .task-cards {
+    .main-row {
+      --bs-gutter-x: 13px;
+      --bs-gutter-y: 13px;
+    }
+  }
+}

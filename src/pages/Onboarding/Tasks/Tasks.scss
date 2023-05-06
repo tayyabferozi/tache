@@ -1,10 +1,20 @@
 #onboarding {
   .tasks {
     .search-wrap {
-      .input {
+      width: 100%;
+      max-width: 380px;
+
+      .custom-form-control {
         width: 100%;
-        max-width: 380px;
-        min-width: unset;
+
+        .input {
+          width: 100%;
+          min-width: unset;
+
+          input {
+            height: 42px;
+          }
+        }
       }
     }
   }

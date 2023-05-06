@@ -2,7 +2,6 @@ import React from "react";
 
 import "./Sidebar.scss";
 
-
 const recentTasks = [
   {
     icon: "/assets/vectors/icons/task.svg",
@@ -22,7 +21,7 @@ const recentTasks = [
   },
 ];
 
-const Sidebar = ({navItems}) => {
+const Sidebar = ({ navItems }) => {
   return (
     <div className="layout-sidebar">
       <div className="nav-heading">Navigation</div>
@@ -31,8 +30,13 @@ const Sidebar = ({navItems}) => {
           return (
             <div className="nav-item-wrap" key={"nav-item" + idx}>
               <div className="nav-item">
-                <img className="icon" src={el.icon} alt={el.title} />
-                <div className="title">{el.title}</div>
+                <div className="left">
+                  <img className="icon" src={el.icon} alt={el.title} />
+                  <div className="title">{el.title}</div>
+                </div>
+                <div className="right">
+                  <img src="/assets/vectors/icons/arrow-top.svg" alt="arrow" />
+                </div>
               </div>
               {el.subNav && (
                 <div className="sub-nav-items">
@@ -40,12 +44,20 @@ const Sidebar = ({navItems}) => {
                     return (
                       <div key={"sub-nav-items" + idx + "-" + idx2}>
                         <div className="nav-item">
-                          <img
-                            className="icon"
-                            src={el2.icon}
-                            alt={el2.title}
-                          />
-                          <div className="title">{el2.title}</div>
+                          <div className="left">
+                            <img
+                              className="icon"
+                              src={el2.icon}
+                              alt={el2.title}
+                            />
+                            <div className="title">{el2.title}</div>
+                          </div>
+                          <div className="right">
+                            <img
+                              src="/assets/vectors/icons/arrow-top.svg"
+                              alt="arrow"
+                            />
+                          </div>
                         </div>
                       </div>
                     );
