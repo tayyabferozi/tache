@@ -1,0 +1,52 @@
+#onboarding {
+  .project-info {  
+    .top-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+
+      .privacy {
+        margin-top: 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+
+        .privacy-icon {
+          width: 20px;
+        }
+      }
+
+      .subscribe {
+        .btn {
+          height: 50px;
+          padding: 16px;
+
+          &,
+          * {
+            @include transitioned;
+          }
+
+          .btn-text {
+            font-size: 16px;
+          }
+
+          &.btn-primary {
+            img {
+              filter: invert(100%) sepia(44%) saturate(0%) hue-rotate(56deg)
+                brightness(106%) contrast(101%);
+            }
+          }
+
+          &.btn-bordered {
+            img {
+              filter: invert(62%) sepia(17%) saturate(4869%) hue-rotate(121deg)
+                brightness(94%) contrast(101%);
+            }
+          }
+        }
+      }
+    }    
+  }
+}

@@ -1,6 +1,7 @@
 import React from "react";
 
 import friendlyNum from "../../../../utils/friendly-number";
+import "./Stats.scss"
 
 const Stats = ({ tasksCompleted, talentEarnings, talents }) => {
   return (

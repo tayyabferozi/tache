@@ -3,10 +3,11 @@ import React from "react";
 import Stats from "./Stats";
 import Button from "../../../components/Button";
 import ProjectLayoutSection from "../../../components/ProjectLayoutSection";
+import "./ProjectInfo.scss"
 
 const ProjectInfo = ({ project, toggleSubscribed }) => {
   return (
-    <ProjectLayoutSection bgGrey>
+    <ProjectLayoutSection bgGrey className="project-info">
       <div className="top-section pt-3">
         <div className="left">
           <h2 className="fs-36">Project Name</h2>

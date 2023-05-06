@@ -45,7 +45,7 @@ const extraOptions = [
   },
 ];
 
-const Navbar = () => {
+const Navbar = ({ moreNavItems }) => {
   const burgerRef = useRef();
 
   const [open, cycleOpen] = useCycle(false, true);
@@ -68,7 +68,7 @@ const Navbar = () => {
             />
           </Link>
 
-          <Menu />
+          <Menu moreNavItems={moreNavItems} />
 
           <div className="hamburger" onClick={toggleMenu}>
             <img
@@ -90,7 +90,7 @@ const Navbar = () => {
             exit={{ height: 0 }}
             className="menu-sm"
           >
-            <Menu />
+            <Menu moreNavItems={moreNavItems} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -100,13 +100,18 @@ const Navbar = () => {
 
 export default Navbar;
 
-const Menu = () => {
+const Menu = ({moreNavItems}) => {
   const navigate = useNavigate();
-
+  
   return (
     <>
       <div className="navbar-main">
-        {navItems.map((el, idx) => (
+        {moreNavItems?.map((el, idx) => (
+          <NavLink key={"extra-nav-item" + idx} classNamto={el.to}>
+            {el.text}
+          </NavLink>
+        ))}
+        {navItems?.map((el, idx) => (
           <NavLink key={"nav-item" + idx} to={el.to}>
             {el.text}
           </NavLink>

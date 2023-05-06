@@ -5,7 +5,8 @@ import SearchWrap from "../../../components/SearchWrap";
 import Button from "../../../components/Button";
 import Dropdown from "../../../components/Dropdown";
 import TaskCards from "./TaskCards/TaskCards";
-import Switch from "../../../components/Switch/Switch";
+import Switch from "../../../components/Switch";
+import "./Tasks.scss"
 
 const sortOptions = [
   {
@@ -41,7 +42,7 @@ const Tasks = ({
   toggleActivityBar,
 }) => {
   return (
-    <ProjectLayoutSection bgGrey className="">
+    <ProjectLayoutSection bgGrey className="tasks">
       <div className="d-flex justify-content-between align-items-center">
         <div className="d-flex align-items-center gap-20">
           <div className="fs-20 text-light-1 fw-500">Tasks</div>
