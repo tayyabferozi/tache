@@ -17,5 +17,14 @@
         }
       }
     }
+
+    .dropdown-big .dropdown-big__options.bordered-options {
+      left: 0;
+      right: unset;
+
+      @media screen and (max-width: 575px) {
+        min-width: 280px;
+      }
+    }
   }
 }
