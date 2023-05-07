@@ -2,17 +2,6 @@
   .project-info {
     .top-section {
       .right {
-        display: flex;
-        gap: 12px;
-
-        @media screen and (max-width: 767px) {
-          flex-wrap: wrap;
-        }
-
-        @media screen and (max-width: 650px) {
-          flex-direction: column;
-        }
-
         .card {
           border-radius: 6px;
           background-color: #fff;

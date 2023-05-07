@@ -10,16 +10,18 @@ const ProjectInfo = ({ project, toggleSubscribed }) => {
     <ProjectLayoutSection bgGrey className="project-info">
       <div className="top-section pt-3">
         <div className="left mw-0">
-          <h2 className="fs-36 mw-0 restrict-one-line">Project Name</h2>
-          <div className="privacy">
-            <img
-              className="privacy-icon"
-              src={`/assets/vectors/icons/${
-                project.privacy === "Public" ? "public-3" : "private"
-              }.svg`}
-              alt="public"
-            />
-            {project.privacy} Project
+          <div className="title">
+            <h2 className="fs-36 mw-0 restrict-one-line me-20">Project Name</h2>
+            <div className="privacy">
+              <img
+                className="privacy-icon"
+                src={`/assets/vectors/icons/${
+                  project.privacy === "Public" ? "public-3" : "private"
+                }.svg`}
+                alt="public"
+              />
+              {project.privacy} Project
+            </div>
           </div>
 
           <div className="mt-20 subscribe">
