@@ -16,6 +16,7 @@ import TicketDetails from "./pages/TicketDetails";
 import ProfileRatings from "./pages/ProfileRatings";
 import Feedback from "./pages/Feedback";
 import Onboarding from "./pages/Onboarding";
+import Onboarding2 from "./pages/Onboarding2";
 
 const AppRoutes = () => {
   return (
@@ -41,6 +42,7 @@ const AppRoutes = () => {
         </Route>
         <Route path="/" element={<ProjectLayout />}>
           <Route path="/onboarding" element={<Onboarding />} />
+          <Route path="/onboarding2" element={<Onboarding2 />} />
         </Route>
       </Routes>
     </Router>

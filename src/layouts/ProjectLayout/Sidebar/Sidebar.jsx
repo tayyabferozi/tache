@@ -50,11 +50,13 @@ const Sidebar = ({ navItems }) => {
                   <div className="title">{el.title}</div>
                 </div>
                 <div className="right">
-                  <img
-                    src="/assets/vectors/icons/arrow-top.svg"
-                    className="mirroed transitioned"
-                    alt="arrow"
-                  />
+                  {el.subNav && (
+                    <img
+                      src="/assets/vectors/icons/arrow-top.svg"
+                      className="mirroed transitioned"
+                      alt="arrow"
+                    />
+                  )}
                 </div>
               </div>
               {el.subNav && (
@@ -74,12 +76,7 @@ const Sidebar = ({ navItems }) => {
                             />
                             <div className="title">{el2.title}</div>
                           </div>
-                          <div className="right">
-                            {/* <img
-                              src="/assets/vectors/icons/arrow-top.svg"
-                              alt="arrow"
-                            /> */}
-                          </div>
+                          <div className="right"></div>
                         </div>
                       </div>
                     );

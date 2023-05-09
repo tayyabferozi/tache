@@ -26,10 +26,18 @@ const sortOptions = [
     label: "Awaiting Talent",
   },
   {
-    label: "Price (high)",
+    label: (
+      <>
+        Price <small className="text-light-1">(high)</small>
+      </>
+    ),
   },
   {
-    label: "Price (low)",
+    label: (
+      <>
+        Price <small className="text-light-1">(low)</small>
+      </>
+    ),
   },
 ];
 
@@ -112,7 +120,7 @@ export default Tasks;
 
 const Toggler = () => {
   return (
-    <div className="option inactive d-flex align-items-center justify-content-center">
+    <div className="option inactive d-flex align-items-center">
       <Switch label="Display Active" />
     </div>
   );

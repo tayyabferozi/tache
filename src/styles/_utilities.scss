@@ -582,3 +582,11 @@ body:has(.modal-wrapper.active) {
 .bg-grey-1 {
   background-color: $color8;
 }
+
+.no-select {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}

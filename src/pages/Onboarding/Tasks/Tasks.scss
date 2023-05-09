@@ -4,6 +4,10 @@
       width: 100%;
       max-width: 380px;
 
+      @media screen and (max-width: 1199px) {
+        max-width: unset;
+      }
+
       .custom-form-control {
         width: 100%;
 
@@ -18,9 +22,18 @@
       }
     }
 
+    .btn-white:nth-child(2) {
+      @media screen and (max-width: 1199px) {
+        flex-grow: 1;
+        justify-content: center;
+      }
+    }
+
     .dropdown-big .dropdown-big__options.bordered-options {
-      left: 0;
-      right: unset;
+      @media screen and (max-width: 1199px) {
+        left: 0;
+        right: unset;
+      }
 
       @media screen and (max-width: 575px) {
         min-width: 280px;

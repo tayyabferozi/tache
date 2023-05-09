@@ -1,7 +1,8 @@
 import clsx from "clsx";
 import React, { useState } from "react";
+import friendlyTime from "../../../../utils/friendly-time";
 
-const ActivityItem = ({ icon, likes, description, name }) => {
+const ActivityItem = ({ icon, likes, description, name, time }) => {
   const [likedState, setLikedState] = useState(false);
 
   const toggleLike = () => {
@@ -18,8 +19,8 @@ const ActivityItem = ({ icon, likes, description, name }) => {
           </div>
           <p className="mt-10">{description}</p>
         </div>
-        <div className="d-flex flex-column justify-content-between mw-50 py-2">
-          <div className="fs-13 text-light-2">1m ago</div>
+        <div className="d-flex flex-column justify-content-between mw-50 py-2 flex-shrink-0">
+          <div className="fs-13 text-light-2">{friendlyTime(time)}</div>
           <div
             className="d-flex align-items-center gap-1 c-pointer"
             onClick={toggleLike}
@@ -491,7 +492,7 @@ yisAAADdU14BAADonvIKAABA9/4/Q+aX02brxKoAAAAASUVORK5CYII="
               </svg>
             </div>
 
-            <div className="fs-14">{likes}</div>
+            <div className="fs-14 no-select">{likes}</div>
           </div>
         </div>
       </div>

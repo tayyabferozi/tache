@@ -2,10 +2,14 @@
   .activity-wrap {
     background-color: #fff;
     width: 340px;
-    border-radius: 6px;
+    border-top-left-radius: 6px;
     flex-shrink: 0;
     border: 1px solid $color38;
-    outline: 1px solid $color38;
+    // outline: 1px solid $color38;
+
+    @media screen and (max-width: 767px) {
+      border-bottom-left-radius: 6px;
+    }
 
     @include transitioned;
 
@@ -25,10 +29,29 @@
       right: 0;
     }
 
+    .circle-arrow {
+      cursor: pointer;
+
+      @include transitioned;
+
+      &:hover {
+        fill: $color10;
+      }
+    }
+
     .like-wrap {
       width: 30px;
       height: 26px;
       position: relative;
+
+      &,
+      * {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+      }
 
       svg {
         position: absolute;

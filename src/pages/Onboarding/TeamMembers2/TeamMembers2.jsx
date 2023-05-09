@@ -11,11 +11,11 @@ import clsx from "clsx";
 const TeamMembers = ({ project }) => {
   return (
     <ProjectLayoutSection bgGrey>
-      {/* <BigJumbotron
+      <BigJumbotron
         icon="/assets/vectors/icons/add-team-member-2.svg"
         title="Team Member"
         subTitle="Lorem ipsum dolor sit amet consectetur. Hendrerit arcu lorem"
-      /> */}
+      />
 
       <div className="mt-4">
         <GridContainer>
@@ -27,6 +27,10 @@ const TeamMembers = ({ project }) => {
             );
           })}
         </GridContainer>
+
+        <div className="d-flex justify-content-center mt-30">
+          <Button white>Show all members</Button>
+        </div>
       </div>
     </ProjectLayoutSection>
   );

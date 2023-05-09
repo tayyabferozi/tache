@@ -161,21 +161,110 @@
   }
 
   .navbar-main {
-    display: flex;
     flex-direction: column;
-    align-items: flex;
-    gap: 30px;
+    // gap: 30px;
     padding: 30px 0;
     align-items: flex-start;
 
-    & > *::before {
-      position: absolute;
-      content: url("../../assets/vectors/chevron-right.svg");
-      right: 60px;
+    .nav-item {
+      width: 100%;
 
-      @media screen and (max-width: 767px) {
-        right: 32px;
+      &:not(.first) {
+        padding-top: 15px;
       }
+
+      &:not(.last) {
+        padding-bottom: 15px;
+      }
+
+      &:not(.nav-heading)::before {
+        content: url("../../assets/vectors/chevron-right.svg");
+        position: absolute;
+        right: 60px;
+
+        @media screen and (max-width: 767px) {
+          right: 32px;
+        }
+      }
+    }
+
+    // & > *
+
+    &.more-nav-items {
+      border-bottom: 1px solid $color2;
+
+      .nav-item-wrap {
+        width: 100%;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        position: relative;
+        width: 100%;
+
+        img.icon {
+          width: 22px;
+          filter: invert(99%) sepia(91%) saturate(772%) hue-rotate(175deg)
+            brightness(87%) contrast(75%);
+        }
+
+        .right {
+          position: absolute;
+          right: 0;
+        }
+
+        &::before {
+          display: none;
+        }
+
+        &.active {
+          color: $color10;
+
+          &::after {
+            content: "";
+            width: 2px;
+            height: 25px;
+            left: -54px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: $color10;
+
+            @media screen and (max-width: 767px) {
+              left: -26px;
+            }
+          }
+
+          .icon {
+            filter: invert(59%) sepia(19%) saturate(6334%) hue-rotate(126deg)
+              brightness(99%) contrast(102%);
+          }
+
+          .right img {
+            filter: invert(59%) sepia(19%) saturate(6334%) hue-rotate(126deg)
+              brightness(99%) contrast(102%);
+          }
+        }
+      }
+
+      .sub-nav-items {
+        margin-left: 12px;
+        padding-left: 20px;
+        border-left: 1px solid #ccc;
+
+        .left {
+          display: flex;
+          gap: 14px;
+        }
+      }
+    }
+
+    .nav-heading {
+      color: #b6bec7;
+      font-size: 14px;
+      letter-spacing: 0.05ch;
     }
   }
 

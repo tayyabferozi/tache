@@ -2,296 +2,15 @@ import React from "react";
 import clsx from "clsx";
 
 import "./Activity.scss";
-import ActivityItem from "./ActivityItem/ActivityItem";
+import ActivityItem from "./ActivityItem";
 
 const greenTextMaxSize = 28;
 
-const activity = [
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "taskCompletion",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "newUser",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "newTask",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "newSubmission",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "taskCompletion",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "taskCompletion",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "taskCompletion",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "taskCompletion",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "taskCompletion",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "taskCompletion",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "taskCompletion",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "taskCompletion",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "taskCompletion",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "taskCompletion",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "taskCompletion",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-  {
-    icon: "/assets/vectors/activity-user-1.svg",
-    type: "taskCompletion",
-    name: "Nabhan Lihadillah",
-    taskName: "Fintach Branding",
-    taskPrice: 20,
-    description: (
-      <>
-        Created{" "}
-        <span className="text-primary-1 fw-600">
-          Fintach Branding Guideline
-        </span>{" "}
-        worth <span className="text-light-1 fw-600">$100</span>
-      </>
-    ),
-    time: "1m",
-    likes: 34,
-  },
-];
-
-const Activity = ({ showActivity, toggleActivityBar }) => {
+const Activity = ({ activity, showActivity, toggleActivityBar }) => {
   return (
     <div
       className={clsx("activity-wrap", !showActivity && "inactive", {
-        "d-flex flex-column": !activity.length,
+        "d-flex flex-column": !activity?.length,
       })}
     >
       <div className={clsx("activity-row")}>
@@ -306,13 +25,32 @@ const Activity = ({ showActivity, toggleActivityBar }) => {
             <div className="text-light-1 fw-500 fs-18">Activity</div>
           </div>
           <div>
-            <img
+            <svg
+              className="circle-arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="rgba(0,0,0,0)"
               onClick={toggleActivityBar}
-              className="c-pointer"
-              src="/assets/vectors/icons/arrow-circle-right.svg"
-              alt="arrow circle right"
-              title="arrow circle right"
-            />
+            >
+              <path
+                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                stroke="#8492A7"
+                strokeWidth="1.5"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                className="arrow"
+                d="M10.74 15.53L14.26 12L10.74 8.47"
+                stroke="#8492A7"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </div>
         </div>
       </div>

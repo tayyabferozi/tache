@@ -13,8 +13,8 @@ const Onboarding = () => {
   const [projectState, setProjectState] = useState({
     privacy: "Public",
     subscribed: false,
-    tasksCompleted: 742,
-    talentEarnings: 153,
+    tasksCompleted: 1000,
+    talentEarnings: 999999,
     talents: 244,
     tasks: [
       {
@@ -426,30 +426,310 @@ const Onboarding = () => {
       {
         img: "/assets/vectors/team-member-1.svg",
         name: "Gunawan Nosr",
-        designation: "Co-founder",
+        designation: "Talent",
         rating: 4.7,
         box: 140,
       },
       {
         img: "/assets/vectors/team-member-1.svg",
         name: "Twizzgreena",
-        designation: "Co-founder",
-        rating: 4.7,
-        box: 140,
-      },
-      {
-        img: "/assets/vectors/team-member-1.svg",
-        name: "Tyara Moreno",
-        designation: "Co-founder",
+        designation: "Lead",
         rating: 4.7,
         box: 140,
       },
       {
         img: "/assets/vectors/team-member-1.svg",
         name: "Aprillia Wicky",
-        designation: "Co-founder",
+        designation: "Lead",
         rating: 4.7,
         box: 140,
+      },
+      {
+        img: "/assets/vectors/team-member-1.svg",
+        name: "Tyara Moreno",
+        designation: "Talent",
+        rating: 4.7,
+        box: 140,
+      },
+    ],
+    activity: [
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "taskCompletion",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Brandinglaskjfsalkjasjhdf",
+        taskPrice: 20,
+        time: 1683140400000,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "newUser",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "newTask",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "newSubmission",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "taskCompletion",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "taskCompletion",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "taskCompletion",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "taskCompletion",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "taskCompletion",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "taskCompletion",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "taskCompletion",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "taskCompletion",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "taskCompletion",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "taskCompletion",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "taskCompletion",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
+      },
+      {
+        icon: "/assets/vectors/activity-user-1.svg",
+        type: "taskCompletion",
+        name: "Nabhan Lihadillah",
+        taskName: "Fintach Branding",
+        taskPrice: 20,
+        description: (
+          <>
+            Created{" "}
+            <span className="text-primary-1 fw-600">
+              Fintach Branding Guideline
+            </span>{" "}
+            worth <span className="text-light-1 fw-600">$100</span>
+          </>
+        ),
+        time: 1683645625662,
+        likes: 34,
       },
     ],
   });
@@ -483,6 +763,7 @@ const Onboarding = () => {
           <TeamMembers2 project={projectState} />
         </div>
         <Activity
+          activity={projectState.activity}
           showActivity={showActivity}
           toggleActivityBar={toggleActivityBar}
         />

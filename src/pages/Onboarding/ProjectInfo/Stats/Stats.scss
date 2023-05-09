@@ -40,6 +40,20 @@
               color: $color1;
             }
           }
+
+          &.pie {
+            .chart {
+              height: 40px;
+              width: 51px;
+              position: relative;
+
+              img {
+                position: absolute;
+                bottom: -2px;
+                right: 0;
+              }
+            }
+          }
         }
       }
     }

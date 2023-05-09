@@ -2,28 +2,30 @@ import React from "react";
 
 import friendlyNum from "../../../../utils/friendly-number";
 import "./Stats.scss";
+import clsx from "clsx";
 
 const Stats = ({ tasksCompleted, talentEarnings, talents }) => {
   return (
     <div className="right">
       <Card
         amount={friendlyNum(tasksCompleted, 1)}
-        chart={"/assets/vectors/chart-task-completed.svg"}
-        icon={"/assets/vectors/icons/clipboard-2.svg"}
-        title={"Tasks completed"}
+        chart="/assets/vectors/chart-task-completed.svg"
+        icon="/assets/vectors/icons/clipboard-2.svg"
+        title="Tasks completed"
       />
       <Card
         longDots
         amount={`$${talentEarnings.toLocaleString("en-US")}`}
-        chart={"/assets/vectors/chart-talent-earnings.svg"}
-        icon={"/assets/vectors/icons/talent-earnings.svg"}
-        title={"Talent earnings"}
+        chart="/assets/vectors/chart-talent-earnings.svg"
+        icon="/assets/vectors/icons/talent-earnings.svg"
+        title="Talent earnings"
       />
       <Card
+        className="pie"
         amount={friendlyNum(talents, 1)}
-        chart={"/assets/vectors/chart-talents.svg"}
-        icon={"/assets/vectors/icons/talents.svg"}
-        title={"Talents"}
+        chart="/assets/vectors/chart-talents.svg"
+        icon="/assets/vectors/icons/talents.svg"
+        title="Talents"
       />
     </div>
   );
@@ -31,9 +33,9 @@ const Stats = ({ tasksCompleted, talentEarnings, talents }) => {
 
 export default Stats;
 
-const Card = ({ amount, chart, title, icon, longDots }) => {
+const Card = ({ className, amount, chart, title, icon, longDots }) => {
   return (
-    <div className="card">
+    <div className={clsx("card", className)}>
       <img
         src={`/assets/vectors/dots-${!longDots ? "6" : "7"}.svg`}
         alt="dots"
