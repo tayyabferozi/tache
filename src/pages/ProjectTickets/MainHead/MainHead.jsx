@@ -51,7 +51,7 @@ const MainHead = ({ searchState, setSearchState, setFilterState, data }) => {
           </div>
         </div>
 
-        <div className="main-head-item__left">
+        <div className="main-head-item__left" id="project-ticket-search">
           <SearchWrap
             noMt
             searchState={searchState}

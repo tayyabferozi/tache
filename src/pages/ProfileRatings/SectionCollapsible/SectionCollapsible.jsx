@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 
-const SectionCollapsible = ({ className, title, icon, children }) => {
+const SectionCollapsible = ({ className, title, icon, children, ...rest }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
-    <div className={clsx("desc-box", className)}>
+    <div className={clsx("desc-box", className)} {...rest}>
       <div className="sub-page-container">
         <div
           className="d-flex justify-content-between align-items-center"

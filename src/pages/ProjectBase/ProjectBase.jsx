@@ -703,7 +703,7 @@ const ProjectBase = () => {
   return (
     <>
       <Section id="project-base">
-        <h2>Project Base</h2>
+        <h2 id="project-base-search">Project Base</h2>
 
         <GridContainer>
           <div className="col-xl-9">
@@ -746,6 +746,7 @@ const ProjectBase = () => {
           <div className="col-12 d-sm-none">
             <div className="my-20">
               <PaginationNum
+                scrollTo="project-base-search"
                 pageNumState={pageNumState}
                 setPageNumState={setPageNumState}
                 total={Math.ceil(dataLen / 4)}
@@ -760,6 +761,7 @@ const ProjectBase = () => {
 
           <div className="d-sm-block d-none pagination-lg">
             <PaginationNum
+              scrollTo="project-base-search"
               pageNumState={pageNumState}
               setPageNumState={setPageNumState}
               total={Math.ceil(dataLen / pageSize)}

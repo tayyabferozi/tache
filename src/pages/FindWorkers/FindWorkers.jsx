@@ -790,7 +790,7 @@ const FindWorkers = () => {
       <h2>Find Talent</h2>
       <p className="fs-18 mt-1">Make searching extra special</p>
 
-      <div className="search-container">
+      <div className="search-container" id="find-talent-search-bar">
         <SearchWrap
           searchState={searchState}
           setSearchState={setSearchState}
@@ -974,6 +974,8 @@ const FindWorkers = () => {
 
       {Math.ceil(dataLen / 6) !== 0 && (
         <PaginationNum
+          offset={-20}
+          scrollTo={"find-talent-search-bar"}
           total={Math.ceil(dataLen / 6)}
           pageNumState={pageNumState}
           setPageNumState={setPageNumState}

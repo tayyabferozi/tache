@@ -13,6 +13,7 @@ import "./TalentReviews.scss";
 const pageSize = 6;
 
 const TalentReviews = ({
+  scrollTo,
   title,
   rating,
   reviews: data,
@@ -26,7 +27,6 @@ const TalentReviews = ({
   const [pageNumState, setPageNumState] = useState(1);
   const [filteredData, setFilteredData] = useState(data);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  console.log(show);
 
   const toggleCardHidden = (id) => {
     const idx = userState[name].findIndex((el) => el.id === id);
@@ -83,7 +83,7 @@ const TalentReviews = ({
         closeModal={() => toggleReviewModal("close")}
       />
       <div className="my-projects desc-box">
-        <div className="sub-page-container">
+        <div className="sub-page-container" id={scrollTo}>
           <div
             className="d-flex justify-content-between align-items-sm-start align-items-center gap-20 flex-wrap"
             onClick={() => setIsCollapsed(!isCollapsed)}
@@ -183,6 +183,7 @@ const TalentReviews = ({
                 </div>
 
                 <PaginationNum
+                  scrollTo={scrollTo}
                   className="mt-575-20 mb-575-30"
                   pageNumState={pageNumState}
                   setPageNumState={setPageNumState}

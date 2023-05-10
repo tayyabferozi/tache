@@ -136,6 +136,8 @@ const TaskCards = ({ project, searchState, showActivity }) => {
 
       {filteredData.length > 0 && (
         <PaginationNum
+          offset={-120}
+          scrollTo="tasks"
           pageNumState={pageNumState}
           setPageNumState={setPageNumState}
           total={Math.ceil(dataLen / pageSize)}

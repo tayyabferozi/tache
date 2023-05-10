@@ -398,6 +398,8 @@ const Tickets = ({ filterState, searchState }) => {
         </AnimatePresence>
 
         <PaginationNum
+          scrollTo="project-ticket-search"
+          offset={-20}
           pageNumState={pageNumState}
           setPageNumState={setPageNumState}
           total={Math.ceil(dataLen / pageSize)}

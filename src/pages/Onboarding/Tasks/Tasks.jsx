@@ -51,7 +51,10 @@ const Tasks = ({
 }) => {
   return (
     <ProjectLayoutSection bgGrey className="tasks">
-      <div className="d-flex flex-xl-row flex-column justify-content-between align-items-xl-center gap-20">
+      <div
+        id="tasks"
+        className="d-flex flex-xl-row flex-column justify-content-between align-items-xl-center gap-20"
+      >
         <div className="d-flex align-items-center gap-20 flex-grow-1">
           <div className="fs-20 text-light-1 fw-500">Tasks</div>
           <SearchWrap

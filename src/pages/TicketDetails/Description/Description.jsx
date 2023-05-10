@@ -450,6 +450,7 @@ const Description = () => {
       <DescBox
         icon="/assets/vectors/icons/ready-to-work.svg"
         title="Ready to work"
+        id="ready-to-work"
       >
         <AnimatePresence>
           <GridContainer>
@@ -468,6 +469,7 @@ const Description = () => {
         </AnimatePresence>
 
         <PaginationNum
+          scrollTo="ready-to-work"
           className="mb-575-30 mt-575-20"
           pageNumState={pageNumState}
           setPageNumState={setPageNumState}

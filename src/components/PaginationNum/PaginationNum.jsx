@@ -1,29 +1,34 @@
 import clsx from "clsx";
 import React from "react";
-import { animateScroll as scroll } from "react-scroll";
+import {
+  // animateScroll as scroll,
+  Link,
+} from "react-scroll";
 
 import "./PaginationNum.scss";
 
 const PaginationNum = ({
-  shoulScrollTop,
+  scrollTo,
+  offset,
+  // shoulScrollTop,
   className,
   pageNumState,
   setPageNumState,
   total,
 }) => {
   const changePage = (val) => {
-    scrollTop();
+    // scrollTop();
     setPageNumState(val);
   };
 
-  const scrollTop = () => {
-    // if (window.screen.width < 576) {
-    scroll.scrollTo(0, { smooth: true, duration: 500 });
-    // }
-  };
+  // const scrollTop = () => {
+  // if (window.screen.width < 576) {
+  // scroll.scrollTo("#" + scrollTo, { smooth: true, duration: 500 });
+  // }
+  // };
 
   const dec = () => {
-    scrollTop();
+    // scrollTop();
     setPageNumState((prevState) => {
       if (prevState > 1) return --prevState;
       else return 1;
@@ -31,7 +36,7 @@ const PaginationNum = ({
   };
 
   const inc = () => {
-    scrollTop();
+    // scrollTop();
     setPageNumState((prevState) => {
       if (prevState < total) return ++prevState;
       else return total;
@@ -40,8 +45,12 @@ const PaginationNum = ({
 
   return (
     <div className={clsx(className, "pagination-num")}>
-      <button
+      <Link
+        to={scrollTo}
+        smooth={true}
+        offset={offset === undefined ? 0 : offset}
         className={clsx(pageNumState === 1 && "disabled", "pg-btn prev")}
+        duration={200}
         onClick={dec}
       >
         <img
@@ -49,19 +58,27 @@ const PaginationNum = ({
           alt="arrow"
           className="arrow"
         />
-      </button>
+      </Link>
       {new Array(total).fill(0).map((el, idx) => {
         return (
-          <div
+          <Link
+            to={scrollTo}
+            smooth={true}
+            offset={offset === undefined ? 0 : offset}
+            duration={200}
             key={"pag" + idx}
             className={clsx("pag-item", pageNumState === idx + 1 && "active")}
             onClick={() => changePage(idx + 1)}
           >
             {idx + 1}
-          </div>
+          </Link>
         );
       })}
-      <button
+      <Link
+        to={scrollTo}
+        smooth={true}
+        offset={offset === undefined ? 0 : offset}
+        duration={200}
         className={clsx(pageNumState === total && "disabled", "pg-btn next")}
         onClick={inc}
       >
@@ -70,7 +87,7 @@ const PaginationNum = ({
           alt="arrow"
           className="arrow"
         />
-      </button>
+      </Link>
     </div>
   );
 };

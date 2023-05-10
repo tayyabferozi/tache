@@ -1129,6 +1129,7 @@ const ProfileRatings = () => {
       <TalentReviews
         show={show}
         title="Talent Reviews"
+        scrollTo="profile-ratings-talent-reviews"
         rating={userState.talentRating}
         reviews={userState.talentReviews}
         userState={userState}
@@ -1138,6 +1139,7 @@ const ProfileRatings = () => {
       <TalentReviews
         show={show}
         title="Project Lead Reviews"
+        scrollTo="profile-ratings-lead-reviews"
         rating={userState.leadRating}
         reviews={userState.leadReviews}
         userState={userState}

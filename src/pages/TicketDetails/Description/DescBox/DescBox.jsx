@@ -2,11 +2,11 @@ import clsx from "clsx";
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const DescBox = ({ icon, title, children }) => {
+const DescBox = ({ icon, title, children, ...rest }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
-    <div className="desc-box">
+    <div className="desc-box" {...rest}>
       <div className="sub-page-container">
         <div
           className="d-flex justify-content-between align-items-start"

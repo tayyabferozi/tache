@@ -31,6 +31,7 @@ const MyProjects = ({ show, projects: data }) => {
       className="my-projects"
       title="My Projects"
       icon="/assets/vectors/icons/my-projects.svg"
+      id="profie-ratings-my-projects"
     >
       <div className="mt-30 mt-575-20">
         <AnimatePresence>
@@ -62,6 +63,7 @@ const MyProjects = ({ show, projects: data }) => {
       </div>
 
       <PaginationNum
+        scrollTo="profie-ratings-my-projects"
         className="mb-575-30 mt-575-20"
         pageNumState={pageNumState}
         setPageNumState={setPageNumState}
@@ -74,8 +76,6 @@ const MyProjects = ({ show, projects: data }) => {
 export default MyProjects;
 
 const ProjectCard = ({ skeleton, el }) => {
-  console.log(skeleton);
-
   return (
     <div className="project-card-wrap">
       <div className="project-card">
