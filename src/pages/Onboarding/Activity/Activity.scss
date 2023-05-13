@@ -5,9 +5,12 @@
     border-top-left-radius: 6px;
     flex-shrink: 0;
     border: 1px solid $color38;
+    border-right: 0;
+    min-height: 500px;
+    z-index: 2;
     // outline: 1px solid $color38;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 1200px) {
       border-bottom-left-radius: 6px;
     }
 
@@ -35,7 +38,7 @@
       @include transitioned;
 
       &:hover {
-        fill: $color10;
+        transform: scale(1.125);
       }
     }
 
@@ -153,6 +156,10 @@
     .activity-row {
       padding: 20px 30px;
       border-bottom: 1px solid $color38;
+
+      &:last-child {
+        border-bottom: 0;
+      }
     }
   }
 }

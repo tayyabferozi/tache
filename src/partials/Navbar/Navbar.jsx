@@ -109,7 +109,7 @@ const Menu = ({ moreNavItems }) => {
     const $this = $(e.currentTarget);
     const subNavItems = $this.parent().find(".sub-nav-items");
     if (subNavItems?.length > 0) {
-      subNavItems.slideToggle();
+      subNavItems.slideToggle({ duration: 200 });
       $this.find(".right img").toggleClass("mirrored");
     }
   };

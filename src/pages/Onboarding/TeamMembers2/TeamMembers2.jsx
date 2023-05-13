@@ -7,6 +7,7 @@ import BigJumbotron from "../../../components/BigJumbotron/BigJumbotron";
 import GridContainer from "../../../components/GridContainer/GridContainer";
 import "./TeamMember2.scss";
 import clsx from "clsx";
+import Badge from "../../../components/Badge/Badge";
 
 const TeamMembers = ({ project }) => {
   return (
@@ -80,7 +81,7 @@ const Card = ({ img, name, designation, box, rating }) => {
           </div>
         </div>
         <div className="right flex-shrink-0">
-          <div className="designation">{designation}</div>
+          <Badge className="">{designation}</Badge>
         </div>
       </div>
       <div className="bottom d-flex flex-wrap justify-content-between align-items-center mt-4">

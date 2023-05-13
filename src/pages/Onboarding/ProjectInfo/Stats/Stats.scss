@@ -41,6 +41,11 @@
             }
           }
 
+          &.pie,
+          &.tasks {
+            min-width: 200px;
+          }
+
           &.pie {
             .chart {
               height: 40px;

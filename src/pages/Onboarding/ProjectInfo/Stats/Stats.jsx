@@ -8,6 +8,7 @@ const Stats = ({ tasksCompleted, talentEarnings, talents }) => {
   return (
     <div className="right">
       <Card
+        className="tasks"
         amount={friendlyNum(tasksCompleted, 1)}
         chart="/assets/vectors/chart-task-completed.svg"
         icon="/assets/vectors/icons/clipboard-2.svg"

@@ -4,7 +4,7 @@ import "./Switch.scss";
 
 const Switch = ({ label }) => {
   return (
-    <div className="d-flex gap-10">
+    <div className="switch-wrap d-flex align-items-center gap-10">
       <label className="switch">
         <input type="checkbox" />
         <span className="slider round"></span>
