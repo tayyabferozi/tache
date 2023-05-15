@@ -66,7 +66,7 @@ const links = [
 const Footer = () => {
   return (
     <Section id="footer">
-      <GridContainer rowClassName="gx-70 gx-575-0 gy-30 gx-767-50 gx-575-0">
+      <GridContainer rowClassName="gx-60 gx-575-0 gy-30 gx-767-50 gx-575-0">
         <div className="col-lg-4">
           <div className="left">
             <img

@@ -12,11 +12,14 @@ const Activity = ({ activity, showActivity, toggleActivityBar }) => {
   const [showRemText, setShowRemText] = useState(false);
 
   const checkActivity = useCallback(() => {
+    const $el = $(".activity-wrap");
     if (!activity.length) {
       setShowRemText(false);
+      $el.innerHeight(
+        $(".layout-body-section-container.tasks").innerHeight() - 2
+      );
       return;
     }
-    const $el = $(".activity-wrap");
     const height = $el.innerHeight();
 
     let allHeights = 0;
