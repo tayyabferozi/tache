@@ -26,18 +26,10 @@ const sortOptions = [
     label: "Awaiting Talent",
   },
   {
-    label: (
-      <>
-        Price - <small className="text-light-1">high</small>
-      </>
-    ),
+    label: "Price - high",
   },
   {
-    label: (
-      <>
-        Price - <small className="text-light-1">low</small>
-      </>
-    ),
+    label: "Price - low",
   },
 ];
 

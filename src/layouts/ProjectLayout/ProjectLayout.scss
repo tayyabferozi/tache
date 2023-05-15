@@ -38,9 +38,6 @@
       position: relative;
       padding: calc(100px + 30px) 0 30px;
       flex-shrink: 0;
-      position: sticky;
-      bottom: 0;
-      display: flex;
 
       @media screen and (max-width: 991px) {
         display: none;

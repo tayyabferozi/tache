@@ -3,6 +3,8 @@
     .search-wrap {
       width: 100%;
       max-width: 380px;
+      overflow: hidden;
+      border-color: $color45;
 
       @media screen and (max-width: 1199px) {
         max-width: unset;

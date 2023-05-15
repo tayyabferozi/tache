@@ -1,12 +1,56 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import clsx from "clsx";
+import $ from "jquery";
 
 import "./Activity.scss";
 import ActivityItem from "./ActivityItem";
+import { useState } from "react";
 
 const greenTextMaxSize = 28;
 
 const Activity = ({ activity, showActivity, toggleActivityBar }) => {
+  const [showRemText, setShowRemText] = useState(false);
+
+  const checkActivity = useCallback(() => {
+    if (!activity.length) {
+      setShowRemText(false);
+      return;
+    }
+    const $el = $(".activity-wrap");
+    const height = $el.innerHeight();
+
+    let allHeights = 0;
+
+    $el.children(".activity-row").each(function (idx, el) {
+      const $this = $(el);
+      allHeights += $this.innerHeight();
+    });
+
+    const offset = height - allHeights;
+
+    if (offset >= 200) {
+      setShowRemText(true);
+    } else setShowRemText(false);
+  }, [activity.length]);
+
+  useEffect(() => {
+    window.addEventListener("resize", checkActivity);
+
+    return () => {
+      window.removeEventListener("resize", checkActivity);
+    };
+  }, [checkActivity]);
+
+  useEffect(() => {
+    checkActivity();
+  }, [activity, checkActivity]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      checkActivity();
+    }, 400);
+  }, [showActivity, checkActivity]);
+
   return (
     <div
       className={clsx("activity-wrap", !showActivity && "inactive", {
@@ -119,6 +163,25 @@ const Activity = ({ activity, showActivity, toggleActivityBar }) => {
           <img src="/assets/vectors/no-activity.svg" alt="no activity" />
           <div className="fw-600 text-light-1 mt-10 fs-14">
             No recent activity
+          </div>
+        </div>
+      )}
+
+      {showRemText && (
+        <div className="text-center flex-grow-1 pt-40 pb-40 p-relative">
+          <img
+            src="/assets/vectors/dots-4.svg"
+            className="dots dots-1"
+            alt="dots"
+          />
+          <img
+            src="/assets/vectors/dots-5.svg"
+            className="dots dots-2"
+            alt="dots"
+          />
+          <img src="/assets/vectors/no-activity.svg" alt="no activity" />
+          <div className="fw-600 text-light-1 mt-10 fs-14">
+            No more activities
           </div>
         </div>
       )}
