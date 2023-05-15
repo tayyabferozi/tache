@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
 import Footer from "../../partials/Footer";
@@ -56,6 +56,20 @@ const sidebarNavItems = [
 ];
 
 const ProjectLayout = () => {
+  useEffect(() => {
+    const el = () => {
+      const scrollTop = document.getElementsByTagName("html")[0].scrollTop;
+
+      document.querySelector(".layout-sidebar").scrollTop = scrollTop;
+    };
+
+    window.addEventListener("scroll", el);
+
+    return () => {
+      window.removeEventListener("scroll", el);
+    };
+  }, []);
+
   return (
     <div id="project-layout">
       <Navbar moreNavItems={sidebarNavItems} />

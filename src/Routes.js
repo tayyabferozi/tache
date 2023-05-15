@@ -50,3 +50,49 @@ const AppRoutes = () => {
 };
 
 export default AppRoutes;
+
+// function Lorem() {
+//   const firstDivRef = React.useRef(null);
+
+//   const handleScroll = (event) => {
+//     const { scrollTop } = event.target;
+//     firstDivRef.current.scrollTop = scrollTop;
+//   };
+
+//   return (
+//     <div style={{ display: "flex", width: "100%" }}>
+//       <div
+//         ref={firstDivRef}
+//         style={{
+//           width: "50%",
+//           overflow: "auto",
+//           maxHeight: "40vh",
+//           padding: "0rem 4rem",
+//         }}
+//       >
+//         {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map(() => {
+//           return <div>l</div>;
+//         })}
+//       </div>
+//       <div
+//         style={{
+//           width: "50%",
+//           overflow: "auto",
+//           maxHeight: "40vh",
+//           padding: "0rem 4rem",
+//         }}
+//         onScroll={handleScroll}
+//       >
+//         {[
+//           1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+//           1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+//           1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+//           1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+//           1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+//         ].map(() => {
+//           return <div>l</div>;
+//         })}
+//       </div>
+//     </div>
+//   );
+// }
