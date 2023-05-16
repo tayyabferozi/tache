@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import clsx from "clsx";
-import $ from "jquery";
 
 import "./Activity.scss";
 import ActivityItem from "./ActivityItem";
@@ -10,23 +9,25 @@ const greenTextMaxSize = 28;
 
 const Activity = ({ activity, showActivity, toggleActivityBar }) => {
   const [showRemText, setShowRemText] = useState(false);
+  const activityWrapRef = useRef();
 
   const checkActivity = useCallback(() => {
-    const $el = $(".activity-wrap");
+    const $el = activityWrapRef.current;
+    const tasksDiv = document.querySelector(
+      ".layout-body-section-container.tasks"
+    );
+    if (!activityWrapRef || !tasksDiv) return;
     if (!activity.length) {
       setShowRemText(false);
-      $el.innerHeight(
-        $(".layout-body-section-container.tasks").innerHeight() - 2
-      );
+      $el.setAttribute("style", `height: ${tasksDiv.clientHeight}px`);
       return;
     }
-    const height = $el.innerHeight();
+    const height = $el.clientHeight;
 
     let allHeights = 0;
 
-    $el.children(".activity-row").each(function (idx, el) {
-      const $this = $(el);
-      allHeights += $this.innerHeight();
+    $el.querySelectorAll(".activity-row").forEach((el, idx) => {
+      allHeights += el.clientHeight;
     });
 
     const offset = height - allHeights;
@@ -57,8 +58,9 @@ const Activity = ({ activity, showActivity, toggleActivityBar }) => {
   return (
     <div
       className={clsx("activity-wrap", !showActivity && "inactive", {
-        "d-flex flex-column": !activity?.length,
+        "d-flex flex-column no-activity": !activity?.length,
       })}
+      ref={activityWrapRef}
     >
       <div className={clsx("activity-row")}>
         <div className="d-flex justify-content-between align-items-center">

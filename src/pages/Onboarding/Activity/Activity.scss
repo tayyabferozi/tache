@@ -7,13 +7,16 @@
     border: 1px solid $color38;
     border-right: 0;
     z-index: 2;
-    // outline: 1px solid $color38;
 
     @media screen and (max-width: 1200px) {
       border-bottom-left-radius: 6px;
     }
 
     @include transitioned;
+
+    &.no-activity {
+      border-bottom-left-radius: 6px;
+    }
 
     &.inactive {
       @media screen and (min-width: 1201px) {

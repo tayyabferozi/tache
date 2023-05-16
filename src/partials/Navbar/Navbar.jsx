@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
-import $ from "jquery";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 
 import Section from "../../components/Section";
+import AccordionNavItem from "./AccordionNavItem/AccordionNavItem";
 import "./Navbar.scss";
 
 const navItems = [
@@ -105,15 +105,6 @@ export default Navbar;
 const Menu = ({ moreNavItems }) => {
   const navigate = useNavigate();
 
-  const navItemClickHandler = (e) => {
-    const $this = $(e.currentTarget);
-    const subNavItems = $this.parent().find(".sub-nav-items");
-    if (subNavItems?.length > 0) {
-      subNavItems.slideToggle({ duration: 200 });
-      $this.find(".right img").toggleClass("mirrored");
-    }
-  };
-
   return (
     <>
       {moreNavItems?.length && (
@@ -121,53 +112,11 @@ const Menu = ({ moreNavItems }) => {
           <div className="navbar-main more-nav-items d-lg-none">
             <div className="nav-heading d-lg-none pb-2">Navigation</div>
             {moreNavItems?.map((el, idx) => (
-              <div
-                className={clsx("nav-item-wrap")}
+              <AccordionNavItem
                 key={"extra-nav-item" + idx}
-                to={el.to}
-              >
-                <div
-                  className={clsx("nav-item", { active: el.active })}
-                  onClick={navItemClickHandler}
-                >
-                  <img className="icon" src={el.icon} alt={el.title} />{" "}
-                  {el.title}
-                  <div className="right">
-                    {el.subNav && (
-                      <img
-                        src="/assets/vectors/icons/arrow-top.svg"
-                        className="mirroed transitioned"
-                        alt="arrow"
-                      />
-                    )}
-                  </div>
-                </div>
-
-                {el.subNav && (
-                  <div className="sub-nav-items" style={{ display: "none" }}>
-                    {el.subNav.map((el2, idx2) => {
-                      return (
-                        <div
-                          className="sub-nav-item"
-                          key={"sub-nav-items" + idx + "-" + idx2}
-                        >
-                          <div className="nav-item">
-                            <div className="left">
-                              <img
-                                className="icon"
-                                src={el2.icon}
-                                alt={el2.title}
-                              />
-                              <div className="title">{el2.title}</div>
-                            </div>
-                            <div className="right"></div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
+                idx={idx}
+                {...el}
+              />
             ))}
           </div>
         </>
