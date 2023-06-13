@@ -14,4 +14,11 @@
     background-color: $color15;
     color: $color10;
   }
+
+  &.outlined {
+    border: 1px solid $color10;
+    background-color: transparent;
+    font-size: 15px;
+    letter-spacing: normal;
+  }
 }

@@ -4,17 +4,19 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import SubNavItem from "./SubNavItem";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
-const AccordionNavItem = ({ to, active, title, icon, subNav, idx }) => {
+const AccordionNavItem = ({ link, title, icon, subNav, idx }) => {
   const [isActive, setIsActive] = useState(false);
   const navItemClickHandler = () => {
     setIsActive(!isActive);
   };
 
   return (
-    <div className={clsx("nav-item-wrap")} to={to}>
-      <div
-        className={clsx("nav-item", { active: active })}
+    <div className={clsx("nav-item-wrap")}>
+      <NavLink
+        to={link}
+        className={clsx("nav-item")}
         onClick={navItemClickHandler}
       >
         <img className="icon" src={icon} alt={title} /> {title}
@@ -27,7 +29,7 @@ const AccordionNavItem = ({ to, active, title, icon, subNav, idx }) => {
             />
           )}
         </div>
-      </div>
+      </NavLink>
 
       <AnimatePresence>
         {subNav && isActive && (
@@ -39,11 +41,7 @@ const AccordionNavItem = ({ to, active, title, icon, subNav, idx }) => {
           >
             {subNav.map((el2, idx2) => {
               return (
-                <SubNavItem
-                  key={"sub-nav-items" + idx + "-" + idx2}
-                  {...el2}
-                  isActive={isActive}
-                />
+                <SubNavItem key={"sub-nav-items" + idx + "-" + idx2} {...el2} />
               );
             })}
           </motion.div>

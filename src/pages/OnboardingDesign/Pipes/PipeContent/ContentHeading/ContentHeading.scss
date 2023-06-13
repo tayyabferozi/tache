@@ -1,0 +1,40 @@
+#onboarding-design
+  .pipes
+  .pipe-content-container
+  .pipe-content
+  .content-heading {
+  .current-view {
+    display: flex;
+    border-radius: 8px;
+    border: 1px solid #8492a733;
+    padding: 5px 8px;
+
+    .view-option {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border-radius: 8px;
+
+      @include transitioned;
+
+      img {
+        filter: invert(39%) sepia(10%) saturate(1191%) hue-rotate(173deg)
+          brightness(96%) contrast(89%);
+
+        @include transitioned;
+      }
+
+      &.active {
+        background-color: $color15;
+
+        img {
+          filter: invert(46%) sepia(81%) saturate(1980%) hue-rotate(133deg)
+            brightness(108%) contrast(101%);
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Button from "../../../../components/Button";
+import Button from "../Button";
 
 const DownloadBtn = ({ name, date }) => {
   return (
@@ -15,7 +15,7 @@ const DownloadBtn = ({ name, date }) => {
     >
       {name}
       <img
-        className="ms-34 ms-575-10 me-2 timer-icon"
+        className="ms-26 ms-575-10 me-2 timer-icon"
         src="/assets/vectors/icons/timer.svg"
         alt="timer"
         title="timer"

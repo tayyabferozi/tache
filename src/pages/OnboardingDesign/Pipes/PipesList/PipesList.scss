@@ -1,0 +1,151 @@
+#onboarding-design .pipes .pipe-content-container {
+  .pipes-list {
+    @media screen and (max-width: 767px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .pipe-list-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 30px;
+      position: relative;
+      cursor: pointer;
+
+      @media screen and (max-width: 767px) {
+        margin-bottom: 0;
+
+        .text {
+          display: none;
+        }
+      }
+
+      &:not(:last-child)::before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 30px;
+        background-color: $color46;
+        top: 100%;
+        left: 21px;
+
+        @media screen and (max-width: 767px) {
+          display: none;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .icon-container {
+        width: 44px;
+        height: 44px;
+        position: relative;
+
+        svg {
+          @include transitioned;
+
+          path,
+          rect {
+            stroke: $color2;
+
+            @include transitioned;
+
+            &.circle {
+              stroke-opacity: 0.2;
+            }
+          }
+        }
+
+        img {
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+
+          @include transitioned;
+        }
+      }
+
+      .name {
+        color: $color47;
+
+        @include transitioned;
+      }
+
+      .desc {
+        @include transitioned;
+      }
+
+      &:hover {
+        .icon-container {
+          svg {
+            transform: scale(1.125);
+
+            path,
+            rect {
+              stroke: $color10;
+
+              &.circle {
+                stroke-opacity: 1;
+              }
+            }
+          }
+        }
+
+        .name {
+          color: $color10;
+        }
+
+        .desc {
+          color: $color1;
+        }
+      }
+
+      &.active {
+        .icon-container {
+          svg {
+            path,
+            rect {
+              stroke: $color10;
+
+              &.circle {
+                stroke-opacity: 1;
+              }
+            }
+          }
+        }
+      }
+
+      &.passed {
+        .icon-container {
+          svg {
+            path,
+            rect {
+              &.circle {
+                fill: $color10;
+              }
+
+              &.to-white {
+                fill: #fff;
+                stroke: #fff;
+              }
+
+              &.to-outline-white {
+                stroke: #fff;
+              }
+
+              &.to-green {
+                stroke: $color10;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

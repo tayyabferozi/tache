@@ -127,6 +127,7 @@ const Menu = ({ moreNavItems }) => {
             className={clsx("nav-item", {
               first: idx === 0,
               last: idx === navItems?.length - 1,
+              active: true,
             })}
             key={"nav-item" + idx}
             to={el.to}

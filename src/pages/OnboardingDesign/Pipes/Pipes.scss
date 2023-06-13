@@ -1,0 +1,12 @@
+#onboarding-design .pipes {
+  border-top: 1px solid $color46;
+
+  .pipe-content-container {
+    display: flex;
+    gap: 30px;
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+    }
+  }
+}

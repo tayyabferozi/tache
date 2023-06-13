@@ -1,7 +1,7 @@
 import React from "react";
 
-import "./Sidebar.scss";
 import NavItem from "./NavItem/NavItem";
+import "./Sidebar.scss";
 
 const recentTasks = [
   {

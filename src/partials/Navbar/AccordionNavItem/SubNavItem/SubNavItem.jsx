@@ -1,8 +1,9 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-const SubNavItem = ({ icon, title }) => {
+const SubNavItem = ({ link, icon, title }) => {
   return (
-    <div className="sub-nav-item">
+    <NavLink to={link} className="sub-nav-item">
       <div className="nav-item">
         <div className="left">
           <img className="icon" src={icon} alt={title} />
@@ -10,7 +11,7 @@ const SubNavItem = ({ icon, title }) => {
         </div>
         <div className="right"></div>
       </div>
-    </div>
+    </NavLink>
   );
 };
 

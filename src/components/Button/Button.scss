@@ -55,6 +55,19 @@
         color: #fff;
       }
     }
+
+    &.btn-primary-bordered {
+      border: 1px solid $color10;
+      background-color: transparent;
+
+      .btn-text {
+        color: $color10;
+      }
+
+      &:hover {
+        background-color: rgba($color10, 0.05);
+      }
+    }
   }
 
   &.btn-primary-light {

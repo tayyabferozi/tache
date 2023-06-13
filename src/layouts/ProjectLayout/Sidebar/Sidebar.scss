@@ -23,7 +23,7 @@
         content: "";
         display: block;
         position: absolute;
-        left: 2px;
+        left: 3px;
         top: 50%;
         transform: translateY(-50%);
         width: 2px;
@@ -79,6 +79,46 @@
 
       .sub-nav-item {
         padding-left: 8px;
+        position: relative;
+        display: block;
+
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          left: 5px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 2px;
+          height: 25px;
+          background-color: transparent;
+
+          @include transitioned;
+        }
+
+        &.active {
+          &::before {
+            background-color: $color10;
+          }
+
+          .left {
+            .icon {
+              filter: invert(59%) sepia(19%) saturate(6334%) hue-rotate(126deg)
+                brightness(99%) contrast(102%);
+            }
+
+            .title {
+              color: $color10;
+            }
+          }
+
+          .right {
+            img {
+              filter: invert(59%) sepia(19%) saturate(6334%) hue-rotate(126deg)
+                brightness(99%) contrast(102%);
+            }
+          }
+        }
 
         .nav-item {
           padding-left: 20px;

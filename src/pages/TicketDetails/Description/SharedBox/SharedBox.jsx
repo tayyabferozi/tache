@@ -1,7 +1,7 @@
 import React from "react";
 
 import CustomMDEditor from "../../../../components/CustomMDEditor";
-import DownloadBtn from "../DownloadBtn/DownloadBtn";
+import DownloadBtn from "../../../../components/DownloadBtn/DownloadBtn";
 import Button from "../../../../components/Button";
 import useModal from "../../../../hooks/useModal";
 import DownloadFiles from "../../../../modals/DownloadFiles";
@@ -42,11 +42,6 @@ const SharedBox = ({ icon, title, value, inputChangeHandler, noRevisions }) => {
             <DownloadBtn date="Fri 26 Aug" name="Document" />
             <DownloadBtn date="Fri 26 Aug" name="Document" />
             <DownloadBtn date="Fri 26 Aug" name="Document" />
-            {/* <DownloadBtn date="Fri 26 Aug" name="Document" />
-              <DownloadBtn date="Fri 26 Aug" name="Document" />
-              <DownloadBtn date="Fri 26 Aug" name="Document" />
-              <DownloadBtn date="Fri 26 Aug" name="Document" />
-              <DownloadBtn date="Fri 26 Aug" name="Document" /> */}
           </div>
           <div className="d-flex gap-20 justify-content-sm-start w-575-100">
             <Button className="h-40 px-4" grey onClick={toggleDownloadModal}>

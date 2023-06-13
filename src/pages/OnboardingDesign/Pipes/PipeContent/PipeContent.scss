@@ -1,0 +1,38 @@
+#onboarding-design .pipes .pipe-content-container {
+  .pipe-content {
+    flex-grow: 1;
+
+    .md {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: 20px;
+        font-weight: 600;
+        color: $color1;
+        margin-bottom: 14px;
+        letter-spacing: normal;
+      }
+
+      p,
+      ul {
+        margin-bottom: 20px;
+      }
+
+      // code {
+      //   min-width: 450px;
+      // }
+
+      // &,
+      // * {
+      //   overflow: hidden !important;
+      // }
+    }
+
+    .modal-wrapper {
+      z-index: 8;
+    }
+  }
+}

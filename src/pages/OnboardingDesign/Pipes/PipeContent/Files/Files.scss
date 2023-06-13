@@ -1,0 +1,49 @@
+#onboarding-design .pipes .pipe-content-container .pipe-content .files {
+  .file-item {
+    border: 1px solid $color46;
+    border-radius: 8px;
+    padding: 8px 16px;
+
+    &.list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @media screen and (max-width: 575px) {
+        padding: 8px;
+      }
+    }
+
+    .head {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .file-info {
+      opacity: 0.8;
+
+      .text {
+        color: $color48;
+      }
+    }
+
+    .btn {
+      height: 28px;
+
+      .btn-text {
+        @media screen and (max-width: 1300px) and (min-width: 992px) {
+          display: none;
+        }
+      }
+    }
+
+    .foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+    }
+  }
+}

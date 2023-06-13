@@ -3,9 +3,9 @@ import clsx from "clsx";
 
 import "./Badge.scss";
 
-const Badge = ({ className, green, children, ...rest }) => {
+const Badge = ({ className, green, outlined, children, ...rest }) => {
   return (
-    <div className={clsx("badge", className, { green })} {...rest}>
+    <div className={clsx("badge", className, { green, outlined })} {...rest}>
       {children}
     </div>
   );

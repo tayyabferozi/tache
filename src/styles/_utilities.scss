@@ -103,7 +103,7 @@ hr {
 .text-light-1 {
   &,
   * {
-    color: $color1;
+    color: $color1 !important;
   }
 }
 
@@ -117,6 +117,10 @@ hr {
 
 .text-light-4 {
   color: $color29;
+}
+
+.text-light-5 {
+  color: $color47;
 }
 
 .text-dark-1 {
@@ -589,4 +593,44 @@ body:has(.modal-wrapper.active) {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+}
+
+.download-btns {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @media screen and (max-width: 575px) {
+    // justify-content: center;
+  }
+
+  .btn {
+    padding-right: 52px;
+    position: relative;
+    overflow: hidden;
+
+    .download {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $color27;
+    }
+  }
+}
+
+.link {
+  color: $color1;
+  font-weight: 500;
+
+  @include transitioned;
+
+  &:hover {
+    color: $color10;
+  }
 }

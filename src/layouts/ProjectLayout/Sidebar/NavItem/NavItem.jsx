@@ -1,8 +1,9 @@
 import clsx from "clsx";
+import { NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const NavItem = ({ idx, active, icon, title, subNav }) => {
+const NavItem = ({ idx, link, active, icon, title, subNav }) => {
   const [isActive, setIsActive] = useState(false);
 
   const navItemClickHandler = () => {
@@ -10,8 +11,12 @@ const NavItem = ({ idx, active, icon, title, subNav }) => {
   };
 
   return (
-    <div className="nav-item-wrap" onClick={navItemClickHandler}>
-      <div className={clsx("nav-item", active && "active")}>
+    <div className="nav-item-wrap">
+      <NavLink
+        to={link}
+        className={clsx("nav-item", active && "active")}
+        onClick={navItemClickHandler}
+      >
         <div className="left">
           <img className="icon" src={icon} alt={title} />
           <div className="title">{title}</div>
@@ -25,7 +30,7 @@ const NavItem = ({ idx, active, icon, title, subNav }) => {
             />
           )}
         </div>
-      </div>
+      </NavLink>
       <AnimatePresence>
         {subNav && isActive && (
           <motion.div
@@ -37,8 +42,9 @@ const NavItem = ({ idx, active, icon, title, subNav }) => {
           >
             {subNav.map((el2, idx2) => {
               return (
-                <div
-                  className="sub-nav-item"
+                <NavLink
+                  to={el2.link}
+                  className={clsx("sub-nav-item")}
                   key={"sub-nav-items" + idx + "-" + idx2}
                 >
                   <div className="nav-item">
@@ -48,7 +54,7 @@ const NavItem = ({ idx, active, icon, title, subNav }) => {
                     </div>
                     <div className="right"></div>
                   </div>
-                </div>
+                </NavLink>
               );
             })}
           </motion.div>

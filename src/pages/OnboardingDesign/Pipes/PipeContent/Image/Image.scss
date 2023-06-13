@@ -1,0 +1,12 @@
+#onboarding-design .pipes .pipe-content-container .pipe-content .image {
+  img.img {
+    cursor: pointer;
+    box-shadow: 1px 1px 6px rgba($color: #000000, $alpha: 0.2);
+
+    @include transitioned;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
