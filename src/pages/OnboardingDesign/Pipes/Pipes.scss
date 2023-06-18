@@ -3,7 +3,7 @@
 
   .pipe-content-container {
     display: flex;
-    gap: 30px;
+    gap: 15px;
 
     @media screen and (max-width: 767px) {
       flex-direction: column;

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Button from "../../../components/Button";
 import ProjectLayoutSection from "../../../components/ProjectLayoutSection";
-import BigJumbotron from "../../../components/BigJumbotron/BigJumbotron";
+import BigJumbotron from "../../../components/BigJumbotron";
 import GridContainer from "../../../components/GridContainer/GridContainer";
 import Badge from "../../../components/Badge";
 import "./TeamMember.scss";

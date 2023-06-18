@@ -3,17 +3,24 @@
     flex-grow: 1;
 
     .md {
+      word-wrap: break-word;
+      word-break: break-all;
+
       h1,
       h2,
       h3,
       h4,
       h5,
       h6 {
-        font-size: 20px;
-        font-weight: 600;
-        color: $color1;
         margin-bottom: 14px;
-        letter-spacing: normal;
+
+        &,
+        * {
+          font-size: 20px;
+          font-weight: 600;
+          color: $color1;
+          letter-spacing: normal;
+        }
       }
 
       p,

@@ -96,7 +96,7 @@ const SharedBox = ({ icon, title, value, inputChangeHandler, noRevisions }) => {
                 placeholder="Writing your comment..."
                 value={value}
                 inputChangeHandler={inputChangeHandler}
-                footText="0/5000"
+                maxChar={5000}
               />
             </div>
 

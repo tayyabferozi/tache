@@ -18,7 +18,14 @@ const viewOptions = [
   },
 ];
 
-const ContentHeading = ({ icon, title, view, setView }) => {
+const ContentHeading = ({
+  icon,
+  title,
+  view,
+  setView,
+  setIsInEditState,
+  setTempLoading,
+}) => {
   const { show: showShareModal, toggleShow: toggleShareModal } =
     useModal(false);
 
@@ -34,7 +41,12 @@ const ContentHeading = ({ icon, title, view, setView }) => {
           <h3 className="fs-30 text-light-1 fw-500">{title}</h3>
         </div>
         <div className="d-flex gap-3">
-          <Button textClassName="text-light-1" className="h-40 px-3" bordered>
+          <Button
+            onClick={() => setIsInEditState(true)}
+            textClassName="text-light-1"
+            className="h-40 px-3"
+            bordered
+          >
             Edit
           </Button>
           <Button
@@ -60,7 +72,10 @@ const ContentHeading = ({ icon, title, view, setView }) => {
                       "view-option",
                       view === el.label && "active"
                     )}
-                    onClick={() => setView(el.label)}
+                    onClick={() => {
+                      setView(el.label);
+                      setTempLoading();
+                    }}
                   >
                     <img src={el.icon} alt={el.label} />
                   </div>

@@ -350,6 +350,22 @@ hr {
   height: 50px !important;
 }
 
+.mh-200 {
+  min-height: 200px !important;
+}
+
+.h-200 {
+  height: 200px !important;
+}
+
+.mh-400 {
+  min-height: 400px !important;
+}
+
+.h-400 {
+  height: 400px !important;
+}
+
 .text-focus {
   letter-spacing: -0.08ch;
   color: $color1;
@@ -440,25 +456,6 @@ body:has(.modal-wrapper.active) {
 
 .w-unset {
   width: unset !important;
-}
-
-.dropzone-container {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  width: 100%;
-  border: 1px solid #000;
-  margin-top: 12px;
-  border-radius: 6px;
-  border: 1px dashed $color13;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  img.icon {
-    width: 24px;
-  }
 }
 
 .w-767-unset {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MDEditor from "@uiw/react-md-editor";
 
 import MDButton from "../MDButton";
@@ -24,14 +24,20 @@ const CustomMDEditor = ({
   value,
   inputChangeHandler,
   footText,
+  maxChar,
+  noExtraCommands,
 }) => {
+  const [charLen, setCharLen] = useState(0);
+
   return (
     <div data-color-mode="light">
       <div className="md-editor-wrap">
         <MDEditor
           preview="edit"
           extraCommands={
-            reply
+            noExtraCommands
+              ? []
+              : reply
               ? [
                   {
                     name: "edit",
@@ -51,16 +57,20 @@ const CustomMDEditor = ({
           textareaProps={{
             placeholder: placeholder,
           }}
-          onChange={(e) =>
+          onChange={(e) => {
+            if (maxChar && e.length > maxChar) return;
+            setCharLen(e.length);
             inputChangeHandler({
               target: {
                 name,
                 value: e,
               },
-            })
-          }
+            });
+          }}
         />
-        <div className="foot">{footText}</div>
+        <div className="foot">
+          {maxChar ? charLen + "/" + maxChar : footText}
+        </div>
       </div>
     </div>
   );

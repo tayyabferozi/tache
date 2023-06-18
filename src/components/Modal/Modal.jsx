@@ -6,6 +6,7 @@ import "./Modal.scss";
 
 const Modal = ({
   show,
+  noClose,
   closeModal,
   className,
   children,
@@ -30,7 +31,7 @@ const Modal = ({
     >
       <div className="modal-sub-wrapper">
         <div className="modal-main">
-          {!small && (
+          {!small && !noClose && (
             <img
               className="close"
               src="/assets/vectors/icons/close.svg"

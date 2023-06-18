@@ -11,11 +11,13 @@ import Input from "../../../components/Input";
 import Comment from "../../../modals/DisplayTicket/Comment";
 import CustomMDEditor from "../../../components/CustomMDEditor";
 import SharedBox from "./SharedBox";
-import "./Description.scss";
 import TalendCard from "./TalentCard/TalendCard";
 import PaginationNum from "../../../components/PaginationNum";
 import cardAnimations from "../../../constants/card-animations";
+import DropzoneContainer from "../../../components/DropzoneContainer";
 import DescBox from "./DescBox/DescBox";
+
+import "./Description.scss";
 
 const markdown = `
 ~~~js
@@ -400,35 +402,11 @@ const Description = () => {
           <div className="col-md-6 d-flex flex-column">
             <label className="text-light-1 fw-500">File</label>
 
-            <div className="dropzone-container flex-grow-1" {...getRootProps()}>
-              <div>
-                {formState.files.length > 0 ? (
-                  <>
-                    {formState.files.map((el, idx) => {
-                      return (
-                        <div
-                          key={"selected-file" + idx}
-                          className="selected-file my-1 fs-14"
-                        >
-                          {el.name}
-                        </div>
-                      );
-                    })}
-                  </>
-                ) : (
-                  <>
-                    <img
-                      className="icon"
-                      src="/assets/vectors/icons/import.svg"
-                      alt="import"
-                    />
-                    <div className="mt-2 text-light-2">Drop your file</div>
-                    <div className="mt-1">JPG, SVG, PDF etc</div>
-                  </>
-                )}
-              </div>
-              <input {...getInputProps()} />
-            </div>
+            <DropzoneContainer
+              getRootProps={getRootProps}
+              getInputProps={getInputProps}
+              formState={formState}
+            />
           </div>
           <div className="col-md-6">
             <Input

@@ -54,6 +54,14 @@
       margin-top: 32px;
     }
 
+    &:hover {
+      .icon {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+
     .social-item {
       background-color: transparent;
 
@@ -73,6 +81,8 @@
 
       img {
         width: 36px;
+
+        @include transitioned;
       }
     }
   }

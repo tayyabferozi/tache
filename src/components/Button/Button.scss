@@ -70,6 +70,28 @@
     }
   }
 
+  &.btn-red {
+    &:not(.btn-red-bordered) {
+      background-color: $color50;
+
+      .btn-text {
+        color: #fff;
+      }
+    }
+
+    &.btn-red-bordered {
+      border: 1px solid $color49;
+
+      .btn-text {
+        color: $color50;
+      }
+
+      &:hover {
+        background-color: rgba($color50, 0.05);
+      }
+    }
+  }
+
   &.btn-primary-light {
     background-color: rgba($color10, 0.05);
     width: 100%;
@@ -77,6 +99,30 @@
 
     .btn-text {
       color: $color10;
+    }
+  }
+
+  &.btn-red-light {
+    background-color: $color51;
+
+    .btn-text {
+      color: $color50;
+    }
+  }
+
+  &.btn-secondary-light {
+    background-color: $color52;
+
+    .btn-text {
+      color: $color1;
+    }
+  }
+
+  &.btn-white-light {
+    background-color: $color53;
+
+    .btn-text {
+      color: #fff;
     }
   }
 

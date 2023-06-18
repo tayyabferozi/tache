@@ -10,10 +10,20 @@ import Button from "../../../../components/Button";
 
 import "./PipeContent.scss";
 
-const PipeContent = ({ pipesData, currPipe, setCurrPipe }) => {
+const PipeContent = ({
+  isInEditState,
+  setIsInEditState,
+  pipesData,
+  currPipe,
+  setCurrPipe,
+}) => {
   return (
     <div className="pipe-content">
-      <DynamicPipeContent {...pipesData[currPipe - 1]} />
+      <DynamicPipeContent
+        {...pipesData[currPipe - 1]}
+        isInEditState={isInEditState}
+        setIsInEditState={setIsInEditState}
+      />
 
       <div className="d-flex flex-column align-items-start gap-575-10 flex-sm-row justify-content-between mt-50">
         <div className="d-flex gap-3">
@@ -51,18 +61,43 @@ const PipeContent = ({ pipesData, currPipe, setCurrPipe }) => {
   );
 };
 
-const DynamicPipeContent = ({ type }) => {
+const DynamicPipeContent = ({ type, isInEditState, setIsInEditState }) => {
   switch (type) {
     case "reg":
-      return <Regular />;
+      return (
+        <Regular
+          isInEditState={isInEditState}
+          setIsInEditState={setIsInEditState}
+        />
+      );
     case "vid":
-      return <Video />;
+      return (
+        <Video
+          isInEditState={isInEditState}
+          setIsInEditState={setIsInEditState}
+        />
+      );
     case "img":
-      return <Image />;
+      return (
+        <Image
+          isInEditState={isInEditState}
+          setIsInEditState={setIsInEditState}
+        />
+      );
     case "file":
-      return <Files />;
+      return (
+        <Files
+          isInEditState={isInEditState}
+          setIsInEditState={setIsInEditState}
+        />
+      );
     default:
-      return <Intro />;
+      return (
+        <Intro
+          isInEditState={isInEditState}
+          setIsInEditState={setIsInEditState}
+        />
+      );
   }
 };
 

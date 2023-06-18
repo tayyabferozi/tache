@@ -1,0 +1,54 @@
+.dropzone-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  border: 1px solid #000;
+  margin-top: 12px;
+  border-radius: 6px;
+  border: 1px dashed $color13;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &.solid-border {
+    border-style: solid;
+    border-color: $color38;
+  }
+
+  * {
+    @include transitioned;
+  }
+
+  img.icon {
+    width: 24px;
+
+    filter: invert(60%) sepia(6%) saturate(1006%) hue-rotate(177deg)
+      brightness(94%) contrast(96%);
+
+    @include transitioned;
+  }
+
+  &:hover {
+    img.icon {
+      filter: invert(39%) sepia(8%) saturate(1367%) hue-rotate(174deg)
+        brightness(97%) contrast(96%);
+    }
+
+    * {
+      color: $color1;
+    }
+  }
+
+  .selected-file {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 280px;
+
+    .restrict-one-line {
+      max-width: 200px;
+    }
+  }
+}

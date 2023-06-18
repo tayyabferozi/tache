@@ -11,7 +11,10 @@ const Button = ({
   grey,
   bordered,
   primaryLight,
+  secondaryLight,
+  whiteLight,
   lightGrey,
+  red,
   children,
   icon,
   inline,
@@ -22,6 +25,7 @@ const Button = ({
   cref,
   white,
   borderGrey,
+  redLight,
   ...rest
 }) => {
   const classes = clsx(
@@ -29,15 +33,20 @@ const Button = ({
     className,
     grey && "btn-grey",
     primary && "btn-primary",
+    red && "btn-red",
     primaryLight && "btn-primary-light",
-    bordered && !primary && "btn-bordered",
+    secondaryLight && "btn-secondary-light",
+    whiteLight && "btn-white-light",
+    bordered && !primary && !red && "btn-bordered",
     bordered && primary && "btn-primary-bordered",
+    bordered && red && "btn-red-bordered",
     lightGrey && "btn-light-grey",
     dashed && "btn-dashed",
     inline && "btn-inlined",
     persistHeight && "persist-height",
     white && "btn-white",
-    borderGrey && "grey-border"
+    borderGrey && "grey-border",
+    redLight && "btn-red-light"
   );
 
   let btnChilren = (

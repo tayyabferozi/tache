@@ -1,0 +1,12 @@
+#onboarding-design .pipes .pipe-content-container .pipe-form .regular {
+  .file-grid-card {
+    @media screen and (max-width: 575px) {
+      // width: calc(100vh - 60px - 28px);
+      width: 100%;
+
+      .restrict-one-line {
+        width: calc(100% - 68px);
+      }
+    }
+  }
+}

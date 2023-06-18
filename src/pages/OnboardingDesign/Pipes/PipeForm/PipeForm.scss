@@ -1,0 +1,98 @@
+#onboarding-design .pipes .pipe-content-container .pipe-form {
+  flex-grow: 1;
+
+  .md {
+    border: 1px solid $color38;
+    border-radius: 8px;
+    padding: 18px 14px;
+    word-wrap: break-word;
+    word-break: break-all;
+    height: 220px;
+    overflow: auto;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 14px;
+
+      &,
+      * {
+        font-size: 20px;
+        font-weight: 600;
+        color: $color1;
+        letter-spacing: normal;
+      }
+    }
+
+    p,
+    ul {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .file-preview-section {
+    border: 1px solid $color38;
+    padding: 14px;
+    border-radius: 8px;
+    margin-top: 14px;
+
+    .img-preview-wrap {
+      border: 1px solid $color38;
+      border-radius: 8px;
+      overflow: hidden;
+
+      position: relative;
+      max-height: 270px;
+      height: 100%;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      .actions {
+        position: absolute;
+        bottom: 0;
+        padding: 16px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+  .video-preview-wrap {
+    margin-top: 14px;
+    position: relative;
+
+    .btn {
+      position: absolute;
+      top: 20px;
+      right: 14px;
+      z-index: 1;
+    }
+
+    video {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
+  }
+
+  .dropzone-container {
+    @include transitioned;
+
+    &:hover {
+      transform: scale(1.0125);
+    }
+  }
+}

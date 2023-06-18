@@ -156,7 +156,7 @@ const UserInfo = ({ user, setUser, editState, setEditState }) => {
                           name="about"
                           value={user.about}
                           inputChangeHandler={inputChangeHandler}
-                          footText="0/5000"
+                          maxChar={5000}
                         />
                       ) : (
                         <ReactMarkdown children={user.about} />

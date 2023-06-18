@@ -5,6 +5,8 @@ import GridContainer from "../../components/GridContainer";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Modal from "../../components/Modal";
+import DropzoneContainer from "../../components/DropzoneContainer";
+
 import "./PurchaseReview.scss";
 
 const PurchaseReview = ({ ...rest }) => {
@@ -49,35 +51,11 @@ const PurchaseReview = ({ ...rest }) => {
         <div className="col-md-5 d-flex flex-column">
           <label className="text-light-1 fw-500">File</label>
 
-          <div className="dropzone-container flex-grow-1" {...getRootProps()}>
-            <div>
-              {formState.files.length > 0 ? (
-                <>
-                  {formState.files.map((el, idx) => {
-                    return (
-                      <div
-                        key={"selected-file" + idx}
-                        className="selected-file my-1 fs-14"
-                      >
-                        {el.name}
-                      </div>
-                    );
-                  })}
-                </>
-              ) : (
-                <>
-                  <img
-                    className="icon"
-                    src="/assets/vectors/icons/import.svg"
-                    alt="import"
-                  />
-                  <div className="mt-2 text-light-2">Drop your file</div>
-                  <div className="mt-1">JPG, SVG, PDF etc</div>
-                </>
-              )}
-            </div>
-            <input {...getInputProps()} />
-          </div>
+          <DropzoneContainer
+            getRootProps={getRootProps}
+            getInputProps={getInputProps}
+            formState={formState}
+          />
         </div>
       </GridContainer>
 

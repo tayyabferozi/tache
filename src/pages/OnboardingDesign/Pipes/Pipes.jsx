@@ -1,50 +1,48 @@
-import React, { useState } from "react";
+import React from "react";
 
 import ProjectLayoutSection from "../../../components/ProjectLayoutSection";
 import PipesList from "./PipesList";
 import PipeContent from "./PipeContent";
+import PipeForm from "./PipeForm";
 
 import "./Pipes.scss";
 
-const pipesData = [
-  {
-    type: "intro",
-    description: "Vitae volutpat",
-  },
-  {
-    type: "reg",
-    description: "Vitae volutpat",
-  },
-  {
-    type: "vid",
-    description: "Vitae volutpat",
-  },
-  {
-    type: "img",
-    description: "Vitae volutpat",
-  },
-  {
-    type: "file",
-    description: "Vitae volutpat",
-  },
-];
-
-const Pipes = () => {
-  const [currPipe, setCurrPipe] = useState(1);
-
+const Pipes = ({
+  isInEditState,
+  setIsInEditState,
+  setPipesDataState,
+  pipesData,
+  currPipe,
+  setCurrPipe,
+}) => {
   return (
     <ProjectLayoutSection className="pipes pb-50">
       <div className="pipe-content-container">
         <PipesList
+          setPipesDataState={setPipesDataState}
+          isInEditState={isInEditState}
           currPipe={currPipe}
           setCurrPipe={setCurrPipe}
           pipesData={pipesData}
         />
-        <PipeContent
-          currPipe={currPipe}
-          setCurrPipe={setCurrPipe}
-          pipesData={pipesData}
-        />
+        {isInEditState ? (
+          <PipeForm
+            isInEditState={isInEditState}
+            setIsInEditState={setIsInEditState}
+            currPipe={currPipe}
+            setCurrPipe={setCurrPipe}
+            pipesData={pipesData}
+            setPipesData={setPipesDataState}
+          />
+        ) : (
+          <PipeContent
+            isInEditState={isInEditState}
+            setIsInEditState={setIsInEditState}
+            currPipe={currPipe}
+            setCurrPipe={setCurrPipe}
+            pipesData={pipesData}
+          />
+        )}
       </div>
     </ProjectLayoutSection>
   );

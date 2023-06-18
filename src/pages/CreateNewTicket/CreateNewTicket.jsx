@@ -161,7 +161,7 @@ const CreateNewTicket = () => {
               placeholder="Writing description..."
               value={formState.publicDescription}
               inputChangeHandler={inputChangeHandler}
-              footText="0/5000"
+              maxChar={5000}
             />
           </div>
 
@@ -174,7 +174,7 @@ const CreateNewTicket = () => {
               placeholder="Writing description..."
               value={formState.privateDescription}
               inputChangeHandler={inputChangeHandler}
-              footText="0/5000"
+              maxChar={5000}
             />
           </div>
 

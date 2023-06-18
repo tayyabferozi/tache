@@ -187,7 +187,7 @@ const CreateTicket = ({ ...rest }) => {
                 <CustomMDEditor
                   value={formState.comment}
                   inputChangeHandler={inputChangeHandler}
-                  footText="0/5000"
+                  maxChar={5000}
                 />
               </div>
 

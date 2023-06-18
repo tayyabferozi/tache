@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Skeleton from "react-loading-skeleton";
 
 import CustomMD from "../../../../../components/CustomMD";
 import DownloadBtn from "../../../../../components/DownloadBtn";
 import PaginationNum from "../../../../../components/PaginationNum";
+import ContentHeading from "../ContentHeading";
 
 import "./Regular.scss";
 
@@ -72,10 +74,17 @@ const files = [
 
 const pageSize = 9;
 
-const Regular = () => {
+const Regular = ({ setIsInEditState }) => {
   const [dataLen, setDataLen] = useState(files.length);
   const [pageNumState, setPageNumState] = useState(1);
   const [filteredFiles, setFilteredFiles] = useState(files);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+  }, []);
 
   useEffect(() => {
     setFilteredFiles((prevState) => {
@@ -92,33 +101,51 @@ const Regular = () => {
 
   return (
     <div className="regular">
-      <div className="md">
-        <CustomMD markdown={md} />
+      <ContentHeading
+        title="Regular"
+        icon="/assets/vectors/icons/onboarding-design-box.svg"
+        setIsInEditState={setIsInEditState}
+      />
+
+      <div className="md mt-40">
+        {isLoading ? (
+          <>
+            <Skeleton width="20%" height={30} />
+            <Skeleton count={2.75} className="mt-10" />
+            <Skeleton className="mt-30" width="10%" height={30} />
+            <Skeleton count={5.5} className="mt-10" />
+            <Skeleton className="mt-30" width="30%" height={30} />
+            <Skeleton count={3.5} className="mt-10" />
+          </>
+        ) : (
+          <CustomMD markdown={md} />
+        )}
       </div>
       <div className="d-flex justify-content-between gap-10 download-btns">
         <AnimatePresence>
-          {filteredFiles.map((el, idx) => {
-            return (
-              <motion.div
-                key={el.id}
-                {...{
-                  transition: { duration: 0.3 },
-                  initial: { transform: "scale(.95)", opacity: 0.5 },
-                  animate: { transform: "scale(1)", opacity: 1 },
-                  exit: {
-                    transform: "scale(.95)",
-                    opacity: 0,
-                    display: "none",
-                  },
-                }}
-              >
-                <DownloadBtn date={el.date} name="Document" />
-              </motion.div>
-            );
-          })}
+          {!isLoading &&
+            filteredFiles.map((el, idx) => {
+              return (
+                <motion.div
+                  key={el.id}
+                  {...{
+                    transition: { duration: 0.3 },
+                    initial: { transform: "scale(.95)", opacity: 0.5 },
+                    animate: { transform: "scale(1)", opacity: 1 },
+                    exit: {
+                      transform: "scale(.95)",
+                      opacity: 0,
+                      display: "none",
+                    },
+                  }}
+                >
+                  <DownloadBtn date={el.date} name="Document" />
+                </motion.div>
+              );
+            })}
         </AnimatePresence>
       </div>
-      {Math.ceil(dataLen / pageSize) !== 0 && (
+      {!isLoading && Math.ceil(dataLen / pageSize) !== 0 && (
         <PaginationNum
           offset={-20}
           scrollTo={"find-talent-search-bar"}
