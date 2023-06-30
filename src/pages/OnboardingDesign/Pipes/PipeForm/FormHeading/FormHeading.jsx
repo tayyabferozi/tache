@@ -14,6 +14,8 @@ const FormHeading = ({
   currPipe,
   setCurrPipe,
   setPipesData,
+  introForm,
+  setIsInEditState,
 }) => {
   const [stageBeforeModalActive, setStageBeforeModalActive] = useState(false);
   const [stageAfterModalActive, setStageAfterModalActive] = useState(false);
@@ -76,41 +78,51 @@ const FormHeading = ({
             >
               {isInPreviewState ? "Edit" : "Preview"}
             </Button>
-            <Button
-              className="h-40"
-              red
-              bordered
-              icon={{
-                src: "/assets/vectors/icons/trash.svg",
-                title: "trash",
-                alt: "trash",
-              }}
-              onClick={deleteStageHandler}
-            >
-              Remove Stage
-            </Button>
+            {!introForm && (
+              <Button
+                className="h-40"
+                red
+                bordered
+                icon={{
+                  src: "/assets/vectors/icons/trash.svg",
+                  title: "trash",
+                  alt: "trash",
+                }}
+                onClick={() => {
+                  deleteStageHandler();
+                  setIsInEditState(false);
+                }}
+              >
+                Remove Stage
+              </Button>
+            )}
           </div>
           <div className="pipeline-actions">
             <div className="p-relative">
-              <Button
-                className="h-40"
-                primary
-                bordered
-                icon={{
-                  src: "/assets/vectors/icons/plus-2.svg",
-                  title: "plus",
-                  alt: "plus",
-                }}
-                onClick={() => setStageBeforeModalActive(true)}
-              >
-                Stage Before
-              </Button>
+              {!introForm && (
+                <Button
+                  className="h-40"
+                  primary
+                  bordered
+                  icon={{
+                    src: "/assets/vectors/icons/plus-2.svg",
+                    title: "plus",
+                    alt: "plus",
+                  }}
+                  onClick={() => {
+                    setStageBeforeModalActive(true);
+                  }}
+                >
+                  Stage Before
+                </Button>
+              )}
               <AnimatePresence>
                 {stageBeforeModalActive && (
                   <AddFormModal
                     onRight
                     addFormHandler={addFormBeforeHandler}
                     setSelectNewFormActive={setStageBeforeModalActive}
+                    setIsInEditState={setIsInEditState}
                   />
                 )}
               </AnimatePresence>
@@ -124,7 +136,9 @@ const FormHeading = ({
                   title: "plus-white",
                   alt: "plus-white",
                 }}
-                onClick={() => setStageAfterModalActive(true)}
+                onClick={() => {
+                  setStageAfterModalActive(true);
+                }}
               >
                 Stage After
               </Button>

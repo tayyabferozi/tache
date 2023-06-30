@@ -1,22 +1,36 @@
+import clsx from "clsx";
+
 import Modal from "../../components/Modal";
 import Button from "../../components/Button";
 
-import "./DeletePipeline.scss";
+import "./Confirmation.scss";
 
-const DeletePipeline = ({ onClickDelete, ...rest }) => {
+const Confirmation = ({
+  title,
+  body,
+  onClickDelete,
+  className,
+  dangerBtnTxt,
+  safeBtnTxt,
+  ...rest
+}) => {
   return (
-    <Modal id="delete-pipeline-modal" className="text-center" {...rest}>
+    <Modal
+      id="confirmation-modal"
+      className={clsx("text-center", className)}
+      {...rest}
+    >
       <div className="icon-wrap">
         <img src="/assets/vectors/icons/warning.svg" alt="warning" />
       </div>
 
-      <h5 className="mt-20">Are you sure you want to delete the pipeline?</h5>
+      <h5 className="mt-20">{title}</h5>
 
-      <p className="mt-10">This action cannot be undone</p>
+      {body && <p className="mt-10">{body}</p>}
 
       <div className="btns">
         <Button bordered onClick={rest.closeModal}>
-          Cancel
+          {safeBtnTxt || "Cancel"}
         </Button>
         <Button
           red
@@ -25,11 +39,11 @@ const DeletePipeline = ({ onClickDelete, ...rest }) => {
             onClickDelete();
           }}
         >
-          Delete
+          {dangerBtnTxt || "Delete"}
         </Button>
       </div>
     </Modal>
   );
 };
 
-export default DeletePipeline;
+export default Confirmation;

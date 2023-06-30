@@ -19,7 +19,7 @@ const ImgOpener = ({ imgState, setImgState }) => {
       >
         <div className="full-img">
           <img
-            className="close"
+            className={clsx("close", imgState.active && "active")}
             src="/assets/vectors/icons/close-5.svg"
             alt="close"
           />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 
@@ -18,8 +18,19 @@ const PipesList = ({
   pipesData,
   currPipe,
   setCurrPipe,
+  setIsInEditState,
 }) => {
   const [selectNewFormActive, setSelectNewFormActive] = useState(false);
+  const itemsContainerRef = useRef();
+
+  useEffect(() => {
+    if (selectNewFormActive) {
+      setTimeout(() => {
+        const elem = itemsContainerRef.current;
+        elem.scrollTop = elem.scrollHeight;
+      }, 350);
+    }
+  }, [selectNewFormActive, itemsContainerRef]);
 
   const addFormHandler = (label) => {
     setPipesDataState((prevState) => {
@@ -35,7 +46,7 @@ const PipesList = ({
   };
 
   return (
-    <div className="pipes-list">
+    <div className="pipes-list" ref={itemsContainerRef}>
       {pipesData.map((el, idx) => {
         let icon, name;
         switch (el.type) {
@@ -48,11 +59,7 @@ const PipesList = ({
             name = "Video";
             break;
           case "img":
-            icon = (
-              <>
-                <Image />
-              </>
-            );
+            icon = <Image />;
             name = "Images";
             break;
           case "file":
@@ -76,7 +83,9 @@ const PipesList = ({
               "pipe-list-item"
             )}
             key={"pipe-list-items" + idx}
-            onClick={() => setCurrPipe(idx + 1)}
+            onClick={() => {
+              setCurrPipe(idx + 1, true);
+            }}
           >
             <div className="icon-container">{icon}</div>
             <div className="text">
@@ -86,29 +95,29 @@ const PipesList = ({
           </div>
         );
       })}
-      {isInEditState && (
-        <div
-          className="pipe-list-item"
-          onClick={() => setSelectNewFormActive((prevState) => !prevState)}
-        >
-          <AnimatePresence>
-            {selectNewFormActive && (
-              <AddFormModal
-                addFormHandler={addFormHandler}
-                setSelectNewFormActive={setSelectNewFormActive}
-              />
-            )}
-          </AnimatePresence>
 
-          <div className="icon-container">
-            <AddForm />
-          </div>
-          <div className="text">
-            <div className="fs-18 fw-500 name">Add Form</div>
-            <div className="fs-12 desc">Vitae volutpat</div>
-          </div>
+      <div
+        className="pipe-list-item"
+        onClick={() => setSelectNewFormActive((prevState) => !prevState)}
+      >
+        <AnimatePresence>
+          {selectNewFormActive && (
+            <AddFormModal
+              setIsInEditState={setIsInEditState}
+              addFormHandler={addFormHandler}
+              setSelectNewFormActive={setSelectNewFormActive}
+            />
+          )}
+        </AnimatePresence>
+
+        <div className="icon-container">
+          <AddForm />
         </div>
-      )}
+        <div className="text">
+          <div className="fs-18 fw-500 name">Add Form</div>
+          <div className="fs-12 desc">Vitae volutpat</div>
+        </div>
+      </div>
     </div>
   );
 };

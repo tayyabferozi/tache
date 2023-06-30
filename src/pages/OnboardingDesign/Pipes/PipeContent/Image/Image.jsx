@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Skeleton from "react-loading-skeleton";
-// import { AnimatePresence, motion } from "framer-motion";
 
 import ContentHeading from "../ContentHeading";
 import CustomMD from "../../../../../components/CustomMD";
@@ -11,41 +10,10 @@ import PaginationNum from "../../../../../components/PaginationNum";
 
 import "./Image.scss";
 
-const md =
-  "Lorem ipsum dolor sit amet consectetur. Duis dui sollicitudin pretium consequat nisl vel ridiculus tristique nisl. Purus odio penatibus netus";
-
-const imgs = [
-  { id: 1, src: "/assets/imgs/img1.png" },
-  { id: 2, src: "/assets/imgs/img2.png" },
-  { id: 3, src: "/assets/imgs/img3.png" },
-  { id: 4, src: "/assets/imgs/img4.png" },
-  { id: 5, src: "/assets/imgs/img5.png" },
-  { id: 6, src: "/assets/imgs/img6.png" },
-  { id: 7, src: "/assets/imgs/img7.png" },
-  { id: 8, src: "/assets/imgs/img8.png" },
-  { id: 9, src: "/assets/imgs/img9.png" },
-  { id: 10, src: "/assets/imgs/img2.png" },
-  { id: 11, src: "/assets/imgs/img3.png" },
-  { id: 12, src: "/assets/imgs/img4.png" },
-  { id: 13, src: "/assets/imgs/img5.png" },
-  { id: 14, src: "/assets/imgs/img6.png" },
-  { id: 15, src: "/assets/imgs/img7.png" },
-  { id: 16, src: "/assets/imgs/img8.png" },
-  { id: 17, src: "/assets/imgs/img9.png" },
-  { id: 18, src: "/assets/imgs/img1.png" },
-  { id: 19, src: "/assets/imgs/img2.png" },
-  { id: 20, src: "/assets/imgs/img3.png" },
-  { id: 21, src: "/assets/imgs/img4.png" },
-  { id: 22, src: "/assets/imgs/img5.png" },
-  { id: 23, src: "/assets/imgs/img6.png" },
-  { id: 24, src: "/assets/imgs/img7.png" },
-  { id: 25, src: "/assets/imgs/img8.png" },
-  { id: 26, src: "/assets/imgs/img9.png" },
-];
-
 const pageSize = 9;
 
-const Image = ({ setIsInEditState }) => {
+const Image = ({ files, md, setIsInEditState }) => {
+  const imgs = useMemo(() => files, [files]);
   const [dataLen, setDataLen] = useState(imgs.length);
   const [pageNumState, setPageNumState] = useState(1);
   const [imgState, setImgState] = useState({ src: "", active: false });
@@ -69,7 +37,7 @@ const Image = ({ setIsInEditState }) => {
         pageNumState * pageSize
       );
     });
-  }, [pageNumState]);
+  }, [imgs, pageNumState]);
 
   const openImg = (src) => {
     setImgState({

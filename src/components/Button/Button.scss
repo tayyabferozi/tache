@@ -38,6 +38,19 @@
     }
   }
 
+  .date-time-container {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+
+    .date-time {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+  }
+
   &.btn-grey {
     background-color: $color5;
 

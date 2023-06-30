@@ -6,10 +6,7 @@ import CustomMD from "../../../../../components/CustomMD";
 
 import "./Video.scss";
 
-const md =
-  "Lorem ipsum dolor sit amet consectetur. Duis dui sollicitudin pretium consequat nisl vel ridiculus tristique nisl. Purus odio penatibus netus";
-
-const Video = ({ setIsInEditState }) => {
+const Video = ({ md, setIsInEditState }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -43,7 +40,7 @@ const Video = ({ setIsInEditState }) => {
         {isLoading ? (
           <Skeleton className="mt-20" borderRadius={10} height={300} />
         ) : (
-          <video className="w-100" autoPlay controls>
+          <video controlsList="nodownload" className="w-100" autoPlay controls>
             <source src="/assets/videos/sample.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>

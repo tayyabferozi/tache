@@ -10,159 +10,9 @@ import PaginationNum from "../../../../../components/PaginationNum";
 import "./Files.scss";
 import Loader from "../../../../../components/Loader/Loader";
 
-const md =
-  "Lorem ipsum dolor sit amet consectetur. Duis dui sollicitudin pretium consequat nisl vel ridiculus tristique nisl. Purus odio penatibus netus";
-
-const files = [
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-  {
-    title: "Title Document",
-    size: "74 MB",
-  },
-];
-
 const pageSize = 12;
 
-const Files = ({ setIsInEditState }) => {
+const Files = ({ md, files, setIsInEditState }) => {
   const [dataLen, setDataLen] = useState(files.length);
   const [filteredFiles, setFilteredFiles] = useState(files);
   const [pageNumState, setPageNumState] = useState(1);
@@ -194,7 +44,7 @@ const Files = ({ setIsInEditState }) => {
         pageNumState * pageSize
       );
     });
-  }, [pageNumState]);
+  }, [files, pageNumState]);
 
   return (
     <div className="files">
@@ -239,7 +89,12 @@ const Files = ({ setIsInEditState }) => {
                       )}
                       key={"pipe-conten-file" + idx}
                     >
-                      <FileGridItem currView={currView} {...el} />
+                      <FileGridItem
+                        {...el}
+                        currView={currView}
+                        title={el.name}
+                        size={parseInt(el.size / 1024) + " KB"}
+                      />
                     </div>
                   );
                 })}

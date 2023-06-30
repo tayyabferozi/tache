@@ -1,10 +1,12 @@
-import React from "react";
+import { useState } from "react";
+import clsx from "clsx";
 
 import Intro from "./Intro";
 import Regular from "./Regular";
 import Video from "./Video";
 import Image from "./Image";
 import Files from "./Files";
+import Loader from "../../../../components/Loader";
 
 import "./PipeForm.scss";
 
@@ -15,88 +17,59 @@ const PipeForm = ({
   setIsInEditState,
   setCurrPipe,
   setPipesData,
+  takePipeSnapshot,
+  setIsPipeTouched,
 }) => {
+  const [isSaving, setIsSaving] = useState(false);
+
+  const saveData = () => {
+    setIsSaving(true);
+
+    setTimeout(() => {
+      setIsSaving(false);
+      setIsInEditState(false);
+    }, 3000);
+  };
+
   return (
     <div className="pipe-form">
-      <DynamicPipeForm
-        {...pipesData[currPipe - 1]}
-        isInEditState={isInEditState}
-        setIsInEditState={setIsInEditState}
-        pipesData={pipesData}
-        currPipe={currPipe}
-        setCurrPipe={setCurrPipe}
-        setPipesData={setPipesData}
-      />
+      {isSaving && (
+        <div className="saving">
+          <Loader />
+        </div>
+      )}
+
+      <div className={clsx(isSaving && "saving-form")}>
+        <DynamicPipeForm
+          {...pipesData[currPipe - 1]}
+          saveData={saveData}
+          isInEditState={isInEditState}
+          setIsInEditState={setIsInEditState}
+          pipesData={pipesData}
+          currPipe={currPipe}
+          setCurrPipe={setCurrPipe}
+          setPipesData={setPipesData}
+          takePipeSnapshot={takePipeSnapshot}
+          setIsPipeTouched={setIsPipeTouched}
+        />
+      </div>
     </div>
   );
 };
 
 export default PipeForm;
 
-const DynamicPipeForm = ({
-  type,
-  isInEditState,
-  setIsInEditState,
-  pipesData,
-  currPipe,
-  setCurrPipe,
-  setPipesData,
-}) => {
-  switch (type) {
+const DynamicPipeForm = (props) => {
+  switch (props.type) {
     case "reg":
-      return (
-        <Regular
-          isInEditState={isInEditState}
-          setIsInEditState={setIsInEditState}
-          pipesData={pipesData}
-          currPipe={currPipe}
-          setCurrPipe={setCurrPipe}
-          setPipesData={setPipesData}
-        />
-      );
+      return <Regular {...props} />;
     case "vid":
-      return (
-        <Video
-          isInEditState={isInEditState}
-          setIsInEditState={setIsInEditState}
-          pipesData={pipesData}
-          currPipe={currPipe}
-          setCurrPipe={setCurrPipe}
-          setPipesData={setPipesData}
-        />
-      );
+      return <Video {...props} />;
     case "img":
-      return (
-        <Image
-          isInEditState={isInEditState}
-          setIsInEditState={setIsInEditState}
-          pipesData={pipesData}
-          currPipe={currPipe}
-          setCurrPipe={setCurrPipe}
-          setPipesData={setPipesData}
-        />
-      );
+      return <Image {...props} />;
     case "file":
-      return (
-        <Files
-          isInEditState={isInEditState}
-          setIsInEditState={setIsInEditState}
-          pipesData={pipesData}
-          currPipe={currPipe}
-          setCurrPipe={setCurrPipe}
-          setPipesData={setPipesData}
-        />
-      );
+      return <Files {...props} />;
     default:
-      return (
-        <Intro
-          isInEditState={isInEditState}
-          setIsInEditState={setIsInEditState}
-          pipesData={pipesData}
-          currPipe={currPipe}
-          setCurrPipe={setCurrPipe}
-          setPipesData={setPipesData}
-        />
-      );
+      return <Intro {...props} />;
   }
 };

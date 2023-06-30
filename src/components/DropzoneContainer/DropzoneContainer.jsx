@@ -4,6 +4,7 @@ import React from "react";
 import "./DropzoneContainer.scss";
 
 const DropzoneContainer = ({
+  filesOnTop,
   className,
   exportIcon,
   borderSolid,
@@ -15,34 +16,41 @@ const DropzoneContainer = ({
   getRootProps,
   getInputProps,
   formState,
+  deleteFile,
 }) => {
   return (
-    <div
-      className={clsx(
-        "dropzone-container flex-grow-1",
-        className,
-        borderSolid && "solid-border"
-      )}
-      {...getRootProps()}
-    >
-      <div>
-        {formState?.files?.length > 0 ? (
-          <>
-            {formState.files.map((el, idx) => {
-              return (
-                <div
-                  key={"selected-file" + idx}
-                  className="selected-file my-1 fs-14"
-                >
-                  <div className="restrict-one-line">{el.name}</div>
+    <>
+      {filesOnTop && formState?.files?.length > 0 && (
+        <div className="my-20">
+          {formState.files.map((el, idx) => {
+            return (
+              <div
+                key={"selected-file" + idx}
+                className="selected-file my-1 fs-14 d-flex gap-10 my-10"
+              >
+                <img
+                  className="c-pointer"
+                  src="/assets/vectors/icons/trash.svg"
+                  alt="trash"
+                  onClick={() => deleteFile(idx)}
+                />
 
-                  <img src="/assets/vectors/icons/trash.svg" alt="trash" />
-                </div>
-              );
-            })}
-          </>
-        ) : (
-          <>
+                <div className="restrict-one-line">{el.name}</div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+      <div
+        className={clsx(
+          "dropzone-container flex-grow-1",
+          className,
+          borderSolid && "solid-border"
+        )}
+        {...getRootProps()}
+      >
+        {filesOnTop ? (
+          <div>
             <img
               className="icon"
               src={
@@ -65,11 +73,55 @@ const DropzoneContainer = ({
                 {subTitle || "JPG, SVG, PDF etc"}
               </div>
             </div>
-          </>
+          </div>
+        ) : (
+          <div>
+            {formState?.files?.length > 0 ? (
+              <>
+                {formState.files.map((el, idx) => {
+                  return (
+                    <div
+                      key={"selected-file" + idx}
+                      className="selected-file my-1 fs-14"
+                    >
+                      <div className="restrict-one-line">{el.name}</div>
+
+                      {/* <img src="/assets/vectors/icons/trash.svg" alt="trash" /> */}
+                    </div>
+                  );
+                })}
+              </>
+            ) : (
+              <>
+                <img
+                  className="icon"
+                  src={
+                    exportIcon
+                      ? "/assets/vectors/icons/export.svg"
+                      : "/assets/vectors/icons/import.svg"
+                  }
+                  alt="import"
+                />
+                <div
+                  className={clsx(
+                    "d-flex flex-column align-items-center gap-1 mt-2",
+                    textClassName
+                  )}
+                >
+                  <div className={clsx("text-light-2", titleClassName)}>
+                    {title || "Drop your file"}
+                  </div>
+                  <div className={clsx(subTitleClassName)}>
+                    {subTitle || "JPG, SVG, PDF etc"}
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
         )}
+        <input {...getInputProps()} />
       </div>
-      <input {...getInputProps()} />
-    </div>
+    </>
   );
 };
 

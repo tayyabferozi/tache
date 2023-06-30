@@ -9,27 +9,61 @@ import "./SubmitPipeline.scss";
 
 const shareLinks = [
   {
+    name: "Whatsapp",
+    link: "https://www.google.com/",
+    icon: "/assets/vectors/logo-whatsapp.svg",
+  },
+  {
+    name: "Viber",
+    link: "https://www.google.com/",
+    icon: "/assets/vectors/logo-viber.svg",
+  },
+  {
+    name: "Slack",
+    link: "https://www.google.com/",
+    icon: "/assets/vectors/logo-slack.svg",
+  },
+  {
     name: "Messenger",
     link: "https://www.google.com/",
     icon: "/assets/vectors/logo-messenger.svg",
   },
+  // {
+  //   name: "Linkedin",
+  //   link: "https://www.google.com/",
+  //   icon: "/assets/vectors/icons/logo-linkedin.svg",
+  // },
+  // {
+  //   name: "Twitter",
+  //   link: "https://www.google.com/",
+  //   icon: "/assets/vectors/icons/logo-twitter.svg",
+  // },
+  // {
+  //   name: "Instagram",
+  //   link: "https://www.google.com/",
+  //   icon: "/assets/vectors/icons/logo-insta.svg",
+  // },
   {
-    name: "Linkedin",
+    name: "Line",
     link: "https://www.google.com/",
-    icon: "/assets/vectors/icons/logo-linkedin.svg",
+    icon: "/assets/vectors/logo-line.svg",
   },
   {
-    name: "Twitter",
+    name: "WeChat",
     link: "https://www.google.com/",
-    icon: "/assets/vectors/icons/logo-twitter.svg",
+    icon: "/assets/vectors/logo-wechat.svg",
   },
   {
-    name: "Instagram",
+    name: "Kakao_talk",
     link: "https://www.google.com/",
-    icon: "/assets/vectors/icons/logo-insta.svg",
+    icon: "/assets/vectors/logo-talk.svg",
+  },
+  {
+    name: "Skype",
+    link: "https://www.google.com/",
+    icon: "/assets/vectors/logo-skype.svg",
   },
 ];
-
 const SubmitPipeline = ({ ...rest }) => {
   const [formState] = useState({
     ticketLink: "Tciket.tickettitlle.com/projects/",

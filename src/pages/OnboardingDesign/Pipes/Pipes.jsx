@@ -14,6 +14,9 @@ const Pipes = ({
   pipesData,
   currPipe,
   setCurrPipe,
+  takePipeSnapshot,
+  toggleConfirmationModal,
+  setIsPipeTouched,
 }) => {
   return (
     <ProjectLayoutSection className="pipes pb-50">
@@ -21,9 +24,11 @@ const Pipes = ({
         <PipesList
           setPipesDataState={setPipesDataState}
           isInEditState={isInEditState}
+          setIsInEditState={setIsInEditState}
           currPipe={currPipe}
           setCurrPipe={setCurrPipe}
           pipesData={pipesData}
+          toggleConfirmationModal={toggleConfirmationModal}
         />
         {isInEditState ? (
           <PipeForm
@@ -33,6 +38,8 @@ const Pipes = ({
             setCurrPipe={setCurrPipe}
             pipesData={pipesData}
             setPipesData={setPipesDataState}
+            takePipeSnapshot={takePipeSnapshot}
+            setIsPipeTouched={setIsPipeTouched}
           />
         ) : (
           <PipeContent

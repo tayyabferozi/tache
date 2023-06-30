@@ -8,6 +8,7 @@
     padding-left: 10px;
     margin-top: -10px;
     padding-top: 10px;
+    scroll-behavior: smooth;
 
     @media screen and (max-width: 767px) {
       display: flex;
@@ -158,6 +159,10 @@
               &.to-white {
                 fill: #fff;
                 stroke: #fff;
+              }
+
+              &.to-outline-green {
+                stroke: $color10;
               }
 
               &.to-outline-white {

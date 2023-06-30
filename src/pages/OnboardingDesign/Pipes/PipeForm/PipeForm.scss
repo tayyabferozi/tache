@@ -1,12 +1,30 @@
 #onboarding-design .pipes .pipe-content-container .pipe-form {
+  position: relative;
   flex-grow: 1;
+
+  .saving {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 5;
+  }
+
+  .saving-form {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 
   .md {
     border: 1px solid $color38;
     border-radius: 8px;
     padding: 18px 14px;
-    word-wrap: break-word;
-    word-break: break-all;
+    // word-wrap: break-word;
+    // word-break: break-all;
     height: 220px;
     overflow: auto;
 

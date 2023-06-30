@@ -427,7 +427,7 @@ body:has(.modal-wrapper.active) {
 }
 
 .timer-icon {
-  transform: translateY(3px);
+  // transform: translateY(3px);
 }
 
 .w-20 {
@@ -603,14 +603,14 @@ body:has(.modal-wrapper.active) {
   }
 
   .btn {
-    padding-right: 52px;
+    padding-right: 0;
     position: relative;
     overflow: hidden;
 
     .download {
-      position: absolute;
-      right: 0;
-      top: 0;
+      // position: absolute;
+      // right: 0;
+      // top: 0;
       width: 40px;
       height: 40px;
       display: flex;

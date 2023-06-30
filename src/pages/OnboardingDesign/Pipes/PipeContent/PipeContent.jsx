@@ -61,43 +61,26 @@ const PipeContent = ({
   );
 };
 
-const DynamicPipeContent = ({ type, isInEditState, setIsInEditState }) => {
+const DynamicPipeContent = ({
+  type,
+  md,
+  files,
+  isInEditState,
+  setIsInEditState,
+}) => {
+  const props = { md, files, isInEditState, setIsInEditState };
+
   switch (type) {
     case "reg":
-      return (
-        <Regular
-          isInEditState={isInEditState}
-          setIsInEditState={setIsInEditState}
-        />
-      );
+      return <Regular {...props} />;
     case "vid":
-      return (
-        <Video
-          isInEditState={isInEditState}
-          setIsInEditState={setIsInEditState}
-        />
-      );
+      return <Video {...props} />;
     case "img":
-      return (
-        <Image
-          isInEditState={isInEditState}
-          setIsInEditState={setIsInEditState}
-        />
-      );
+      return <Image {...props} />;
     case "file":
-      return (
-        <Files
-          isInEditState={isInEditState}
-          setIsInEditState={setIsInEditState}
-        />
-      );
+      return <Files {...props} />;
     default:
-      return (
-        <Intro
-          isInEditState={isInEditState}
-          setIsInEditState={setIsInEditState}
-        />
-      );
+      return <Intro {...props} />;
   }
 };
 

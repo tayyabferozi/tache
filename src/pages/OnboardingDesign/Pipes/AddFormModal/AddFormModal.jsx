@@ -29,7 +29,12 @@ const addFormOptions = [
   },
 ];
 
-const AddFormModal = ({ onRight, addFormHandler, setSelectNewFormActive }) => {
+const AddFormModal = ({
+  onRight,
+  addFormHandler,
+  setSelectNewFormActive,
+  setIsInEditState,
+}) => {
   const newFormRef = useRef();
 
   useOnClickOutside(newFormRef, () => setSelectNewFormActive(false));
@@ -48,7 +53,10 @@ const AddFormModal = ({ onRight, addFormHandler, setSelectNewFormActive }) => {
           <div
             key={"add-form-option-" + el.title + idx}
             className="option"
-            onClick={() => addFormHandler(el.label)}
+            onClick={() => {
+              addFormHandler(el.label);
+              setIsInEditState(true);
+            }}
           >
             <img src={el.icon} alt={el.title} />
             {el.title}

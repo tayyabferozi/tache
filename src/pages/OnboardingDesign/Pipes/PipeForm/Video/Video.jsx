@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useDropzone } from "react-dropzone";
+import clone from "just-clone";
 
 import FormHeading from "../FormHeading";
 import CustomMDEditor from "../../../../../components/CustomMDEditor";
@@ -9,35 +10,70 @@ import Button from "../../../../../components/Button";
 
 import "./Video.scss";
 
-const Video = ({ pipesData, currPipe, setCurrPipe, setPipesData }) => {
+const Video = ({
+  md,
+  files,
+  saveData,
+  pipesData,
+  currPipe,
+  setCurrPipe,
+  setPipesData,
+  takePipeSnapshot,
+  setIsPipeTouched,
+  setIsInEditState,
+}) => {
   const [isInPreviewState, setIsInPreviewState] = useState(false);
-  const [formState, setFormState] = useState({
-    intro: "",
-    files: [],
-  });
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       "video/*": [],
     },
-    multiple: false,
+    // multiple: false,
     onDrop: (acceptedFiles) => {
-      setFormState((prevState) => {
-        return {
-          ...prevState,
+      setPipesData((prevState) => {
+        const newState = clone(prevState);
+        newState[currPipe - 1] = {
+          ...newState[currPipe - 1],
           files: acceptedFiles.map((file) =>
             Object.assign(file, {
               preview: URL.createObjectURL(file),
             })
           ),
         };
+        return newState;
       });
     },
   });
 
-  const inputChangeHandler = (e) => {
-    setFormState((prevState) => ({ ...prevState, intro: e.target.value }));
+  const deleteFile = (idx) => {
+    setPipesData((prevState) => {
+      const newState = clone(prevState);
+
+      const newFiles = [...newState[currPipe - 1].files];
+      newFiles.splice(idx, 1);
+      newState[currPipe - 1].files = newFiles;
+
+      return newState;
+    });
   };
+
+  const inputChangeHandler = (e) => {
+    setIsPipeTouched(true);
+
+    setPipesData((prevState) => {
+      const newState = clone(prevState);
+      newState[currPipe - 1].md = e.target.value;
+      return newState;
+    });
+  };
+
+  useEffect(() => {
+    takePipeSnapshot();
+  }, []);
+
+  useEffect(() => {
+    setIsPipeTouched(false);
+  }, [setIsPipeTouched]);
 
   return (
     <div className="video">
@@ -49,13 +85,14 @@ const Video = ({ pipesData, currPipe, setCurrPipe, setPipesData }) => {
         currPipe={currPipe}
         setCurrPipe={setCurrPipe}
         setPipesData={setPipesData}
+        setIsInEditState={setIsInEditState}
       />
       {isInPreviewState ? (
         <>
           <div className="md mt-20">
-            <ReactMarkdown children={formState.intro} />
+            <ReactMarkdown children={md} />
           </div>
-          {formState.files[0] && (
+          {files?.length > 0 && Object.keys(files[0]).length > 0 && (
             <div className="video-preview-wrap">
               <Button
                 className="h-40"
@@ -66,14 +103,27 @@ const Video = ({ pipesData, currPipe, setCurrPipe, setPipesData }) => {
                   title: "trash",
                 }}
                 onClick={() => {
-                  setFormState((prevState) => {
-                    return { ...prevState, files: [] };
-                  });
+                  deleteFile(0);
+                  // setPipesData((prevState) => {
+                  //   const newState = clone(prevState);
+                  //   newState[currPipe - 1] = {
+                  //     ...newState[currPipe - 1],
+                  //     files: [],
+                  //   };
+                  //   return newState;
+                  // });
                 }}
               >
                 Delete
               </Button>
-              <video controls src={formState.files[0].preview}>
+              <video
+                controlsList="nodownload"
+                controls
+                src={
+                  (files.length && files[0].src) ||
+                  (files.length && files[0].preview)
+                }
+              >
                 Your browser doesn't support video
               </video>
             </div>
@@ -84,12 +134,13 @@ const Video = ({ pipesData, currPipe, setCurrPipe, setPipesData }) => {
           <div className="custom-form-control mt-20">
             <CustomMDEditor
               noExtraCommands
-              value={formState.intro}
+              value={md}
               inputChangeHandler={inputChangeHandler}
               maxChar={5000}
             />
           </div>
           <DropzoneContainer
+            filesOnTop
             exportIcon
             borderSolid
             className="mh-400"
@@ -98,10 +149,17 @@ const Video = ({ pipesData, currPipe, setCurrPipe, setPipesData }) => {
             textClassName="flex-column-reverse"
             getRootProps={getRootProps}
             getInputProps={getInputProps}
-            formState={formState}
+            formState={{ files }}
+            deleteFile={deleteFile}
           />
         </>
       )}
+
+      <div className="d-flex justify-content-end mt-30">
+        <Button primary className="h-40" onClick={saveData}>
+          Save
+        </Button>
+      </div>
     </div>
   );
 };

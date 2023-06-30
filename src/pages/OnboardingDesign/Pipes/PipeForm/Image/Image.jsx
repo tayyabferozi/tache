@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useDropzone } from "react-dropzone";
+import clone from "just-clone";
 
 import FormHeading from "../FormHeading";
 import CustomMDEditor from "../../../../../components/CustomMDEditor";
@@ -14,31 +15,40 @@ import "./Image.scss";
 
 const pageSize = 9;
 
-const Image = ({ pipesData, currPipe, setCurrPipe, setPipesData }) => {
+const Image = ({
+  md,
+  files,
+  saveData,
+  pipesData,
+  currPipe,
+  setCurrPipe,
+  setPipesData,
+  takePipeSnapshot,
+  setIsPipeTouched,
+  setIsInEditState,
+}) => {
   const [imgState, setImgState] = useState({ src: "", active: false });
   const [isInPreviewState, setIsInPreviewState] = useState(false);
-  const [formState, setFormState] = useState({
-    intro: "",
-    files: [],
-  });
   const [pageNumState, setPageNumState] = useState(1);
-  const [filteredData, setFilteredData] = useState(formState.files);
-  const [dataLen, setDataLen] = useState(formState.files.length);
+  const [filteredData, setFilteredData] = useState(files);
+  const [dataLen, setDataLen] = useState(files.length);
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       "image/*": [],
     },
     onDrop: (acceptedFiles) => {
-      setFormState((prevState) => {
-        return {
-          ...prevState,
+      setPipesData((prevState) => {
+        const newState = clone(prevState);
+        newState[currPipe - 1] = {
+          ...newState[currPipe - 1],
           files: acceptedFiles.map((file) =>
             Object.assign(file, {
               preview: URL.createObjectURL(file),
             })
           ),
         };
+        return newState;
       });
     },
   });
@@ -51,43 +61,58 @@ const Image = ({ pipesData, currPipe, setCurrPipe, setPipesData }) => {
   };
 
   const deleteImg = (idx) => {
-    setFormState((prevState) => {
-      const newFiles = [...prevState.files];
+    setPipesData((prevState) => {
+      const newState = clone(prevState);
+
+      const newFiles = [...newState[currPipe - 1].files];
       newFiles.splice(idx, 1);
-      return { ...prevState, files: newFiles };
+      newState[currPipe - 1].files = newFiles;
+
+      return newState;
     });
   };
 
   const inputChangeHandler = (e) => {
-    setFormState((prevState) => ({ ...prevState, intro: e.target.value }));
+    setIsPipeTouched(true);
+
+    setPipesData((prevState) => {
+      const newState = clone(prevState);
+      newState[currPipe - 1].md = e.target.value;
+      return newState;
+    });
   };
 
   useEffect(() => {
     setFilteredData((prevState) => {
-      if (formState.files.length === 0) {
-        setDataLen(formState.files.length);
-        return formState.files;
+      if (files.length === 0) {
+        setDataLen(files.length);
+        return files;
       }
-      if (
-        pageNumState < 0 ||
-        pageNumState > Math.ceil(formState.files.length / pageSize)
-      )
+      if (pageNumState < 0 || pageNumState > Math.ceil(files.length / pageSize))
         return prevState;
-      const newData = formState.files;
+      const newData = files;
       setDataLen(newData.length);
       return newData.slice(
         (pageNumState - 1) * pageSize,
         pageNumState * pageSize
       );
     });
-  }, [pageNumState, formState]);
+  }, [pageNumState, files]);
 
   useEffect(() => {
-    if (Math.ceil(formState.files.length / pageSize) < pageNumState) {
-      setPageNumState(Math.ceil(formState.files.length / pageSize));
+    if (Math.ceil(files.length / pageSize) < pageNumState) {
+      setPageNumState(Math.ceil(files.length / pageSize));
     }
-    if (formState.files.length === 0) setPageNumState(1);
-  }, [formState.files, pageNumState]);
+    if (files.length === 0) setPageNumState(1);
+  }, [files, pageNumState]);
+
+  useEffect(() => {
+    takePipeSnapshot();
+  }, []);
+
+  useEffect(() => {
+    setIsPipeTouched(false);
+  }, [setIsPipeTouched]);
 
   return (
     <div className="image">
@@ -99,11 +124,12 @@ const Image = ({ pipesData, currPipe, setCurrPipe, setPipesData }) => {
         currPipe={currPipe}
         setCurrPipe={setCurrPipe}
         setPipesData={setPipesData}
+        setIsInEditState={setIsInEditState}
       />
       {isInPreviewState ? (
         <>
           <div className="md mt-20">
-            <ReactMarkdown children={formState.intro} />
+            <ReactMarkdown children={md} />
           </div>
 
           <div className="file-preview-section">
@@ -115,7 +141,11 @@ const Image = ({ pipesData, currPipe, setCurrPipe, setPipesData }) => {
                     key={"file-img-preview" + idx}
                   >
                     <div className="img-preview-wrap d-flex align-items-center">
-                      <img className="w-100" src={el.preview} alt="uploaded" />
+                      <img
+                        className="w-100"
+                        src={el.src || el.preview}
+                        alt="uploaded"
+                      />
                       <div className="actions">
                         <Button
                           secondaryLight
@@ -126,7 +156,7 @@ const Image = ({ pipesData, currPipe, setCurrPipe, setPipesData }) => {
                             alt: "eye",
                             title: "eye",
                           }}
-                          onClick={() => openImg(el.preview)}
+                          onClick={() => openImg(el.src || el.preview)}
                         >
                           Preview
                         </Button>
@@ -168,12 +198,13 @@ const Image = ({ pipesData, currPipe, setCurrPipe, setPipesData }) => {
           <div className="custom-form-control mt-20">
             <CustomMDEditor
               noExtraCommands
-              value={formState.intro}
+              value={md}
               inputChangeHandler={inputChangeHandler}
               maxChar={5000}
             />
           </div>
           <DropzoneContainer
+            filesOnTop
             exportIcon
             borderSolid
             className="mh-400"
@@ -182,11 +213,17 @@ const Image = ({ pipesData, currPipe, setCurrPipe, setPipesData }) => {
             textClassName="flex-column-reverse"
             getRootProps={getRootProps}
             getInputProps={getInputProps}
-            formState={formState}
+            formState={{ files }}
           />
         </>
       )}
       <ImgOpener imgState={imgState} setImgState={setImgState} />
+
+      <div className="d-flex justify-content-end mt-30">
+        <Button primary className="h-40" onClick={saveData}>
+          Save
+        </Button>
+      </div>
     </div>
   );
 };

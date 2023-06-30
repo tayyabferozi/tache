@@ -4,7 +4,7 @@ import ProjectLayoutSection from "../../../components/ProjectLayoutSection";
 import Badge from "../../../components/Badge";
 import Button from "../../../components/Button";
 import useModal from "../../../hooks/useModal";
-import DeletePipelineModal from "../../../modals/DeletePipeline";
+import ConfirmationModal from "../../../modals/Confirmation";
 import SubmitPipeline from "../../../modals/SubmitPipeline";
 
 import "./Header.scss";
@@ -40,7 +40,9 @@ const Header = ({ isInEditState, setIsInEditState, setPipesData }) => {
           toggleSubmitPipelineModal("close");
         }}
       />
-      <DeletePipelineModal
+      <ConfirmationModal
+        title="Are you sure you want to delete the pipeline?"
+        body="This action cannot be undone"
         onClickDelete={deletePipelineHandler}
         show={showDeletePipelineModal}
         closeModal={() => toggleDeletePipelineModal("close")}

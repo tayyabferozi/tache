@@ -1,4 +1,4 @@
-#onboarding-design .pipes .image {
+#onboarding-design .pipes {
   .full-img-overlay {
     position: fixed;
     left: 0;
@@ -55,12 +55,20 @@
         top: -24px;
         z-index: 10;
         cursor: pointer;
+        filter: invert(100%) sepia(3%) saturate(12%) hue-rotate(103deg)
+          brightness(105%) contrast(105%);
+        opacity: 0;
 
         @include transitioned;
 
         &:hover {
-          opacity: 0.8;
           transform: scale(1.05);
+          filter: invert(65%) sepia(58%) saturate(1865%) hue-rotate(116deg)
+            brightness(89%) contrast(101%);
+        }
+
+        &.active {
+          opacity: 1;
         }
       }
 
