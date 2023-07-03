@@ -2,6 +2,7 @@ import clsx from "clsx";
 import React from "react";
 
 import "./DropzoneContainer.scss";
+import GridContainer from "../GridContainer/GridContainer";
 
 const DropzoneContainer = ({
   filesOnTop,
@@ -21,24 +22,26 @@ const DropzoneContainer = ({
   return (
     <>
       {filesOnTop && formState?.files?.length > 0 && (
-        <div className="my-20">
-          {formState.files.map((el, idx) => {
-            return (
-              <div
-                key={"selected-file" + idx}
-                className="selected-file my-1 fs-14 d-flex gap-10 my-10"
-              >
-                <img
-                  className="c-pointer"
-                  src="/assets/vectors/icons/trash.svg"
-                  alt="trash"
-                  onClick={() => deleteFile(idx)}
-                />
+        <div>
+          <GridContainer rootClassName="my-30">
+            {formState.files.map((el, idx) => {
+              return (
+                <div
+                  key={"selected-file" + idx}
+                  className="selected-file my-1 fs-14 d-flex gap-10 my-10 col-xxl-3 col-lg-4 col-md-4 col-sm-4 col-6"
+                >
+                  <img
+                    className="c-pointer"
+                    src="/assets/vectors/icons/trash.svg"
+                    alt="trash"
+                    onClick={() => deleteFile(idx)}
+                  />
 
-                <div className="restrict-one-line">{el.name}</div>
-              </div>
-            );
-          })}
+                  <div className="restrict-one-line">{el.name}</div>
+                </div>
+              );
+            })}
+          </GridContainer>
         </div>
       )}
       <div

@@ -36,10 +36,12 @@ const FormHeading = ({
       newState.splice(currPipe - 1, 0, {
         type: label,
         description: "Vitae volutpat",
+        files: [],
       });
       return newState;
     });
     setCurrPipe(currPipe);
+    setIsInEditState(true);
   };
 
   const addFormAfterHandler = (label) => {
@@ -48,10 +50,12 @@ const FormHeading = ({
       newState.splice(currPipe, 0, {
         type: label,
         description: "Vitae volutpat",
+        files: [],
       });
       return newState;
     });
     setCurrPipe(currPipe + 1);
+    setIsInEditState(true);
   };
 
   return (
@@ -149,6 +153,7 @@ const FormHeading = ({
                     onRight
                     addFormHandler={addFormAfterHandler}
                     setSelectNewFormActive={setStageAfterModalActive}
+                    setIsInEditState={setIsInEditState}
                   />
                 )}
               </AnimatePresence>

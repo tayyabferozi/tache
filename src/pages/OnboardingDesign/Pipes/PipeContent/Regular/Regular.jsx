@@ -28,6 +28,7 @@ const months = [
 ];
 
 const Regular = ({ md, files, setIsInEditState }) => {
+  console.log(files);
   const [dataLen, setDataLen] = useState(files?.length);
   const [maxLen, setMaxLen] = useState(34);
   const [pageNumState, setPageNumState] = useState(1);
@@ -49,6 +50,10 @@ const Regular = ({ md, files, setIsInEditState }) => {
         return prevState;
       const newData = files;
       setDataLen(newData.length);
+      console.log(newData);
+      console.log(
+        newData.slice((pageNumState - 1) * pageSize, pageNumState * pageSize)
+      );
       return newData.slice(
         (pageNumState - 1) * pageSize,
         pageNumState * pageSize

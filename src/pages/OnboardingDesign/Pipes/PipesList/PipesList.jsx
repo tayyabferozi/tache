@@ -39,10 +39,12 @@ const PipesList = ({
         {
           type: label,
           description: "Vitae volutpat",
+          files: [],
         },
       ];
     });
     setCurrPipe(pipesData.length + 1);
+    setIsInEditState(true);
   };
 
   return (

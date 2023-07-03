@@ -55,7 +55,7 @@ const AddFormModal = ({
             className="option"
             onClick={() => {
               addFormHandler(el.label);
-              setIsInEditState(true);
+              if (setIsInEditState) setIsInEditState(true);
             }}
           >
             <img src={el.icon} alt={el.title} />

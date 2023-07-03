@@ -86,6 +86,10 @@ const Regular = ({
       }
       const newData = [...files];
       setDataLen(newData.length);
+      console.log(newData);
+      console.log(
+        newData.slice((pageNumState - 1) * pageSize, pageNumState * pageSize)
+      );
       return newData.slice(
         (pageNumState - 1) * pageSize,
         pageNumState * pageSize
@@ -127,7 +131,7 @@ const Regular = ({
           </div>
           <div className="file-preview-section">
             <GridContainer rowClassName="g-20 mw-0" rootClassName="mw-0">
-              {filteredData.map((el, idx) => {
+              {filteredData?.map((el, idx) => {
                 return (
                   <div
                     className="col-xl-4 col-sm-6"

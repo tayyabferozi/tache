@@ -18,12 +18,14 @@ const ImgOpener = ({ imgState, setImgState }) => {
         onClick={closeImg}
       >
         <div className="full-img">
-          <img
-            className={clsx("close", imgState.active && "active")}
-            src="/assets/vectors/icons/close-5.svg"
-            alt="close"
-          />
-          <img className="full-img-content" src={imgState.src} alt="" />
+          <div className="full-img-content">
+            <img
+              className={clsx("close", imgState.active && "active")}
+              src="/assets/vectors/icons/close-5.svg"
+              alt="close"
+            />
+            <img className="main-img" src={imgState.src} alt="" />
+          </div>
         </div>
       </div>
     </>
