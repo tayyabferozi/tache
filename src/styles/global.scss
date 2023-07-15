@@ -6,3 +6,11 @@ button {
   cursor: pointer;
   text-align: unset;
 }
+
+.w-md-editor-text-pre {
+  display: none !important;
+}
+
+.w-md-editor-text-input {
+  -webkit-text-fill-color: initial !important;
+}
