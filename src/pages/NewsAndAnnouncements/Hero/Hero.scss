@@ -1,0 +1,17 @@
+#news-and-announcements .hero {
+  max-width: 684px;
+  margin: 100px auto 66px;
+
+  @media screen and (max-width: 1366px) {
+    margin: 40px auto;
+  }
+
+  @media screen and (max-width: 757px) {
+    margin: 20px auto 40px;
+  }
+
+  .badge {
+    border-radius: 30px;
+    padding: 8px 12px;
+  }
+}

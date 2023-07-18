@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Input from "../../components/Input";
 
-import Modal from "../../components/Modal/Modal";
+import Input from "../../components/Input";
+import Modal from "../../components/Modal";
 import "./ShareTicket.scss";
 
 const shareLinks = [
@@ -62,7 +62,7 @@ const shareLinks = [
   // },
 ];
 
-const ShareTicket = ({ ...rest }) => {
+const ShareTicket = ({ title, ...rest }) => {
   const [formState] = useState({
     ticketLink: "Tciket.tickettitlle.com/projects/",
   });
@@ -73,7 +73,7 @@ const ShareTicket = ({ ...rest }) => {
 
   return (
     <Modal id="share-ticket-modal" {...rest}>
-      <h2 className="mb-1">Share Ticket</h2>
+      <h2 className="mb-1">{title || "Share Ticket"}</h2>
 
       <p>
         You've created a new project! Invite your team to review collaborate on

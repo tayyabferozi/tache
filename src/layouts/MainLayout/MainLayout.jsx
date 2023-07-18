@@ -14,7 +14,7 @@ const MainLayout = ({ whiteBg, withoutDots, noBgClr }) => {
         <Navbar />
 
         <div className={clsx("layout-body", whiteBg && "white-bg")}>
-          <div className={clsx(!noBgClr && "dark-bg-wrap")}>
+          <div className={clsx(!noBgClr && "dark-bg-wrap", "p-relative")}>
             {!withoutDots && (
               <>
                 <img

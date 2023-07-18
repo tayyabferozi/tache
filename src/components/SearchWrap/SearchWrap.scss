@@ -35,4 +35,24 @@
       }
     }
   }
+
+  &.lg {
+    .custom-form-control {
+      width: 100%;
+    }
+
+    .input {
+      .icon {
+        left: 22px;
+      }
+
+      input {
+        height: 68px;
+        padding: 22px;
+        padding-left: calc(22px + 24px + 14px);
+        border-radius: 8px;
+        border: 1px solid $color38;
+      }
+    }
+  }
 }

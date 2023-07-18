@@ -18,6 +18,8 @@ import Feedback from "./pages/Feedback";
 import Onboarding from "./pages/Onboarding";
 import Onboarding2 from "./pages/Onboarding2";
 import OnboardingDesign from "./pages/OnboardingDesign";
+import NewsAndAnnouncements from "./pages/NewsAndAnnouncements";
+import Blog from "./pages/Blog";
 
 const AppRoutes = () => {
   return (
@@ -33,10 +35,19 @@ const AppRoutes = () => {
           <Route path="/find-workers" element={<FindWorkers />} />
           <Route path="/find-talent" element={<FindTalent />} />
           <Route path="/create-new-ticket" element={<CreateNewTicket />} />
+          <Route
+            path="/news-and-announcements"
+            element={<NewsAndAnnouncements />}
+          />
         </Route>
         <Route path="/" element={<MainLayout whiteBg />}>
           <Route path="/ticket-details" element={<TicketDetails />} />
           <Route path="/profile-ratings" element={<ProfileRatings />} />
+        </Route>
+        <Route path="/" element={<MainLayout whiteBg noBgClr />}>
+          <Route path="/blog-articles" element={<Blog type="articles" />} />
+          <Route path="/blog-video" element={<Blog type="video" />} />
+          <Route path="/blog-podcast" element={<Blog type="podcast" />} />
         </Route>
         <Route path="/" element={<MainLayout whiteBg withoutDots noBgClr />}>
           <Route path="/feedback" element={<Feedback />} />

@@ -6,6 +6,7 @@ import "./SearchWrap.scss";
 import clsx from "clsx";
 
 const SearchWrap = ({
+  lg,
   className,
   bordered,
   btnLink,
@@ -25,7 +26,12 @@ const SearchWrap = ({
 
   return (
     <div
-      className={clsx("search-wrap", className, { bordered }, !noMt && "mt-34")}
+      className={clsx(
+        "search-wrap",
+        className,
+        { bordered, lg },
+        !noMt && "mt-34"
+      )}
     >
       <Input
         value={searchState}

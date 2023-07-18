@@ -1,0 +1,145 @@
+#blog .blog-content {
+  .blog-header {
+    .blog-user-img {
+      width: 50px;
+      border-radius: 50%;
+    }
+  }
+
+  .md {
+    h1 {
+      font-size: 28px;
+      color: $color1;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $color1;
+      font-size: 24px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 22px;
+    }
+
+    pre {
+      padding: 22px;
+      background-color: $color8;
+      border-radius: 30px;
+      margin: 60px -52px;
+
+      @media screen and (max-width: 1366px) {
+        margin-left: -22px;
+        margin-right: -22px;
+      }
+
+      @media screen and (max-width: 767px) {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      div {
+        border-radius: 16px;
+        background-color: #fff !important;
+
+        @media screen and (min-width: 768px) {
+          padding: 26px 42px !important;
+        }
+      }
+    }
+
+    blockquote:not(blockquote > blockquote) {
+      background-color: $color8;
+      margin: 60px 0;
+      padding: 46px;
+
+      @media screen and (max-width: 767px) {
+        padding: 26px;
+      }
+
+      @media screen and (max-width: 575px) {
+        padding: 26px 12px;
+      }
+
+      p {
+        max-width: 970px;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+        color: $color55;
+        font-size: 30px;
+        text-align: center;
+        font-weight: 500;
+
+        @media screen and (max-width: 767px) {
+          font-size: 24px;
+        }
+
+        @media screen and (max-width: 575px) {
+          font-size: 20px;
+        }
+
+        &::before {
+          content: url("../../../assets/vectors/quote.svg");
+          display: block;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    blockquote blockquote {
+      p {
+        text-align: center;
+        color: $color1 !important;
+        font-size: 16px !important;
+        font-style: normal;
+        font-weight: 400 !important;
+        line-height: normal;
+        margin-top: 52px !important;
+
+        &::before {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+  .claps-wrap {
+    cursor: pointer;
+
+    .claps-main {
+      position: relative;
+
+      img {
+        display: block;
+      }
+
+      .claps-fill {
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, calc(-50% - 0px));
+        background-color: #fff;
+
+        @include transitioned;
+
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

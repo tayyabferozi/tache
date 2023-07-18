@@ -54,16 +54,16 @@
       margin-top: 32px;
     }
 
-    &:hover {
-      .icon {
-        img {
-          transform: scale(1.1);
-        }
-      }
-    }
-
     .social-item {
       background-color: transparent;
+
+      &:hover {
+        .icon {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
 
       @media screen and (max-width: 767px) {
         margin-bottom: 10px;

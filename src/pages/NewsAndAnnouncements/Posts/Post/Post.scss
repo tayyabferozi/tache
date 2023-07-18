@@ -1,0 +1,58 @@
+#news-and-announcements .posts .post-card {
+  background-color: #fff;
+  box-shadow: 6px 6px 26px 0px rgba(130, 130, 130, 0.08);
+  padding: 6px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+
+  @include transitioned;
+
+  &:hover {
+    transform: scale(1.025);
+  }
+
+  img.post-img {
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  .text {
+    margin: 26px 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+
+    .details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+
+      .type {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        border-radius: 6px;
+        background-color: $color54;
+        color: $color4;
+      }
+    }
+  }
+
+  &.featured {
+    border-radius: 14px;
+    padding: 14px;
+
+    .text {
+      margin: 26px 0 4px;
+    }
+  }
+}
