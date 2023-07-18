@@ -35,6 +35,8 @@ const AppRoutes = () => {
           <Route path="/find-workers" element={<FindWorkers />} />
           <Route path="/find-talent" element={<FindTalent />} />
           <Route path="/create-new-ticket" element={<CreateNewTicket />} />
+        </Route>
+        <Route path="/" element={<MainLayout withStrips />}>
           <Route
             path="/news-and-announcements"
             element={<NewsAndAnnouncements />}

@@ -6,7 +6,7 @@ import "./NewsAndAnnouncements.scss";
 
 const NewsAndAnnouncements = () => {
   return (
-    <div id="news-and-announcements">
+    <div id="news-and-announcements" className="p-relative">
       <Hero />
       <Posts />
       <Newsletter />
