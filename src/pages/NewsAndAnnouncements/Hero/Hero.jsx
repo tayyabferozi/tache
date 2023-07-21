@@ -16,7 +16,7 @@ const Hero = () => {
       </p>
 
       <div className="mt-50">
-        <SearchWrap lg />
+        <SearchWrap lg clickableIcon />
       </div>
     </div>
   );

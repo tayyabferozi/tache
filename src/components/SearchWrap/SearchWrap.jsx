@@ -14,6 +14,7 @@ const SearchWrap = ({
   withAddBtn,
   searchState,
   setSearchState,
+  clickableIcon,
   noMt,
   onChange: onChangeProp,
   ...rest
@@ -36,6 +37,7 @@ const SearchWrap = ({
       <Input
         value={searchState}
         onChange={onChange}
+        clickableIcon
         icon={{
           src: "/assets/vectors/icons/search.svg",
           alt: "search",

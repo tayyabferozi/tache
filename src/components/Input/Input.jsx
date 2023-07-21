@@ -28,6 +28,7 @@ const Input = ({
   dropDownOptions,
   onChange,
   name,
+  clickableIcon,
   ...rest
 }) => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -124,7 +125,13 @@ const Input = ({
             title="Show password"
           />
         )}
-        {icon && <img className="icon" src={icon.src} alt={icon.alt} />}
+        {icon && (
+          <img
+            className={clsx("icon", clickableIcon && "c-pointer")}
+            src={icon.src}
+            alt={icon.alt}
+          />
+        )}
         {textarea ? (
           <>
             <textarea
