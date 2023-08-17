@@ -1,0 +1,146 @@
+#messaging-layout {
+  display: flex;
+
+  & > .left {
+    width: 350px;
+    border-right: 1px solid $color16;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 30px;
+      border-bottom: 1px solid $color16;
+
+      .menu {
+        position: relative;
+        cursor: pointer;
+
+        .menu-items {
+          position: absolute;
+          background-color: #fff;
+          padding: 4px;
+          width: 164px;
+          z-index: 3;
+          top: 0;
+          left: 100%;
+          overflow: hidden;
+
+          .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 6px;
+            cursor: pointer;
+            border-radius: 4px;
+
+            @include transitioned;
+
+            &:hover {
+              background: $color8;
+            }
+          }
+        }
+      }
+    }
+
+    .chat-people-items {
+      flex-grow: 1;
+      overflow: auto;
+
+      & > .search {
+        position: relative;
+        margin: 24px 30px;
+        margin-right: 24px;
+
+        input {
+          background-color: $color8;
+          height: 42px;
+          border-radius: 8px;
+          border: 1px solid $color46;
+          padding-left: 42px;
+          padding-right: 12px;
+          width: 100%;
+
+          &::placeholder {
+            color: $color2;
+            font-size: 14px;
+          }
+        }
+
+        img {
+          position: absolute;
+          left: 12px;
+          top: 12px;
+          width: 18px;
+        }
+      }
+
+      .chat-item {
+        padding: 14px 24px 24px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        cursor: pointer;
+        position: relative;
+
+        @include transitioned;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 4px;
+          top: 6px;
+          bottom: 6px;
+          width: 2px;
+          border-radius: 2px;
+          background-color: transparent;
+        }
+
+        .img {
+          width: 44px;
+          height: 44px;
+          position: relative;
+
+          &.active {
+            &::before {
+              content: "";
+              position: absolute;
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              background-color: $color10;
+              border: 2px solid #fff;
+              right: -3px;
+              bottom: -3px;
+            }
+          }
+        }
+
+        &.clicked,
+        &:hover {
+          background-color: $color8;
+        }
+
+        &.clicked {
+          &::before {
+            background-color: $color10;
+          }
+        }
+
+        .chat-item__left {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+      }
+    }
+  }
+
+  & > .right {
+    flex-grow: 1;
+  }
+}

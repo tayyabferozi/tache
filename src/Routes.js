@@ -20,6 +20,7 @@ import Onboarding2 from "./pages/Onboarding2";
 import OnboardingDesign from "./pages/OnboardingDesign";
 import NewsAndAnnouncements from "./pages/NewsAndAnnouncements";
 import Blog from "./pages/Blog";
+import Chat from "./pages/Chat/Chat";
 
 const AppRoutes = () => {
   return (
@@ -59,6 +60,7 @@ const AppRoutes = () => {
           <Route path="/onboarding2" element={<Onboarding2 />} />
           <Route path="/onboarding-design" element={<OnboardingDesign />} />
         </Route>
+        <Route path="/chat" element={<Chat />} />
       </Routes>
     </Router>
   );

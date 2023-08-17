@@ -156,45 +156,6 @@
           line-height: 1.5;
           font-size: 15px;
         }
-
-        .comment-reactions {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          flex-wrap: wrap;
-          padding: 14px 0 10px;
-
-          .item {
-            height: 26px;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 2px;
-            padding: 0 10px;
-            border-radius: 20px;
-            cursor: pointer;
-            border: 1px solid #d0d7de;
-
-            &:hover {
-              background-color: #eaeef2;
-            }
-
-            &.active {
-              background-color: #ddf4ff;
-              border: 1px solid #0969da;
-              color: #0969da;
-
-              &:hover {
-                background-color: #b6e3ff;
-              }
-            }
-
-            .emoji {
-              margin: 0 2px 0 0;
-              height: 17px;
-            }
-          }
-        }
       }
 
       .reply {

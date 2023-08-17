@@ -1,0 +1,83 @@
+#messaging-layout > .center > .top {
+  padding: 24px;
+  border-bottom: 1px solid $color16;
+
+  @media screen and (max-width: 575px) {
+    padding-bottom: 34px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  & > .top-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (max-width: 575px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      img {
+        width: 64px;
+        height: 64px;
+
+        @media screen and (max-width: 575px) {
+          width: 44px;
+          height: 44px;
+        }
+      }
+
+      .title {
+        font-size: 22px;
+        font-weight: 500;
+
+        @media screen and (max-width: 575px) {
+          font-size: 18px;
+        }
+      }
+
+      .active-status {
+        font-size: 14px;
+      }
+
+      .active {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $color10;
+      }
+    }
+
+    .right {
+      .btn.btn-bordered {
+        width: 42px;
+        height: 42px;
+
+        @media screen and (max-width: 575px) {
+          .btn-text {
+            display: none;
+          }
+        }
+
+        @media screen and (max-width: 575px) {
+          width: 32px;
+          height: 32px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .btn-text {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

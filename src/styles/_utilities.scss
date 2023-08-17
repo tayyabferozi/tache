@@ -112,7 +112,7 @@ hr {
 }
 
 .text-light-3 {
-  color: $color2;
+  color: $color2 !important;
 }
 
 .text-light-4 {
@@ -322,8 +322,117 @@ hr {
   }
 }
 
+// .dropdown-reactions {
+
+.dropdown-reactions-options {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding-left: 4px;
+  padding-right: 4px;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  // @media screen and (max-width: 486px) {
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  // }
+
+  .option {
+    cursor: pointer;
+  }
+
+  & > .option {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  position: absolute;
+  right: 0;
+  bottom: -24px;
+  border: 1px solid $color23;
+  // box-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
+  background-color: #fff;
+  width: max-content;
+  padding: 4px 0;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  @include transitioned;
+
+  .option {
+    font-size: 14px;
+    padding: 4px 12px;
+
+    &:hover,
+    &.active {
+      background-color: $color24;
+    }
+  }
+
+  &.options-right {
+    left: 0 !important;
+    transform: translateX(-30px) !important;
+
+    @media screen and (min-width: 575px) {
+      transform: translateX(0) !important;
+    }
+  }
+}
+// }
+
+.comment-reactions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 14px 0 10px;
+
+  .item {
+    height: 26px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 0 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 1px solid #d0d7de;
+
+    &:hover {
+      background-color: #eaeef2;
+    }
+
+    &.active {
+      background-color: #ddf4ff;
+      border: 1px solid #0969da;
+      color: #0969da;
+
+      &:hover {
+        background-color: #b6e3ff;
+      }
+    }
+
+    .emoji {
+      margin: 0 2px 0 0;
+      height: 17px;
+    }
+  }
+}
+
 .opacity-80 {
   opacity: 0.8;
+}
+
+.mw-0 {
+  min-width: 0px;
 }
 
 .mw-50 {
@@ -642,4 +751,82 @@ body:has(.modal-wrapper.active) {
   &:hover {
     transform: scale(1.05);
   }
+}
+
+.progress {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 5px;
+  overflow: hidden;
+  font-size: 0.75rem;
+  background-color: rgba($color35, 0.2);
+  border-radius: 0.25rem;
+  width: 100%;
+}
+
+.progress-bar-animated {
+  animation: progress-bar-stripes 1s linear infinite;
+}
+
+.progress-bar-striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+.progress-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  background-color: $color10;
+  transition: width 0.6s ease;
+}
+
+@keyframes progress-bar-stripes {
+  0% {
+    background-position: 1rem 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.max-w-one-third {
+  width: 33.33%;
+}
+
+.mb-12 {
+  margin-bottom: 12px;
+}
+
+.px-18 {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.pb-18 {
+  padding-bottom: 18px;
 }

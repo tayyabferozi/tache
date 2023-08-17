@@ -1,4 +1,4 @@
-function friendlyTime(d) {
+function friendlyTime(d, showTime) {
   let date = new Date(d);
   var delta = Math.round((+new Date() - date) / 1000);
 
@@ -22,9 +22,11 @@ function friendlyTime(d) {
   } else if (delta < day) {
     fuzzy = Math.floor(delta / hour) + "h ago";
   } else if (delta < day * 2) {
-    fuzzy = "yesterday";
+    fuzzy = "Yesterday";
+    if (showTime) return fuzzy + " at " + d.getHours() + ":" + d.getMinutes();
   } else {
     fuzzy = Math.floor(delta / day) + "d ago";
+    if (showTime) return fuzzy + " at " + d.getHours() + ":" + d.getMinutes();
   }
 
   return fuzzy;

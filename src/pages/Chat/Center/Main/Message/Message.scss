@@ -1,0 +1,98 @@
+// #messaging-layout > .center > .chat-main
+
+.chat-msg {
+  display: flex;
+  gap: 12px;
+
+  .img-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    @media screen and (max-width: 575px) {
+      width: 28px;
+      height: 28px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .msg-body-wrap {
+    .msg-body {
+      margin-top: 10px;
+      padding: 14px;
+      background-color: #fff;
+      border: 1px solid $color46;
+      border-radius: 0 10px 10px 10px;
+      font-weight: 500;
+      width: fit-content;
+      max-width: 488px;
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      gap: 12px;
+
+      &.rounded {
+        border-top-left-radius: 10px;
+      }
+
+      &.full {
+        width: 100%;
+      }
+
+      &.reply {
+        margin-top: 0;
+      }
+
+      &.reply-body {
+        background-color: $color8;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 10px;
+
+        &,
+        * {
+          color: $color56 !important;
+        }
+      }
+
+      & > img {
+        align-self: flex-end;
+      }
+
+      .msg-video,
+      .msg-img {
+        border-radius: 4px;
+      }
+      .download-btn {
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        right: 12px;
+        top: 8px;
+        z-index: 1;
+      }
+
+      .ghost {
+        position: absolute;
+        top: 4px;
+        right: -12px;
+        transform: translateX(100%);
+        opacity: 0;
+        cursor: pointer;
+        pointer-events: none;
+
+        @include transitioned;
+      }
+    }
+
+    &:hover {
+      .ghost {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+}

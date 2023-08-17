@@ -1,0 +1,34 @@
+#messaging-layout > .right > .right-inner > .right-inner-main > .thread {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 4;
+
+  @include transitioned;
+
+  &.in-active {
+    left: 100%;
+  }
+
+  .thread-heading {
+    padding: 28px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid $color16;
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+  }
+
+  .thread-chat {
+    padding: 0 20px;
+  }
+}

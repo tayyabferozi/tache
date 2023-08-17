@@ -1,0 +1,29 @@
+#messaging-layout {
+  display: flex;
+
+  .menu-items {
+    position: absolute;
+    background-color: #fff;
+    padding: 4px;
+    width: 164px;
+    z-index: 3;
+    top: 22px;
+    left: calc(100% - 22px);
+    overflow: hidden;
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 6px;
+      cursor: pointer;
+      border-radius: 4px;
+
+      @include transitioned;
+
+      &:hover {
+        background: $color8;
+      }
+    }
+  }
+}
