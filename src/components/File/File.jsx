@@ -3,7 +3,16 @@ import { useState } from "react";
 import "./File.scss";
 import clsx from "clsx";
 
-const File = ({ className, img, name, fileType, long }) => {
+const File = ({
+  className,
+  onCross,
+  vid,
+  img,
+  name,
+  fileType,
+  noDownload,
+  long,
+}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
 
@@ -29,10 +38,25 @@ const File = ({ className, img, name, fileType, long }) => {
   };
 
   return (
-    <div className={clsx("msg-file", className)} onClick={downloadHandler}>
+    <div
+      className={clsx(
+        "msg-file",
+        !name && !fileType && "without-text",
+        noDownload && "no-download",
+        className
+      )}
+      onClick={noDownload ? () => {} : downloadHandler}
+    >
+      {onCross && (
+        <div className="cross" onClick={onCross}>
+          <img src="/assets/vectors/icons/close-6.svg" alt="cross" />
+        </div>
+      )}
       <div className="img">
         {img ? (
           <img src={img} alt="document" />
+        ) : vid ? (
+          <video className="w-100" muted src={vid} />
         ) : (
           <div className="placeholder">
             <img
@@ -44,36 +68,39 @@ const File = ({ className, img, name, fileType, long }) => {
         )}
         <div className="placeholder overlay">
           <img
-            className="file"
+            className="file download"
             src="/assets/vectors/icons/download.svg"
             alt="download"
           />
         </div>
       </div>
 
-      <div className="ms-2 ps-1 mw-0 mt-2 flex-grow-1">
-        <div className="fw-500 text-light-1 restrict-one-line mw-0 fs-11 d-flex align-items-center justify-content-between gap-2">
-          {name}
-          {isLoading && long && (
-            <div className="progress max-w-one-third">
+      {(name || fileType) && (
+        <div className="ms-2 ps-1 mw-0 mt-2 flex-grow-1">
+          <div className="fw-500 text-light-1 restrict-one-line mw-0 fs-11 d-flex align-items-center justify-content-between gap-2">
+            {name.slice(0, 10)}
+            {name.length > 10 ? "..." : ""}
+            {isLoading && long && (
+              <div className="progress max-w-one-third">
+                <div
+                  className="progress-bar progress-bar-striped progress-bar-animated"
+                  style={{ width: `${loadingProgress}%` }}
+                ></div>
+              </div>
+            )}
+          </div>
+          {isLoading && !long ? (
+            <div className="progress mt-2">
               <div
                 className="progress-bar progress-bar-striped progress-bar-animated"
                 style={{ width: `${loadingProgress}%` }}
               ></div>
             </div>
+          ) : (
+            <div className="fw-500 mt-1 fs-10">{fileType}</div>
           )}
         </div>
-        {isLoading && !long ? (
-          <div className="progress mt-2">
-            <div
-              className="progress-bar progress-bar-striped progress-bar-animated"
-              style={{ width: `${loadingProgress}%` }}
-            ></div>
-          </div>
-        ) : (
-          <div className="fw-500 mt-1 fs-10">{fileType}</div>
-        )}
-      </div>
+      )}
     </div>
   );
 };

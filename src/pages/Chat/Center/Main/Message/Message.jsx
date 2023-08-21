@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import useOnClickOutside from "../../../../../hooks/useOnClickOutside";
 import friendlyTime from "../../../../../utils/friendly-time";
 import GridContainer from "../../../../../components/GridContainer";
-import "./Message.scss";
 import Button from "../../../../../components/Button/Button";
-import File from "../../../../../components/File/File";
+import File from "../../../../../components/File";
+import "./Message.scss";
 
 let othersSelectedEmojis = {};
 const emojis = ["👍", "❤", "😂", "😲", "😥", "🙏"];

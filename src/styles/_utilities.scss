@@ -186,13 +186,18 @@ hr {
   }
 }
 
+.md-editor-wrap:not(.without-foot) {
+  .w-md-editor {
+    border-bottom-width: 2px;
+    border-bottom-style: dashed;
+  }
+}
+
 .md-editor-wrap {
   .w-md-editor {
     box-shadow: none;
     border: 1px solid $color12;
     border-radius: 8px 8px 0 0;
-    border-bottom-width: 2px;
-    border-bottom-style: dashed;
 
     .w-md-editor-toolbar {
       background-color: $color8;
@@ -220,6 +225,18 @@ hr {
     border-color: $color12;
     font-size: 10px;
     color: $color7;
+  }
+}
+
+.md-editor-wrap.without-foot {
+  .w-md-editor {
+    border-bottom-width: 0;
+  }
+}
+
+.md-editor-wrap.cornered {
+  .w-md-editor {
+    border-top-left-radius: 0;
   }
 }
 
@@ -829,4 +846,16 @@ body:has(.modal-wrapper.active) {
 
 .pb-18 {
   padding-bottom: 18px;
+}
+
+.w-36 {
+  width: 36px;
+}
+
+.h-36 {
+  height: 36px;
+}
+
+.rounded-6 {
+  border-radius: 6px;
 }

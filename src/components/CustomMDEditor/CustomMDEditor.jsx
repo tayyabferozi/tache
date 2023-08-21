@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MDEditor from "@uiw/react-md-editor";
 
 import MDButton from "../MDButton";
+import clsx from "clsx";
 
 const codePreview = {
   name: "preview",
@@ -19,11 +20,13 @@ const codeEdit = {
 
 const CustomMDEditor = ({
   name = "comment",
+  cornered,
   reply,
   placeholder = "",
   value,
   inputChangeHandler,
   footText,
+  noFoot,
   maxChar,
   noExtraCommands,
 }) => {
@@ -31,7 +34,9 @@ const CustomMDEditor = ({
 
   return (
     <div data-color-mode="light">
-      <div className="md-editor-wrap">
+      <div
+        className={clsx("md-editor-wrap", { "without-foot": noFoot, cornered })}
+      >
         <MDEditor
           preview="edit"
           extraCommands={
@@ -68,9 +73,11 @@ const CustomMDEditor = ({
             });
           }}
         />
-        <div className="foot">
-          {maxChar ? charLen + "/" + maxChar : footText}
-        </div>
+        {!noFoot && (
+          <div className="foot">
+            {maxChar ? charLen + "/" + maxChar : footText}
+          </div>
+        )}
       </div>
     </div>
   );
