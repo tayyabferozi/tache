@@ -37,6 +37,7 @@ const menuItems = [
 ];
 
 const MessageInput = ({
+  uniqueKey,
   getInputProps,
   fileInputHandler,
   formState,
@@ -115,49 +116,54 @@ const MessageInput = ({
         <div className="d-flex justify-content-between align-items-center gap-3">
           <input {...getInputProps()} />
           <input
-            id="video"
+            id={uniqueKey || "" + "video"}
             type="file"
             accept="video/*"
             onChange={fileInputHandler}
             multiple
           />
           <input
-            id="audio"
+            id={uniqueKey || "" + "audio"}
             type="file"
             accept="audio/*"
             onChange={fileInputHandler}
             multiple
           />
           <input
-            id="gallery"
+            id={uniqueKey || "" + "gallery"}
             type="file"
             accept="image/*"
             onChange={fileInputHandler}
             multiple
           />
-          <input id="files" type="file" onChange={fileInputHandler} multiple />
-          <label htmlFor="video">
+          <input
+            id={uniqueKey || "" + "files"}
+            type="file"
+            onChange={fileInputHandler}
+            multiple
+          />
+          <label htmlFor={uniqueKey || "" + "video"}>
             <img
               className="d-block"
               src="/assets/vectors/video.svg"
               alt="video"
             />
           </label>
-          <label htmlFor="audio">
+          <label htmlFor={uniqueKey || "" + "audio"}>
             <img
               className="d-block"
               src="/assets/vectors/microphone.svg"
               alt="microphone"
             />
           </label>
-          <label htmlFor="gallery">
+          <label htmlFor={uniqueKey || "" + "gallery"}>
             <img
               className="d-block"
               src="/assets/vectors/gallery.svg"
               alt="gallery"
             />
           </label>
-          <label htmlFor="files">
+          <label htmlFor={uniqueKey || "" + "files"}>
             <img
               className="d-block"
               src="/assets/vectors/paperclip.svg"

@@ -5,8 +5,8 @@ import { useDropzone } from "react-dropzone";
 
 import Message from "../../Center/Main/Message/Message";
 import MessageInput from "../../../../components/MessageInput/MessageInput";
-import "./Thread.scss";
 import Loader from "../../../../components/Loader/Loader";
+import "./Thread.scss";
 
 const chatItemsData = [
   {
@@ -58,6 +58,8 @@ const Thread = ({ isThreadActive, setIsThreadActive }) => {
   const chatMsgsList = useRef();
   const [chatData, setChatData] = useState(chatItemsData);
 
+  console.log(formState);
+
   const { getRootProps, getInputProps } = useDropzone({
     accept: {},
     noClick: true,
@@ -71,11 +73,47 @@ const Thread = ({ isThreadActive, setIsThreadActive }) => {
             ...acceptedFiles.map((file) =>
               Object.assign(file, {
                 preview: URL.createObjectURL(file),
+                isUploading: true,
+                uploadingProgress: 0,
               })
             ),
           ],
         };
       });
+
+      setTimeout(() => {
+        setFormState((prevState) => {
+          const newState = clone(prevState);
+          const files = newState.files;
+
+          for (let i = 0; i < files.length; i++) {
+            if (files[i].uploadingProgress === 0) {
+              files[i].uploadingProgress = 100;
+            }
+          }
+
+          newState.files = files;
+
+          return newState;
+        });
+      }, 100);
+
+      setTimeout(() => {
+        setFormState((prevState) => {
+          const newState = clone(prevState);
+          const files = newState.files;
+
+          for (let i = 0; i < files.length; i++) {
+            if (files[i].uploadingProgress === 100) {
+              files[i].isUploading = false;
+            }
+          }
+
+          newState.files = files;
+
+          return newState;
+        });
+      }, 500);
     },
   });
 
@@ -90,11 +128,51 @@ const Thread = ({ isThreadActive, setIsThreadActive }) => {
   const fileInputHandler = (e) => {
     setFormState((prevState) => {
       const newState = clone(prevState);
+      const files = e.target.files;
+
+      for (let i = 0; i < files.length; i++) {
+        files[i].isUploading = true;
+        files[i].uploadingProgress = 0;
+      }
 
       newState.files = [...newState.files, ...e.target.files];
 
       return newState;
     });
+
+    setTimeout(() => {
+      setFormState((prevState) => {
+        const newState = clone(prevState);
+        const files = newState.files;
+
+        for (let i = 0; i < files.length; i++) {
+          if (files[i].uploadingProgress === 0) {
+            files[i].uploadingProgress = 100;
+          }
+        }
+
+        newState.files = files;
+
+        return newState;
+      });
+    }, 100);
+
+    setTimeout(() => {
+      setFormState((prevState) => {
+        const newState = clone(prevState);
+        const files = newState.files;
+
+        for (let i = 0; i < files.length; i++) {
+          if (files[i].uploadingProgress === 100) {
+            files[i].isUploading = false;
+          }
+        }
+
+        newState.files = files;
+
+        return newState;
+      });
+    }, 500);
   };
 
   const inputChangeHandler = (e) => {
@@ -200,6 +278,7 @@ const Thread = ({ isThreadActive, setIsThreadActive }) => {
           </div>
 
           <MessageInput
+            uniqueKey={"thread-input"}
             getInputProps={getInputProps}
             formState={formState}
             setFormState={setFormState}

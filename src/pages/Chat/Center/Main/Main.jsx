@@ -185,6 +185,7 @@ const Main = ({
         })}
 
         <MessageInput
+          key={"main-message-input"}
           getInputProps={getInputProps}
           fileInputHandler={fileInputHandler}
           formState={formState}

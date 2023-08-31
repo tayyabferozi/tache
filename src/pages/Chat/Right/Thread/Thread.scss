@@ -55,6 +55,14 @@
       .msgs {
         flex-grow: 1;
       }
+
+      .emoji-picker {
+        left: -154px;
+
+        .EmojiPickerReact.epr-main {
+          width: 310px !important;
+        }
+      }
     }
   }
 }
