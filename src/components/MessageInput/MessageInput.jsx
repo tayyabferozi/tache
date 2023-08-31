@@ -95,6 +95,8 @@ const MessageInput = ({
                 vid={vid}
                 name={el.name}
                 fileType={size}
+                isUploading={el.isUploading}
+                uploadingProgress={el.uploadingProgress}
               />
             );
           })}

@@ -12,6 +12,8 @@ const File = ({
   fileType,
   noDownload,
   long,
+  isUploading,
+  uploadingProgress,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
@@ -81,20 +83,28 @@ const File = ({
           <div className="fw-500 text-light-1 restrict-one-line mw-0 fs-11 d-flex align-items-center justify-content-between gap-2">
             {name.slice(0, 10)}
             {name.length > 10 ? "..." : ""}
-            {isLoading && long && (
+            {(isLoading || isUploading) && long && (
               <div className="progress max-w-one-third">
                 <div
                   className="progress-bar progress-bar-striped progress-bar-animated"
-                  style={{ width: `${loadingProgress}%` }}
+                  style={{
+                    width: `${
+                      isUploading ? uploadingProgress : loadingProgress
+                    }%`,
+                  }}
                 ></div>
               </div>
             )}
           </div>
-          {isLoading && !long ? (
+          {(isLoading || isUploading) && !long ? (
             <div className="progress mt-2">
               <div
                 className="progress-bar progress-bar-striped progress-bar-animated"
-                style={{ width: `${loadingProgress}%` }}
+                style={{
+                  width: `${
+                    isUploading ? uploadingProgress : loadingProgress
+                  }%`,
+                }}
               ></div>
             </div>
           ) : (

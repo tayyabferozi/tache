@@ -51,11 +51,51 @@ const Main = ({
   const fileInputHandler = (e) => {
     setFormState((prevState) => {
       const newState = clone(prevState);
+      const files = e.target.files;
+
+      for (let i = 0; i < files.length; i++) {
+        files[i].isUploading = true;
+        files[i].uploadingProgress = 0;
+      }
 
       newState.files = [...newState.files, ...e.target.files];
 
       return newState;
     });
+
+    setTimeout(() => {
+      setFormState((prevState) => {
+        const newState = clone(prevState);
+        const files = newState.files;
+
+        for (let i = 0; i < files.length; i++) {
+          if (files[i].uploadingProgress === 0) {
+            files[i].uploadingProgress = 100;
+          }
+        }
+
+        newState.files = files;
+
+        return newState;
+      });
+    }, 100);
+
+    setTimeout(() => {
+      setFormState((prevState) => {
+        const newState = clone(prevState);
+        const files = newState.files;
+
+        for (let i = 0; i < files.length; i++) {
+          if (files[i].uploadingProgress === 100) {
+            files[i].isUploading = false;
+          }
+        }
+
+        newState.files = files;
+
+        return newState;
+      });
+    }, 500);
   };
 
   const inputChangeHandler = (e) => {
