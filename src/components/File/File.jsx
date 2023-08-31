@@ -43,6 +43,7 @@ const File = ({
         "msg-file",
         !name && !fileType && "without-text",
         noDownload && "no-download",
+        !noDownload && "c-pointer",
         className
       )}
       onClick={noDownload ? () => {} : downloadHandler}

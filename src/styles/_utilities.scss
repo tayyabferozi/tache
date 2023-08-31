@@ -859,3 +859,7 @@ body:has(.modal-wrapper.active) {
 .rounded-6 {
   border-radius: 6px;
 }
+
+.h-screen {
+  height: 100vh !important;
+}

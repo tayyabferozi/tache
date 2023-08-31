@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 
 import Thread from "./Thread";
@@ -6,7 +6,9 @@ import Files from "./Files";
 import Badge from "../../../components/Badge";
 import Button from "../../../components/Button";
 import File from "../../../components/File";
+import Loader from "../../../components/Loader/Loader";
 import ConfirmationModal from "../../../modals/Confirmation";
+import ReportUserModal from "../../../modals/ReportUser";
 import useModal from "../../../hooks/useModal";
 
 import "./Right.scss";
@@ -14,13 +16,13 @@ import "./Right.scss";
 const files = [
   {
     img: "/assets/vectors/icons/document-4.svg",
-    name: "File name.vid",
+    name: "Unique.vid",
     sharedBy: "Alexander",
     sharedByTime: "today",
   },
   {
     img: "/assets/vectors/icons/document-4.svg",
-    name: "File name.vid",
+    name: "Another Unique.vid",
     sharedBy: "Alexander",
     sharedByTime: "today",
   },
@@ -64,6 +66,7 @@ const files = [
 
 const Right = ({
   isRightCollapsed,
+  isLeftCollapsed,
   setIsRightCollapsed,
   isThreadActive,
   setIsThreadActive,
@@ -71,14 +74,38 @@ const Right = ({
   setIsFilesSectionActive,
 }) => {
   const [searchVal, setSearchVal] = useState("");
+  const [filteredFiles, setFilteredFiles] = useState(files);
+  const [search2Val, setSearch2Val] = useState("");
+  const [isMoreFilesLoading, setIsMoreFilesLoading] = useState(false);
   const {
     show: showBlockConfirmationModal,
     toggleShow: toggleShowBlockConfirmationModal,
   } = useModal(false);
+  const { show: showReportModal, toggleShow: toggleShowReportModal } =
+    useModal(false);
 
-  const inputChangeHandler = (e) => {
+  const conversationInputChangeHandler = (e) => {
     setSearchVal(e.target.value);
   };
+
+  const filesInputChangeHandler = (e) => {
+    setSearch2Val(e.target.value);
+  };
+
+  const viewMoreFilesHandler = () => {
+    setIsMoreFilesLoading(true);
+    setTimeout(() => {
+      setIsMoreFilesLoading(false);
+      setFilteredFiles((prev) => [...prev, ...files.slice(0, 3)]);
+    }, 3000);
+  };
+
+  useEffect(() => {
+    const filtered = files.filter((el) =>
+      el.name.toLowerCase().includes(search2Val.toLowerCase())
+    );
+    setFilteredFiles(filtered);
+  }, [search2Val]);
 
   return (
     <>
@@ -90,8 +117,15 @@ const Right = ({
         dangerBtnTxt="Block"
         closeModal={() => toggleShowBlockConfirmationModal("close")}
       />
+      <ReportUserModal
+        show={showReportModal}
+        onClickReport={() => toggleShowBlockConfirmationModal("close")}
+        closeModal={toggleShowReportModal}
+      />
       <div className="right">
-        {isRightCollapsed && (
+        {(window.innerWidth <= 575
+          ? isLeftCollapsed && isRightCollapsed
+          : isRightCollapsed) && (
           <div
             className="chevron-container c-pointer"
             onClick={() => setIsRightCollapsed(!isRightCollapsed)}
@@ -107,7 +141,9 @@ const Right = ({
           <div
             className={clsx(
               "right-inner-main",
-              isRightCollapsed && "collapsed"
+              isRightCollapsed && "collapsed",
+              (isThreadActive || isFilesSectionActive) &&
+                "h-screen overflow-hidden"
             )}
           >
             <img
@@ -132,7 +168,7 @@ const Right = ({
                   type="text"
                   placeholder="Search in conversation"
                   value={searchVal}
-                  onChange={inputChangeHandler}
+                  onChange={conversationInputChangeHandler}
                 />
               </div>
               <div className="text-light-2 d-flex align-items-center gap-10">
@@ -170,8 +206,13 @@ const Right = ({
             </div>
 
             <div className="files">
-              <div className="d-flex align-items-center justify-content-between mb-10">
-                <div className="text-light-2 fs-14">Files</div>
+              <div className="d-flex align-items-center justify-content-between mb-20">
+                <input
+                  className="search flex-grow-1 pe-10"
+                  type="text"
+                  placeholder="Files"
+                  onChange={filesInputChangeHandler}
+                />
                 <div className="text-light-2">
                   <img
                     src="/assets/vectors/icons/search-normal.svg"
@@ -180,7 +221,7 @@ const Right = ({
                 </div>
               </div>
 
-              {files.map((el, idx) => {
+              {filteredFiles.map((el, idx) => {
                 return (
                   <File
                     className="mb-2"
@@ -193,10 +234,22 @@ const Right = ({
                 );
               })}
 
-              <div className="d-flex justify-content-center align-items-center mt-4">
-                <div className="text-primary-1 fs-12 px-3 py-10 c-pointer text-center view-more">
-                  View more
-                </div>
+              <div
+                className={clsx(
+                  "d-flex justify-content-center align-items-center",
+                  !isMoreFilesLoading && "mt-4"
+                )}
+              >
+                {isMoreFilesLoading ? (
+                  <Loader />
+                ) : (
+                  <div
+                    className="text-primary-1 fs-12 px-3 py-10 c-pointer text-center view-more"
+                    onClick={viewMoreFilesHandler}
+                  >
+                    View more
+                  </div>
+                )}
               </div>
             </div>
 
@@ -208,7 +261,7 @@ const Right = ({
                 <img src="/assets/vectors/icons/block.svg" alt="block" />
                 Block Alexander
               </div>
-              <div className="action gray">
+              <div className="action gray" onClick={toggleShowReportModal}>
                 <img src="/assets/vectors/icons/clear.svg" alt="clear" />
                 Clear Chat
               </div>

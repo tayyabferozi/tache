@@ -3,9 +3,11 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: #fff;
   z-index: 4;
+  display: flex;
+  flex-direction: column;
 
   @include transitioned;
 
@@ -30,5 +32,29 @@
 
   .thread-chat {
     padding: 0 20px;
+    overflow-x: hidden;
+    flex-grow: 1;
+    padding: 0 24px 0;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-grow: 1;
+
+    .message-container {
+      background-color: #fff;
+    }
+
+    .menu-items {
+      width: 100px !important;
+    }
+
+    & > .thread-chat__inner {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      .msgs {
+        flex-grow: 1;
+      }
+    }
   }
 }

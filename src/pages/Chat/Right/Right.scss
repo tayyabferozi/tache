@@ -53,6 +53,10 @@
 
       &:not(.collapsed) {
         width: 327px;
+
+        @media screen and (max-width: 575px) {
+          width: 320px;
+        }
       }
 
       &.collapsed {
@@ -133,6 +137,19 @@
 
         @media screen and (max-width: 1280px) {
           max-height: 180px;
+        }
+
+        @media screen and (max-width: 575px) {
+          width: 100%;
+        }
+
+        .search {
+          border: none;
+          font-size: 14px;
+
+          &::placeholder {
+            color: $color7;
+          }
         }
 
         .view-more {

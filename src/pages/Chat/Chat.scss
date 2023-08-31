@@ -1,12 +1,16 @@
 #messaging-layout {
   display: flex;
 
+  .w-md-editor-bar {
+    display: none;
+  }
+
   .menu-items {
     position: absolute;
     background-color: #fff;
     padding: 4px;
     width: 164px;
-    z-index: 3;
+    z-index: 5;
     top: 22px;
     left: calc(100% - 22px);
     overflow: hidden;

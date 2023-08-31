@@ -12,7 +12,16 @@ import "./Message.scss";
 let othersSelectedEmojis = {};
 const emojis = ["👍", "❤", "😂", "😲", "😥", "🙏"];
 
-const Message = ({ chatData, idx, el, setIsThreadActive }) => {
+const Message = ({
+  thread,
+  chatData,
+  idx,
+  el,
+  setIsThreadActive,
+  onDeleteMsg,
+  selectedChatIdx,
+  setIsRightCollapsed,
+}) => {
   let showImg = true;
   if (idx > 0) {
     if (chatData[idx - 1].sender === el.sender) showImg = false;
@@ -21,6 +30,7 @@ const Message = ({ chatData, idx, el, setIsThreadActive }) => {
   const menuTogglerRef = useRef(null);
   const emojisRef = useRef(null);
 
+  const [popupImg, setPopupImg] = useState("");
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [showEmojiDropdown, setShowEmojiDropdown] = useState(false);
 
@@ -43,8 +53,30 @@ const Message = ({ chatData, idx, el, setIsThreadActive }) => {
     });
   };
 
+  const resetImg = () => {
+    setPopupImg("");
+  };
+
   return (
     <>
+      <div
+        className={clsx("popup-img", popupImg && "active")}
+        key="popup-img"
+        onClick={resetImg}
+      >
+        <img
+          className="c-pointer close"
+          src="/assets/vectors/icons/close-2.svg"
+          alt="close"
+        />
+        <img
+          className="popup-img-main"
+          src={popupImg}
+          alt="popup"
+          onClick={resetImg}
+        />
+      </div>
+
       <div className={clsx("chat-msg", showImg && "mt-20")}>
         <div className="img-container">
           {showImg && <img src={el.userImg} alt={el.sender} />}
@@ -98,13 +130,27 @@ const Message = ({ chatData, idx, el, setIsThreadActive }) => {
                     return (
                       <div
                         key={"chat-msg-" + idx + "-img-" + idx2}
-                        className="col-6"
+                        className="col-sm-6"
                       >
-                        <img
-                          className="w-100 msg-img"
-                          src={el2.src}
-                          alt="img"
-                        />
+                        <div className="p-relative">
+                          <Button
+                            className="download-btn justify-content-center"
+                            grey
+                            noText
+                            icon={{
+                              src: "/assets/vectors/icons/download.svg",
+                              alt: "download",
+                            }}
+                          />
+                          <img
+                            className="w-100 msg-img c-pointer"
+                            src={el2.src}
+                            alt="img"
+                            onClick={() => {
+                              setPopupImg(el2.src);
+                            }}
+                          />
+                        </div>
                       </div>
                     );
                   })}
@@ -167,18 +213,18 @@ const Message = ({ chatData, idx, el, setIsThreadActive }) => {
                   </div>
                 </div>
               )}
-              {el.state && (
-                <img
-                  src={`/assets/vectors/icons/${
-                    el.state === "sent"
-                      ? "sent"
-                      : el.state === "delivered"
-                      ? "delivered"
-                      : "seen"
-                  }.svg`}
-                  alt={el.state}
-                />
-              )}
+              {/* <img
+                className="state"
+                src={`/assets/vectors/icons/${
+                  el.state === "seen"
+                    ? "seen"
+                    : el.state === "delivered"
+                    ? "delivered"
+                    : "sent"
+                }.svg`}
+                alt={el.state}
+              /> */}
+
               <div className={clsx("p-relative menu")} ref={menuTogglerRef}>
                 <img
                   className="c-pointer"
@@ -194,22 +240,29 @@ const Message = ({ chatData, idx, el, setIsThreadActive }) => {
                       exit={{ height: 0 }}
                       className={clsx("menu-items", isMenuActive && "active")}
                     >
-                      <div
-                        className="menu-item"
-                        onClick={() => {
-                          setIsThreadActive(true);
-                          setIsMenuActive(false);
-                        }}
-                      >
-                        <img src="/assets/vectors/icons/redo.svg" alt="redo" />
-                        <div className="fs-13 text-light-3">
-                          Reply in thread
+                      {!thread && (
+                        <div
+                          className="menu-item"
+                          onClick={() => {
+                            setIsThreadActive(true);
+                            setIsMenuActive(false);
+                            setIsRightCollapsed(false);
+                          }}
+                        >
+                          <img
+                            src="/assets/vectors/icons/redo.svg"
+                            alt="redo"
+                          />
+                          <div className="fs-13 text-light-3">
+                            Reply in thread
+                          </div>
                         </div>
-                      </div>
+                      )}
                       <div
                         className="menu-item"
                         onClick={() => {
                           setIsMenuActive(false);
+                          onDeleteMsg(selectedChatIdx, idx);
                         }}
                       >
                         <img
@@ -236,6 +289,17 @@ const Message = ({ chatData, idx, el, setIsThreadActive }) => {
                   )}
                 </AnimatePresence>
               </div>
+              <img
+                className="state"
+                src={`/assets/vectors/icons/${
+                  el.state === "seen"
+                    ? "seen"
+                    : el.state === "delivered"
+                    ? "delivered"
+                    : "sent"
+                }.svg`}
+                alt={el.state}
+              />
               <div
                 className={clsx("reactions dropdown ghost", {
                   active: showEmojiDropdown,
@@ -270,6 +334,7 @@ const Message = ({ chatData, idx, el, setIsThreadActive }) => {
                 })}
               </div>
             </div>
+
             {(Object.keys(mySelectedEmojis).some(
               (el) => mySelectedEmojis[el] > 0
             ) ||

@@ -1,7 +1,17 @@
+import { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import clsx from "clsx";
+
 import Button from "../../../../components/Button/Button";
+import useOnClickOutside from "../../../../hooks/useOnClickOutside";
 import "./Top.scss";
 
 const Top = () => {
+  const [isMenuActive, setIsMenuActive] = useState(false);
+  const menuTogglerRef = useRef(null);
+
+  useOnClickOutside(menuTogglerRef, () => setIsMenuActive(false));
+
   return (
     <div className="top">
       <div className="top-main">
@@ -23,7 +33,7 @@ const Top = () => {
               title: "call",
               alt: "call",
             }}
-          ></Button>
+          />
           <Button
             bordered
             icon={{
@@ -31,15 +41,47 @@ const Top = () => {
               title: "video-call",
               alt: "video-call",
             }}
-          ></Button>
-          <Button
-            bordered
-            icon={{
-              src: "/assets/vectors/icons/more-2.svg",
-              title: "more",
-              alt: "more",
-            }}
-          ></Button>
+          />
+          <div className="p-relative">
+            <div ref={menuTogglerRef}>
+              <Button
+                bordered
+                icon={{
+                  src: "/assets/vectors/icons/more-2.svg",
+                  title: "more",
+                  alt: "more",
+                }}
+                onClick={() => setIsMenuActive(!isMenuActive)}
+              />
+            </div>
+            <AnimatePresence>
+              {isMenuActive && (
+                <motion.div
+                  initial={{ height: 0 }}
+                  animate={{ height: "auto" }}
+                  exit={{ height: 0 }}
+                  className={clsx(
+                    "menu-items user-menu",
+                    isMenuActive && "active"
+                  )}
+                >
+                  <div
+                    className="menu-item"
+                    onClick={() => {
+                      setIsMenuActive(false);
+                    }}
+                  >
+                    <img src="/assets/vectors/icons/redo.svg" alt="redo" />
+                    <div className="fs-13 text-light-3">Option 1</div>
+                  </div>
+                  <div className="menu-item" onClick={() => {}}>
+                    <img src="/assets/vectors/icons/trash-2.svg" alt="trash" />
+                    <div className="fs-13 text-light-3">Option 2</div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </div>

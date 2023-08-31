@@ -1,63 +1,77 @@
 #messaging-layout {
+  .dropdown-reactions-options {
+    top: 22px;
+    right: -26px;
+
+    @media screen and (max-width: 575px) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .msg-files {
+    background-color: #fff;
+    border: 1px solid rgba(104, 122, 139, 0.4);
+    border-bottom: 0;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+    width: fit-content;
+  }
+
+  .message-container {
+    position: sticky;
+    bottom: 0;
+    background-color: #f8f9fd;
+    z-index: 1;
+
+    .menu-items {
+      width: 190px;
+      right: 0;
+      left: unset;
+      top: unset;
+      bottom: 30px;
+      box-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
+    }
+  }
+
+  .actions-wrap {
+    background-color: #fff;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: 1px solid rgba(104, 122, 139, 0.4);
+    border-top: 0;
+    padding: 8px;
+
+    .emoji-picker {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+    }
+
+    input {
+      display: none;
+    }
+
+    img {
+      cursor: pointer;
+    }
+  }
+
   & > .center > .chat-main {
     overflow-x: hidden;
     flex-grow: 1;
     padding: 0 24px 0;
     background: url("../../../../assets/vectors/bg-chat.svg");
     background-size: contain;
+    display: flex;
+    flex-direction: column-reverse;
 
     @media screen and (max-width: 575px) {
       padding-left: 20px;
       padding-right: 20px;
-    }
-
-    .msg-files {
-      background-color: #fff;
-      border: 1px solid rgba(104, 122, 139, 0.4);
-      border-bottom: 0;
-      border-radius: 10px 10px 0 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 10px;
-      width: fit-content;
-    }
-
-    .message-container {
-      // position: sticky;
-      // bottom: 0;
-
-      .menu-items {
-        width: 190px;
-        right: 0;
-        left: unset;
-        top: unset;
-        bottom: 30px;
-        box-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
-      }
-    }
-
-    .actions-wrap {
-      background-color: #fff;
-      border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;
-      border: 1px solid rgba(104, 122, 139, 0.4);
-      border-top: 0;
-      padding: 8px;
-
-      .emoji-picker {
-        position: absolute;
-        bottom: 20px;
-        left: 0;
-      }
-
-      input {
-        display: none;
-      }
-
-      img {
-        cursor: pointer;
-      }
     }
   }
 }

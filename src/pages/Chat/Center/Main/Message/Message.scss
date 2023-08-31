@@ -1,5 +1,42 @@
 // #messaging-layout > .center > .chat-main
 
+.popup-img {
+  position: fixed;
+  background-color: rgba($color: #000000, $alpha: 0.4);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 6;
+  padding: 40px;
+  opacity: 0;
+  pointer-events: none;
+
+  @include transitioned;
+
+  &.active {
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  .close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 50px;
+
+    @media screen and (max-width: 575px) {
+      width: 30px;
+    }
+  }
+
+  img.popup-img-main {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
 .chat-msg {
   display: flex;
   gap: 12px;
@@ -33,6 +70,18 @@
       align-items: flex-start;
       position: relative;
       gap: 12px;
+
+      @media screen and (max-width: 575px) {
+        max-width: calc(100% - 50px);
+      }
+
+      .menu-items {
+        @media screen and (max-width: 767px) {
+          right: 0;
+          left: 50% !important;
+          transform: translateX(calc(-50% - 1rem));
+        }
+      }
 
       &.rounded {
         border-top-left-radius: 10px;
@@ -75,10 +124,17 @@
         z-index: 1;
       }
 
+      .state {
+        position: absolute;
+        right: -24px;
+        bottom: 4px;
+      }
+
       .ghost {
         position: absolute;
         top: 4px;
-        right: -12px;
+        // right: -12px;
+        right: -32px;
         transform: translateX(100%);
         opacity: 0;
         cursor: pointer;
@@ -92,6 +148,13 @@
       .ghost {
         opacity: 1;
         pointer-events: all;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .ghost {
+        opacity: 1 !important;
+        pointer-events: all !important;
       }
     }
   }

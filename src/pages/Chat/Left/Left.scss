@@ -8,6 +8,13 @@
     background-color: #fff;
   }
 
+  & > .menu-items {
+    @media screen and (max-width: 575px) {
+      right: 52px;
+      left: unset;
+    }
+  }
+
   .chevron-container {
     position: absolute;
     background-color: #fff;
@@ -20,6 +27,7 @@
     align-items: center;
     top: 94px;
     z-index: 1;
+    right: -38px;
     cursor: pointer;
 
     .chevron-left {
@@ -87,15 +95,16 @@
 
     .chat-people-items {
       flex-grow: 1;
-      overflow: auto;
       width: 350px;
       overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
 
       @media screen and (max-width: 575px) {
         width: 320px;
       }
 
-      & > .search {
+      & > .search-container > .search {
         position: relative;
         margin: 24px 30px;
         margin-right: 24px;

@@ -1,0 +1,43 @@
+#report-modal {
+  .modal-sub-wrapper {
+    max-width: 560px;
+
+    .icon-wrap {
+      width: 70px;
+      height: 70px;
+      background-color: rgba($color50, 0.1);
+      border-radius: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 40px;
+      }
+    }
+
+    .btns {
+      display: flex;
+      align-items: center;
+      margin-top: 26px;
+      gap: 16px;
+
+      @media screen and (max-width: 575px) {
+      }
+
+      & > * {
+        flex-grow: 1;
+        justify-content: center;
+        height: 40px;
+      }
+    }
+  }
+
+  &.short {
+    .modal-sub-wrapper {
+      height: 270px;
+    }
+  }
+}

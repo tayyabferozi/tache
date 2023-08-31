@@ -29,6 +29,7 @@ const CustomMDEditor = ({
   noFoot,
   maxChar,
   noExtraCommands,
+  small,
 }) => {
   const [charLen, setCharLen] = useState(0);
 
@@ -57,7 +58,7 @@ const CustomMDEditor = ({
                 ]
               : [codeEdit, codePreview]
           }
-          height={200}
+          height={small ? 120 : 200}
           value={value}
           textareaProps={{
             placeholder: placeholder,
