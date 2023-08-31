@@ -32,11 +32,47 @@ const Main = ({
             ...acceptedFiles.map((file) =>
               Object.assign(file, {
                 preview: URL.createObjectURL(file),
+                isUploading: true,
+                uploadingProgress: 0,
               })
             ),
           ],
         };
       });
+
+      setTimeout(() => {
+        setFormState((prevState) => {
+          const newState = clone(prevState);
+          const files = newState.files;
+
+          for (let i = 0; i < files.length; i++) {
+            if (files[i].uploadingProgress === 0) {
+              files[i].uploadingProgress = 100;
+            }
+          }
+
+          newState.files = files;
+
+          return newState;
+        });
+      }, 100);
+
+      setTimeout(() => {
+        setFormState((prevState) => {
+          const newState = clone(prevState);
+          const files = newState.files;
+
+          for (let i = 0; i < files.length; i++) {
+            if (files[i].uploadingProgress === 100) {
+              files[i].isUploading = false;
+            }
+          }
+
+          newState.files = files;
+
+          return newState;
+        });
+      }, 500);
     },
   });
 
