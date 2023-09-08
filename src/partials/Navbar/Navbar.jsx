@@ -7,22 +7,41 @@ import Section from "../../components/Section";
 import AccordionNavItem from "./AccordionNavItem/AccordionNavItem";
 import "./Navbar.scss";
 
+// const navItems = [
+//   {
+//     text: "Project",
+//     to: "/project",
+//   },
+//   {
+//     text: "Companies",
+//     to: "/companies",
+//   },
+//   {
+//     text: "About Us",
+//     to: "/about-us",
+//   },
+//   {
+//     text: "Contact",
+//     to: "/contact",
+//   },
+// ];
+
 const navItems = [
   {
-    text: "Project",
-    to: "/project",
+    text: "Profile",
+    to: "/profile",
   },
   {
-    text: "Companies",
-    to: "/companies",
+    text: "Profile Ratings",
+    to: "/profile-ratings",
   },
   {
-    text: "About Us",
-    to: "/about-us",
+    text: "Project Tickets",
+    to: "/project-tickets",
   },
   {
-    text: "Contact",
-    to: "/contact",
+    text: "Project Base",
+    to: "/project-base",
   },
 ];
 
