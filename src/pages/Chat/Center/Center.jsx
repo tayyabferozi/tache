@@ -1,8 +1,8 @@
 import Main from "./Main";
 import Top from "./Top";
 
+import Loader from "../../../components/Loader";
 import "./Center.scss";
-import Loader from "../../../components/Loader/Loader";
 
 const Center = ({
   chatData,
@@ -14,7 +14,7 @@ const Center = ({
   setIsRightCollapsed,
 }) => {
   return (
-    <div className="center">
+    <div className="messaging-layout__center">
       <Top />
       {isChatLoading ? (
         <div className="d-flex justify-content-center align-items-center flex-grow-1">

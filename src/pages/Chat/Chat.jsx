@@ -164,9 +164,14 @@ const chatItemsData = [
         userImg: "/assets/imgs/avatar-7.png",
         reply: true,
         replyText: "Let’s check the file",
-        text: "Let’s check the video first",
+        text: "Let’s check the video firsttss",
         state: "",
         time: new Date(Date.now() - 24 * 60 * 60 * 1000),
+        threadsInfo: {
+          userImg: "/assets/imgs/avatar-7.png",
+          replies: 2,
+          time: new Date(Date.now() - 24 * 60 * 60 * 1000),
+        },
       },
       {
         sender: "Alexander",
@@ -1419,7 +1424,7 @@ const Chat = () => {
     window.innerWidth <= 1280 ? true : false
   );
   const [isThreadActive, setIsThreadActive] = useState(false);
-  const [isFilesSectionActive, setIsFilesSectionActive] = useState(true);
+  const [isFilesSectionActive, setIsFilesSectionActive] = useState(false);
   const [isChatLoading, setIsChatLoading] = useState(false);
   const [selectedChatIdx, setSelectedChatIdx] = useState(1);
   const [chatItems, setChatItems] = useState(chatItemsData);
@@ -1428,7 +1433,14 @@ const Chat = () => {
 
   const onChatSelect = (idx) => {
     setIsChatLoading(true);
+    if (window.innerWidth <= 1280) setIsLeftCollapsed(true);
     setSelectedChatIdx(idx);
+    setChatItems((prev) => {
+      const newState = clone(prev);
+      newState[idx].unread = false;
+
+      return newState;
+    });
     setTimeout(() => {
       setIsChatLoading(false);
     }, 2000);
@@ -1438,38 +1450,39 @@ const Chat = () => {
     setIsMoreChatLoading(true);
     setTimeout(() => {
       setIsMoreChatLoading(false);
-    }, 4000);
-    setChatItems((prevState) => {
-      const newState = clone(prevState);
+      setChatItems((prevState) => {
+        const newState = clone(prevState);
 
-      return newState.concat(chatItemsData.slice(0, 5));
+        return newState.concat(chatItemsData.slice(0, 5));
+      }, 3000);
     });
   };
 
-  const loadMoreChatListMsgs = () => {
+  const loadMoreChatListMsgs = (listRef) => {
     setIsMoreChatMsgsLoading(true);
+    const element = listRef?.current;
     setTimeout(() => {
+      element.scrollTo(0, element.scrollTop + 90);
       setIsMoreChatMsgsLoading(false);
-    }, 2000);
-    setChatItems((prevState) => {
-      const newState = clone(prevState);
+      setChatItems((prevState) => {
+        const newState = clone(prevState);
 
-      newState[selectedChatIdx] = {
-        ...newState[selectedChatIdx],
-        chatData: newState[selectedChatIdx].chatData.concat(
-          newState[selectedChatIdx].chatData.slice(0, 5)
-        ),
-      };
+        newState[selectedChatIdx] = {
+          ...newState[selectedChatIdx],
+          chatData: newState[selectedChatIdx].chatData.concat(
+            newState[selectedChatIdx].chatData.slice(0, 5)
+          ),
+        };
 
-      return newState;
-    });
+        return newState;
+      });
+    }, 3000);
   };
 
   const deleteMsg = (idx, idx2) => {
     setChatItems((prevState) => {
       const newState = clone(prevState);
       newState[idx].chatData.splice(idx2, 1);
-      console.log(newState);
       return newState;
     });
   };

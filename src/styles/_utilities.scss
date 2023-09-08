@@ -863,3 +863,49 @@ body:has(.modal-wrapper.active) {
 .h-screen {
   height: 100vh !important;
 }
+
+.resizeable {
+  position: relative;
+}
+
+.resizer {
+  position: absolute;
+  background: #8492a7;
+  z-index: 6;
+}
+
+.resizer-r {
+  cursor: col-resize;
+  height: 100%;
+  right: 0;
+  top: 0;
+  width: 2px;
+}
+
+.resizer-t {
+  cursor: row-resize;
+  height: 2px;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.resizer-b {
+  cursor: row-resize;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.resizer-l {
+  cursor: col-resize;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 2px;
+}
+
+.w-32 {
+  width: 32px;
+}

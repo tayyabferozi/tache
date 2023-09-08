@@ -58,8 +58,6 @@ const Thread = ({ isThreadActive, setIsThreadActive }) => {
   const chatMsgsList = useRef();
   const [chatData, setChatData] = useState(chatItemsData);
 
-  console.log(formState);
-
   const { getRootProps, getInputProps } = useDropzone({
     accept: {},
     noClick: true,
@@ -183,12 +181,14 @@ const Thread = ({ isThreadActive, setIsThreadActive }) => {
 
   const loadMoreChatList = () => {
     const element = chatMsgsList?.current;
-    element.scrollTo(0, element.scrollTop + 90);
-    setChatData((prevState) => {
-      const newState = clone(prevState);
+    setTimeout(() => {
+      element.scrollTo(0, element.scrollTop + 90);
+      setChatData((prevState) => {
+        const newState = clone(prevState);
 
-      return newState.concat(chatItemsData.slice(0, 5));
-    });
+        return newState.concat(chatItemsData.slice(0, 5));
+      });
+    }, 3000);
   };
 
   const deleteMsg = (idx, idx2) => {

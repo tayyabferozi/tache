@@ -7,7 +7,6 @@ const ChatsList = ({
   selectedChatIdx,
   onChatSelect,
   loadMoreChatList,
-  setIsLeftCollapsed,
 }) => {
   const chatListRef = useRef();
 
@@ -44,7 +43,6 @@ const ChatsList = ({
               key={"chat-list-item-" + idx}
               onClick={() => {
                 onChatSelect(idx);
-                setIsLeftCollapsed(true);
               }}
             >
               <div className="chat-item__left">

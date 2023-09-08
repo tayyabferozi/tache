@@ -5,9 +5,10 @@ import clsx from "clsx";
 
 import Button from "../Button/Button";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
-import CustomMDEditor from "../CustomMDEditor/CustomMDEditor";
 import isEmpty from "../../utils/is-empty";
 import File from "../File/File";
+
+import "./MessageInput.scss";
 
 const menuItems = [
   {
@@ -55,7 +56,7 @@ const MessageInput = ({
   useOnClickOutside(menuRef, () => setIsMenuActive(false));
 
   return (
-    <div className="pt-10 mt-10 pb-20 message-container">
+    <div className="mt-20 pb-20 message-container" id="message-input">
       {!isEmpty(formState.files) && (
         <div className="msg-files">
           {formState.files.map((el, idx) => {
@@ -104,66 +105,68 @@ const MessageInput = ({
         </div>
       )}
 
-      <CustomMDEditor
-        noFoot
-        small
-        cornered={!isEmpty(formState.files)}
-        value={formState.comment}
-        inputChangeHandler={inputChangeHandler}
-      />
+      <textarea
+        name="message"
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="Reply . . ."
+        value={formState.message}
+        onChange={inputChangeHandler}
+      ></textarea>
 
       <div className="d-flex justify-content-between align-items-center actions-wrap">
         <div className="d-flex justify-content-between align-items-center gap-3">
           <input {...getInputProps()} />
           <input
-            id={uniqueKey || "" + "video"}
+            id={(uniqueKey || "") + "video"}
             type="file"
             accept="video/*"
             onChange={fileInputHandler}
             multiple
           />
           <input
-            id={uniqueKey || "" + "audio"}
+            id={(uniqueKey || "") + "audio"}
             type="file"
             accept="audio/*"
             onChange={fileInputHandler}
             multiple
           />
           <input
-            id={uniqueKey || "" + "gallery"}
+            id={(uniqueKey || "") + "gallery"}
             type="file"
             accept="image/*"
             onChange={fileInputHandler}
             multiple
           />
           <input
-            id={uniqueKey || "" + "files"}
+            id={(uniqueKey || "") + "files"}
             type="file"
             onChange={fileInputHandler}
             multiple
           />
-          <label htmlFor={uniqueKey || "" + "video"}>
+          <label htmlFor={(uniqueKey || "") + "video"}>
             <img
               className="d-block"
               src="/assets/vectors/video.svg"
               alt="video"
             />
           </label>
-          <label htmlFor={uniqueKey || "" + "audio"}>
+          <label htmlFor={(uniqueKey || "") + "audio"}>
             <img
               className="d-block"
               src="/assets/vectors/microphone.svg"
               alt="microphone"
             />
           </label>
-          <label htmlFor={uniqueKey || "" + "gallery"}>
+          <label htmlFor={(uniqueKey || "") + "gallery"}>
             <img
               className="d-block"
               src="/assets/vectors/gallery.svg"
               alt="gallery"
             />
           </label>
-          <label htmlFor={uniqueKey || "" + "files"}>
+          <label htmlFor={(uniqueKey || "") + "files"}>
             <img
               className="d-block"
               src="/assets/vectors/paperclip.svg"
@@ -191,7 +194,7 @@ const MessageInput = ({
                       setFormState((prevState) => {
                         return {
                           ...prevState,
-                          comment: prevState.comment + emoji.emoji,
+                          message: prevState.message + emoji.emoji,
                         };
                       });
                     }}

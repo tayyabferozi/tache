@@ -15,7 +15,7 @@ const Main = ({
   selectedChatIdx,
   setIsRightCollapsed,
 }) => {
-  const [formState, setFormState] = useState({ comment: "", files: [] });
+  const [formState, setFormState] = useState({ message: "", files: [] });
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
@@ -148,11 +148,14 @@ const Main = ({
     const ev = (e) => {
       const element = e.target;
 
-      const scroll =
-        element.scrollHeight - element.clientHeight + element.scrollTop;
+      // const scroll =
+      //   element.scrollHeight - element.clientHeight + element.scrollTop;
+      const scroll = element.scrollTop;
+
+      console.log(scroll);
 
       if (scroll <= 15) {
-        loadMoreChatListMsgs();
+        loadMoreChatListMsgs(chatMsgsList);
       }
     };
 
@@ -163,9 +166,16 @@ const Main = ({
     };
   }, [chatMsgsList]);
 
+  useEffect(() => {
+    const el = chatMsgsList?.current;
+
+    el.scrollTo(0, el.scrollHeight);
+  }, [chatMsgsList]);
+
   return (
-    <div className="chat-main" {...getRootProps()} ref={chatMsgsList}>
-      <div>
+    <div className="chat-main" {...getRootProps()}>
+      {/* <div className="chat-main__inner"> */}
+      <div className="chat-main__messages" ref={chatMsgsList}>
         <div className="d-flex justify-content-center">
           <Loader />
         </div>
@@ -183,17 +193,18 @@ const Main = ({
             />
           );
         })}
-
-        <MessageInput
-          key={"main-message-input"}
-          getInputProps={getInputProps}
-          fileInputHandler={fileInputHandler}
-          formState={formState}
-          setFormState={setFormState}
-          inputChangeHandler={inputChangeHandler}
-          deleteFile={deleteFile}
-        />
       </div>
+
+      <MessageInput
+        key={"main-message-input"}
+        getInputProps={getInputProps}
+        fileInputHandler={fileInputHandler}
+        formState={formState}
+        setFormState={setFormState}
+        inputChangeHandler={inputChangeHandler}
+        deleteFile={deleteFile}
+      />
+      {/* </div> */}
     </div>
   );
 };

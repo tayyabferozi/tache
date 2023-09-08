@@ -12,6 +12,7 @@ import ReportUserModal from "../../../modals/ReportUser";
 import useModal from "../../../hooks/useModal";
 
 import "./Right.scss";
+import { useRef } from "react";
 
 const files = [
   {
@@ -84,6 +85,9 @@ const Right = ({
   const { show: showReportModal, toggleShow: toggleShowReportModal } =
     useModal(false);
 
+  const resizeRef = useRef();
+  const resizeLeftRef = useRef();
+
   const conversationInputChangeHandler = (e) => {
     setSearchVal(e.target.value);
   };
@@ -107,6 +111,40 @@ const Right = ({
     setFilteredFiles(filtered);
   }, [search2Val]);
 
+  useEffect(() => {
+    const resizeableEle = resizeRef.current;
+    const styles = window.getComputedStyle(resizeableEle);
+    let width = parseInt(styles.width, 10);
+    let x = 0;
+
+    // Left resize
+    const onMouseMoveLeftResize = (event) => {
+      const dx = event.clientX - x;
+      x = event.clientX;
+      width = width - dx;
+      resizeableEle.style.width = `${width}px`;
+    };
+
+    const onMouseUpLeftResize = (event) => {
+      document.removeEventListener("mousemove", onMouseMoveLeftResize);
+    };
+
+    const onMouseDownLeftResize = (event) => {
+      x = event.clientX;
+      resizeableEle.style.right = styles.right;
+      resizeableEle.style.left = null;
+      document.addEventListener("mousemove", onMouseMoveLeftResize);
+      document.addEventListener("mouseup", onMouseUpLeftResize);
+    };
+
+    const resizerLeft = resizeLeftRef.current;
+    resizerLeft.addEventListener("mousedown", onMouseDownLeftResize);
+
+    return () => {
+      resizerLeft.removeEventListener("mousedown", onMouseDownLeftResize);
+    };
+  }, []);
+
   return (
     <>
       <ConfirmationModal
@@ -122,7 +160,9 @@ const Right = ({
         onClickReport={() => toggleShowBlockConfirmationModal("close")}
         closeModal={toggleShowReportModal}
       />
-      <div className="right">
+      <div className="messaging-layout__right resizeable" ref={resizeRef}>
+        <div ref={resizeLeftRef} className="resizer resizer-l"></div>
+        {/* <div className="messaging-layout__right"> */}
         {(window.innerWidth <= 575
           ? isLeftCollapsed && isRightCollapsed
           : isRightCollapsed) && (

@@ -1,6 +1,18 @@
 #messaging-layout {
   display: flex;
 
+  .messaging-layout__left {
+    resize: horizontal;
+  }
+
+  .messaging-layout__center {
+    resize: horizontal;
+  }
+
+  .messaging-layout__right {
+    resize: horizontal;
+  }
+
   .w-md-editor-bar {
     display: none;
   }

@@ -364,7 +364,28 @@ const Message = ({
               </div>
             )}
           </div>
+          {el.threadsInfo && (
+            <div
+              className="py-2 d-flex gap-2 align-items-center c-pointer thread-replies"
+              onClick={() => {
+                setIsThreadActive(true);
+                setIsMenuActive(false);
+                setIsRightCollapsed(false);
+              }}
+            >
+              <img className="w-32" src={el.threadsInfo.userImg} alt="user" />
+              <div className="fs-13">
+                {el.threadsInfo.replies}{" "}
+                {el.threadsInfo.reples !== 1 ? "replies" : "reply"}
+              </div>
+              <div className="time fs-13">
+                {friendlyTime(el.threadsInfo.time)}
+              </div>
+              <div className="reply-thread fs-13">View thread</div>
+            </div>
+          )}
         </div>
+        <div className="dummy"></div>
       </div>
     </>
   );

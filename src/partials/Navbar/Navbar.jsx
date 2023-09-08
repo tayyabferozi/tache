@@ -37,7 +37,7 @@ const extraOptions = [
     icon: "/assets/vectors/icons/messages.svg",
     title: "messages",
     alt: "messages",
-    to: "",
+    to: "/chat",
   },
   {
     icon: "/assets/vectors/icons/profile.svg",

@@ -22,8 +22,6 @@
   }
 
   .message-container {
-    position: sticky;
-    bottom: 0;
     background-color: #f8f9fd;
     z-index: 1;
 
@@ -41,9 +39,9 @@
     background-color: #fff;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    border: 1px solid rgba(104, 122, 139, 0.4);
+    border: 1px solid $color46;
     border-top: 0;
-    padding: 8px;
+    padding: 8px 14px;
 
     .emoji-picker {
       position: absolute;
@@ -60,18 +58,32 @@
     }
   }
 
-  & > .center > .chat-main {
+  & .messaging-layout__center > .chat-main {
     overflow-x: hidden;
     flex-grow: 1;
-    padding: 0 24px 0;
     background: url("../../../../assets/vectors/bg-chat.svg");
     background-size: contain;
-    display: flex;
-    flex-direction: column-reverse;
+    // display: flex;
+    // flex-direction: column-reverse;
 
     @media screen and (max-width: 575px) {
       padding-left: 20px;
       padding-right: 20px;
     }
+
+    // .chat-main__inner {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      padding: 0 24px 0;
+    }
+
+    .chat-main__messages {
+      flex-grow: 1;
+      overflow: auto;
+    }
   }
+  // }
 }

@@ -51,7 +51,7 @@ const Left = ({
   }, [items, searchVal]);
 
   return (
-    <div className={clsx("left")}>
+    <div className={clsx("messaging-layout__left")}>
       {(window.innerWidth <= 575
         ? isLeftCollapsed && isRightCollapsed
         : isLeftCollapsed) && (

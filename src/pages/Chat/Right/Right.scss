@@ -1,4 +1,4 @@
-#messaging-layout > .right {
+#messaging-layout .messaging-layout__right {
   position: relative;
   z-index: 4;
 
@@ -38,7 +38,8 @@
     }
 
     & > .right-inner-main {
-      width: 327px;
+      // width: 327px;
+      width: 100%;
       position: relative;
       overflow: hidden;
       border-left: 1px solid $color16;
@@ -52,7 +53,8 @@
       @include transitioned;
 
       &:not(.collapsed) {
-        width: 327px;
+        // width: 327px;
+        width: 100%;
 
         @media screen and (max-width: 575px) {
           width: 320px;
@@ -71,7 +73,8 @@
       }
 
       .right-top {
-        width: 327px;
+        // width: 327px;
+        width: 100%;
         padding: 18px;
         display: flex;
         align-items: center;
@@ -112,7 +115,8 @@
       }
 
       .profile-info {
-        width: 327px;
+        // width: 327px;
+        width: 100%;
         padding: 0 18px 26px;
         border-bottom: 1px solid $color57;
 
@@ -130,7 +134,8 @@
       }
 
       .files {
-        width: 327px;
+        // width: 327px;
+        width: 100%;
         padding: 16px 18px;
         flex-grow: 1;
         overflow: auto;
@@ -164,7 +169,8 @@
       }
 
       .profile-actions {
-        width: 327px;
+        // width: 327px;
+        width: 100%;
         border-top: 1px solid $color16;
 
         .action {

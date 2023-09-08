@@ -108,7 +108,9 @@ const File = ({
               ></div>
             </div>
           ) : (
-            <div className="fw-500 mt-1 fs-10">{fileType}</div>
+            <div className="fw-500 mt-1 fs-10 restrict-one-line">
+              {fileType}
+            </div>
           )}
         </div>
       )}
