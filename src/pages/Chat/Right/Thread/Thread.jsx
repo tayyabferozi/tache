@@ -195,7 +195,6 @@ const Thread = ({ isThreadActive, setIsThreadActive }) => {
     setChatData((prevState) => {
       const newState = clone(prevState);
       newState.splice(idx2, 1);
-      console.log(newState);
       return newState;
     });
   };
@@ -217,8 +216,9 @@ const Thread = ({ isThreadActive, setIsThreadActive }) => {
     const ev = (e) => {
       const element = e.target;
 
-      const scroll =
-        element.scrollHeight - element.clientHeight + element.scrollTop;
+      // const scroll =
+      //   element.scrollHeight - element.clientHeight + element.scrollTop;
+      const scroll = element.scrollTop;
 
       if (scroll <= 15) {
         loadMoreChatList();
@@ -256,9 +256,9 @@ const Thread = ({ isThreadActive, setIsThreadActive }) => {
         />
       </div>
 
-      <div className="thread-chat" ref={chatMsgsList}>
+      <div className="thread-chat">
         <div className="thread-chat__inner">
-          <div className="msgs">
+          <div className="msgs" ref={chatMsgsList}>
             <div className="d-flex justify-content-center">
               <Loader />
             </div>

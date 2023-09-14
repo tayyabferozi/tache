@@ -85,5 +85,18 @@
       overflow: auto;
     }
   }
+  .chat-bg {
+    position: relative;
+
+    .bg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      height: 90%;
+      opacity: 0.04;
+      overflow: hidden;
+    }
+  }
   // }
 }

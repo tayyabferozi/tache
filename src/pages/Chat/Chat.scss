@@ -1,5 +1,6 @@
 #messaging-layout {
   display: flex;
+  overflow-x: hidden;
 
   .messaging-layout__left {
     resize: horizontal;

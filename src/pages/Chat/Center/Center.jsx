@@ -17,8 +17,9 @@ const Center = ({
     <div className="messaging-layout__center">
       <Top />
       {isChatLoading ? (
-        <div className="d-flex justify-content-center align-items-center flex-grow-1">
+        <div className="d-flex justify-content-center align-items-center flex-grow-1 chat-bg">
           <Loader />
+          <img className="bg" src="/assets/vectors/chat-bg.svg" alt="chat" />
         </div>
       ) : (
         <Main

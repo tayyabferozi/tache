@@ -152,8 +152,6 @@ const Main = ({
       //   element.scrollHeight - element.clientHeight + element.scrollTop;
       const scroll = element.scrollTop;
 
-      console.log(scroll);
-
       if (scroll <= 15) {
         loadMoreChatListMsgs(chatMsgsList);
       }

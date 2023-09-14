@@ -1443,7 +1443,7 @@ const Chat = () => {
     });
     setTimeout(() => {
       setIsChatLoading(false);
-    }, 2000);
+    }, 10000);
   };
 
   const loadMoreChatList = () => {

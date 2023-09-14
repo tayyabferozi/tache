@@ -160,7 +160,13 @@ const Right = ({
         onClickReport={() => toggleShowBlockConfirmationModal("close")}
         closeModal={toggleShowReportModal}
       />
-      <div className="messaging-layout__right resizeable" ref={resizeRef}>
+      <div
+        className={clsx(
+          "messaging-layout__right resizeable",
+          isRightCollapsed && "collapsed"
+        )}
+        ref={resizeRef}
+      >
         <div ref={resizeLeftRef} className="resizer resizer-l"></div>
         {/* <div className="messaging-layout__right"> */}
         {(window.innerWidth <= 575
@@ -230,7 +236,7 @@ const Right = ({
                 </div>
               </div>
 
-              <div className="mt-30 d-flex align-items-center gap-2">
+              <div className="mt-30 d-flex flex-wrap align-items-center gap-2">
                 <Badge>Programmer</Badge>
                 <Button
                   className="pointer-events-none"

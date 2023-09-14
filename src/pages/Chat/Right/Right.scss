@@ -1,11 +1,21 @@
 #messaging-layout .messaging-layout__right {
   position: relative;
   z-index: 4;
+  transition: 0.4s ease;
+  width: 327px;
+
+  &.collapsed {
+    width: 0 !important;
+  }
 
   @media screen and (max-width: 1280px) {
     position: fixed;
     right: 0;
     background-color: #fff;
+  }
+
+  @media screen and (max-width: 575px) {
+    width: 320px;
   }
 
   .chevron-container {
@@ -32,6 +42,9 @@
   }
 
   & > .right-inner {
+    display: flex;
+    justify-content: flex-end;
+
     @media screen and (max-width: 1280px) {
       height: 100vh;
       overflow: auto;
